@@ -36,7 +36,7 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "@dcloudio/types": "3.0.19",
+    "@dcloudio/types": "^3.0.19",
     "vue3": "npm:vue@^3.2.45"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@ specifiers:
   '@commitlint/cli': ^17.2.0
   '@commitlint/config-conventional': ^17.2.0
   '@commitlint/prompt': ^17.2.0
-  '@dcloudio/types': 3.0.19
+  '@dcloudio/types': ^3.0.19
   '@modyqyw/fabric': ^5.11.0
   '@tsconfig/node18': ^1.0.1
   '@types/node': ^18.11.9
