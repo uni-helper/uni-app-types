@@ -1,0 +1,28 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["DOM"],
+    "resolveJsonModule": true,
+    "types": ["@dcloudio/types", "node"]
+  },
+  "include": [
+    "**/.*.js",
+    "**/.*.cjs",
+    "**/.*.mjs",
+    "**/.*.ts",
+    "**/.*.cts",
+    "**/.*.mts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts",
+    "**/*.jsx",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/.vitepress/config.ts"
+  ],
+  "exclude": ["**/node_modules", "**/dist"]
+}
