@@ -1,6 +1,5 @@
 import '@vue/runtime-core';
 import {
-  Block,
   View,
   ScrollView,
   Swiper,
@@ -49,7 +48,6 @@ export * from './types';
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Block: Block;
     View: View;
     ScrollView: ScrollView;
     Swiper: Swiper;

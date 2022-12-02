@@ -1,4 +1,3 @@
-export * from './Block';
 export * from './View';
 export * from './ScrollView';
 export * from './Swiper';
