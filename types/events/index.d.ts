@@ -1,6 +1,6 @@
 // https://github.com/wechat-miniprogram/api-typings/blob/5dab2fb5f471f683ad297de32c0e33ede295dcff/types/wx/lib.wx.event.d.ts
 
-type AnyRecord = Record<string, any>;
+export type AnyRecord = Record<string, any>;
 
 /**
  * @desc 组件的一些属性值集合
