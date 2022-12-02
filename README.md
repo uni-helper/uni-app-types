@@ -32,7 +32,8 @@ npm i -D @uni-helper/uni-app-types
     "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
   },
   "vueCompilerOptions": {
-    "experimentalRuntimeMode": "runtime-uni-app"
+    "experimentalRuntimeMode": "runtime-uni-app",
+    "nativeTags": ["block", "component", "template", "slot"]
   },
   "include": ["src/**/*.vue"]
 }
@@ -40,34 +41,45 @@ npm i -D @uni-helper/uni-app-types
 
 - 重启编辑器 / IDE
 
+如果你发现配置后项目仍然有错误的类型提示，请先看看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
+
 ## 类型
 
-### BaseEventTarget
+### AnyRecord
+
+```typescript
+export type AnyRecord = Record<string, any>;
+```
+
+### EventTarget
 
 ```typescript
 /**
- * @desc 触发事件的组件的一些属性值集合
+ * @desc 组件的一些属性值集合
  */
-export interface BaseEventTarget {
+export interface EventTarget<Dataset extends AnyRecord = AnyRecord> {
   /**
    * @desc 事件源组件的id
    */
   id?: string;
   /**
+   * @desc 当前组件的类型
+   */
+  tagName?: string;
+  /**
    * @desc 事件源组件上由 data- 开头的自定义属性组成的集合
    */
-  dataset?: Record<string, any>;
+  dataset?: Dataset;
+  /**
+   * @desc 距离页面顶部的偏移量
+   */
+  offsetTop: number;
+  /**
+   * @desc 距离页面左边的偏移量
+   */
+  offsetLeft: number;
   [key: string]: any;
 }
-```
-
-### BaseEventCurrentTarget
-
-```typescript
-/**
- * @desc 当前组件的一些属性值集合
- */
-export interface BaseEventCurrentTarget extends BaseEventTarget {}
 ```
 
 ### BaseEvent
@@ -76,7 +88,11 @@ export interface BaseEventCurrentTarget extends BaseEventTarget {}
 /**
  * @desc 基础事件
  */
-export interface BaseEvent {
+export interface BaseEvent<
+  Mark extends AnyRecord = AnyRecord,
+  CurrentTargetDataset extends AnyRecord = AnyRecord,
+  TargetDataset extends AnyRecord = CurrentTargetDataset,
+> {
   /**
    * @desc 事件类型
    */
@@ -86,17 +102,17 @@ export interface BaseEvent {
    */
   timeStamp?: number;
   /**
-   * @desc 触发事件的组件的一些属性值集合
+   * @desc 事件冒泡路径上所有由 mark: 开头的自定义属性组成的集合
    */
-  target?: BaseEventTarget;
+  mark?: Mark;
   /**
-   * @desc 当前组件的一些属性值集合
+   * @desc 触发事件的源组件的一些属性值集合
    */
-  currentTarget?: BaseEventCurrentTarget;
+  target?: EventTarget<TargetDataset>;
   /**
-   * @desc 事件标记数据
+   * @desc 事件绑定的当前组件的一些属性值集合
    */
-  mark?: Record<string, any>;
+  currentTarget?: Target<CurrentTargetDataset>;
   [key: string]: any;
 }
 ```
@@ -107,22 +123,27 @@ export interface BaseEvent {
 /**
  * @desc 自定义事件
  */
-export interface CustomEvent<T = Record<string, any>> extends BaseEvent {
+export interface CustomEvent<
+  Detail extends AnyRecord = AnyRecord,
+  Mark extends AnyRecord = AnyRecord,
+  CurrentTargetDataset extends AnyRecord = AnyRecord,
+  TargetDataset extends AnyRecord = CurrentTargetDataset,
+> extends BaseEvent<Mark, CurrentTargetDataset, TargetDataset> {
   /**
    * @desc 额外信息
    */
-  detail?: T;
+  detail?: Detail;
   [key: string]: any;
 }
 ```
 
-### TouchEventTouch
+### TouchDetail
 
 ```typescript
 /**
  * @desc 当前停留在屏幕中的触摸点信息
  */
-export interface TouchEventTouch {
+export interface TouchDetail {
   /**
    * @desc 标志符
    */
@@ -146,13 +167,13 @@ export interface TouchEventTouch {
 }
 ```
 
-### TouchEventCanvasTouch
+### TouchCanvasDetail
 
 ```typescript
 /**
  * @desc 当前停留在 canvas 中的触摸点信息
  */
-export interface TouchEventCanvasTouch {
+export interface TouchCanvasDetail {
   /**
    * @desc 标志符
    */
@@ -168,45 +189,56 @@ export interface TouchEventCanvasTouch {
 }
 ```
 
-### TouchEventChangedTouch
+### BaseTouchEvent
 
 ```typescript
 /**
- * @desc 当前变化的屏幕触摸点信息
+ * @desc 触摸事件
  */
-export interface TouchEventChangedTouch extends TouchEventTouch {}
-```
-
-### TouchEventCanvasChangedTouch
-
-```typescript
-/**
- * @desc 当前变化的 canvas 触摸点信息
- */
-export interface TouchEventCanvasChangedTouch extends TouchEventCanvasTouch {}
+export interface BaseTouchEvent<
+  Detail extends AnyRecord = AnyRecord,
+  T extends TouchDetail | TouchCanvasDetail = TouchDetail,
+  Mark extends AnyRecord = AnyRecord,
+  CurrentTargetDataset extends AnyRecord = AnyRecord,
+  TargetDataset extends AnyRecord = CurrentTargetDataset,
+> extends CustomEvent<Detail, Mark, CurrentTargetDataset, TargetDataset> {
+  /**
+   * @desc 当前停留在屏幕中的触摸点信息的数组
+   */
+  touches: T[];
+  /**
+   * @desc 当前变化的触摸点信息的数组
+   */
+  changedTouches: T[];
+}
 ```
 
 ### TouchEvent
 
 ```typescript
 /**
- * @desc 触摸事件
+ * @desc 触摸事件响应
  */
-export interface TouchEvent<T = TouchEventTouch, D = TouchEventChangedTouch> extends BaseEvent {
-  touches: T[];
-  changedTouches: D[];
-}
+export type TouchEvent<
+  Detail extends AnyRecord = AnyRecord,
+  Mark extends AnyRecord = AnyRecord,
+  CurrentTargetDataset extends AnyRecord = AnyRecord,
+  TargetDataset extends AnyRecord = CurrentTargetDataset,
+> = BaseTouchEvent<Detail, TouchDetail, Mark, CurrentTargetDataset, TargetDataset>;
 ```
 
-### Block (block)
+### TouchCanvasEvent
 
 ```typescript
 /**
- * @desc 包装元素，不会在页面中做任何渲染，只接受控制属性
- * @desc 支持在 template 模板中嵌套 template 和 block
- * @desc 在不同的平台表现存在一定差异，推荐统一使用 template
+ * @desc canvas 触摸事件响应
  */
-export type Block = Component;
+interface TouchCanvasEvent<
+  Mark extends AnyRecord = AnyRecord,
+  TargetDataset extends AnyRecord = AnyRecord,
+> extends BaseTouchEvent<never, TouchCanvasDetail, Mark, never, TargetDataset> {
+  currentTarget: never;
+}
 ```
 
 ### View (view)
