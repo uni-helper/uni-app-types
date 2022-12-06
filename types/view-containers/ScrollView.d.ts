@@ -1,6 +1,50 @@
 import { Component } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
+/**
+ * @desc 滚动到顶部/左边时触发
+ */
+export type ScrollViewScrolltoupper = (event: BaseEvent) => void;
+
+/**
+ * @desc 滚动到底部/右边时触发
+ */
+export type ScrollViewScrolltolower = (event: BaseEvent) => void;
+
+/**
+ * @desc 滚动时触发
+ */
+export type ScrollViewScroll = (
+  event: CustomEvent<{
+    scrollLeft: number;
+    scrollTop: number;
+    scrollHeight: number;
+    scrollWidth: number;
+    deltaX: number;
+    deltaY: number;
+  }>,
+) => void;
+
+/**
+ * @desc 自定义下拉刷新控件被下拉时触发
+ */
+export type ScrollViewRefresherpulling = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被触发时触发
+ */
+export type ScrollViewRefresherrefresh = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被复位时触发
+ */
+export type ScrollViewRefresherrestore = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被中止时触发
+ */
+export type ScrollViewRefresherabort = (event: BaseEvent) => void;
+
 export interface ScrollViewProps {
   /**
    * @desc 是否允许横向滚动
@@ -99,40 +143,31 @@ export interface ScrollViewProps {
   /**
    * @desc 滚动到顶部/左边时触发
    */
-  onScrolltoupper: (event: BaseEvent) => void;
+  onScrolltoupper: ScrollViewScrolltoupper;
   /**
    * @desc 滚动到底部/右边时触发
    */
-  onScrolltolower: (event: BaseEvent) => void;
+  onScrolltolower: ScrollViewScrolltolower;
   /**
    * @desc 滚动时触发
    */
-  onScroll: (
-    event: CustomEvent<{
-      scrollLeft: number;
-      scrollTop: number;
-      scrollHeight: number;
-      scrollWidth: number;
-      deltaX: number;
-      deltaY: number;
-    }>,
-  ) => void;
+  onScroll: ScrollViewScroll;
   /**
    * @desc 自定义下拉刷新控件被下拉时触发
    */
-  onRefresherpulling: (event: BaseEvent) => void;
+  onRefresherpulling: ScrollViewRefresherpulling;
   /**
    * @desc 自定义下拉刷新被触发时触发
    */
-  onRefresherrefresh: (event: BaseEvent) => void;
+  onRefresherrefresh: ScrollViewRefresherrefresh;
   /**
    * @desc 自定义下拉刷新被复位时触发
    */
-  onRefresherrestore: (event: BaseEvent) => void;
+  onRefresherrestore: ScrollViewRefresherrestore;
   /**
    * @desc 自定义下拉刷新被中止时触发
    */
-  onRefresherabort: (event: BaseEvent) => void;
+  onRefresherabort: ScrollViewRefresherabort;
 }
 
 /**

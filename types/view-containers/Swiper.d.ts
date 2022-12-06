@@ -19,6 +19,54 @@ export type SwiperEasingFunction =
   | 'easeOutCubic'
   | 'easeInOutCubic';
 
+/**
+ * @desc current 改变时触发
+ */
+export type SwiperChange = (
+  event: CustomEvent<{
+    /**
+     * @desc 当前所在滑块的下标
+     */
+    current: number;
+    /**
+     * @desc 导致变更的原因
+     * @desc autoplay 自动播放
+     * @desc touch 用户滑动
+     * @desc 空字符串 其它原因
+     */
+    source: SwiperSource;
+  }>,
+) => void;
+
+/**
+ * @desc swiper-item 位置改变时触发
+ */
+export type SwiperTransition = (
+  event: CustomEvent<{
+    dx?: number;
+    dy?: number;
+  }>,
+) => void;
+
+/**
+ * @desc 动画结束时触发
+ */
+export type SwiperAnimationfinish = (
+  event: CustomEvent<{
+    /**
+     * @desc 当前所在滑块的下标
+     */
+    current: number;
+    /**
+     * @desc 导致变更的原因
+     * @desc autoplay 自动播放
+     * @desc touch 用户滑动
+     * @desc 空字符串其它原因
+     */
+    source: SwiperSource;
+  }>,
+) => void;
+
 export interface SwiperProps {
   /**
    * @desc 是否显示面板指示点
@@ -129,48 +177,15 @@ export interface SwiperProps {
   /**
    * @desc current 改变时触发
    */
-  onChange: (
-    event: CustomEvent<{
-      /**
-       * @desc 当前所在滑块的下标
-       */
-      current: number;
-      /**
-       * @desc 导致变更的原因
-       * @desc autoplay 自动播放
-       * @desc touch 用户滑动
-       * @desc 空字符串 其它原因
-       */
-      source: SwiperSource;
-    }>,
-  ) => void;
+  onChange: SwiperChange;
   /**
    * @desc swiper-item 位置改变时触发
    */
-  onTransition: (
-    event: CustomEvent<{
-      dx?: number;
-      dy?: number;
-    }>,
-  ) => void;
+  onTransition: SwiperTransition;
   /**
    * @desc 动画结束时触发
    */
-  onAnimationfinish: (
-    event: CustomEvent<{
-      /**
-       * @desc 当前所在滑块的下标
-       */
-      current: number;
-      /**
-       * @desc 导致变更的原因
-       * @desc autoplay 自动播放
-       * @desc touch 用户滑动
-       * @desc 空字符串其它原因
-       */
-      source: SwiperSource;
-    }>,
-  ) => void;
+  onAnimationfinish: SwiperAnimationfinish;
 }
 
 /**
