@@ -12,3 +12,9 @@ export interface SwiperItemProps {
  * @desc 不能被子组件自动撑开
  */
 export type SwiperItem = Component<Partial<SwiperItemProps>>;
+
+declare global {
+  export interface UniHelper {
+    SwiperItemProps: SwiperItemProps;
+  }
+}

@@ -32,3 +32,9 @@ export interface ViewProps {
  * @desc 如果使用 div，会编译成 view
  */
 export type View = Component<Partial<ViewProps>>;
+
+declare global {
+  export interface UniHelper {
+    ViewProps: ViewProps;
+  }
+}

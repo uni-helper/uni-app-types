@@ -194,3 +194,32 @@ export interface SwiperProps {
  * @desc swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
  */
 export type Swiper = Component<Partial<SwiperProps>>;
+
+declare global {
+  export interface UniHelper {
+    /**
+     * @desc 导致变更的原因
+     * @desc autoplay 自动播放
+     * @desc touch 用户滑动
+     * @desc 空字符串 其它原因
+     */
+    SwiperSource: SwiperSource;
+    /**
+     * @desc swiper 切换缓动动画类型
+     */
+    SwiperEasingFunction: SwiperEasingFunction;
+    /**
+     * @desc current 改变时触发
+     */
+    SwiperChange: SwiperChange;
+    /**
+     * @desc swiper-item 位置改变时触发
+     */
+    SwiperTransition: SwiperTransition;
+    /**
+     * @desc 动画结束时触发
+     */
+    SwiperAnimationfinish: SwiperAnimationfinish;
+    SwiperProps: SwiperProps;
+  }
+}

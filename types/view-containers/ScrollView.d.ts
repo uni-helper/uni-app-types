@@ -178,3 +178,37 @@ export interface ScrollViewProps {
  * @desc scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的 transparent 透明渐变
  */
 export type ScrollView = Component<Partial<ScrollViewProps>>;
+
+declare global {
+  export interface UniHelper {
+    /**
+     * @desc 滚动到顶部/左边时触发
+     */
+    ScrollViewScrolltoupper: ScrollViewScrolltoupper;
+    /**
+     * @desc 滚动到底部/右边时触发
+     */
+    ScrollViewScrolltolower: ScrollViewScrolltolower;
+    /**
+     * @desc 滚动时触发
+     */
+    ScrollViewScroll: ScrollViewScroll;
+    /**
+     * @desc 自定义下拉刷新控件被下拉时触发
+     */
+    ScrollViewRefresherpulling: ScrollViewRefresherpulling;
+    /**
+     * @desc 自定义下拉刷新被触发时触发
+     */
+    ScrollViewRefresherrefresh: ScrollViewRefresherrefresh;
+    /**
+     * @desc 自定义下拉刷新被复位时触发
+     */
+    ScrollViewRefresherrestore: ScrollViewRefresherrestore;
+    /**
+     * @desc 自定义下拉刷新被中止时触发
+     */
+    ScrollViewRefresherabort: ScrollViewRefresherabort;
+    ScrollViewProps: ScrollViewProps;
+  }
+}
