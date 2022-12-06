@@ -18,6 +18,8 @@
 
 ## 使用
 
+### 配置
+
 - 安装依赖
 
 ```shell
@@ -39,9 +41,46 @@ npm i -D @uni-helper/uni-app-types
 }
 ```
 
+更多关于 `experimentalRuntimeMode` 和 `nativeTags` 的信息请查看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
+
 - 重启编辑器 / IDE
 
-如果你发现配置后项目仍然有错误的类型提示，请先看看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
+### 标注类型
+
+推荐使用 `@uni-helper/uni-app-types` 导出的类型为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { ScrollViewProps, ScrollViewScroll, } from '@uni-helper/uni-app-types';
+
+const scrollY = ref<ScrollViewProps['scrollY']>(true);
+const onScroll: ScrollViewScroll = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <scroll-view @scroll="onScroll"></scroll-view>
+</template>
+```
+
+也可以直接使用命名空间来为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const scrollY = ref<UniHelper.ScrollViewProps['scrollY']>(true);
+const onScroll: UniHelper.ScrollViewScroll = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <scroll-view @scroll="onScroll"></scroll-view>
+</template>
+```
 
 ## 类型
 
@@ -313,6 +352,50 @@ export type View = Component<Partial<ViewProps>>;
 ### ScrollView (scroll-view)
 
 ```typescript
+/**
+ * @desc 滚动到顶部/左边时触发
+ */
+export type ScrollViewScrolltoupper = (event: BaseEvent) => void;
+
+/**
+ * @desc 滚动到底部/右边时触发
+ */
+export type ScrollViewScrolltolower = (event: BaseEvent) => void;
+
+/**
+ * @desc 滚动时触发
+ */
+export type ScrollViewScroll = (
+  event: CustomEvent<{
+    scrollLeft: number;
+    scrollTop: number;
+    scrollHeight: number;
+    scrollWidth: number;
+    deltaX: number;
+    deltaY: number;
+  }>,
+) => void;
+
+/**
+ * @desc 自定义下拉刷新控件被下拉时触发
+ */
+export type ScrollViewRefresherpulling = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被触发时触发
+ */
+export type ScrollViewRefresherrefresh = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被复位时触发
+ */
+export type ScrollViewRefresherrestore = (event: BaseEvent) => void;
+
+/**
+ * @desc 自定义下拉刷新被中止时触发
+ */
+export type ScrollViewRefresherabort = (event: BaseEvent) => void;
+
 export interface ScrollViewProps {
   /**
    * @desc 是否允许横向滚动
@@ -411,40 +494,31 @@ export interface ScrollViewProps {
   /**
    * @desc 滚动到顶部/左边时触发
    */
-  onScrolltoupper: (event: BaseEvent) => void;
+  onScrolltoupper: ScrollViewScrolltoupper;
   /**
    * @desc 滚动到底部/右边时触发
    */
-  onScrolltolower: (event: BaseEvent) => void;
+  onScrolltolower: ScrollViewScrolltolower;
   /**
    * @desc 滚动时触发
    */
-  onScroll: (
-    event: CustomEvent<{
-      scrollLeft: number;
-      scrollTop: number;
-      scrollHeight: number;
-      scrollWidth: number;
-      deltaX: number;
-      deltaY: number;
-    }>,
-  ) => void;
+  onScroll: ScrollViewScroll;
   /**
    * @desc 自定义下拉刷新控件被下拉时触发
    */
-  onRefresherpulling: (event: BaseEvent) => void;
+  onRefresherpulling: ScrollViewRefresherpulling;
   /**
    * @desc 自定义下拉刷新被触发时触发
    */
-  onRefresherrefresh: (event: BaseEvent) => void;
+  onRefresherrefresh: ScrollViewRefresherrefresh;
   /**
    * @desc 自定义下拉刷新被复位时触发
    */
-  onRefresherrestore: (event: BaseEvent) => void;
+  onRefresherrestore: ScrollViewRefresherrestore;
   /**
    * @desc 自定义下拉刷新被中止时触发
    */
-  onRefresherabort: (event: BaseEvent) => void;
+  onRefresherabort: ScrollViewRefresherabort;
 }
 
 /**
@@ -477,6 +551,54 @@ export type SwiperEasingFunction =
   | 'easeInCubic'
   | 'easeOutCubic'
   | 'easeInOutCubic';
+
+/**
+ * @desc current 改变时触发
+ */
+export type SwiperChange = (
+  event: CustomEvent<{
+    /**
+     * @desc 当前所在滑块的下标
+     */
+    current: number;
+    /**
+     * @desc 导致变更的原因
+     * @desc autoplay 自动播放
+     * @desc touch 用户滑动
+     * @desc 空字符串 其它原因
+     */
+    source: SwiperSource;
+  }>,
+) => void;
+
+/**
+ * @desc swiper-item 位置改变时触发
+ */
+export type SwiperTransition = (
+  event: CustomEvent<{
+    dx?: number;
+    dy?: number;
+  }>,
+) => void;
+
+/**
+ * @desc 动画结束时触发
+ */
+export type SwiperAnimationfinish = (
+  event: CustomEvent<{
+    /**
+     * @desc 当前所在滑块的下标
+     */
+    current: number;
+    /**
+     * @desc 导致变更的原因
+     * @desc autoplay 自动播放
+     * @desc touch 用户滑动
+     * @desc 空字符串其它原因
+     */
+    source: SwiperSource;
+  }>,
+) => void;
 
 export interface SwiperProps {
   /**
@@ -588,48 +710,15 @@ export interface SwiperProps {
   /**
    * @desc current 改变时触发
    */
-  onChange: (
-    event: CustomEvent<{
-      /**
-       * @desc 当前所在滑块的下标
-       */
-      current: number;
-      /**
-       * @desc 导致变更的原因
-       * @desc autoplay 自动播放
-       * @desc touch 用户滑动
-       * @desc 空字符串 其它原因
-       */
-      source: SwiperSource;
-    }>,
-  ) => void;
+  onChange: SwiperChange;
   /**
    * @desc swiper-item 位置改变时触发
    */
-  onTransition: (
-    event: CustomEvent<{
-      dx?: number;
-      dy?: number;
-    }>,
-  ) => void;
+  onTransition: SwiperTransition;
   /**
    * @desc 动画结束时触发
    */
-  onAnimationfinish: (
-    event: CustomEvent<{
-      /**
-       * @desc 当前所在滑块的下标
-       */
-      current: number;
-      /**
-       * @desc 导致变更的原因
-       * @desc autoplay 自动播放
-       * @desc touch 用户滑动
-       * @desc 空字符串其它原因
-       */
-      source: SwiperSource;
-    }>,
-  ) => void;
+  onAnimationfinish: SwiperAnimationfinish;
 }
 
 /**
