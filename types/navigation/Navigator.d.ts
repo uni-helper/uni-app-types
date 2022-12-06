@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 
 /**
  * @desc 跳转方式
@@ -139,7 +139,7 @@ export interface NavigatorProps {
    * @desc 需要传递给目标应用的数据
    * @desc target="miniProgram" 时有效
    */
-  extraData: Record<string, any>;
+  extraData: AnyRecord;
   /**
    * @desc 要打开的小程序版本
    * @desc 如果当前小程序是正式版，则打开的小程序必定是正式版

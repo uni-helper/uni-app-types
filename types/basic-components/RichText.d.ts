@@ -20,7 +20,7 @@ export type RichTextTextNode = {
 export type RichTextNodeNode = {
   type?: 'node';
   name: string;
-  attrs?: Record<string, any>;
+  attrs?: AnyRecord;
   children?: Array<RichTextTextNode | RichTextNodeNode>;
 };
 

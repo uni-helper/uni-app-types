@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
 export interface EditorProps {
@@ -37,7 +37,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**
@@ -47,7 +47,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**
@@ -57,7 +57,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**

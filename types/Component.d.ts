@@ -13,7 +13,9 @@ import {
 
 type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
-export type Component<P extends Record<string, any> = Record<string, any>> = DefineComponent<
+export type AnyRecord = Record<string, any>;
+
+export type Component<P extends AnyRecord = AnyRecord> = DefineComponent<
   {},
   {},
   {},

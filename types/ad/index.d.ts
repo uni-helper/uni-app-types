@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
 export interface AdProps {
@@ -18,7 +18,7 @@ export interface AdProps {
   /**
    * @desc 广告数据，优先级高于 adpid
    */
-  data: Record<string, any>;
+  data: AnyRecord;
   /**
    * @desc 小程序应用 ID
    */

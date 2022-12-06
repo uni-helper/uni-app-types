@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
 /**
@@ -274,7 +274,7 @@ export interface ButtonProps {
    */
   onOpensetting: (
     event: CustomEvent<{
-      authSetting: Record<string, any>;
+      authSetting: AnyRecord;
     }>,
   ) => void;
   /**

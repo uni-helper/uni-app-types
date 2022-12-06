@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 import { CustomEvent } from '../events';
 
 /**
@@ -251,7 +251,7 @@ export interface VideoProps {
   /**
    * @desc HTTP 请求 Header
    */
-  header: Record<string, any>;
+  header: AnyRecord;
   /**
    * @desc 开始/继续播放时触发
    */

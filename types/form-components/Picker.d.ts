@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component, AnyRecord } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
 /**
@@ -19,7 +19,7 @@ export interface SelectorPickerProps {
    * @desc 需要展示的内容
    * @desc 默认为 []
    */
-  range: string[] | Record<string, any>[];
+  range: string[] | AnyRecord[];
   /**
    * @desc 当 range 是一个 Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
    */
@@ -68,7 +68,7 @@ export interface MultiSelectorPickerProps {
    * @desc 需要展示的内容
    * @desc 默认为 []
    */
-  range: string[][] | Record<string, any>[][];
+  range: string[][] | AnyRecord[][];
   /**
    * @desc 当 range 是一个 Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
    */
