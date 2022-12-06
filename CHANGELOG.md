@@ -3,6 +3,7 @@
 ## Unreleased
 
 - feat!: 要求 `node>=14.18`，这是为了对标 `rollup` 和 `vite`
+- feat: 增加 `AdContentPage`、`AdDraw`、`AdFullscreenVideo`、`AdInteractive`、`AdInterstitial`、`AdRewardedVideo`
 
 ## 0.2.0 (2022-12-02)
 
