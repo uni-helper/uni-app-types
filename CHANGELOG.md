@@ -1,9 +1,13 @@
 # 改动日志
 
-## Unreleased
+## 0.3.0-0 (2022-12-06)
+
+这是一个测试版本，主要目标是降低类型使用成本。
 
 - feat!: 要求 `node>=14.18`，这是为了对标 `rollup` 和 `vite`
 - feat: 增加 `AdContentPage`、`AdDraw`、`AdFullscreenVideo`、`AdInteractive`、`AdInterstitial`、`AdRewardedVideo`
+- feat: 增加 `ScrollView`、`Swiper` 的事件导出
+- feat: 增加 `UniHelper` 命名空间，包含 `View`、`ScrollView`、`Swiper`、`SwiperItem` 四个组件的 `props` 和事件，降低类型使用成本
 
 ## 0.2.0 (2022-12-02)
 
