@@ -51,6 +51,38 @@ npm i -D @uni-helper/uni-app-types
 export type AnyRecord = Record<string, any>;
 ```
 
+### Component
+
+```typescript
+import {
+  DefineComponent,
+  ComputedOptions,
+  MethodOptions,
+  ComponentOptionsMixin,
+  EmitsOptions,
+  ExtractPropTypes,
+  VNodeProps,
+  AllowedComponentProps,
+  ComponentCustomProps,
+} from 'vue3';
+
+type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
+
+export type Component<P extends AnyRecord = AnyRecord> = DefineComponent<
+  {},
+  {},
+  {},
+  ComputedOptions,
+  MethodOptions,
+  ComponentOptionsMixin,
+  ComponentOptionsMixin,
+  EmitsOptions,
+  string,
+  PublicProps,
+  Readonly<ExtractPropTypes<P>>
+>;
+```
+
 ### EventTarget
 
 ```typescript
@@ -981,7 +1013,7 @@ export type RichTextTextNode = {
 export type RichTextNodeNode = {
   type?: 'node';
   name: string;
-  attrs?: Record<string, any>;
+  attrs?: AnyRecord;
   children?: Array<RichTextTextNode | RichTextNodeNode>;
 };
 
@@ -1390,7 +1422,7 @@ export interface ButtonProps {
    */
   onOpensetting: (
     event: CustomEvent<{
-      authSetting: Record<string, any>;
+      authSetting: AnyRecord;
     }>,
   ) => void;
   /**
@@ -1529,7 +1561,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**
@@ -1539,7 +1571,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**
@@ -1549,7 +1581,7 @@ export interface EditorProps {
     event: CustomEvent<{
       html: string;
       text: string;
-      delta: Record<string, any>;
+      delta: AnyRecord;
     }>,
   ) => void;
   /**
@@ -1916,7 +1948,7 @@ export interface SelectorPickerProps {
    * @desc 需要展示的内容
    * @desc 默认为 []
    */
-  range: string[] | Record<string, any>[];
+  range: string[] | AnyRecord[];
   /**
    * @desc 当 range 是一个 Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
    */
@@ -1965,7 +1997,7 @@ export interface MultiSelectorPickerProps {
    * @desc 需要展示的内容
    * @desc 默认为 []
    */
-  range: string[][] | Record<string, any>[][];
+  range: string[][] | AnyRecord[][];
   /**
    * @desc 当 range 是一个 Object Array 时，通过 range-key 来指定 Object 中 key 的值作为选择器显示内容
    */
@@ -2739,7 +2771,7 @@ export interface NavigatorProps {
    * @desc 需要传递给目标应用的数据
    * @desc target="miniProgram" 时有效
    */
-  extraData: Record<string, any>;
+  extraData: AnyRecord;
   /**
    * @desc 要打开的小程序版本
    * @desc 如果当前小程序是正式版，则打开的小程序必定是正式版
@@ -3322,7 +3354,7 @@ export interface VideoProps {
   /**
    * @desc HTTP 请求 Header
    */
-  header: Record<string, any>;
+  header: AnyRecord;
   /**
    * @desc 开始/继续播放时触发
    */
@@ -5019,7 +5051,7 @@ export interface AdProps {
   /**
    * @desc 广告数据，优先级高于 adpid
    */
-  data: Record<string, any>;
+  data: AnyRecord;
   /**
    * @desc 小程序应用 ID
    */
