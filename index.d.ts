@@ -39,6 +39,12 @@ import {
   Canvas,
   WebView,
   Ad,
+  AdContentPage,
+  AdDraw,
+  AdFullscreenVideo,
+  AdInteractive,
+  AdInterstitial,
+  AdRewardedVideo,
   PageMeta,
   NavigationBar,
   CustomTabBar,
@@ -94,6 +100,12 @@ declare module '@vue/runtime-core' {
     WebView: WebView;
 
     Ad: Ad;
+    AdContentPage: AdContentPage;
+    AdDraw: AdDraw;
+    AdFullscreenVideo: AdFullscreenVideo;
+    AdInteractive: AdInteractive;
+    AdInterstitial: AdInterstitial;
+    AdRewardedVideo: AdRewardedVideo;
 
     PageMeta: PageMeta;
     NavigationBar: NavigationBar;
