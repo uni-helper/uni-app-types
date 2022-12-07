@@ -4,7 +4,9 @@
 
 [![npm](https://img.shields.io/npm/v/@uni-helper/uni-app-types)](https://www.npmjs.com/package/@uni-helper/uni-app-types)
 
-`uni-app` 组件类型。[@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型，[@uni-helper/uni-ui-types](https://github.com/uni-helper/uni-ui-types) 提供 `uni-ui` 组件类型。
+- [@uni-helper/uni-app-types](https://github.com/uni-helper/uni-app-types) （当前仓库）提供 `uni-app` 组件类型
+- [@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型
+- [@uni-helper/uni-ui-types](https://github.com/uni-helper/uni-ui-types) 提供 `uni-ui` 组件类型
 
 基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Volar](https://github.com/johnsoncodehk/volar) 已经支持。
 
@@ -52,9 +54,9 @@ npm i -D @uni-helper/uni-app-types
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { ScrollViewProps, ScrollViewScroll, } from '@uni-helper/uni-app-types';
+import type { ScrollViewUpperThreshold, ScrollViewScroll } from '@uni-helper/uni-app-types';
 
-const scrollY = ref<ScrollViewProps['scrollY']>(true);
+const upperThreshold = ref<ScrollViewUpperThreshold>(50);
 const onScroll: ScrollViewScroll = (event) => {
   ...
 };
@@ -71,7 +73,7 @@ const onScroll: ScrollViewScroll = (event) => {
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const scrollY = ref<UniHelper.ScrollViewProps['scrollY']>(true);
+const upperThreshold = ref<UniHelper.ScrollViewUpperThreshold>(50);
 const onScroll: UniHelper.ScrollViewScroll = (event) => {
   ...
 };
