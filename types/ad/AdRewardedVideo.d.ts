@@ -121,3 +121,12 @@ declare global {
     export type AdRewardedVideo = _AdRewardedVideo;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 激励视频广告
+     */
+    AdRewardedVideo: _AdRewardedVideo;
+  }
+}

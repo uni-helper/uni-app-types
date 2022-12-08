@@ -177,3 +177,12 @@ declare global {
     export type Image = _Image;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 图片
+     */
+    Image: _Image;
+  }
+}

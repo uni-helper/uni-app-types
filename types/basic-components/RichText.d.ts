@@ -79,7 +79,7 @@ interface _RichTextProps {
 
 /**
  * @desc 富文本
- * */
+ */
 type _RichText = Component<Partial<_RichTextProps>>;
 
 export {
@@ -125,7 +125,16 @@ declare global {
     export interface RichTextProps extends _RichTextProps {}
     /**
      * @desc 富文本
-     * */
+     */
     export type RichText = _RichText;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 富文本
+     */
+    RichText: _RichText;
   }
 }

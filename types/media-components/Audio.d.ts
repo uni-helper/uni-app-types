@@ -164,3 +164,12 @@ declare global {
     export type Audio = _Audio;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 音频
+     */
+    Audio: _Audio;
+  }
+}

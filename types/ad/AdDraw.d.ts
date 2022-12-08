@@ -81,3 +81,12 @@ declare global {
     export type AdDraw = _AdDraw;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 沉浸视频流广告
+     */
+    AdDraw: _AdDraw;
+  }
+}

@@ -103,3 +103,12 @@ declare global {
     export type AdInterstitial = _AdInterstitial;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 插屏广告
+     */
+    AdInterstitial: _AdInterstitial;
+  }
+}

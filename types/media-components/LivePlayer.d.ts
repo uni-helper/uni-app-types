@@ -473,3 +473,12 @@ declare global {
     export type LivePlayer = _LivePlayer;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 实时音视频播放（直播拉流）
+     */
+    LivePlayer: _LivePlayer;
+  }
+}

@@ -113,3 +113,13 @@ declare global {
     export type Form = _Form;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 表单
+     * @desc 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
+     */
+    Form: _Form;
+  }
+}

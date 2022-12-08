@@ -52,3 +52,12 @@ declare global {
     export type CheckboxGroup = _CheckboxGroup;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 多项选择器，内部由多个 checkbox 组成
+     */
+    CheckboxGroup: _CheckboxGroup;
+  }
+}

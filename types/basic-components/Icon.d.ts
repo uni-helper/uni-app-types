@@ -39,3 +39,12 @@ declare global {
     export type Icon = _Icon;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 图标
+     */
+    Icon: _Icon;
+  }
+}

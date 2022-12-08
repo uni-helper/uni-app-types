@@ -193,3 +193,13 @@ declare global {
     export interface MovableView extends _MovableView {}
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
+     * @desc movable-area 直接子组件
+     */
+    MovableView: _MovableView;
+  }
+}

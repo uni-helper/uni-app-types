@@ -216,3 +216,12 @@ declare global {
     export type Camera = _Camera;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 页面内嵌的区域相机组件
+     */
+    Camera: _Camera;
+  }
+}

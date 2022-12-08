@@ -11,3 +11,9 @@ export { _TemplateProps as TemplateProps, _Template as Template };
 //     export type TemplateProps = _TemplateProps;
 //   }
 // }
+
+// declare module '@vue/runtime-core' {
+//   export interface GlobalComponents {
+//     Template: _Template;
+//   }
+// }

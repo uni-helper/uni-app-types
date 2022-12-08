@@ -543,3 +543,12 @@ declare global {
     export type Button = _Button;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 按钮
+     */
+    Button: _Button;
+  }
+}

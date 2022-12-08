@@ -682,3 +682,12 @@ declare global {
     export type LivePusher = _LivePusher;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 实时音视频录制（直播推流）
+     */
+    LivePusher: _LivePusher;
+  }
+}

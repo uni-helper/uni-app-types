@@ -968,3 +968,12 @@ declare global {
     export type Map = _Map;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 地图组件，用于展示地图
+     */
+    Map: _Map;
+  }
+}

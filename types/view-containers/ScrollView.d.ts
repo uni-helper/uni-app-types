@@ -264,3 +264,16 @@ declare global {
     export type ScrollView = _ScrollView;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 可滚动视图区域，用于区域滚动
+     * @desc 在 webview 渲染的页面中，区域滚动的性能不及页面滚动
+     * @desc 纵向滚动时，需要给 scroll-view 一个固定高度，通过 css 设置 height
+     * @desc 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
+     * @desc scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的 transparent 透明渐变
+     */
+    ScrollView: _ScrollView;
+  }
+}

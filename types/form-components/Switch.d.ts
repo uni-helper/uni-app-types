@@ -93,3 +93,12 @@ declare global {
     export type Switch = _Switch;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 开关选择器
+     */
+    Switch: _Switch;
+  }
+}

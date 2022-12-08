@@ -150,3 +150,14 @@ declare global {
     export type PageMeta = _PageMeta;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 页面属性配置节点，用于指定页面的一些属性、监听页面事件
+     * @desc 可部分替代 pages.json
+     * @desc 只能是页面内的第一个节点
+     */
+    PageMeta: _PageMeta;
+  }
+}

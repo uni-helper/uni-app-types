@@ -162,3 +162,12 @@ declare global {
     export type Canvas = _Canvas;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 画布
+     */
+    Canvas: _Canvas;
+  }
+}

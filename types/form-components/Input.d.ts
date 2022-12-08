@@ -378,3 +378,12 @@ declare global {
     export type Input = _Input;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 输入框
+     */
+    Input: _Input;
+  }
+}

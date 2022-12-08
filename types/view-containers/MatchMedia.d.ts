@@ -8,7 +8,7 @@ import { Component } from '../Component';
 type _MatchMediaOrientation = 'landscape' | 'portrait';
 
 /**
- * @desc media query 匹配检测节点
+ * @desc media query 匹配检测节点属性
  */
 interface _MatchMediaProps {
   /**
@@ -71,7 +71,7 @@ declare global {
      */
     export type MatchMediaOrientation = _MatchMediaOrientation;
     /**
-     * @desc media query 匹配检测节点
+     * @desc media query 匹配检测节点属性
      */
     export interface MatchMediaProps extends _MatchMediaProps {}
     /**
@@ -80,5 +80,16 @@ declare global {
      * @desc 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
      */
     export type MatchMedia = _MatchMedia;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc media query 匹配检测节点
+     * @desc 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
+     * @desc 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
+     */
+    MatchMedia: _MatchMedia;
   }
 }

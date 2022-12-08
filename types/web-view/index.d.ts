@@ -32,6 +32,9 @@ interface _WebViewOnPostMessage {
   (event: BaseEvent): void;
 }
 
+/**
+ * @desc web 浏览器组件属性
+ */
 interface _WebViewProps {
   /**
    * @desc 指向网页的链接
@@ -92,10 +95,22 @@ declare global {
      * @desc 网页向应用实时 postMessage
      */
     export interface WebViewOnPostMessage extends _WebViewOnPostMessage {}
+    /**
+     * @desc web 浏览器组件属性
+     */
     export interface WebViewProps extends _WebViewProps {}
     /**
      * @desc web 浏览器组件，可承载网页
      */
     export type WebView = _WebView;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc web 浏览器组件，可承载网页
+     */
+    WebView: _WebView;
   }
 }

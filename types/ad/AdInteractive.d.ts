@@ -81,3 +81,12 @@ declare global {
     export type AdInteractive = _AdInteractive;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 互动广告
+     */
+    AdInteractive: _AdInteractive;
+  }
+}

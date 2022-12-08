@@ -54,3 +54,13 @@ declare global {
     export type RadioGroup = _RadioGroup;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 单项选择器，内部由多个 radio 组成
+     * @desc 通过把多个 radio 包裹在一个 radio-group 下，实现这些 radio 的单选
+     */
+    RadioGroup: _RadioGroup;
+  }
+}

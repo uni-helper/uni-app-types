@@ -103,3 +103,12 @@ declare global {
     export type AdFullscreenVideo = _AdFullscreenVideo;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 全屏视频广告
+     */
+    AdFullscreenVideo: _AdFullscreenVideo;
+  }
+}

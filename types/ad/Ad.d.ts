@@ -141,3 +141,12 @@ declare global {
     export type Ad = _Ad;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 信息流广告
+     */
+    Ad: _Ad;
+  }
+}

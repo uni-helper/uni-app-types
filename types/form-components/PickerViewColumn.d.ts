@@ -9,3 +9,9 @@ declare global {
     export type PickerViewColumn = _PickerViewColumn;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    PickerViewColumn: _PickerViewColumn;
+  }
+}

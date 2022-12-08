@@ -163,3 +163,15 @@ declare global {
     export type Editor = _Editor;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 富文本编辑器，可以对图片、文字进行编辑和混排
+     * @desc 编辑器导出内容支持带标签的 html 和纯文本的 text，编辑器内部采用 delta 格式进行存储
+     * @desc 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta 进行插入
+     * @desc 图片控件仅初始化时设置有效
+     */
+    Editor: _Editor;
+  }
+}

@@ -313,3 +313,12 @@ declare global {
     export type Textarea = _Textarea;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 多行输入框
+     */
+    Textarea: _Textarea;
+  }
+}

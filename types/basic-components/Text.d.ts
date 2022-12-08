@@ -65,3 +65,13 @@ declare global {
     export type Text = _Text;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 文本组件
+     * @desc 用于包裹文本内容
+     */
+    Text: _Text;
+  }
+}

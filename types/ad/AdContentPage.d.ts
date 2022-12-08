@@ -229,3 +229,12 @@ declare global {
     export type AdContentPage = _AdContentPage;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 短视频内容联盟广告
+     */
+    AdContentPage: _AdContentPage;
+  }
+}

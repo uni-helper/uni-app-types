@@ -138,3 +138,12 @@ declare global {
     export type Slider = _Slider;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 滑动选择器
+     */
+    Slider: _Slider;
+  }
+}

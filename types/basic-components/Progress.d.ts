@@ -114,3 +114,12 @@ declare global {
     export type Progress = _Progress;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 进度条
+     */
+    Progress: _Progress;
+  }
+}

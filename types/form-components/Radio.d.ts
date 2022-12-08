@@ -53,3 +53,12 @@ declare global {
     export type Radio = _Radio;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 单选项目
+     */
+    Radio: _Radio;
+  }
+}

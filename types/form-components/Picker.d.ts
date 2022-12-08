@@ -568,3 +568,12 @@ declare global {
     export type Picker = _Picker;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 从底部弹起的滚动选择器，通过 mode 来区分
+     */
+    Picker: _Picker;
+  }
+}

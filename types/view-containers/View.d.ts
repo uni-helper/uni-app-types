@@ -1,5 +1,8 @@
 import { Component } from '../Component';
 
+/**
+ * @desc 视图容器属性
+ */
 interface _ViewProps {
   /**
    * @desc 指定按下去的样式类
@@ -37,6 +40,9 @@ export { _ViewProps as ViewProps, _View as View };
 
 declare global {
   namespace UniHelper {
+    /**
+     * @desc 视图容器属性
+     */
     export interface ViewProps extends _ViewProps {}
     /**
      * @desc 视图容器，和 div 类似，用于包裹各种元素内容
@@ -44,5 +50,16 @@ declare global {
      * @desc 如果使用 div，会编译成 view
      */
     export type View = _View;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 视图容器，和 div 类似，用于包裹各种元素内容
+     * @desc 包裹文字建议使用 text
+     * @desc 如果使用 div，会编译成 view
+     */
+    View: _View;
   }
 }

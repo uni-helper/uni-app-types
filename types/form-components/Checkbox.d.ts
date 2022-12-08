@@ -59,3 +59,12 @@ declare global {
     export type Checkbox = _Checkbox;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 多选项目
+     */
+    Checkbox: _Checkbox;
+  }
+}

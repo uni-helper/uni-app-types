@@ -71,3 +71,14 @@ declare global {
     export type CoverImage = _CoverImage;
   }
 }
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 覆盖在原生组件之上的图片视图
+     * @desc 可覆盖的原生组件同 cover-view
+     * @desc 支持嵌套在 cover-view 里
+     */
+    CoverImage: _CoverImage;
+  }
+}
