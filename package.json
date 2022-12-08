@@ -36,7 +36,7 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "@dcloudio/types": "^3.0.19",
+    "@dcloudio/types": "^3.0.20",
     "vue3": "npm:vue@^3.2.45"
   },
   "devDependencies": {
@@ -48,19 +48,19 @@
     "@dcloudio/types": "3.0.20",
     "@modyqyw/fabric": "^5.13.0",
     "@tsconfig/node18": "^1.0.1",
-    "@types/node": "^18.11.10",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "commitizen": "^4.2.5",
-    "eslint": "^8.28.0",
+    "@types/node": "^18.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "commitizen": "^4.2.6",
+    "eslint": "^8.29.0",
     "husky": "^8.0.2",
     "is-ci": "^3.0.1",
-    "lint-staged": "^13.0.4",
+    "lint-staged": "^13.1.0",
     "markdownlint-cli": "^0.32.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.0",
-    "release-it": "^15.5.0",
-    "typescript": "^4.9.3"
+    "prettier": "^2.8.1",
+    "release-it": "^15.5.1",
+    "typescript": "^4.9.4"
   },
   "engines": {
     "node": ">=14.18"
