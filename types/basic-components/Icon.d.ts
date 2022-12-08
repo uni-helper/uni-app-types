@@ -3,7 +3,7 @@ import { Component } from '../Component';
 /**
  * @desc 图标属性
  */
-export interface IconProps {
+interface _IconProps {
   /**
    * @desc 类型
    */
@@ -23,4 +23,19 @@ export interface IconProps {
 /**
  * @desc 图标
  */
-export type Icon = Component<Partial<IconProps>>;
+type _Icon = Component<Partial<_IconProps>>;
+
+export { _IconProps as IconProps, _Icon as Icon };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 图标属性
+     */
+    export interface IconProps extends _IconProps {}
+    /**
+     * @desc 图标
+     */
+    export type Icon = _Icon;
+  }
+}

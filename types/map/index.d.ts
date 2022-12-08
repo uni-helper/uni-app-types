@@ -4,7 +4,7 @@ import { BaseEvent, CustomEvent } from '../events';
 /**
  * @desc 显示方式
  */
-export type MapDisplay = 'BYCLICK' | 'ALWAYS';
+type _MapDisplay = 'BYCLICK' | 'ALWAYS';
 
 /**
  * @desc 文本对齐方式
@@ -12,12 +12,12 @@ export type MapDisplay = 'BYCLICK' | 'ALWAYS';
  * @desc right 右对齐
  * @desc center 居中对齐
  */
-export type MapTextAlign = 'left' | 'right' | 'center';
+type _MapTextAlign = 'left' | 'right' | 'center';
 
 /**
  * @desc 气泡
  */
-export interface MapCallout {
+interface _MapCallout {
   /**
    * @desc 文本
    */
@@ -53,24 +53,24 @@ export interface MapCallout {
   /**
    * @desc 显示方式
    */
-  display: MapDisplay;
+  display: _MapDisplay;
   /**
    * @desc 文本对齐方式
    * @desc left 左对齐
    * @desc right 右对齐
    * @desc center 居中对齐
    */
-  textAlign: MapTextAlign;
+  textAlign: _MapTextAlign;
 }
 
 /**
  * @desc 自定义气泡
  */
-export interface MapCustomCallout {
+interface _MapCustomCallout {
   /**
    * @desc 显示方式
    */
-  display: MapDisplay;
+  display: _MapDisplay;
   /**
    * @desc 横向偏移量，向右为正数
    */
@@ -84,7 +84,7 @@ export interface MapCustomCallout {
 /**
  * @desc 标签
  */
-export interface MapLabel {
+interface _MapLabel {
   /**
    * @desc 文本
    */
@@ -136,18 +136,18 @@ export interface MapLabel {
   /**
    * @desc 显示方式
    */
-  display: MapDisplay;
+  display: _MapDisplay;
   /**
    * @desc 文本对齐方式
    * @desc left 左对齐
    * @desc right 右对齐
    * @desc center 居中对齐
    */
-  textAlign: MapTextAlign;
+  textAlign: _MapTextAlign;
   /**
    * @desc 自定义气泡
    */
-  customCallout: MapCustomCallout;
+  customCallout: _MapCustomCallout;
   /**
    * @desc 无障碍访问，元素的额外描述
    */
@@ -162,7 +162,7 @@ export interface MapLabel {
 /**
  * @desc 锚点
  */
-export interface MapAnchor {
+interface _MapAnchor {
   /**
    * @desc 横向
    * @desc 取值范围为 0 - 1
@@ -176,19 +176,31 @@ export interface MapAnchor {
 }
 
 /**
+ * @desc 纬度
+ * @desc 取值范围为 -90 - 90
+ */
+type _MapLatitude = number;
+
+/**
+ * @desc 经度
+ * @desc 取值范围为 -180 - 180
+ */
+type _MapLongitude = number;
+
+/**
  * @desc 经纬度点
  */
-export interface MapPoint {
+interface _MapPoint {
   /**
    * @desc 纬度
    * @desc 取值范围为 -90 - 90
    */
-  latitude: number;
+  latitude: _MapLatitude;
   /**
    * @desc 经度
    * @desc 取值范围为 -180 - 180
    */
-  longitude: number;
+  longitude: _MapLongitude;
 }
 
 /**
@@ -197,7 +209,7 @@ export interface MapPoint {
  * @desc abovebuildings 显示在楼块之上 POI 之下
  * @desc aboveroads 显示在道路之上楼块之下
  */
-export type MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
+type _MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
 
 /**
  * @desc 主题
@@ -206,28 +218,35 @@ export type MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
  * @desc normal 正常
  * @desc satellite 卫星图
  */
-export type MapTheme = 'normal' | 'satellite';
+type _MapTheme = 'normal' | 'satellite';
+
+/**
+ * @desc 标记点 ID
+ * @desc marker 点击事件回调中会返回
+ * @desc 最大限制 9 位数
+ */
+type _MapMarkerId = number;
 
 /**
  * @desc 标记点
  */
-export interface MapMarker {
+interface _MapMarker {
   /**
    * @desc 标记点 ID
    * @desc marker 点击事件回调中会返回
    * @desc 最大限制 9 位数
    */
-  id: number;
+  id: _MapMarkerId;
   /**
    * @desc 纬度
    * @desc 取值范围为 -90 - 90
    */
-  latitude: number;
+  latitude: _MapLatitude;
   /**
    * @desc 经度
    * @desc 取值范围为 -180 - 180
    */
-  longitude: number;
+  longitude: _MapLongitude;
   /**
    * @desc 标注点名
    * @desc 点击时显示，callout 存在时将被忽略
@@ -263,16 +282,16 @@ export interface MapMarker {
   /**
    * @desc 自定义标记点上方的气泡窗口
    */
-  callout: MapCallout;
+  callout: _MapCallout;
   /**
    * @desc 为标记点旁边增加标签
    */
-  label: MapLabel;
+  label: _MapLabel;
   /**
    * @desc 经纬度在标注图标的锚点
    * @desc 默认为 { x: 0.5, y: 1 } 底边中点
    */
-  anchor: MapAnchor;
+  anchor: _MapAnchor;
   /**
    * @desc 自定义点聚合簇效果时使用
    */
@@ -280,7 +299,7 @@ export interface MapMarker {
   /**
    * @desc 自定义气泡窗口
    */
-  customCallout: MapCustomCallout;
+  customCallout: _MapCustomCallout;
   /**
    * @desc 无障碍访问，（属性）元素的额外描述
    */
@@ -290,11 +309,11 @@ export interface MapMarker {
 /**
  * @desc 路线
  */
-export interface MapPolyline {
+interface _MapPolyline {
   /**
    * @desc 经纬度点数组
    */
-  points: MapPoint[];
+  points: _MapPoint[];
   /**
    * @desc 十六进制颜色
    * @desc colorList 不存在时有效
@@ -339,17 +358,17 @@ export interface MapPolyline {
    * @desc abovebuildings 显示在楼块之上 POI 之下
    * @desc aboveroads 显示在道路之上楼块之下
    */
-  level: MapLevel;
+  level: _MapLevel;
 }
 
 /**
  * @desc 多边形
  */
-export interface MapPolygon {
+interface _MapPolygon {
   /**
    * @desc 经纬度点数组
    */
-  points: MapPoint[];
+  points: _MapPoint[];
   /**
    * @desc 描边宽度
    */
@@ -372,23 +391,23 @@ export interface MapPolygon {
    * @desc abovebuildings 显示在楼块之上 POI 之下
    * @desc aboveroads 显示在道路之上楼块之下
    */
-  level: MapLevel;
+  level: _MapLevel;
 }
 
 /**
  * @desc 圆
  */
-export interface MapCircle {
+interface _MapCircle {
   /**
    * @desc 纬度
    * @desc 取值范围为 -90 - 90
    */
-  latitude: number;
+  latitude: _MapLatitude;
   /**
    * @desc 经度
    * @desc 取值范围为 -180 - 180
    */
-  longitude: number;
+  longitude: _MapLongitude;
   /**
    * @desc 十六进制描边颜色
    */
@@ -411,13 +430,13 @@ export interface MapCircle {
    * @desc abovebuildings 显示在楼块之上 POI 之下
    * @desc aboveroads 显示在道路之上楼块之下
    */
-  level: MapLevel;
+  level: _MapLevel;
 }
 
 /**
  * @desc 控件在地图的位置
  */
-export interface MapPosition {
+interface _MapPosition {
   /**
    * @desc 距离地图的左边界多远
    * @desc 默认为 0
@@ -441,17 +460,24 @@ export interface MapPosition {
 }
 
 /**
+ * @desc 控件 ID
+ * @desc 在控件点击事件回调中会返回
+ */
+type _MapControlId = number;
+
+/**
  * @desc 控件
  */
-export interface MapControl {
+interface _MapControl {
   /**
+   * @desc 控件 ID
    * @desc 在控件点击事件回调中会返回
    */
-  id: number;
+  id: _MapControlId;
   /**
    * @desc 控件在地图的位置
    */
-  position: MapPosition;
+  position: _MapPosition;
   /**
    * @desc 图标路径
    * @desc 项目目录下的图片路径，支持相对路径和临时路径
@@ -464,17 +490,144 @@ export interface MapControl {
   clickable: boolean;
 }
 
-export interface MapProps {
+interface _MapMarkertapDetail {
+  /**
+   * @desc 标记点 ID
+   * @desc 最大限制 9 位数
+   */
+  markerId: _MapMarkerId;
+}
+
+/**
+ * @desc 点击标记点时触发
+ */
+interface _MapMarkertap {
+  (event: CustomEvent<_MapMarkertapDetail>): void;
+}
+
+interface _MapLabeltapDetail {
+  /**
+   * @desc 标记点 ID
+   * @desc 最大限制 9 位数
+   */
+  markerId: _MapMarkerId;
+}
+
+/**
+ * @desc 点击 label 时触发
+ */
+interface _MapLabeltap {
+  (event: CustomEvent<_MapLabeltapDetail>): void;
+}
+
+interface _MapCallouttapDetail {
+  /**
+   * @desc 标记点 ID
+   * @desc 最大限制 9 位数
+   */
+  markerId: _MapMarkerId;
+}
+
+/**
+ * @desc 点击标记点对应的气泡时触发
+ */
+interface _MapCallouttap {
+  (event: CustomEvent<_MapCallouttapDetail>): void;
+}
+
+interface _MapControltapDetail {
+  /**
+   * @desc 控件 ID
+   */
+  controlId: _MapControlId;
+}
+
+/**
+ * @desc 点击控件时触发
+ */
+interface _MapControltap {
+  (event: CustomEvent<_MapControltapDetail>): void;
+}
+
+/**
+ * @desc 视野发生变化时触发
+ */
+interface _MapRegionchange {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 点击地图时触发
+ */
+interface _MapTap {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 地图渲染更新完成时触发
+ */
+interface _MapUpdated {
+  (event: BaseEvent): void;
+}
+
+interface _MapAnchorpointtapDetail {
+  /**
+   * @desc 纬度
+   * @desc 取值范围为 -90 - 90
+   */
+  latitude: _MapLatitude;
+  /**
+   * @desc 经度
+   * @desc 取值范围为 -180 - 180
+   */
+  longitude: _MapLongitude;
+}
+
+/**
+ * @desc 点击定位标时触发
+ */
+interface _MapAnchorpointtap {
+  (event: CustomEvent<_MapAnchorpointtapDetail>): void;
+}
+
+interface _MapPoitapDetail {
+  /**
+   * @desc 名称
+   */
+  name: string;
+  /**
+   * @desc 纬度
+   * @desc 取值范围为 -90 - 90
+   */
+  latitude: _MapLatitude;
+  /**
+   * @desc 经度
+   * @desc 取值范围为 -180 - 180
+   */
+  longitude: _MapLongitude;
+}
+
+/**
+ * @desc 点击地图 poi 点时触发
+ */
+interface _MapPoitap {
+  (event: CustomEvent<_MapPoitapDetail>): void;
+}
+
+/**
+ * @desc 地图属性
+ */
+interface _MapProps {
   /**
    * @desc 中心纬度
    * @desc 取值范围为 -90 - 90
    */
-  latitude: number;
+  latitude: _MapLatitude;
   /**
    * @desc 中心经度
    * @desc 取值范围为 -180 - 180
    */
-  longitude: number;
+  longitude: _MapLongitude;
   /**
    * @desc 缩放级别
    * @desc 默认为 16
@@ -488,7 +641,7 @@ export interface MapProps {
    * @desc satellite 卫星图
    * @desc 默认为 normal
    */
-  theme: MapTheme;
+  theme: _MapTheme;
   /**
    * @desc 最小缩放级别
    * @desc 默认为 3
@@ -507,23 +660,23 @@ export interface MapProps {
   /**
    * @desc 标记点数组
    */
-  markers: MapMarker[];
+  markers: _MapMarker[];
   /**
    * @desc 路线
    */
-  polyline: MapPolyline[];
+  polyline: _MapPolyline[];
   /**
    * @desc 圆
    */
-  circles: MapCircle[];
+  circles: _MapCircle[];
   /**
    * @desc 控件
    */
-  controls: MapControl[];
+  controls: _MapControl[];
   /**
    * @desc 缩放视野以包含所有给定的坐标点
    */
-  includePoints: MapPoint[];
+  includePoints: _MapPoint[];
   /**
    * @desc 是否显示 3D 楼块
    * @desc 默认为 false
@@ -582,7 +735,7 @@ export interface MapProps {
   /**
    * @desc 多边形
    */
-  polygons: MapPolygon[];
+  polygons: _MapPolygon[];
   /**
    * @desc 是否展示室内地图
    * @desc 默认为 false
@@ -591,75 +744,227 @@ export interface MapProps {
   /**
    * @desc 点击标记点时触发
    */
-  onMarkertap: (
-    event: CustomEvent<{
-      markerId: number;
-    }>,
-  ) => void;
+  onMarkertap: _MapMarkertap;
   /**
    * @desc 点击 label 时触发
    */
-  onLabeltap: (
-    event: CustomEvent<{
-      markerId: number;
-    }>,
-  ) => void;
+  onLabeltap: _MapLabeltap;
   /**
    * @desc 点击标记点对应的气泡时触发
    */
-  onCallouttap: (
-    event: CustomEvent<{
-      markerId: number;
-    }>,
-  ) => void;
+  onCallouttap: _MapCallouttap;
   /**
    * @desc 点击控件时触发
    */
-  onControltap: (
-    event: CustomEvent<{
-      controlId: number;
-    }>,
-  ) => void;
+  onControltap: _MapControltap;
   /**
    * @desc 视野发生变化时触发
    */
-  onRegionchange: (event: BaseEvent) => void;
+  onRegionchange: _MapRegionchange;
   /**
    * @desc 点击地图时触发
    */
-  onTap: (event: BaseEvent) => void;
+  onTap: _MapTap;
   /**
    * @desc 地图渲染更新完成时触发
    */
-  onUpdated: (event: BaseEvent) => void;
+  onUpdated: _MapUpdated;
   /**
    * @desc 点击定位标时触发
    */
-  onAnchorpointtap: (event: CustomEvent<MapPoint>) => void;
+  onAnchorpointtap: _MapAnchorpointtap;
   /**
    * @desc 点击地图 poi 点时触发
    */
-  onPoitap: (
-    event: CustomEvent<{
-      /**
-       * @desc 名称
-       */
-      name: string;
-      /**
-       * @desc 纬度
-       * @desc 取值范围为 -90 - 90
-       */
-      latitude: number;
-      /**
-       * @desc 经度
-       * @desc 取值范围为 -180 - 180
-       */
-      longitude: number;
-    }>,
-  ) => void;
+  onPoitap: _MapPoitap;
 }
 
 /**
  * @desc 地图组件，用于展示地图
  */
-export type Map = Component<Partial<MapProps>>;
+type _Map = Component<Partial<_MapProps>>;
+
+export {
+  _MapDisplay as MapDisplay,
+  _MapTextAlign as MapTextAlign,
+  _MapCallout as MapCallout,
+  _MapCustomCallout as MapCustomCallout,
+  _MapLabel as MapLabel,
+  _MapAnchor as MapAnchor,
+  _MapLatitude as MapLatitude,
+  _MapLongitude as MapLongitude,
+  _MapPoint as MapPoint,
+  _MapLevel as MapLevel,
+  _MapTheme as MapTheme,
+  _MapMarkerId as MapMarkerId,
+  _MapMarker as MapMarker,
+  _MapPolyline as MapPolyline,
+  _MapPolygon as MapPolygon,
+  _MapCircle as MapCircle,
+  _MapPosition as MapPosition,
+  _MapControlId as MapControlId,
+  _MapControl as MapControl,
+  _MapMarkertapDetail as MapMarkertapDetail,
+  _MapMarkertap as MapMarkertap,
+  _MapLabeltapDetail as MapLabeltapDetail,
+  _MapLabeltap as MapLabeltap,
+  _MapCallouttapDetail as MapCallouttapDetail,
+  _MapCallouttap as MapCallouttap,
+  _MapControltapDetail as MapControltapDetail,
+  _MapControltap as MapControltap,
+  _MapRegionchange as MapRegionchange,
+  _MapTap as MapTap,
+  _MapUpdated as MapUpdated,
+  _MapAnchorpointtapDetail as MapAnchorpointtapDetail,
+  _MapAnchorpointtap as MapAnchorpointtap,
+  _MapPoitapDetail as MapPoitapDetail,
+  _MapPoitap as MapPoitap,
+  _MapProps as MapProps,
+  _Map as Map,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 显示方式
+     */
+    export type MapDisplay = _MapDisplay;
+    /**
+     * @desc 文本对齐方式
+     * @desc left 左对齐
+     * @desc right 右对齐
+     * @desc center 居中对齐
+     */
+    export type MapTextAlign = _MapTextAlign;
+    /**
+     * @desc 气泡
+     */
+    export interface MapCallout extends _MapCallout {}
+    /**
+     * @desc 自定义气泡
+     */
+    export interface MapCustomCallout extends _MapCustomCallout {}
+    /**
+     * @desc 标签
+     */
+    export interface MapLabel extends _MapLabel {}
+    /**
+     * @desc 锚点
+     */
+    export interface MapAnchor extends _MapAnchor {}
+    /**
+     * @desc 纬度
+     * @desc 取值范围为 -90 - 90
+     */
+    export type MapLatitude = _MapLatitude;
+    /**
+     * @desc 经度
+     * @desc 取值范围为 -180 - 180
+     */
+    export type MapLongitude = _MapLongitude;
+    /**
+     * @desc 经纬度点
+     */
+    export interface MapPoint extends _MapPoint {}
+    /**
+     * @desc 压盖关系
+     * @desc abovelabels 显示在所有 POI 之上
+     * @desc abovebuildings 显示在楼块之上 POI 之下
+     * @desc aboveroads 显示在道路之上楼块之下
+     */
+    export type MapLevel = _MapLevel;
+    /**
+     * @desc 主题
+     * @desc 只在初始化时有效，不能动态变更
+     * @desc 仅 Android 支持
+     * @desc normal 正常
+     * @desc satellite 卫星图
+     */
+    export type MapTheme = _MapTheme;
+    /**
+     * @desc 标记点 ID
+     * @desc marker 点击事件回调中会返回
+     * @desc 最大限制 9 位数
+     */
+    export type MapMarkerId = _MapMarkerId;
+    /**
+     * @desc 标记点
+     */
+    export interface MapMarker extends _MapMarker {}
+    /**
+     * @desc 路线
+     */
+    export interface MapPolyline extends _MapPolyline {}
+    /**
+     * @desc 多边形
+     */
+    export interface MapPolygon extends _MapPolygon {}
+    /**
+     * @desc 圆
+     */
+    export interface MapCircle extends _MapCircle {}
+    /**
+     * @desc 控件在地图的位置
+     */
+    export interface MapPosition extends _MapPosition {}
+    /**
+     * @desc 控件 ID
+     * @desc 在控件点击事件回调中会返回
+     */
+    export type MapControlId = _MapControlId;
+    /**
+     * @desc 控件
+     */
+    export interface MapControl extends _MapControl {}
+    export interface MapMarkertapDetail extends _MapMarkertapDetail {}
+    /**
+     * @desc 点击标记点时触发
+     */
+    export interface MapMarkertap extends _MapMarkertap {}
+    export interface MapLabeltapDetail extends _MapLabeltapDetail {}
+    /**
+     * @desc 点击 label 时触发
+     */
+    export interface MapLabeltap extends _MapLabeltap {}
+    export interface MapCallouttapDetail extends _MapCallouttapDetail {}
+    /**
+     * @desc 点击标记点对应的气泡时触发
+     */
+    export interface MapCallouttap extends _MapCallouttap {}
+    export interface MapControltapDetail extends _MapControltapDetail {}
+    /**
+     * @desc 点击控件时触发
+     */
+    export interface MapControltap extends _MapControltap {}
+    /**
+     * @desc 视野发生变化时触发
+     */
+    export interface MapRegionchange extends _MapRegionchange {}
+    /**
+     * @desc 点击地图时触发
+     */
+    export interface MapTap extends _MapTap {}
+    /**
+     * @desc 地图渲染更新完成时触发
+     */
+    export interface MapUpdated extends _MapUpdated {}
+    export interface MapAnchorpointtapDetail extends _MapAnchorpointtapDetail {}
+    /**
+     * @desc 点击定位标时触发
+     */
+    export interface MapAnchorpointtap extends _MapAnchorpointtap {}
+    export interface MapPoitapDetail extends _MapPoitapDetail {}
+    /**
+     * @desc 点击地图 poi 点时触发
+     */
+    export interface MapPoitap extends _MapPoitap {}
+    /**
+     * @desc 地图属性
+     */
+    export interface MapProps extends _MapProps {}
+    /**
+     * @desc 地图组件，用于展示地图
+     */
+    export type Map = _Map;
+  }
+}

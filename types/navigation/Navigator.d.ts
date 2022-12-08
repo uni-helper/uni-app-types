@@ -9,7 +9,7 @@ import { Component, AnyRecord } from '../Component';
  * @desc navigateBack 对应 navigateBack
  * @desc exit 退出小程序，target="miniProgram"时生效
  */
-export type NavigatorOpenType =
+type _NavigatorOpenType =
   | 'navigate'
   | 'redirect'
   | 'switchTab'
@@ -22,7 +22,7 @@ export type NavigatorOpenType =
  * @desc open-type="navigateTo" 或 open-type="navigateBack" 时有效
  * @desc 默认为 pop-in 显示、pop-out 关闭
  */
-export type NavigatorAnimationType =
+type _NavigatorAnimationType =
   | 'slide-in-right'
   | 'slide-out-right'
   | 'slide-in-left'
@@ -46,7 +46,7 @@ export type NavigatorAnimationType =
  * @desc self 当前小程序
  * @desc miniProgram 其它小程序
  */
-export type NavigatorTarget = 'self' | 'miniProgram';
+type _NavigatorTarget = 'self' | 'miniProgram';
 
 /**
  * @desc 要打开的小程序版本
@@ -57,9 +57,12 @@ export type NavigatorTarget = 'self' | 'miniProgram';
  * @desc target="miniProgram" 时有效
  * @desc 默认为 release
  */
-export type NavigatorVersion = 'develop' | 'trial' | 'release';
+type _NavigatorVersion = 'develop' | 'trial' | 'release';
 
-export interface NavigatorProps {
+/**
+ * @desc 页面跳转属性
+ */
+interface _NavigatorProps {
   /**
    * @desc 应用内的跳转链接
    * @desc 值为相对路径或绝对路径
@@ -76,7 +79,7 @@ export interface NavigatorProps {
    * @desc exit 退出小程序，target="miniProgram"时生效
    * @desc 默认为 navigate
    */
-  openType: NavigatorOpenType;
+  openType: _NavigatorOpenType;
   /**
    * @desc 回退的层数
    * @desc open-type="navigateBack" 时有效
@@ -88,7 +91,7 @@ export interface NavigatorProps {
    * @desc open-type="navigateTo" 或 open-type="navigateBack" 时有效
    * @desc 默认为 pop-in 显示、pop-out 关闭
    */
-  animationType: NavigatorAnimationType;
+  animationType: _NavigatorAnimationType;
   /**
    * @desc 窗口的显示/关闭动画的持续时间
    * @desc open-type="navigateTo" 或 open-type="navigateBack" 时有效
@@ -124,7 +127,7 @@ export interface NavigatorProps {
    * @desc miniProgram 其它小程序
    * @desc 默认为 self
    */
-  target: NavigatorTarget;
+  target: _NavigatorTarget;
   /**
    * @desc 要打开的小程序 appId
    * @desc target="miniProgram" 时有效
@@ -149,7 +152,7 @@ export interface NavigatorProps {
    * @desc target="miniProgram" 时有效
    * @desc 默认为 release
    */
-  version: NavigatorVersion;
+  version: _NavigatorVersion;
   /**
    * @desc 当传递该参数后，可以不传 app-id 和 path
    * @desc target="miniProgram" 时有效
@@ -162,4 +165,60 @@ export interface NavigatorProps {
  * @desc 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
  * @desc 目标页面必须在 pages.json 中注册
  */
-export type Navigator = Component<Partial<NavigatorProps>>;
+type _Navigator = Component<Partial<_NavigatorProps>>;
+
+export {
+  _NavigatorOpenType as NavigatorOpenType,
+  _NavigatorAnimationType as NavigatorAnimationType,
+  _NavigatorTarget as NavigatorTarget,
+  _NavigatorVersion as NavigatorVersion,
+  _NavigatorProps as NavigatorProps,
+  _Navigator as Navigator,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 跳转方式
+     * @desc navigate 对应 navigateTo
+     * @desc redirect 对应 redirectTo
+     * @desc switchTab 对应 switchTab
+     * @desc reLaunch 对应 reLaunch
+     * @desc navigateBack 对应 navigateBack
+     * @desc exit 退出小程序，target="miniProgram"时生效
+     */
+    export type NavigatorOpenType = _NavigatorOpenType;
+    /**
+     * @desc 窗口的显示/关闭的动画类型
+     * @desc open-type="navigateTo" 或 open-type="navigateBack" 时有效
+     * @desc 默认为 pop-in 显示、pop-out 关闭
+     */
+    export type NavigatorAnimationType = _NavigatorAnimationType;
+    /**
+     * @desc 在哪个目标上发生跳转
+     * @desc self 当前小程序
+     * @desc miniProgram 其它小程序
+     */
+    export type NavigatorTarget = _NavigatorTarget;
+    /**
+     * @desc 要打开的小程序版本
+     * @desc 如果当前小程序是正式版，则打开的小程序必定是正式版
+     * @desc develop 开发版
+     * @desc trial 体验版
+     * @desc release 正式版
+     * @desc target="miniProgram" 时有效
+     * @desc 默认为 release
+     */
+    export type NavigatorVersion = _NavigatorVersion;
+    /**
+     * @desc 页面跳转属性
+     */
+    export interface NavigatorProps extends _NavigatorProps {}
+    /**
+     * @desc 页面跳转
+     * @desc 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
+     * @desc 目标页面必须在 pages.json 中注册
+     */
+    export type Navigator = _Navigator;
+  }
+}

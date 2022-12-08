@@ -6,15 +6,48 @@ import { BaseEvent, CustomEvent } from '../events';
  * @desc dark 暗色
  * @desc light 亮色
  */
-export type PageMetaBackgroundTextStyle = 'dark' | 'light';
+type _PageMetaBackgroundTextStyle = 'dark' | 'light';
 
-export interface PageMetaProps {
+interface _PageMetaResizeDetail {
+  windowWidth: number;
+  windowHeight: number;
+}
+
+/**
+ * @desc 页面尺寸变化时触发
+ */
+interface _PageMetaResize {
+  (event: CustomEvent<_PageMetaResizeDetail>): void;
+}
+
+interface _PageMetaScrollDetail {
+  scrollTop: number;
+}
+
+/**
+ * @desc 页面滚动时触发
+ */
+interface _PageMetaScroll {
+  (event: CustomEvent<_PageMetaScrollDetail>): void;
+}
+
+/**
+ * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
+ */
+interface _PageMetaScrolldone {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 页面属性配置节点属性
+ */
+interface _PageMetaProps {
   /**
    * @desc 下拉背景字体、loading 图的样式
    * @desc dark 暗色
    * @desc light 亮色
    */
-  backgroundTextStyle: PageMetaBackgroundTextStyle;
+  backgroundTextStyle: _PageMetaBackgroundTextStyle;
   /**
    * @desc 窗口的背景色
    */
@@ -54,24 +87,15 @@ export interface PageMetaProps {
   /**
    * @desc 页面尺寸变化时触发
    */
-  onResize: (
-    event: CustomEvent<{
-      windowWidth: number;
-      windowHeight: number;
-    }>,
-  ) => void;
+  onResize: _PageMetaResize;
   /**
    * @desc 页面滚动时触发
    */
-  onScroll: (
-    event: CustomEvent<{
-      scrollTop: number;
-    }>,
-  ) => void;
+  onScroll: _PageMetaScroll;
   /**
    * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
    */
-  onScrolldone: (event: BaseEvent) => void;
+  onScrolldone: _PageMetaScrolldone;
 }
 
 /**
@@ -79,4 +103,50 @@ export interface PageMetaProps {
  * @desc 可部分替代 pages.json
  * @desc 只能是页面内的第一个节点
  */
-export type PageMeta = Component<Partial<PageMetaProps>>;
+type _PageMeta = Component<Partial<_PageMetaProps>>;
+
+export {
+  _PageMetaBackgroundTextStyle as PageMetaBackgroundTextStyle,
+  _PageMetaResizeDetail as PageMetaResizeDetail,
+  _PageMetaResize as PageMetaResize,
+  _PageMetaScrollDetail as PageMetaScrollDetail,
+  _PageMetaScroll as PageMetaScroll,
+  _PageMetaScrolldone as PageMetaScrolldone,
+  _PageMetaProps as PageMetaProps,
+  _PageMeta as PageMeta,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 下拉背景字体、loading 图的样式
+     * @desc dark 暗色
+     * @desc light 亮色
+     */
+    export type PageMetaBackgroundTextStyle = _PageMetaBackgroundTextStyle;
+    export interface PageMetaResizeDetail extends _PageMetaResizeDetail {}
+    /**
+     * @desc 页面尺寸变化时触发
+     */
+    export interface PageMetaResize extends _PageMetaResize {}
+    export interface PageMetaScrollDetail extends _PageMetaScrollDetail {}
+    /**
+     * @desc 页面滚动时触发
+     */
+    export interface PageMetaScroll extends _PageMetaScroll {}
+    /**
+     * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
+     */
+    export interface PageMetaScrolldone extends _PageMetaScrolldone {}
+    /**
+     * @desc 页面属性配置节点属性
+     */
+    export interface PageMetaProps extends _PageMetaProps {}
+    /**
+     * @desc 页面属性配置节点，用于指定页面的一些属性、监听页面事件
+     * @desc 可部分替代 pages.json
+     * @desc 只能是页面内的第一个节点
+     */
+    export type PageMeta = _PageMeta;
+  }
+}

@@ -6,12 +6,19 @@ import { BaseEvent } from '../events';
  * @desc backwards 动画从头播
  * @desc forwards 动画从上次结束点接着播
  */
-export type ProgressActiveMode = 'backwards' | 'forwards';
+type _ProgressActiveMode = 'backwards' | 'forwards';
+
+/**
+ * @desc 动画完成时触发
+ */
+interface _ProgressActiveend {
+  (event: BaseEvent): void;
+}
 
 /**
  * @desc 进度条属性
  */
-export interface ProgressProps {
+interface _ProgressProps {
   /**
    * @desc 百分比
    * @desc 取值范围为 0 - 100
@@ -60,7 +67,7 @@ export interface ProgressProps {
    * @desc forwards 动画从上次结束点接着播
    * @desc 默认为 backwards
    */
-  activeMode: ProgressActiveMode;
+  activeMode: _ProgressActiveMode;
   /**
    * @desc 进度增加 1% 所需时间
    * @desc 单位为 ms
@@ -70,10 +77,40 @@ export interface ProgressProps {
   /**
    * @desc 动画完成时触发
    */
-  onActiveend: (event: BaseEvent) => void;
+  onActiveend: _ProgressActiveend;
 }
 
 /**
  * @desc 进度条
  */
-export type Progress = Component<Partial<ProgressProps>>;
+type _Progress = Component<Partial<_ProgressProps>>;
+
+export {
+  _ProgressActiveMode as ProgressActiveMode,
+  _ProgressActiveend as ProgressActiveend,
+  _ProgressProps as ProgressProps,
+  _Progress as Progress,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 动画播放方式
+     * @desc backwards 动画从头播
+     * @desc forwards 动画从上次结束点接着播
+     */
+    export type ProgressActiveMode = _ProgressActiveMode;
+    /**
+     * @desc 动画完成时触发
+     */
+    export interface ProgressActiveend extends _ProgressActiveend {}
+    /**
+     * @desc 进度条属性
+     */
+    export interface ProgressProps extends _ProgressProps {}
+    /**
+     * @desc 进度条
+     */
+    export type Progress = _Progress;
+  }
+}

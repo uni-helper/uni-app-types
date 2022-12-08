@@ -2,50 +2,72 @@ import { Component } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
 /**
+ * @desc 设置自定义下拉刷新默认样式
+ */
+type _ScrollViewRefresherDefaultStyle = 'black' | 'white' | 'none';
+
+/**
  * @desc 滚动到顶部/左边时触发
  */
-export type ScrollViewScrolltoupper = (event: BaseEvent) => void;
+interface _ScrollViewScrolltoupper {
+  (event: BaseEvent): void;
+}
 
 /**
  * @desc 滚动到底部/右边时触发
  */
-export type ScrollViewScrolltolower = (event: BaseEvent) => void;
+interface _ScrollViewScrolltolower {
+  (event: BaseEvent): void;
+}
+
+interface _ScrollViewScrollDetail {
+  scrollLeft: number;
+  scrollTop: number;
+  scrollHeight: number;
+  scrollWidth: number;
+  deltaX: number;
+  deltaY: number;
+}
 
 /**
  * @desc 滚动时触发
  */
-export type ScrollViewScroll = (
-  event: CustomEvent<{
-    scrollLeft: number;
-    scrollTop: number;
-    scrollHeight: number;
-    scrollWidth: number;
-    deltaX: number;
-    deltaY: number;
-  }>,
-) => void;
+interface _ScrollViewScroll {
+  (event: CustomEvent<_ScrollViewScrollDetail>): void;
+}
 
 /**
  * @desc 自定义下拉刷新控件被下拉时触发
  */
-export type ScrollViewRefresherpulling = (event: BaseEvent) => void;
+interface _ScrollViewRefresherpulling {
+  (event: BaseEvent): void;
+}
 
 /**
  * @desc 自定义下拉刷新被触发时触发
  */
-export type ScrollViewRefresherrefresh = (event: BaseEvent) => void;
+interface _ScrollViewRefresherrefresh {
+  (event: BaseEvent): void;
+}
 
 /**
  * @desc 自定义下拉刷新被复位时触发
  */
-export type ScrollViewRefresherrestore = (event: BaseEvent) => void;
+interface _ScrollViewRefresherrestore {
+  (event: BaseEvent): void;
+}
 
 /**
  * @desc 自定义下拉刷新被中止时触发
  */
-export type ScrollViewRefresherabort = (event: BaseEvent) => void;
+interface _ScrollViewRefresherabort {
+  (event: BaseEvent): void;
+}
 
-export interface ScrollViewProps {
+/**
+ * @desc 可滚动视图区域属性
+ */
+interface _ScrollViewProps {
   /**
    * @desc 是否允许横向滚动
    * @desc 默认为 false
@@ -115,7 +137,7 @@ export interface ScrollViewProps {
    * @desc none 不使用默认样式
    * @desc 默认为 black
    */
-  refresherDefaultStyle: 'black' | 'white' | 'none';
+  refresherDefaultStyle: _ScrollViewRefresherDefaultStyle;
   /**
    * @desc 自定义下拉刷新区域背景颜色
    * @desc 默认为 #FFF
@@ -143,31 +165,31 @@ export interface ScrollViewProps {
   /**
    * @desc 滚动到顶部/左边时触发
    */
-  onScrolltoupper: ScrollViewScrolltoupper;
+  onScrolltoupper: _ScrollViewScrolltoupper;
   /**
    * @desc 滚动到底部/右边时触发
    */
-  onScrolltolower: ScrollViewScrolltolower;
+  onScrolltolower: _ScrollViewScrolltolower;
   /**
    * @desc 滚动时触发
    */
-  onScroll: ScrollViewScroll;
+  onScroll: _ScrollViewScroll;
   /**
    * @desc 自定义下拉刷新控件被下拉时触发
    */
-  onRefresherpulling: ScrollViewRefresherpulling;
+  onRefresherpulling: _ScrollViewRefresherpulling;
   /**
    * @desc 自定义下拉刷新被触发时触发
    */
-  onRefresherrefresh: ScrollViewRefresherrefresh;
+  onRefresherrefresh: _ScrollViewRefresherrefresh;
   /**
    * @desc 自定义下拉刷新被复位时触发
    */
-  onRefresherrestore: ScrollViewRefresherrestore;
+  onRefresherrestore: _ScrollViewRefresherrestore;
   /**
    * @desc 自定义下拉刷新被中止时触发
    */
-  onRefresherabort: ScrollViewRefresherabort;
+  onRefresherabort: _ScrollViewRefresherabort;
 }
 
 /**
@@ -177,38 +199,68 @@ export interface ScrollViewProps {
  * @desc 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
  * @desc scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的 transparent 透明渐变
  */
-export type ScrollView = Component<Partial<ScrollViewProps>>;
+type _ScrollView = Component<Partial<_ScrollViewProps>>;
+
+export {
+  _ScrollViewRefresherDefaultStyle as ScrollViewRefresherDefaultStyle,
+  _ScrollViewScrolltoupper as ScrollViewScrolltoupper,
+  _ScrollViewScrolltolower as ScrollViewScrolltolower,
+  _ScrollViewScrollDetail as ScrollViewScrollDetail,
+  _ScrollViewScroll as ScrollViewScroll,
+  _ScrollViewRefresherpulling as ScrollViewRefresherpulling,
+  _ScrollViewRefresherrefresh as ScrollViewRefresherrefresh,
+  _ScrollViewRefresherrestore as ScrollViewRefresherrestore,
+  _ScrollViewRefresherabort as ScrollViewRefresherabort,
+  _ScrollViewProps as ScrollViewProps,
+  _ScrollView as ScrollView,
+};
 
 declare global {
-  export interface UniHelper {
+  namespace UniHelper {
+    /**
+     * @desc 设置自定义下拉刷新默认样式
+     */
+    export type ScrollViewRefresherDefaultStyle = _ScrollViewRefresherDefaultStyle;
     /**
      * @desc 滚动到顶部/左边时触发
      */
-    ScrollViewScrolltoupper: ScrollViewScrolltoupper;
+    export interface ScrollViewScrolltoupper extends _ScrollViewScrolltoupper {}
     /**
      * @desc 滚动到底部/右边时触发
      */
-    ScrollViewScrolltolower: ScrollViewScrolltolower;
+    export interface ScrollViewScrolltolower extends _ScrollViewScrolltolower {}
+    export interface ScrollViewScrollDetail extends _ScrollViewScrollDetail {}
     /**
      * @desc 滚动时触发
      */
-    ScrollViewScroll: ScrollViewScroll;
+    export interface ScrollViewScroll extends _ScrollViewScroll {}
     /**
      * @desc 自定义下拉刷新控件被下拉时触发
      */
-    ScrollViewRefresherpulling: ScrollViewRefresherpulling;
+    export interface ScrollViewRefresherpulling extends _ScrollViewRefresherpulling {}
     /**
      * @desc 自定义下拉刷新被触发时触发
      */
-    ScrollViewRefresherrefresh: ScrollViewRefresherrefresh;
+    export interface ScrollViewRefresherrefresh extends _ScrollViewRefresherrefresh {}
     /**
      * @desc 自定义下拉刷新被复位时触发
      */
-    ScrollViewRefresherrestore: ScrollViewRefresherrestore;
+    export interface ScrollViewRefresherrestore extends _ScrollViewRefresherrestore {}
     /**
      * @desc 自定义下拉刷新被中止时触发
      */
-    ScrollViewRefresherabort: ScrollViewRefresherabort;
-    ScrollViewProps: ScrollViewProps;
+    export interface ScrollViewRefresherabort extends _ScrollViewRefresherabort {}
+    /**
+     * @desc 可滚动视图区域属性
+     */
+    export interface ScrollViewProps extends _ScrollViewProps {}
+    /**
+     * @desc 可滚动视图区域，用于区域滚动
+     * @desc 在 webview 渲染的页面中，区域滚动的性能不及页面滚动
+     * @desc 纵向滚动时，需要给 scroll-view 一个固定高度，通过 css 设置 height
+     * @desc 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
+     * @desc scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的 transparent 透明渐变
+     */
+    export type ScrollView = _ScrollView;
   }
 }

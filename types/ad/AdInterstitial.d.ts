@@ -1,6 +1,41 @@
 import { Component } from '../Component';
 
-export interface AdInterstitialProps {
+/**
+ * @desc 广告加载成功的回调
+ */
+interface _AdInterstitialLoad {
+  (event: BaseEvent): void;
+}
+
+interface _AdInterstitialErrorDetail {
+  /**
+   * @desc 错误码
+   */
+  errCode: number;
+  /**
+   * @desc 错误信息
+   */
+  errMsg: string;
+}
+
+/**
+ * @desc 广告加载失败的回调
+ */
+interface _AdInterstitialError {
+  (event: CustomEvent<_AdInterstitialErrorDetail>): void;
+}
+
+/**
+ * @desc 广告关闭的回调
+ */
+interface _AdInterstitialClose {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 插屏广告属性
+ */
+interface _AdInterstitialProps {
   /**
    * @desc APP 广告位 id
    */
@@ -18,26 +53,53 @@ export interface AdInterstitialProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: (event: BaseEvent) => void;
+  onLoad: _AdInterstitialLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: (
-    event: CustomEvent<{
-      /**
-       * @desc 错误码
-       */
-      errCode: number;
-      /**
-       * @desc 错误信息
-       */
-      errMsg: string;
-    }>,
-  ) => void;
+  onError: _AdInterstitialError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: (event: BaseEvent) => void;
+  onClose: _AdInterstitialClose;
 }
 
-export type AdInterstitial = Component<Partial<AdInterstitialProps>>;
+/**
+ * @desc 插屏广告
+ */
+type _AdInterstitial = Component<Partial<_AdInterstitialProps>>;
+
+export {
+  _AdInterstitialLoad as AdInterstitialLoad,
+  _AdInterstitialErrorDetail as AdInterstitialErrorDetail,
+  _AdInterstitialError as AdInterstitialError,
+  _AdInterstitialClose as AdInterstitialClose,
+  _AdInterstitialProps as AdInterstitialProps,
+  _AdInterstitial as AdInterstitial,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 广告加载成功的回调
+     */
+    export interface AdInterstitialLoad extends _AdInterstitialLoad {}
+    export interface AdInterstitialErrorDetail extends _AdInterstitialErrorDetail {}
+    /**
+     * @desc 广告加载失败的回调
+     */
+    export interface AdInterstitialError extends _AdInterstitialError {}
+    /**
+     * @desc 广告关闭的回调
+     */
+    export interface AdInterstitialClose extends _AdInterstitialClose {}
+    /**
+     * @desc 插屏广告属性
+     */
+    export interface AdInterstitialProps extends _AdInterstitialProps {}
+    /**
+     * @desc 插屏广告
+     */
+    export type AdInterstitial = _AdInterstitial;
+  }
+}

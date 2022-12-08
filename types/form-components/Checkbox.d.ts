@@ -1,14 +1,24 @@
 import { Component } from '../Component';
 
-export interface CheckboxProps {
+/**
+ * @desc 标识
+ * @desc 选中时触发 checkbox-group 的 change 事件并携带 value
+ */
+type _CheckboxValue = string;
+
+/**
+ * @desc 多选项目属性
+ */
+interface _CheckboxProps {
   /**
    * @desc 在 form 中作为 key
    */
   name: string;
   /**
    * @desc 标识
-   * @desc 选中时触发 checkbox-group 的 change 事件并携带 value */
-  value: string;
+   * @desc 选中时触发 checkbox-group 的 change 事件并携带 value
+   */
+  value: _CheckboxValue;
   /**
    * @desc 是否禁用
    * @desc 默认为 false
@@ -28,4 +38,24 @@ export interface CheckboxProps {
 /**
  * @desc 多选项目
  */
-export type Checkbox = Component<Partial<CheckboxProps>>;
+type _Checkbox = Component<Partial<_CheckboxProps>>;
+
+export { _CheckboxValue as CheckboxValue, _CheckboxProps as CheckboxProps, _Checkbox as Checkbox };
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 标识
+     * @desc 选中时触发 checkbox-group 的 change 事件并携带 value
+     */
+    export type CheckboxValue = _CheckboxValue;
+    /**
+     * @desc 多选项目属性
+     */
+    export interface CheckboxProps extends _CheckboxProps {}
+    /**
+     * @desc 多选项目
+     */
+    export type Checkbox = _Checkbox;
+  }
+}

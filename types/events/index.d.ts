@@ -4,7 +4,7 @@ import { AnyRecord } from '../Component';
 /**
  * @desc 组件的一些属性值集合
  */
-export interface EventTarget<Dataset extends AnyRecord = AnyRecord> {
+interface _EventTarget<Dataset extends AnyRecord = AnyRecord> {
   /**
    * @desc 事件源组件的id
    */
@@ -31,7 +31,7 @@ export interface EventTarget<Dataset extends AnyRecord = AnyRecord> {
 /**
  * @desc 基础事件
  */
-export interface BaseEvent<
+interface _BaseEvent<
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
@@ -51,7 +51,7 @@ export interface BaseEvent<
   /**
    * @desc 触发事件的源组件的一些属性值集合
    */
-  target?: EventTarget<TargetDataset>;
+  target?: _EventTarget<TargetDataset>;
   /**
    * @desc 事件绑定的当前组件的一些属性值集合
    */
@@ -62,12 +62,12 @@ export interface BaseEvent<
 /**
  * @desc 自定义事件
  */
-export interface CustomEvent<
+interface _CustomEvent<
   Detail extends AnyRecord = AnyRecord,
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
-> extends BaseEvent<Mark, CurrentTargetDataset, TargetDataset> {
+> extends _BaseEvent<Mark, CurrentTargetDataset, TargetDataset> {
   /**
    * @desc 额外信息
    */
@@ -78,7 +78,7 @@ export interface CustomEvent<
 /**
  * @desc 当前停留在屏幕中的触摸点信息
  */
-export interface TouchDetail {
+interface _TouchDetail {
   /**
    * @desc 标志符
    */
@@ -104,7 +104,7 @@ export interface TouchDetail {
 /**
  * @desc 当前停留在 canvas 中的触摸点信息
  */
-export interface TouchCanvasDetail {
+interface _TouchCanvasDetail {
   /**
    * @desc 标志符
    */
@@ -122,13 +122,13 @@ export interface TouchCanvasDetail {
 /**
  * @desc 触摸事件
  */
-export interface BaseTouchEvent<
+interface _BaseTouchEvent<
   Detail extends AnyRecord = AnyRecord,
-  T extends TouchDetail | TouchCanvasDetail = TouchDetail,
+  T extends _TouchDetail | _TouchCanvasDetail = _TouchDetail,
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
-> extends CustomEvent<Detail, Mark, CurrentTargetDataset, TargetDataset> {
+> extends _CustomEvent<Detail, Mark, CurrentTargetDataset, TargetDataset> {
   /**
    * @desc 当前停留在屏幕中的触摸点信息的数组
    */
@@ -142,19 +142,67 @@ export interface BaseTouchEvent<
 /**
  * @desc 触摸事件响应
  */
-export type TouchEvent<
+interface _TouchEvent<
   Detail extends AnyRecord = AnyRecord,
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
-> = BaseTouchEvent<Detail, TouchDetail, Mark, CurrentTargetDataset, TargetDataset>;
+> extends _BaseTouchEvent<Detail, _TouchDetail, Mark, CurrentTargetDataset, TargetDataset> {}
 
 /**
  * @desc canvas 触摸事件响应
  */
-interface TouchCanvasEvent<
+interface _TouchCanvasEvent<
   Mark extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = AnyRecord,
-> extends BaseTouchEvent<never, TouchCanvasDetail, Mark, never, TargetDataset> {
+> extends _BaseTouchEvent<never, _TouchCanvasDetail, Mark, never, TargetDataset> {
   currentTarget: never;
+}
+
+export {
+  _EventTarget as EventTarget,
+  _BaseEvent as BaseEvent,
+  _CustomEvent as CustomEvent,
+  _TouchDetail as TouchDetail,
+  _TouchCanvasDetail as TouchCanvasDetail,
+  _BaseTouchEvent as BaseTouchEvent,
+  _TouchEvent as TouchEvent,
+  _TouchCanvasEvent as TouchCanvasEvent,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 组件的一些属性值集合
+     */
+    export interface EventTarget extends _EventTarget {}
+    /**
+     * @desc 基础事件
+     */
+    export interface BaseEvent extends _BaseEvent {}
+    /**
+     * @desc 自定义事件
+     */
+    export interface CustomEvent extends _CustomEvent {}
+    /**
+     * @desc 当前停留在屏幕中的触摸点信息
+     */
+    export interface TouchDetail extends _TouchDetail {}
+    /**
+     * @desc 当前停留在 canvas 中的触摸点信息
+     */
+    export interface TouchCanvasDetail extends _TouchCanvasDetail {}
+    /**
+     * @desc 触摸事件
+     */
+    export interface BaseTouchEvent extends _BaseTouchEvent {}
+    /**
+     * @desc 触摸事件响应
+     */
+    export interface TouchEvent extends _TouchEvent {}
+    /**
+     * @desc canvas 触摸事件响应
+     */
+    export interface TouchCanvasEvent extends _TouchCanvasEvent {}
+  }
 }

@@ -2,6 +2,11 @@ import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
 /**
+ * @desc 输入框的内容
+ */
+type _InputValue = 'string';
+
+/**
  * @desc input 类型
  * @desc text 文本输入键盘
  * @desc number 数字输入键盘
@@ -11,20 +16,13 @@ import { CustomEvent } from '../events';
  * @desc safe-password 密码安全输入键盘
  * @desc nickname 昵称输入键盘
  */
-export type InputType =
-  | 'text'
-  | 'number'
-  | 'idcard'
-  | 'digit'
-  | 'tel'
-  | 'safe-password'
-  | 'nickname';
+type _InputType = 'text' | 'number' | 'idcard' | 'digit' | 'tel' | 'safe-password' | 'nickname';
 
 /**
  * @desc 文本区域的语义，根据类型自动填充
  * @desc oneTimeCode 一次性验证码
  */
-export type InputTextContentType = 'oneTimeCode';
+type _InputTextContentType = 'oneTimeCode';
 
 /**
  * @desc 设置键盘右下角按钮的文字
@@ -35,9 +33,69 @@ export type InputTextContentType = 'oneTimeCode';
  * @decs done 完成
  * @desc type="text" 时有效
  */
-export type InputConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
+type _InputConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
-export interface InputProps {
+interface _InputInputDetail {
+  value: _InputValue;
+}
+
+/**
+ * @desc 输入时触发
+ */
+interface _InputInput {
+  (event: CustomEvent<_InputInputDetail>): string | void;
+}
+
+interface _InputFocusDetail {
+  value: _InputValue;
+  height: number;
+}
+
+/**
+ * @desc 聚焦时触发
+ */
+interface _InputFocus {
+  (event: CustomEvent<_InputFocusDetail>): void;
+}
+
+interface _InputBlurDetail {
+  value: _InputValue;
+}
+
+/**
+ * @desc 失焦时触发
+ */
+interface _InputBlur {
+  (event: CustomEvent<_InputBlurDetail>): void;
+}
+
+interface _InputConfirmDetail {
+  value: _InputValue;
+}
+
+/**
+ * @desc 点击完成按钮时触发
+ */
+interface _InputConfirm {
+  (event: CustomEvent<_InputConfirmDetail>): void;
+}
+
+interface _InputKeyboardheightchangeDetail {
+  height: number;
+  duration: number;
+}
+
+/**
+ * @desc 键盘高度变化时触发
+ */
+interface _InputKeyboardheightchange {
+  (event: CustomEvent<_InputKeyboardheightchangeDetail>): void;
+}
+
+/**
+ * @desc 输入框属性
+ */
+interface _InputProps {
   /**
    * @desc 在 form 中作为 key
    */
@@ -45,7 +103,7 @@ export interface InputProps {
   /**
    * @desc 输入框的初始内容
    */
-  value: string;
+  value: _InputValue;
   /**
    * @desc input 类型
    * @desc text 文本输入键盘
@@ -57,12 +115,12 @@ export interface InputProps {
    * @desc nickname 昵称输入键盘
    * @desc 默认为 text
    */
-  type: InputType;
+  type: _InputType;
   /**
    * @desc 文本区域的语义，根据类型自动填充
    * @desc oneTimeCode 一次性验证码
    */
-  textContentType: InputContentType;
+  textContentType: _InputTextContentType;
   /**
    * @desc 是否是密码类型
    * @desc 默认为 false
@@ -119,7 +177,7 @@ export interface InputProps {
    * @desc type="text" 时有效
    * @desc 默认为 done
    */
-  confirmType: InputConfirmType;
+  confirmType: _InputConfirmType;
   /**
    * @desc 点击键盘右下角按钮时是否保持键盘不收起
    * @desc 默认为 false
@@ -210,45 +268,113 @@ export interface InputProps {
   /**
    * @desc 输入时触发
    */
-  onInput: (
-    event: CustomEvent<{
-      value: InputProps['value'];
-    }>,
-  ) => string | void;
+  onInput: _InputInput;
   /**
    * @desc 聚焦时触发
    */
-  onFocus: (
-    event: CustomEvent<{
-      value: InputProps['value'];
-      height: number;
-    }>,
-  ) => void;
+  onFocus: _InputFocus;
   /**
    * @desc 失焦时触发
    */
-  onBlur: (
-    event: CustomEvent<{
-      value: InputProps['value'];
-    }>,
-  ) => void;
+  onBlur: _InputBlur;
   /**
    * @desc 点击完成按钮时触发
    */
-  onConfirm: (
-    event: CustomEvent<{
-      value: InputProps['value'];
-    }>,
-  ) => void;
+  onConfirm: _InputConfirm;
   /**
    * @desc 键盘高度变化时触发
    */
-  onKeyboardheightchange: (
-    event: CustomEvent<{
-      height: number;
-      duration: number;
-    }>,
-  ) => void;
+  onKeyboardheightchange: _InputKeyboardheightchange;
 }
 
-export type Input = Component<Partial<InputProps>>;
+/**
+ * @desc 输入框
+ */
+type _Input = Component<Partial<_InputProps>>;
+
+export {
+  _InputValue as InputValue,
+  _InputType as InputType,
+  _InputTextContentType as InputTextContentType,
+  _InputConfirmType as InputConfirmType,
+  _InputInputDetail as InputInputDetail,
+  _InputInput as InputInput,
+  _InputFocusDetail as InputFocusDetail,
+  _InputFocus as InputFocus,
+  _InputBlurDetail as InputBlurDetail,
+  _InputBlur as InputBlur,
+  _InputConfirmDetail as InputConfirmDetail,
+  _InputConfirm as InputConfirm,
+  _InputKeyboardheightchangeDetail as InputKeyboardheightchangeDetail,
+  _InputKeyboardheightchange as InputKeyboardheightchange,
+  _InputProps as InputProps,
+  _Input as Input,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 输入框的内容
+     */
+    export type InputValue = _InputValue;
+    /**
+     * @desc input 类型
+     * @desc text 文本输入键盘
+     * @desc number 数字输入键盘
+     * @desc idcard 身份证输入键盘
+     * @desc digit 带小数点的数字键盘
+     * @desc tel 电话输入键盘
+     * @desc safe-password 密码安全输入键盘
+     * @desc nickname 昵称输入键盘
+     */
+    export type InputType = _InputType;
+    /**
+     * @desc 文本区域的语义，根据类型自动填充
+     * @desc oneTimeCode 一次性验证码
+     */
+    export type InputTextContentType = _InputTextContentType;
+    /**
+     * @desc 设置键盘右下角按钮的文字
+     * @desc send 发送
+     * @desc search 搜索
+     * @desc next 下一个
+     * @desc go 前往
+     * @decs done 完成
+     * @desc type="text" 时有效
+     */
+    export type InputConfirmType = _InputConfirmType;
+    export interface InputInputDetail extends _InputInputDetail {}
+    /**
+     * @desc 输入时触发
+     */
+    export interface InputInput extends _InputInput {}
+    export interface InputFocusDetail extends _InputFocusDetail {}
+    /**
+     * @desc 聚焦时触发
+     */
+    export interface InputFocus extends _InputFocus {}
+    export interface InputBlurDetail extends _InputBlurDetail {}
+    /**
+     * @desc 失焦时触发
+     */
+    export interface InputBlur extends _InputBlur {}
+    export interface InputConfirmDetail extends _InputConfirmDetail {}
+    /**
+     * @desc 点击完成按钮时触发
+     */
+    export interface InputConfirm extends _InputConfirm {}
+    export interface InputKeyboardheightchangeDetail extends _InputKeyboardheightchangeDetail {}
+    /**
+     * @desc 键盘高度变化时触发
+     */
+    export interface InputKeyboardheightchange extends _InputKeyboardheightchange {}
+    /**
+     * @desc 输入框属性
+     */
+    export interface InputProps extends _InputProps {}
+    /**
+     * @desc 输入框
+     */
+    export type Input = _Input;
+  }
+}

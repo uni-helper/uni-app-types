@@ -13,9 +13,9 @@ import {
 
 type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
-export type AnyRecord = Record<string, any>;
+type _AnyRecord = Record<string, any>;
 
-export type Component<P extends AnyRecord = AnyRecord> = DefineComponent<
+type _Component<P extends AnyRecord = AnyRecord> = DefineComponent<
   {},
   {},
   {},
@@ -28,4 +28,13 @@ export type Component<P extends AnyRecord = AnyRecord> = DefineComponent<
   PublicProps,
   Readonly<ExtractPropTypes<P>>
 >;
+
+export { _AnyRecord as AnyRecord, _Component as Component };
+
+declare global {
+  namespace UniHelper {
+    export type AnyRecord = _AnyRecord;
+    export type Component = _Component;
+  }
+}
 /* eslint-enable @typescript-eslint/ban-types */

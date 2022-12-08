@@ -1,7 +1,42 @@
-import { Component, AnyRecord } from '../Component';
+import { AnyRecord, Component } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
-export interface AdProps {
+/**
+ * @desc 广告加载成功的回调
+ */
+interface _AdLoad {
+  (event: BaseEvent): void;
+}
+
+interface _AdErrorDetail {
+  /**
+   * @desc 错误码
+   */
+  errCode: number;
+  /**
+   * @desc 错误信息
+   */
+  errMsg: string;
+}
+
+/**
+ * @desc 广告加载失败的回调
+ */
+interface _AdError {
+  (event: CustomEvent<_AdErrorDetail>): void;
+}
+
+/**
+ * @desc 广告关闭的回调
+ */
+interface _AdClose {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 信息流广告属性
+ */
+interface _AdProps {
   /**
    * @desc APP 广告位 id
    */
@@ -56,29 +91,53 @@ export interface AdProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: (event: BaseEvent) => void;
+  onLoad: _AdLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: (
-    event: CustomEvent<{
-      /**
-       * @desc 错误码
-       */
-      errCode: number;
-      /**
-       * @desc 错误信息
-       */
-      errMsg: string;
-    }>,
-  ) => void;
+  onError: _AdError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: (event: BaseEvent) => void;
+  onClose: _AdClose;
 }
 
 /**
- * @desc 广告
+ * @desc 信息流广告
  */
-export type Ad = Component<Partial<AdProps>>;
+type _Ad = Component<Partial<_AdProps>>;
+
+export {
+  _AdLoad as AdLoad,
+  _AdErrorDetail as AdErrorDetail,
+  _AdError as AdError,
+  _AdClose as AdClose,
+  _AdProps as AdProps,
+  _Ad as Ad,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 广告加载成功的回调
+     */
+    export interface AdLoad extends _AdLoad {}
+    export interface AdErrorDetail extends _AdErrorDetail {}
+    /**
+     * @desc 广告加载失败的回调
+     */
+    export interface AdError extends _AdError {}
+    /**
+     * @desc 广告关闭的回调
+     */
+    export interface AdClose extends _AdClose {}
+    /**
+     * @desc 信息流广告属性
+     */
+    export interface AdProps extends _AdProps {}
+    /**
+     * @desc 信息流广告
+     */
+    export type Ad = _Ad;
+  }
+}

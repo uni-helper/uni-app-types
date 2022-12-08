@@ -1,5 +1,13 @@
 import { Component } from '../Component';
 
-export interface TemplateProps {}
+interface _TemplateProps {}
 
-export type Template = Component<Partial<TemplateProps>>;
+type _Template = Component<Partial<_TemplateProps>>;
+
+export { _TemplateProps as TemplateProps, _Template as Template };
+
+// declare global {
+//   namespace UniHelper {
+//     export type TemplateProps = _TemplateProps;
+//   }
+// }

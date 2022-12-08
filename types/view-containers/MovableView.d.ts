@@ -1,13 +1,10 @@
 import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
-// TODO: htouchmove
-// TODO: vtouchmove
-
 /**
  * @desc movable-view 的移动方向
  */
-export type MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
+type _MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
 
 /**
  * @desc movable-view 产生移动的原因
@@ -17,14 +14,55 @@ export type MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
  * @desc friction 惯性
  * @desc 空字符串 setData
  */
-export type MovableViewSource = 'touch' | 'touch-out-of-bounds' | 'out-of-bounds' | 'friction' | '';
+type _MovableViewSource = 'touch' | 'touch-out-of-bounds' | 'out-of-bounds' | 'friction' | '';
 
-export interface MovableViewProps {
+interface _MovableViewChangeDetail {
+  x: number;
+  y: number;
+  /**
+   * @desc movable-view 产生移动的原因
+   * @desc touch 拖动
+   * @desc touch-out-of-bounds 超出移动范围
+   * @desc out-of-bounds 超出移动范围后的回弹
+   * @desc friction 惯性
+   * @desc 空字符串 setData
+   */
+  source: _MovableViewSource;
+}
+
+/**
+ * @desc 拖动过程中触发
+ */
+interface _MovableViewChange {
+  (event: CustomEvent<_MovableViewChangeDetail>): void;
+}
+
+interface _MovableViewScaleDetail {
+  x: number;
+  y: number;
+  /**
+   * @desc 是否支持双指缩放
+   * @desc 默认缩放手势生效区域是在 movable-view 内
+   */
+  scale: boolean;
+}
+
+/**
+ * @desc 缩放过程中触发
+ */
+interface _MovableViewScale {
+  (event: CustomEvent<_MovableViewScaleDetail>): void;
+}
+
+/**
+ * @desc 可移动的视图容器属性
+ */
+interface _MovableViewProps {
   /**
    * @desc movable-view 的移动方向
    * @desc 默认为 none
    */
-  direction: MovableViewDirection;
+  direction: _MovableViewDirection;
   /**
    * @desc 是否带有惯性
    * @desc 默认为 false
@@ -95,39 +133,63 @@ export interface MovableViewProps {
   /**
    * @desc 拖动过程中触发
    */
-  onChange: (
-    event: CustomEvent<{
-      x: number;
-      y: number;
-      /**
-       * @desc movable-view 产生移动的原因
-       * @desc touch 拖动
-       * @desc touch-out-of-bounds 超出移动范围
-       * @desc out-of-bounds 超出移动范围后的回弹
-       * @desc friction 惯性
-       * @desc 空字符串 setData
-       */
-      source: MovableViewChangeSource;
-    }>,
-  ) => void;
+  onChange: _MovableViewChange;
   /**
    * @desc 缩放过程中触发
    */
-  onScale: (
-    event: CustomEvent<{
-      x: number;
-      y: number;
-      /**
-       * @desc 是否支持双指缩放
-       * @desc 默认缩放手势生效区域是在 movable-view 内
-       */
-      scale: boolean;
-    }>,
-  ) => void;
+  onScale: _MovableViewScale;
 }
 
 /**
  * @desc 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
  * @desc movable-area 直接子组件
  */
-export type MovableView = Component<Partial<MovableViewProps>>;
+type _MovableView = Component<Partial<_MovableViewProps>>;
+
+export {
+  _MovableViewDirection as MovableViewDirection,
+  _MovableViewSource as MovableViewSource,
+  _MovableViewChangeDetail as MovableViewChangeDetail,
+  _MovableViewChange as MovableViewChange,
+  _MovableViewScaleDetail as MovableViewScaleDetail,
+  _MovableViewScale as MovableViewScale,
+  _MovableViewProps as MovableViewProps,
+  _MovableView as MovableView,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc movable-view 的移动方向
+     */
+    export type MovableViewDirection = _MovableViewDirection;
+    /**
+     * @desc movable-view 产生移动的原因
+     * @desc touch 拖动
+     * @desc touch-out-of-bounds 超出移动范围
+     * @desc out-of-bounds 超出移动范围后的回弹
+     * @desc friction 惯性
+     * @desc 空字符串 setData
+     */
+    export type MovableViewSource = _MovableViewSource;
+    export interface MovableViewChangeDetail extends _MovableViewChangeDetail {}
+    /**
+     * @desc 拖动过程中触发
+     */
+    export interface MovableViewChange extends _MovableViewChange {}
+    export interface MovableViewScaleDetail extends _MovableViewScaleDetail {}
+    /**
+     * @desc 缩放过程中触发
+     */
+    export interface MovableViewScale extends _MovableViewScale {}
+    /**
+     * @desc 可移动的视图容器属性
+     */
+    export interface MovableViewProps extends _MovableViewProps {}
+    /**
+     * @desc 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
+     * @desc movable-area 直接子组件
+     */
+    export interface MovableView extends _MovableView {}
+  }
+}

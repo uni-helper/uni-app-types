@@ -1,6 +1,6 @@
 import { Component } from '../Component';
 
-export interface ViewProps {
+interface _ViewProps {
   /**
    * @desc 指定按下去的样式类
    * @desc 当 hover-class="none" 时，没有点击态效果
@@ -31,10 +31,18 @@ export interface ViewProps {
  * @desc 包裹文字建议使用 text
  * @desc 如果使用 div，会编译成 view
  */
-export type View = Component<Partial<ViewProps>>;
+type _View = Component<Partial<_ViewProps>>;
+
+export { _ViewProps as ViewProps, _View as View };
 
 declare global {
-  export interface UniHelper {
-    ViewProps: ViewProps;
+  namespace UniHelper {
+    export interface ViewProps extends _ViewProps {}
+    /**
+     * @desc 视图容器，和 div 类似，用于包裹各种元素内容
+     * @desc 包裹文字建议使用 text
+     * @desc 如果使用 div，会编译成 view
+     */
+    export type View = _View;
   }
 }

@@ -6,21 +6,21 @@ import { BaseEvent, CustomEvent } from '../events';
  * @dec live 直播
  * @desc RTC 实时通话，该模式时延更低
  */
-export type LivePlayerMode = 'live' | 'RTC';
+type _LivePlayerMode = 'live' | 'RTC';
 
 /**
  * @desc 画面方向
  * @desc vertical 纵向
  * @desc horizontal 横向
  */
-export type LivePlayerOrientation = 'vertical' | 'horizontal';
+type _LivePlayerOrientation = 'vertical' | 'horizontal';
 
 /**
  * @desc 填充模式
  * @desc contain 图像长边填满屏幕，短边区域会被填充⿊⾊
  * @desc fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
  */
-export type LivePlayerObjectFit = 'contain' | 'fillCrop';
+type _LivePlayerObjectFit = 'contain' | 'fillCrop';
 
 /**
  * @desc 声音输出方式
@@ -28,14 +28,14 @@ export type LivePlayerObjectFit = 'contain' | 'fillCrop';
  * @desc ear 听筒
  * @desc 默认为 speaker
  */
-export type LivePlayerSoundMode = 'speaker' | 'ear';
+type _LivePlayerSoundMode = 'speaker' | 'ear';
 
 /**
  * @desc 设置小窗模式
  * @desc push 路由 push 时触发小窗
  * @desc pop 路由 pop 时触发小窗
  */
-export type LivePlayerPictureInPictureMode = 'push' | 'pop';
+type _LivePlayerPictureInPictureMode = 'push' | 'pop';
 
 /**
  * @desc 状态码
@@ -63,7 +63,7 @@ export type LivePlayerPictureInPictureMode = 'push' | 'pop';
  * @desc 3003 RTMP 服务器握手失败
  * @desc 3005 RTMP 读/写失败
  */
-export type LivePlayerCode =
+type _LivePlayerCode =
   | 2001
   | 2002
   | 2003
@@ -91,7 +91,7 @@ export type LivePlayerCode =
 /**
  * @desc 网络状态
  */
-export interface LivePlayerInfo {
+interface _LivePlayerInfo {
   /**
    * @desc 当前视频编/码器输出的比特率
    * @desc 单位为 kbps
@@ -165,7 +165,94 @@ export interface LivePlayerInfo {
   audioCacheThreshold?: number;
 }
 
-export interface LivePlayerProps {
+interface _LivePlayerStatechangeDetail {
+  /**
+   * @desc 状态码
+   * @desc 2001 已经连接服务器
+   * @desc 2002 已经连接服务器，开始拉流
+   * @desc 2003 网络接收到首个视频数据包 IDR
+   * @desc 2004 视频播放开始
+   * @desc 2005 视频播放进度
+   * @desc 2006 视频播放结束
+   * @desc 2007 视频播放 Loading
+   * @desc 2008 解码器启动
+   * @desc 2009 视频分辨率改变
+   * @desc -2301 网络断连，且经多次重连抢救无效，更多重试请自行重启播放
+   * @desc -2302 获取加速拉流地址失败
+   * @desc 2101 当前视频帧解码失败
+   * @desc 2102 当前音频帧解码失败
+   * @desc 2103 网络断连, 已启动自动重连
+   * @desc 2104 网络来包不稳，可能是下行带宽不足，或由于主播端出流不均匀
+   * @desc 2105 当前视频播放出现卡顿
+   * @desc 2106 硬解启动失败，采用软解
+   * @desc 2107 当前视频帧不连续，可能丢帧
+   * @desc 2108 当前流硬解第一个 I 帧失败，SDK 自动切软解
+   * @desc 3001 RTMP - DNS解析失败
+   * @desc 3002 RTMP 服务器连接失败
+   * @desc 3003 RTMP 服务器握手失败
+   * @desc 3005 RTMP 读/写失败
+   */
+  code: _LivePlayerCode;
+}
+
+/**
+ * @desc 播放状态变化时触发
+ */
+interface _LivePlayerStatechange {
+  (event: CustomEvent<_LivePlayerStatechangeDetail>): void;
+}
+
+interface _LivePlayerNetstatusDetail {
+  /**
+   * @desc 网络状态
+   */
+  info: _LivePlayerInfo;
+}
+
+/**
+ * @desc 网络状态变化时触发
+ */
+interface _LivePlayerNetstatus {
+  (event: CustomEvent<_LivePlayerNetstatusDetail>): void;
+}
+
+interface _LivePlayerFullscreenchangeDetail {
+  direction: _LivePlayerOrientation;
+  fullScreen: boolean;
+}
+
+/**
+ * @desc 全屏变化时触发
+ */
+interface _LivePlayerFullscreenchange {
+  (event: CustomEvent<_LivePlayerFullscreenchangeDetail>): void;
+}
+
+/**
+ * @desc 播放音量变化时触发
+ */
+interface _LivePlayerAudiovolumenotify {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 播放器进入小窗时触发
+ */
+interface _LivePlayerEnterpictureinpicture {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 播放器退出小窗时触发
+ */
+interface _LivePlayerLeavepictureinpicture {
+  (event: BaseEvent): void;
+}
+
+/**
+ * @desc 实时音视频播放（直播拉流）属性
+ */
+interface _LivePlayerProps {
   /**
    * @desc 唯一标志符
    */
@@ -180,7 +267,7 @@ export interface LivePlayerProps {
    * @desc RTC 实时通话，该模式时延更低
    * @desc 默认为 live
    */
-  mode: LivePlayerMode;
+  mode: _LivePlayerMode;
   /**
    * @desc 是否自动播放
    * @desc 默认为 false
@@ -197,14 +284,14 @@ export interface LivePlayerProps {
    * @desc horizontal 横向
    * @desc 默认为 vertical
    */
-  orientation: LivePlayerOrientation;
+  orientation: _LivePlayerOrientation;
   /**
    * @desc 填充模式
    * @desc contain 图像长边填满屏幕，短边区域会被填充⿊⾊
    * @desc fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
    * @desc 默认为 contain
    */
-  objectFit: LivePlayerObjectFit;
+  objectFit: _LivePlayerObjectFit;
   /**
    * @desc 进入后台时是否静音
    * @desc 默认为 false
@@ -216,7 +303,7 @@ export interface LivePlayerProps {
    * @desc ear 听筒
    * @desc 默认为 speaker
    */
-  soundMode: LivePlayerSoundMode;
+  soundMode: _LivePlayerSoundMode;
   /**
    * @desc 最小缓冲区
    * @desc 单位为 s
@@ -232,76 +319,157 @@ export interface LivePlayerProps {
   /**
    * @desc 设置小窗模式，空字符串或通过数组形式设置多种模式
    */
-  pictureInPictureMode: LivePlayerPictureInPictureMode | LivePlayerPictureInPictureMode[];
+  pictureInPictureMode: _LivePlayerPictureInPictureMode | _LivePlayerPictureInPictureMode[];
   /**
    * @desc 播放状态变化时触发
    */
-  onStatechange: (
-    event: CustomEvent<{
-      /**
-       * @desc 状态码
-       * @desc 2001 已经连接服务器
-       * @desc 2002 已经连接服务器，开始拉流
-       * @desc 2003 网络接收到首个视频数据包 IDR
-       * @desc 2004 视频播放开始
-       * @desc 2005 视频播放进度
-       * @desc 2006 视频播放结束
-       * @desc 2007 视频播放 Loading
-       * @desc 2008 解码器启动
-       * @desc 2009 视频分辨率改变
-       * @desc -2301 网络断连，且经多次重连抢救无效，更多重试请自行重启播放
-       * @desc -2302 获取加速拉流地址失败
-       * @desc 2101 当前视频帧解码失败
-       * @desc 2102 当前音频帧解码失败
-       * @desc 2103 网络断连, 已启动自动重连
-       * @desc 2104 网络来包不稳，可能是下行带宽不足，或由于主播端出流不均匀
-       * @desc 2105 当前视频播放出现卡顿
-       * @desc 2106 硬解启动失败，采用软解
-       * @desc 2107 当前视频帧不连续，可能丢帧
-       * @desc 2108 当前流硬解第一个 I 帧失败，SDK 自动切软解
-       * @desc 3001 RTMP - DNS解析失败
-       * @desc 3002 RTMP 服务器连接失败
-       * @desc 3003 RTMP 服务器握手失败
-       * @desc 3005 RTMP 读/写失败
-       */
-      code: LivePlayerCode;
-    }>,
-  ) => void;
+  onStatechange: _LivePlayerStatechange;
   /**
    * @desc 网络状态变化时触发
    */
-  onNetstatus: (
-    event: CustomEvent<{
-      /**
-       * @desc 网络状态
-       */
-      info: LivePlayerInfo;
-    }>,
-  ) => void;
+  onNetstatus: _LivePlayerNetstatus;
   /**
    * @desc 全屏变化时触发
    */
-  onFullscreenchange: (
-    event: CustomEvent<{
-      direction: LivePlayerOrientation;
-      fullScreen: boolean;
-    }>,
-  ) => void;
+  onFullscreenchange: _LivePlayerFullscreenchange;
   /**
    * @desc 播放音量变化时触发
    */
-  onAudiovolumenotify: (event: BaseEvent) => void;
+  onAudiovolumenotify: _LivePlayerAudiovolumenotify;
   /**
    * @desc 播放器进入小窗时触发
    */
-  onEnterpictureinpicture: (event: BaseEvent) => void;
+  onEnterpictureinpicture: _LivePlayerEnterpictureinpicture;
   /**
    * @desc 播放器退出小窗时触发
    */
-  onLeavepictureinpicture: (event: BaseEvent) => void;
+  onLeavepictureinpicture: _LivePlayerLeavepictureinpicture;
 }
 
 /**
  * @desc 实时音视频播放（直播拉流）
  */
-export type LivePlayer = Component<Partial<LivePlayerProps>>;
+type _LivePlayer = Component<Partial<_LivePlayerProps>>;
+
+export {
+  _LivePlayerMode as LivePlayerMode,
+  _LivePlayerOrientation as LivePlayerOrientation,
+  _LivePlayerObjectFit as LivePlayerObjectFit,
+  _LivePlayerSoundMode as LivePlayerSoundMode,
+  _LivePlayerPictureInPictureMode as LivePlayerPictureInPictureMode,
+  _LivePlayerCode as LivePlayerCode,
+  _LivePlayerInfo as LivePlayerInfo,
+  _LivePlayerStatechangeDetail as LivePlayerStatechangeDetail,
+  _LivePlayerStatechange as LivePlayerStatechange,
+  _LivePlayerNetstatusDetail as LivePlayerNetstatusDetail,
+  _LivePlayerNetstatus as LivePlayerNetstatus,
+  _LivePlayerFullscreenchangeDetail as LivePlayerFullscreenchangeDetail,
+  _LivePlayerFullscreenchange as LivePlayerFullscreenchange,
+  _LivePlayerAudiovolumenotify as LivePlayerAudiovolumenotify,
+  _LivePlayerEnterpictureinpicture as LivePlayerEnterpictureinpicture,
+  _LivePlayerLeavepictureinpicture as LivePlayerLeavepictureinpicture,
+  _LivePlayerProps as LivePlayerProps,
+  _LivePlayer as LivePlayer,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 实时模式
+     * @dec live 直播
+     * @desc RTC 实时通话，该模式时延更低
+     */
+    export type LivePlayerMode = _LivePlayerMode;
+    /**
+     * @desc 画面方向
+     * @desc vertical 纵向
+     * @desc horizontal 横向
+     */
+    export type LivePlayerOrientation = _LivePlayerOrientation;
+    /**
+     * @desc 填充模式
+     * @desc contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+     * @desc fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+     */
+    export type LivePlayerObjectFit = _LivePlayerObjectFit;
+    /**
+     * @desc 声音输出方式
+     * @desc speaker 扬声器
+     * @desc ear 听筒
+     * @desc 默认为 speaker
+     */
+    export type LivePlayerSoundMode = _LivePlayerSoundMode;
+    /**
+     * @desc 设置小窗模式
+     * @desc push 路由 push 时触发小窗
+     * @desc pop 路由 pop 时触发小窗
+     */
+    export type LivePlayerPictureInPictureMode = _LivePlayerPictureInPictureMode;
+    /**
+     * @desc 状态码
+     * @desc 2001 已经连接服务器
+     * @desc 2002 已经连接服务器，开始拉流
+     * @desc 2003 网络接收到首个视频数据包 IDR
+     * @desc 2004 视频播放开始
+     * @desc 2005 视频播放进度
+     * @desc 2006 视频播放结束
+     * @desc 2007 视频播放 Loading
+     * @desc 2008 解码器启动
+     * @desc 2009 视频分辨率改变
+     * @desc -2301 网络断连，且经多次重连抢救无效，更多重试请自行重启播放
+     * @desc -2302 获取加速拉流地址失败
+     * @desc 2101 当前视频帧解码失败
+     * @desc 2102 当前音频帧解码失败
+     * @desc 2103 网络断连, 已启动自动重连
+     * @desc 2104 网络来包不稳，可能是下行带宽不足，或由于主播端出流不均匀
+     * @desc 2105 当前视频播放出现卡顿
+     * @desc 2106 硬解启动失败，采用软解
+     * @desc 2107 当前视频帧不连续，可能丢帧
+     * @desc 2108 当前流硬解第一个 I 帧失败，SDK 自动切软解
+     * @desc 3001 RTMP - DNS解析失败
+     * @desc 3002 RTMP 服务器连接失败
+     * @desc 3003 RTMP 服务器握手失败
+     * @desc 3005 RTMP 读/写失败
+     */
+    export type LivePlayerCode = _LivePlayerCode;
+    /**
+     * @desc 网络状态
+     */
+    export interface LivePlayerInfo extends _LivePlayerInfo {}
+    export interface LivePlayerStatechangeDetail extends _LivePlayerStatechangeDetail {}
+    /**
+     * @desc 播放状态变化时触发
+     */
+    export interface LivePlayerStatechange extends _LivePlayerStatechange {}
+    export interface LivePlayerNetstatusDetail extends _LivePlayerNetstatusDetail {}
+    /**
+     * @desc 网络状态变化时触发
+     */
+    export interface LivePlayerNetstatus extends _LivePlayerNetstatus {}
+    export interface LivePlayerFullscreenchangeDetail extends _LivePlayerFullscreenchangeDetail {}
+    /**
+     * @desc 全屏变化时触发
+     */
+    export interface LivePlayerFullscreenchange extends _LivePlayerFullscreenchange {}
+    /**
+     * @desc 播放音量变化时触发
+     */
+    export interface LivePlayerAudiovolumenotify extends _LivePlayerAudiovolumenotify {}
+    /**
+     * @desc 播放器进入小窗时触发
+     */
+    export interface LivePlayerEnterpictureinpicture extends _LivePlayerEnterpictureinpicture {}
+    /**
+     * @desc 播放器退出小窗时触发
+     */
+    export interface LivePlayerLeavepictureinpicture extends _LivePlayerLeavepictureinpicture {}
+    /**
+     * @desc 实时音视频播放（直播拉流）属性
+     */
+    export interface LivePlayerProps extends _LivePlayerProps {}
+    /**
+     * @desc 实时音视频播放（直播拉流）
+     */
+    export type LivePlayer = _LivePlayer;
+  }
+}

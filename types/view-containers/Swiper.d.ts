@@ -7,67 +7,76 @@ import { CustomEvent } from '../events';
  * @desc touch 用户滑动
  * @desc 空字符串 其它原因
  */
-export type SwiperSource = 'autoplay' | 'touch' | '';
+type _SwiperSource = 'autoplay' | 'touch' | '';
 
 /**
- * @desc swiper 切换缓动动画类型
+ * @desc swiper 切换动画类型
  */
-export type SwiperEasingFunction =
+type _SwiperEasingFunction =
   | 'default'
   | 'linear'
   | 'easeInCubic'
   | 'easeOutCubic'
   | 'easeInOutCubic';
 
+interface _SwiperChangeDetail {
+  /**
+   * @desc 当前所在滑块的下标
+   */
+  current: number;
+  /**
+   * @desc 导致变更的原因
+   * @desc autoplay 自动播放
+   * @desc touch 用户滑动
+   * @desc 空字符串 其它原因
+   */
+  source: _SwiperSource;
+}
+
 /**
  * @desc current 改变时触发
  */
-export type SwiperChange = (
-  event: CustomEvent<{
-    /**
-     * @desc 当前所在滑块的下标
-     */
-    current: number;
-    /**
-     * @desc 导致变更的原因
-     * @desc autoplay 自动播放
-     * @desc touch 用户滑动
-     * @desc 空字符串 其它原因
-     */
-    source: SwiperSource;
-  }>,
-) => void;
+interface _SwiperChange {
+  (event: CustomEvent<_SwiperChangeDetail>): void;
+}
+
+interface _SwiperTransitionDetail {
+  dx?: number;
+  dy?: number;
+}
 
 /**
  * @desc swiper-item 位置改变时触发
  */
-export type SwiperTransition = (
-  event: CustomEvent<{
-    dx?: number;
-    dy?: number;
-  }>,
-) => void;
+interface _SwiperTransition {
+  (event: CustomEvent<_SwiperTransitionDetail>): void;
+}
+
+interface _SwiperAnimationfinishDetail {
+  /**
+   * @desc 当前所在滑块的下标
+   */
+  current: number;
+  /**
+   * @desc 导致变更的原因
+   * @desc autoplay 自动播放
+   * @desc touch 用户滑动
+   * @desc 空字符串其它原因
+   */
+  source: _SwiperSource;
+}
 
 /**
  * @desc 动画结束时触发
  */
-export type SwiperAnimationfinish = (
-  event: CustomEvent<{
-    /**
-     * @desc 当前所在滑块的下标
-     */
-    current: number;
-    /**
-     * @desc 导致变更的原因
-     * @desc autoplay 自动播放
-     * @desc touch 用户滑动
-     * @desc 空字符串其它原因
-     */
-    source: SwiperSource;
-  }>,
-) => void;
+interface _SwiperAnimationfinish {
+  (event: CustomEvent<_SwiperAnimationfinishDetail>): void;
+}
 
-export interface SwiperProps {
+/**
+ * @desc 滑块视图容器属性
+ */
+interface _SwiperProps {
   /**
    * @desc 是否显示面板指示点
    * @desc 默认为 false
@@ -173,19 +182,19 @@ export interface SwiperProps {
    * @desc 指定 swiper 切换缓动动画类型
    * @desc 默认为 default
    */
-  easingFunction: SwiperEasingFunction;
+  easingFunction: _SwiperEasingFunction;
   /**
    * @desc current 改变时触发
    */
-  onChange: SwiperChange;
+  onChange: _SwiperChange;
   /**
    * @desc swiper-item 位置改变时触发
    */
-  onTransition: SwiperTransition;
+  onTransition: _SwiperTransition;
   /**
    * @desc 动画结束时触发
    */
-  onAnimationfinish: SwiperAnimationfinish;
+  onAnimationfinish: _SwiperAnimationfinish;
 }
 
 /**
@@ -193,33 +202,58 @@ export interface SwiperProps {
  * @desc 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
  * @desc swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
  */
-export type Swiper = Component<Partial<SwiperProps>>;
+type _Swiper = Component<Partial<_SwiperProps>>;
+
+export {
+  _SwiperSource as SwiperSource,
+  _SwiperEasingFunction as SwiperEasingFunction,
+  _SwiperChangeDetail as SwiperChangeDetail,
+  _SwiperChange as SwiperChange,
+  _SwiperTransitionDetail as SwiperTransitionDetail,
+  _SwiperTransition as SwiperTransition,
+  _SwiperAnimationfinishDetail as SwiperAnimationfinishDetail,
+  _SwiperAnimationfinish as SwiperAnimationfinish,
+  _SwiperProps as SwiperProps,
+  _Swiper as Swiper,
+};
 
 declare global {
-  export interface UniHelper {
+  namespace UniHelper {
     /**
      * @desc 导致变更的原因
      * @desc autoplay 自动播放
      * @desc touch 用户滑动
      * @desc 空字符串 其它原因
      */
-    SwiperSource: SwiperSource;
+    export type SwiperSource = _SwiperSource;
     /**
-     * @desc swiper 切换缓动动画类型
+     * @desc swiper 切换动画类型
      */
-    SwiperEasingFunction: SwiperEasingFunction;
+    export type SwiperEasingFunction = _SwiperEasingFunction;
+    export interface SwiperChangeDetail extends _SwiperChangeDetail {}
     /**
      * @desc current 改变时触发
      */
-    SwiperChange: SwiperChange;
+    export interface SwiperChange extends _SwiperChange {}
+    export interface SwiperTransitionDetail extends _SwiperTransitionDetail {}
     /**
      * @desc swiper-item 位置改变时触发
      */
-    SwiperTransition: SwiperTransition;
+    export interface SwiperTransition extends _SwiperTransition {}
+    export interface SwiperAnimationfinishDetail extends _SwiperAnimationfinishDetail {}
     /**
      * @desc 动画结束时触发
      */
-    SwiperAnimationfinish: SwiperAnimationfinish;
-    SwiperProps: SwiperProps;
+    export interface SwiperAnimationfinish extends _SwiperAnimationfinish {}
+    /**
+     * @desc 滑块视图容器属性
+     */
+    export interface SwiperProps extends _SwiperProps {}
+    /**
+     * @desc 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
+     * @desc 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
+     * @desc swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     */
+    export interface Swiper extends _Swiper {}
   }
 }

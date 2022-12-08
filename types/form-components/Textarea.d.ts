@@ -2,6 +2,11 @@ import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
 /**
+ * @desc 输入框内容
+ */
+type _TextareaValue = string;
+
+/**
  * @desc 设置键盘右下角按钮的文字
  * @desc send 发送
  * @desc search 搜索
@@ -9,9 +14,84 @@ import { CustomEvent } from '../events';
  * @desc go 前往
  * @desc done 完成
  */
-export type TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
+type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
-export interface TextareaProps {
+interface _TextareaFocusDetail {
+  value: _TextareaValue;
+  height: number;
+}
+
+/**
+ * @desc 聚焦时触发
+ */
+interface _TextareaFocus {
+  (event: CustomEvent<_TextareaFocusDetail>): void;
+}
+
+interface _TextareaBlurDetail {
+  value: _TextareaValue;
+  height: number;
+}
+
+/**
+ * @desc 失焦时触发
+ */
+interface _TextareaBlur {
+  (event: CustomEvent<_TextareaBlurDetail>);
+}
+
+interface _TextareaLinechangeDetail {
+  height: number;
+  heightRpx: number;
+  lineCount: number;
+}
+
+/**
+ * @desc 输入框行数变化时触发
+ */
+interface _TextareaLinechange {
+  (event: CustomEvent<_TextareaLinechangeDetail>): void;
+}
+
+interface _TextareaInputDetail {
+  value: _TextareaValue;
+  cursor: number;
+}
+
+/**
+ * @desc 输入时触发
+ */
+interface _TextareaInput {
+  (event: CustomEvent<_TextareaInputDetail>): string | void;
+}
+
+interface _TextareaConfirmDetail {
+  value: _TextareaValue;
+}
+
+/**
+ * @desc 点击完成按钮时触发
+ */
+interface _TextareaConfirm {
+  (event: CustomEvent<_TextareaConfirmDetail>): void;
+}
+
+interface _TextareaKeyboardheightchangeDetail {
+  height: number;
+  duration: number;
+}
+
+/**
+ * @desc 键盘高度变化时触发
+ */
+interface _TextareaKeyboardheightchange {
+  (event: CustomEvent<_TextareaKeyboardheightchangeDetail>): void;
+}
+
+/**
+ * @desc 多行输入框属性
+ */
+interface _TextareaProps {
   /**
    * @desc 输入框的内容
    */
@@ -80,7 +160,7 @@ export interface TextareaProps {
    * @desc done 完成
    * @desc 默认为 done
    */
-  confirmType: TextareaConfirmType;
+  confirmType: _TextareaConfirmType;
   /**
    * @desc 点击键盘右下角按钮时是否保持键盘不收起
    * @desc 默认为 false
@@ -130,60 +210,106 @@ export interface TextareaProps {
   /**
    * @desc 聚焦时触发
    */
-  onFocus: (
-    event: CustomEvent<{
-      value: TextareaProps['value'];
-      height: number;
-    }>,
-  ) => void;
+  onFocus: _TextareaFocus;
   /**
    * @desc 失焦时触发
    */
-  onBlur: (
-    event: CustomEvent<{
-      value: TextareaProps['value'];
-      height: number;
-    }>,
-  ) => void;
+  onBlur: _TextareaBlur;
   /**
    * @desc 输入框行数变化时触发
    */
-  onLinechange: (
-    event: CustomEvent<{
-      height: number;
-      heightRpx: number;
-      lineCount: number;
-    }>,
-  ) => void;
+  onLinechange: _TextareaLinechange;
   /**
    * @desc 输入时触发
    */
-  onInput: (
-    event: CustomEvent<{
-      value: TextareaProps['value'];
-      cursor: number;
-    }>,
-  ) => string | void;
+  onInput: _TextareaInput;
   /**
    * @desc 点击完成按钮时触发
    */
-  onConfirm: (
-    event: CustomEvent<{
-      value: TextareaProps['value'];
-    }>,
-  ) => void;
+  onConfirm: _TextareaConfirm;
   /**
    * @desc 键盘高度变化时触发
    */
-  onKeyboardheightchange: (
-    event: CustomEvent<{
-      height: number;
-      duration: number;
-    }>,
-  ) => void;
+  onKeyboardheightchange: _TextareaKeyboardheightchange;
 }
 
 /**
  * @desc 多行输入框
  */
-export type Textarea = Component<Partial<TextareaProps>>;
+type _Textarea = Component<Partial<_TextareaProps>>;
+
+export {
+  _TextareaValue as TextareaValue,
+  _TextareaConfirmType as TextareaConfirmType,
+  _TextareaFocusDetail as TextareaFocusDetail,
+  _TextareaFocus as TextareaFocus,
+  _TextareaBlurDetail as TextareaBlurDetail,
+  _TextareaBlur as TextareaBlur,
+  _TextareaLinechangeDetail as TextareaLinechangeDetail,
+  _TextareaLinechange as TextareaLinechange,
+  _TextareaInputDetail as TextareaInputDetail,
+  _TextareaInput as TextareaInput,
+  _TextareaConfirmDetail as TextareaConfirmDetail,
+  _TextareaConfirm as TextareaConfirm,
+  _TextareaKeyboardheightchangeDetail as TextareaKeyboardheightchangeDetail,
+  _TextareaKeyboardheightchange as TextareaKeyboardheightchange,
+  _TextareaProps as TextareaProps,
+  _Textarea as Textarea,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 输入框内容
+     */
+    export type TextareaValue = _TextareaValue;
+    /**
+     * @desc 设置键盘右下角按钮的文字
+     * @desc send 发送
+     * @desc search 搜索
+     * @desc next 下一个
+     * @desc go 前往
+     * @desc done 完成
+     */
+    export type TextareaConfirmType = _TextareaConfirmType;
+    export interface TextareaFocusDetail extends _TextareaFocusDetail {}
+    /**
+     * @desc 聚焦时触发
+     */
+    export interface TextareaFocus extends _TextareaFocus {}
+    export interface TextareaBlurDetail extends _TextareaBlurDetail {}
+    /**
+     * @desc 失焦时触发
+     */
+    export interface TextareaBlur extends _TextareaBlur {}
+    export interface TextareaLinechangeDetail extends _TextareaLinechangeDetail {}
+    /**
+     * @desc 输入框行数变化时触发
+     */
+    export interface TextareaLinechange extends _TextareaLinechange {}
+    export interface TextareaInputDetail extends _TextareaInputDetail {}
+    /**
+     * @desc 输入时触发
+     */
+    export interface TextareaInput extends _TextareaInput {}
+    export interface TextareaConfirmDetail extends _TextareaConfirmDetail {}
+    /**
+     * @desc 点击完成按钮时触发
+     */
+    export interface TextareaConfirm extends _TextareaConfirm {}
+    export interface TextareaKeyboardheightchangeDetail
+      extends _TextareaKeyboardheightchangeDetail {}
+    /**
+     * @desc 键盘高度变化时触发
+     */
+    export interface TextareaKeyboardheightchange extends _TextareaKeyboardheightchange {}
+    /**
+     * @desc 多行输入框属性
+     */
+    export interface TextareaProps extends _TextareaProps {}
+    /**
+     * @desc 多行输入框
+     */
+    export type Textarea = _Textarea;
+  }
+}
