@@ -31,7 +31,7 @@
     "release": "release-it",
     "check:types": "tsc --noEmit",
     "lint": "run-p lint:eslint lint:markdownlint check:types",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue --ignore-path=.gitignore --cache",
+    "lint:eslint": "eslint ./types --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue --ignore-path=.gitignore --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install"
   },
@@ -62,6 +62,7 @@
     "release-it": "^15.5.1",
     "typescript": "^4.9.4"
   },
+  "packageManager": "pnpm@7.18.1",
   "engines": {
     "node": ">=14.18"
   },
