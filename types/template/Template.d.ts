@@ -8,7 +8,8 @@ export { _TemplateProps as TemplateProps, _Template as Template };
 
 // declare global {
 //   namespace UniHelper {
-//     export type TemplateProps = _TemplateProps;
+//     export interface TemplateProps extends _TemplateProps {}
+//     export type Template = _Template;
 //   }
 // }
 
