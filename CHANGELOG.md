@@ -1,6 +1,6 @@
 # 改动日志
 
-## Unreleased
+## 0.3.0-2 (2022-12-08)
 
 - feat: 调整全局 `UniHelper` 的实现
 - feat: 增加导出
