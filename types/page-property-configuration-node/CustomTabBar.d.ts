@@ -7,7 +7,7 @@ import { Component } from '../Component';
  */
 type _CustomTabBarDirection = 'vertical' | 'horizontal';
 
-interface _CustomTabBarTabItemTapDetail {
+interface _CustomTabBarOnTabItemTapDetail {
   /**
    * @desc 被点击 tabItem 的序号，从 0 开始
    */
@@ -25,8 +25,8 @@ interface _CustomTabBarTabItemTapDetail {
 /**
  * @desc 点击事件
  */
-interface _CustomTabBarTabItemTap {
-  (detail: _CustomTabBarTabItemTapDetail): void;
+interface _CustomTabBarOnTabItemTap {
+  (detail: _CustomTabBarOnTabItemTapDetail): void;
 }
 
 /**
@@ -53,7 +53,7 @@ interface _CustomTabBarProps {
   /**
    * @desc 点击事件
    */
-  onTabItemTap: _CustomTabBarTabItemTap;
+  onTabItemTap: _CustomTabBarOnTabItemTap;
 }
 
 /**
@@ -63,8 +63,8 @@ type _CustomTabBar = Component<Partial<_CustomTabBarProps>>;
 
 export {
   _CustomTabBarDirection as CustomTabBarDirection,
-  _CustomTabBarTabItemTapDetail as CustomTabBarTabItemTapDetail,
-  _CustomTabBarTabItemTap as CustomTabBarTabItemTap,
+  _CustomTabBarOnTabItemTapDetail as CustomTabBarOnTabItemTapDetail,
+  _CustomTabBarOnTabItemTap as CustomTabBarOnTabItemTap,
   _CustomTabBarProps as CustomTabBarProps,
   _CustomTabBar as CustomTabBar,
 };
@@ -77,11 +77,11 @@ declare global {
      * @desc horizontal 横向
      */
     export type CustomTabBarDirection = _CustomTabBarDirection;
-    export interface CustomTabBarTabItemTapDetail extends _CustomTabBarTabItemTapDetail {}
+    export interface CustomTabBarOnTabItemTapDetail extends _CustomTabBarOnTabItemTapDetail {}
     /**
      * @desc 点击事件
      */
-    export interface CustomTabBarTabItemTap extends _CustomTabBarTabItemTap {}
+    export interface CustomTabBarOnTabItemTap extends _CustomTabBarOnTabItemTap {}
     /**
      * @desc 自定义 tabBar 组件属性
      */

@@ -37,11 +37,11 @@ type _ImageMode =
 /**
  * @desc 图片加载错误时触发
  */
-interface _ImageError {
+interface _ImageOnError {
   (event: BaseEvent): void;
 }
 
-interface _ImageLoadDetail {
+interface _ImageOnLoadDetail {
   /**
    * @desc 图片宽度
    * @desc 单位为 px
@@ -57,8 +57,8 @@ interface _ImageLoadDetail {
 /**
  * @desc 图片加载完毕时触发
  */
-interface _ImageLoad {
-  (event: CustomEvent<_ImageLoadDetail>): void;
+interface _ImageOnLoad {
+  (event: CustomEvent<_ImageOnLoadDetail>): void;
 }
 
 /**
@@ -117,11 +117,11 @@ interface _ImageProps {
   /**
    * @desc 图片加载错误时触发
    */
-  onError: ImageError;
+  onError: _ImageOnError;
   /**
    * @desc 图片加载完毕时触发
    */
-  onLoad: ImageLoad;
+  onLoad: _ImageOnLoad;
 }
 
 /**
@@ -131,9 +131,9 @@ type _Image = Component<Partial<_ImageProps>>;
 
 export {
   _ImageMode as ImageMode,
-  _ImageError as ImageError,
-  _ImageLoadDetail as ImageLoadDetail,
-  _ImageLoad as ImageLoad,
+  _ImageOnError as ImageOnError,
+  _ImageOnLoadDetail as ImageOnLoadDetail,
+  _ImageOnLoad as ImageOnLoad,
   _ImageProps as ImageProps,
   _Image as Image,
 };
@@ -161,12 +161,12 @@ declare global {
     /**
      * @desc 图片加载错误时触发
      */
-    export interface ImageError extends _ImageError {}
-    export interface ImageLoadDetail extends _ImageLoadDetail {}
+    export interface ImageOnError extends _ImageOnError {}
+    export interface ImageOnLoadDetail extends _ImageOnLoadDetail {}
     /**
      * @desc 图片加载完毕时触发
      */
-    export interface ImageLoad extends _ImageLoad {}
+    export interface ImageOnLoad extends _ImageOnLoad {}
     /**
      * @desc 图片属性
      */

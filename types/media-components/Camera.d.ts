@@ -42,33 +42,33 @@ type _CameraFrameSize = 'small' | 'medium' | 'large';
 /**
  * @desc 摄像头在非正常终止时触发
  */
-interface _CameraStop {
+interface _CameraOnStop {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 用户不允许使用摄像头时触发
  */
-interface _CameraError {
+interface _CameraOnError {
   (event: BaseEvent): void;
 }
 
-interface _CameraInitdoneDetail {
+interface _CameraOnInitdoneDetail {
   maxZoom: number;
 }
 
 /**
  * @desc 相机初始化完成时触发
  */
-interface _CameraInitdone {
-  (event: CustomEvent<_CameraInitdoneDetail>): void;
+interface _CameraOnInitdone {
+  (event: CustomEvent<_CameraOnInitdoneDetail>): void;
 }
 
 /**
  * @desc 扫码识别成功时触发
  * @desc mode="scanCode" 时有效
  */
-interface _CameraScancode {
+interface _CameraOnScancode {
   (event: BaseEvent): void;
 }
 
@@ -117,20 +117,20 @@ interface _CameraProps {
   /**
    * @desc 摄像头在非正常终止时触发
    */
-  onStop: _CameraStop;
+  onStop: _CameraOnStop;
   /**
    * @desc 用户不允许使用摄像头时触发
    */
-  onError: _CameraError;
+  onError: _CameraOnError;
   /**
    * @desc 相机初始化完成时触发
    */
-  onInitdone: _CameraInitdone;
+  onInitdone: _CameraOnInitdone;
   /**
    * @desc 扫码识别成功时触发
    * @desc mode="scanCode" 时有效
    */
-  onScancode: _CameraScancode;
+  onScancode: _CameraOnScancode;
 }
 
 /**
@@ -144,11 +144,11 @@ export {
   _CameraDevicePosition as CameraDevicePosition,
   _CameraFlash as CameraFlash,
   _CameraFrameSize as CameraFrameSize,
-  _CameraStop as CameraStop,
-  _CameraError as CameraError,
-  _CameraInitdoneDetail as CameraInitdoneDetail,
-  _CameraInitdone as CameraInitdone,
-  _CameraScancode as CameraScancode,
+  _CameraOnStop as CameraOnStop,
+  _CameraOnError as CameraOnError,
+  _CameraOnInitdoneDetail as CameraOnInitdoneDetail,
+  _CameraOnInitdone as CameraOnInitdone,
+  _CameraOnScancode as CameraOnScancode,
   _CameraProps as CameraProps,
   _Camera as Camera,
 };
@@ -191,21 +191,21 @@ declare global {
     /**
      * @desc 摄像头在非正常终止时触发
      */
-    export interface CameraStop extends _CameraStop {}
+    export interface CameraOnStop extends _CameraOnStop {}
     /**
      * @desc 用户不允许使用摄像头时触发
      */
-    export interface CameraError extends _CameraError {}
-    export interface CameraInitdoneDetail extends _CameraInitdoneDetail {}
+    export interface CameraOnError extends _CameraOnError {}
+    export interface CameraOnInitdoneDetail extends _CameraOnInitdoneDetail {}
     /**
      * @desc 相机初始化完成时触发
      */
-    export interface CameraInitdone extends _CameraInitdone {}
+    export interface CameraOnInitdone extends _CameraOnInitdone {}
     /**
      * @desc 扫码识别成功时触发
      * @desc mode="scanCode" 时有效
      */
-    export interface CameraScancode extends _CameraScancode {}
+    export interface CameraOnScancode extends _CameraOnScancode {}
     /**
      * @desc 页面内嵌的区域相机组件属性
      */

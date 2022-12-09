@@ -490,7 +490,7 @@ interface _MapControl {
   clickable: boolean;
 }
 
-interface _MapMarkertapDetail {
+interface _MapOnMarkertapDetail {
   /**
    * @desc 标记点 ID
    * @desc 最大限制 9 位数
@@ -501,11 +501,11 @@ interface _MapMarkertapDetail {
 /**
  * @desc 点击标记点时触发
  */
-interface _MapMarkertap {
-  (event: CustomEvent<_MapMarkertapDetail>): void;
+interface _MapOnMarkertap {
+  (event: CustomEvent<_MapOnMarkertapDetail>): void;
 }
 
-interface _MapLabeltapDetail {
+interface _MapOnLabeltapDetail {
   /**
    * @desc 标记点 ID
    * @desc 最大限制 9 位数
@@ -516,11 +516,11 @@ interface _MapLabeltapDetail {
 /**
  * @desc 点击 label 时触发
  */
-interface _MapLabeltap {
-  (event: CustomEvent<_MapLabeltapDetail>): void;
+interface _MapOnLabeltap {
+  (event: CustomEvent<_MapOnLabeltapDetail>): void;
 }
 
-interface _MapCallouttapDetail {
+interface _MapOnCallouttapDetail {
   /**
    * @desc 标记点 ID
    * @desc 最大限制 9 位数
@@ -531,11 +531,11 @@ interface _MapCallouttapDetail {
 /**
  * @desc 点击标记点对应的气泡时触发
  */
-interface _MapCallouttap {
-  (event: CustomEvent<_MapCallouttapDetail>): void;
+interface _MapOnCallouttap {
+  (event: CustomEvent<_MapOnCallouttapDetail>): void;
 }
 
-interface _MapControltapDetail {
+interface _MapOnControltapDetail {
   /**
    * @desc 控件 ID
    */
@@ -545,32 +545,32 @@ interface _MapControltapDetail {
 /**
  * @desc 点击控件时触发
  */
-interface _MapControltap {
-  (event: CustomEvent<_MapControltapDetail>): void;
+interface _MapOnControltap {
+  (event: CustomEvent<_MapOnControltapDetail>): void;
 }
 
 /**
  * @desc 视野发生变化时触发
  */
-interface _MapRegionchange {
+interface _MapOnRegionchange {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 点击地图时触发
  */
-interface _MapTap {
+interface _MapOnTap {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 地图渲染更新完成时触发
  */
-interface _MapUpdated {
+interface _MapOnUpdated {
   (event: BaseEvent): void;
 }
 
-interface _MapAnchorpointtapDetail {
+interface _MapOnAnchorpointtapDetail {
   /**
    * @desc 纬度
    * @desc 取值范围为 -90 - 90
@@ -586,11 +586,11 @@ interface _MapAnchorpointtapDetail {
 /**
  * @desc 点击定位标时触发
  */
-interface _MapAnchorpointtap {
-  (event: CustomEvent<_MapAnchorpointtapDetail>): void;
+interface _MapOnAnchorpointtap {
+  (event: CustomEvent<_MapOnAnchorpointtapDetail>): void;
 }
 
-interface _MapPoitapDetail {
+interface _MapOnPoitapDetail {
   /**
    * @desc 名称
    */
@@ -610,8 +610,8 @@ interface _MapPoitapDetail {
 /**
  * @desc 点击地图 poi 点时触发
  */
-interface _MapPoitap {
-  (event: CustomEvent<_MapPoitapDetail>): void;
+interface _MapOnPoitap {
+  (event: CustomEvent<_MapOnPoitapDetail>): void;
 }
 
 /**
@@ -744,39 +744,39 @@ interface _MapProps {
   /**
    * @desc 点击标记点时触发
    */
-  onMarkertap: _MapMarkertap;
+  onMarkertap: _MapOnMarkertap;
   /**
    * @desc 点击 label 时触发
    */
-  onLabeltap: _MapLabeltap;
+  onLabeltap: _MapOnLabeltap;
   /**
    * @desc 点击标记点对应的气泡时触发
    */
-  onCallouttap: _MapCallouttap;
+  onCallouttap: _MapOnCallouttap;
   /**
    * @desc 点击控件时触发
    */
-  onControltap: _MapControltap;
+  onControltap: _MapOnControltap;
   /**
    * @desc 视野发生变化时触发
    */
-  onRegionchange: _MapRegionchange;
+  onRegionchange: _MapOnRegionchange;
   /**
    * @desc 点击地图时触发
    */
-  onTap: _MapTap;
+  onTap: _MapOnTap;
   /**
    * @desc 地图渲染更新完成时触发
    */
-  onUpdated: _MapUpdated;
+  onUpdated: _MapOnUpdated;
   /**
    * @desc 点击定位标时触发
    */
-  onAnchorpointtap: _MapAnchorpointtap;
+  onAnchorpointtap: _MapOnAnchorpointtap;
   /**
    * @desc 点击地图 poi 点时触发
    */
-  onPoitap: _MapPoitap;
+  onPoitap: _MapOnPoitap;
 }
 
 /**
@@ -804,21 +804,21 @@ export {
   _MapPosition as MapPosition,
   _MapControlId as MapControlId,
   _MapControl as MapControl,
-  _MapMarkertapDetail as MapMarkertapDetail,
-  _MapMarkertap as MapMarkertap,
-  _MapLabeltapDetail as MapLabeltapDetail,
-  _MapLabeltap as MapLabeltap,
-  _MapCallouttapDetail as MapCallouttapDetail,
-  _MapCallouttap as MapCallouttap,
-  _MapControltapDetail as MapControltapDetail,
-  _MapControltap as MapControltap,
-  _MapRegionchange as MapRegionchange,
-  _MapTap as MapTap,
-  _MapUpdated as MapUpdated,
-  _MapAnchorpointtapDetail as MapAnchorpointtapDetail,
-  _MapAnchorpointtap as MapAnchorpointtap,
-  _MapPoitapDetail as MapPoitapDetail,
-  _MapPoitap as MapPoitap,
+  _MapOnMarkertapDetail as MapOnMarkertapDetail,
+  _MapOnMarkertap as MapOnMarkertap,
+  _MapOnLabeltapDetail as MapOnLabeltapDetail,
+  _MapOnLabeltap as MapOnLabeltap,
+  _MapOnCallouttapDetail as MapOnCallouttapDetail,
+  _MapOnCallouttap as MapOnCallouttap,
+  _MapOnControltapDetail as MapOnControltapDetail,
+  _MapOnControltap as MapOnControltap,
+  _MapOnRegionchange as MapOnRegionchange,
+  _MapOnTap as MapOnTap,
+  _MapOnUpdated as MapOnUpdated,
+  _MapOnAnchorpointtapDetail as MapOnAnchorpointtapDetail,
+  _MapOnAnchorpointtap as MapOnAnchorpointtap,
+  _MapOnPoitapDetail as MapOnPoitapDetail,
+  _MapOnPoitap as MapOnPoitap,
   _MapProps as MapProps,
   _Map as Map,
 };
@@ -916,48 +916,48 @@ declare global {
      * @desc 控件
      */
     export interface MapControl extends _MapControl {}
-    export interface MapMarkertapDetail extends _MapMarkertapDetail {}
+    export interface MapOnMarkertapDetail extends _MapOnMarkertapDetail {}
     /**
      * @desc 点击标记点时触发
      */
-    export interface MapMarkertap extends _MapMarkertap {}
-    export interface MapLabeltapDetail extends _MapLabeltapDetail {}
+    export interface MapOnMarkertap extends _MapOnMarkertap {}
+    export interface MapOnLabeltapDetail extends _MapOnLabeltapDetail {}
     /**
      * @desc 点击 label 时触发
      */
-    export interface MapLabeltap extends _MapLabeltap {}
-    export interface MapCallouttapDetail extends _MapCallouttapDetail {}
+    export interface MapOnLabeltap extends _MapOnLabeltap {}
+    export interface MapOnCallouttapDetail extends _MapOnCallouttapDetail {}
     /**
      * @desc 点击标记点对应的气泡时触发
      */
-    export interface MapCallouttap extends _MapCallouttap {}
-    export interface MapControltapDetail extends _MapControltapDetail {}
+    export interface MapOnCallouttap extends _MapOnCallouttap {}
+    export interface MapOnControltapDetail extends _MapOnControltapDetail {}
     /**
      * @desc 点击控件时触发
      */
-    export interface MapControltap extends _MapControltap {}
+    export interface MapOnControltap extends _MapOnControltap {}
     /**
      * @desc 视野发生变化时触发
      */
-    export interface MapRegionchange extends _MapRegionchange {}
+    export interface MapOnRegionchange extends _MapOnRegionchange {}
     /**
      * @desc 点击地图时触发
      */
-    export interface MapTap extends _MapTap {}
+    export interface MapOnTap extends _MapOnTap {}
     /**
      * @desc 地图渲染更新完成时触发
      */
-    export interface MapUpdated extends _MapUpdated {}
-    export interface MapAnchorpointtapDetail extends _MapAnchorpointtapDetail {}
+    export interface MapOnUpdated extends _MapOnUpdated {}
+    export interface MapOnAnchorpointtapDetail extends _MapOnAnchorpointtapDetail {}
     /**
      * @desc 点击定位标时触发
      */
-    export interface MapAnchorpointtap extends _MapAnchorpointtap {}
-    export interface MapPoitapDetail extends _MapPoitapDetail {}
+    export interface MapOnAnchorpointtap extends _MapOnAnchorpointtap {}
+    export interface MapOnPoitapDetail extends _MapOnPoitapDetail {}
     /**
      * @desc 点击地图 poi 点时触发
      */
-    export interface MapPoitap extends _MapPoitap {}
+    export interface MapOnPoitap extends _MapOnPoitap {}
     /**
      * @desc 地图属性
      */

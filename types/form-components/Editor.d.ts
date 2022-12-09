@@ -4,11 +4,11 @@ import { BaseEvent, CustomEvent } from '../events';
 /**
  * @desc 编辑器初始化完成时触发
  */
-interface _EditorReady {
+interface _EditorOnReady {
   (event: BaseEvent): void;
 }
 
-interface _EditorFocusDetail {
+interface _EditorOnFocusDetail {
   html: string;
   text: string;
   delta: AnyRecord;
@@ -17,11 +17,11 @@ interface _EditorFocusDetail {
 /**
  * @desc 编辑器聚焦时触发
  */
-interface _EditorFocus {
-  (event: CustomEvent<_EditorFocusDetail>): void;
+interface _EditorOnFocus {
+  (event: CustomEvent<_EditorOnFocusDetail>): void;
 }
 
-interface _EditorBlurDetail {
+interface _EditorOnBlurDetail {
   html: string;
   text: string;
   delta: AnyRecord;
@@ -30,11 +30,11 @@ interface _EditorBlurDetail {
 /**
  * @desc 编辑器失焦时触发
  */
-interface _EditorBlur {
-  (event: CustomEvent<_EditorBlurDetail>): void;
+interface _EditorOnBlur {
+  (event: CustomEvent<_EditorOnBlurDetail>): void;
 }
 
-interface _EditorInputDetail {
+interface _EditorOnInputDetail {
   html: string;
   text: string;
   delta: AnyRecord;
@@ -43,14 +43,14 @@ interface _EditorInputDetail {
 /**
  * @desc 编辑器内容改变时触发
  */
-interface _EditorInput {
-  (event: CustomEvent<_EditorInputDetail>): void;
+interface _EditorOnInput {
+  (event: CustomEvent<_EditorOnInputDetail>): void;
 }
 
 /**
  * @desc 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式
  */
-interface _EditorStatuschange {
+interface _EditorOnStatuschange {
   (event: BaseEvent): void;
 }
 
@@ -85,23 +85,23 @@ interface _EditorProps {
   /**
    * @desc 编辑器初始化完成时触发
    */
-  onReady: _EditorReady;
+  onReady: _EditorOnReady;
   /**
    * @desc 编辑器聚焦时触发
    */
-  onFocus: _EditorFocus;
+  onFocus: _EditorOnFocus;
   /**
    * @desc 编辑器失焦时触发
    */
-  onBlur: _EditorBlur;
+  onBlur: _EditorOnBlur;
   /**
    * @desc 编辑器内容改变时触发
    */
-  onInput: _EditorInput;
+  onInput: _EditorOnInput;
   /**
    * @desc 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式
    */
-  onStatuschange: _EditorStatuschange;
+  onStatuschange: _EditorOnStatuschange;
 }
 
 /**
@@ -113,14 +113,14 @@ interface _EditorProps {
 type _Editor = Component<Partial<_EditorProps>>;
 
 export {
-  _EditorReady as EditorReady,
-  _EditorFocusDetail as EditorFocusDetail,
-  _EditorFocus as EditorFocus,
-  _EditorBlurDetail as EditorBlurDetail,
-  _EditorBlur as EditorBlur,
-  _EditorInputDetail as EditorInputDetail,
-  _EditorInput as EditorInput,
-  _EditorStatuschange as EditorStatuschange,
+  _EditorOnReady as EditorOnReady,
+  _EditorOnFocusDetail as EditorOnFocusDetail,
+  _EditorOnFocus as EditorOnFocus,
+  _EditorOnBlurDetail as EditorOnBlurDetail,
+  _EditorOnBlur as EditorOnBlur,
+  _EditorOnInputDetail as EditorOnInputDetail,
+  _EditorOnInput as EditorOnInput,
+  _EditorOnStatuschange as EditorOnStatuschange,
   _EditorProps as EditorProps,
   _Editor as Editor,
 };
@@ -130,26 +130,26 @@ declare global {
     /**
      * @desc 编辑器初始化完成时触发
      */
-    export interface EditorReady extends _EditorReady {}
-    export interface EditorFocusDetail extends _EditorFocusDetail {}
+    export interface EditorOnReady extends _EditorOnReady {}
+    export interface EditorOnFocusDetail extends _EditorOnFocusDetail {}
     /**
      * @desc 编辑器聚焦时触发
      */
-    export interface EditorFocus extends _EditorFocus {}
-    export interface EditorBlurDetail extends _EditorBlurDetail {}
+    export interface EditorOnFocus extends _EditorOnFocus {}
+    export interface EditorOnBlurDetail extends _EditorOnBlurDetail {}
     /**
      * @desc 编辑器失焦时触发
      */
-    export interface EditorBlur extends _EditorBlur {}
-    export interface EditorInputDetail extends _EditorInputDetail {}
+    export interface EditorOnBlur extends _EditorOnBlur {}
+    export interface EditorOnInputDetail extends _EditorOnInputDetail {}
     /**
      * @desc 编辑器内容改变时触发
      */
-    export interface EditorInput extends _EditorInput {}
+    export interface EditorOnInput extends _EditorOnInput {}
     /**
      * @desc 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式
      */
-    export interface EditorStatuschange extends _EditorStatuschange {}
+    export interface EditorOnStatuschange extends _EditorOnStatuschange {}
     /**
      * @desc 编辑器属性
      */

@@ -11,7 +11,7 @@ type _ProgressActiveMode = 'backwards' | 'forwards';
 /**
  * @desc 动画完成时触发
  */
-interface _ProgressActiveend {
+interface _ProgressOnActiveend {
   (event: BaseEvent): void;
 }
 
@@ -77,7 +77,7 @@ interface _ProgressProps {
   /**
    * @desc 动画完成时触发
    */
-  onActiveend: _ProgressActiveend;
+  onActiveend: _ProgressOnActiveend;
 }
 
 /**
@@ -87,7 +87,7 @@ type _Progress = Component<Partial<_ProgressProps>>;
 
 export {
   _ProgressActiveMode as ProgressActiveMode,
-  _ProgressActiveend as ProgressActiveend,
+  _ProgressOnActiveend as ProgressOnActiveend,
   _ProgressProps as ProgressProps,
   _Progress as Progress,
 };
@@ -103,7 +103,7 @@ declare global {
     /**
      * @desc 动画完成时触发
      */
-    export interface ProgressActiveend extends _ProgressActiveend {}
+    export interface ProgressOnActiveend extends _ProgressOnActiveend {}
     /**
      * @desc 进度条属性
      */

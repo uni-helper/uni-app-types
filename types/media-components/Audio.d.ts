@@ -1,7 +1,7 @@
 import { Component } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
-interface _AudioErrorDetail {
+interface _AudioOnErrorDetail {
   /**
    * @desc 错误码
    * @desc 1 获取资源被用户禁止
@@ -15,25 +15,25 @@ interface _AudioErrorDetail {
 /**
  * @desc 发生错误时触发
  */
-interface _AudioError {
-  (event: CustomEvent<_AudioErrorDetail>): void;
+interface _AudioOnError {
+  (event: CustomEvent<_AudioOnErrorDetail>): void;
 }
 
 /**
  * @desc 开始/继续播放时触发
  */
-interface _AudioPlay {
+interface _AudioOnPlay {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 暂停播放时触发
  */
-interface _AudioPause {
+interface _AudioOnPause {
   (event: BaseEvent): void;
 }
 
-interface _AudioTimeupdateDetail {
+interface _AudioOnTimeupdateDetail {
   currentTime: number;
   duration: number;
 }
@@ -41,14 +41,14 @@ interface _AudioTimeupdateDetail {
 /**
  * @desc 播放进度改变时触发
  */
-interface _AudioTimeupdate {
-  (event: CustomEvent<_AudioTimeupdateDetail>): void;
+interface _AudioOnTimeupdate {
+  (event: CustomEvent<_AudioOnTimeupdateDetail>): void;
 }
 
 /**
  * @desc 播放到末尾时触发
  */
-interface _AudioEnded {
+interface _AudioOnEnded {
   (event: BaseEvent): void;
 }
 
@@ -94,23 +94,23 @@ interface _AudioProps {
   /**
    * @desc 发生错误时触发
    */
-  onError: _AudioError;
+  onError: _AudioOnError;
   /**
    * @desc 开始/继续播放时触发
    */
-  onPlay: _AudioPlay;
+  onPlay: _AudioOnPlay;
   /**
    * @desc 暂停播放时触发
    */
-  onPause: _AudioPause;
+  onPause: _AudioOnPause;
   /**
    * @desc 播放进度改变时触发
    */
-  onTimeupdate: _AudioTimeupdate;
+  onTimeupdate: _AudioOnTimeupdate;
   /**
    * @desc 播放到末尾时触发
    */
-  onEnded: _AudioEnded;
+  onEnded: _AudioOnEnded;
 }
 
 /**
@@ -119,41 +119,41 @@ interface _AudioProps {
 type _Audio = Component<Partial<_AudioProps>>;
 
 export {
-  _AudioErrorDetail as AudioErrorDetail,
-  _AudioError as AudioError,
-  _AudioPlay as AudioPlay,
-  _AudioPause as AudioPause,
-  _AudioTimeupdateDetail as AudioTimeupdateDetail,
-  _AudioTimeupdate as AudioTimeupdate,
-  _AudioEnded as AudioEnded,
+  _AudioOnErrorDetail as AudioOnErrorDetail,
+  _AudioOnError as AudioOnError,
+  _AudioOnPlay as AudioOnPlay,
+  _AudioOnPause as AudioOnPause,
+  _AudioOnTimeupdateDetail as AudioOnTimeupdateDetail,
+  _AudioOnTimeupdate as AudioOnTimeupdate,
+  _AudioOnEnded as AudioOnEnded,
   _AudioProps as AudioProps,
   _Audio as Audio,
 };
 
 declare global {
   namespace UniHelper {
-    export interface AudioErrorDetail extends _AudioErrorDetail {}
+    export interface AudioOnErrorDetail extends _AudioOnErrorDetail {}
     /**
      * @desc 发生错误时触发
      */
-    export interface AudioError extends _AudioError {}
+    export interface AudioOnError extends _AudioOnError {}
     /**
      * @desc 开始/继续播放时触发
      */
-    export interface AudioPlay extends _AudioPlay {}
+    export interface AudioOnPlay extends _AudioOnPlay {}
     /**
      * @desc 暂停播放时触发
      */
-    export interface AudioPause extends _AudioPause {}
-    export interface AudioTimeupdateDetail extends _AudioTimeupdateDetail {}
+    export interface AudioOnPause extends _AudioOnPause {}
+    export interface AudioOnTimeupdateDetail extends _AudioOnTimeupdateDetail {}
     /**
      * @desc 播放进度改变时触发
      */
-    export interface AudioTimeupdate extends _AudioTimeupdate {}
+    export interface AudioOnTimeupdate extends _AudioOnTimeupdate {}
     /**
      * @desc 播放到末尾时触发
      */
-    export interface AudioEnded extends _AudioEnded {}
+    export interface AudioOnEnded extends _AudioOnEnded {}
     /**
      * @desc 音频属性
      */

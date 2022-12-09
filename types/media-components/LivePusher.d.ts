@@ -229,7 +229,7 @@ interface _LivePusherInfo {
  */
 type _LiverPusherErrCode = 10001 | 10002 | 10003 | 10004;
 
-interface _LivePusherStatechangeDetail {
+interface _LivePusherOnStatechangeDetail {
   /**
    * @desc 状态码
    * @desc 1001 已经连接推流服务器
@@ -270,11 +270,11 @@ interface _LivePusherStatechangeDetail {
 /**
  * @desc 播放状态变化时触发
  */
-interface _LivePusherStatechange {
-  (event: CustomEvent<_LivePusherStatechangeDetail>): void;
+interface _LivePusherOnStatechange {
+  (event: CustomEvent<_LivePusherOnStatechangeDetail>): void;
 }
 
-interface _LivePusherNetstatusDetail {
+interface _LivePusherOnNetstatusDetail {
   /**
    * @desc 网络状态
    */
@@ -284,11 +284,11 @@ interface _LivePusherNetstatusDetail {
 /**
  * @desc 网络状态变化时触发
  */
-interface _LivePusherNetstatus {
-  (event: CustomEvent<_LivePusherNetstatusDetail>): void;
+interface _LivePusherOnNetstatus {
+  (event: CustomEvent<_LivePusherOnNetstatusDetail>): void;
 }
 
-interface _LivePusherErrorDetail {
+interface _LivePusherOnErrorDetail {
   /**
    * @desc 错误状态码
    * @desc 10001 用户禁止使用摄像头
@@ -306,18 +306,18 @@ interface _LivePusherErrorDetail {
 /**
  * @desc 渲染错误时触发
  */
-interface _LivePusherError {
-  (event: CustomEvent<_LivePusherErrorDetail>): void;
+interface _LivePusherOnError {
+  (event: CustomEvent<_LivePusherOnErrorDetail>): void;
 }
 
 /**
  * @desc 背景音开始播放时触发
  */
-interface _LivePusherBgmstart {
+interface _LivePusherOnBgmstart {
   (event: BaseEvent): void;
 }
 
-interface _LivePusherBgmprogressDetail {
+interface _LivePusherOnBgmprogressDetail {
   progress: number;
   duration: number;
 }
@@ -325,14 +325,14 @@ interface _LivePusherBgmprogressDetail {
 /**
  * @desc 背景音进度变化时触发
  */
-interface _LivePusherBgmprogress {
-  (event: CustomEvent<_LivePusherBgmprogressDetail>): void;
+interface _LivePusherOnBgmprogress {
+  (event: CustomEvent<_LivePusherOnBgmprogressDetail>): void;
 }
 
 /**
  * @desc 背景音播放完成时触发
  */
-interface _LivePusherBgmcomplete {
+interface _LivePusherOnBgmcomplete {
   (event: BaseEvent): void;
 }
 
@@ -490,27 +490,27 @@ interface _LivePusherProps {
   /**
    * @desc 播放状态变化时触发
    */
-  onStatechange: _LivePusherStatechange;
+  onStatechange: _LivePusherOnStatechange;
   /**
    * @desc 网络状态变化时触发
    */
-  onNetstatus: _LivePusherNetstatus;
+  onNetstatus: _LivePusherOnNetstatus;
   /**
    * @desc 渲染错误时触发
    */
-  onError: _LivePusherError;
+  onError: _LivePusherOnError;
   /**
    * @desc 背景音开始播放时触发
    */
-  onBgmstart: _LivePusherBgmstart;
+  onBgmstart: _LivePusherOnBgmstart;
   /**
    * @desc 背景音进度变化时触发
    */
-  onBgmprogress: _LivePusherBgmprogress;
+  onBgmprogress: _LivePusherOnBgmprogress;
   /**
    * @desc 背景音播放完成时触发
    */
-  onBgmcomplete: _LivePusherBgmcomplete;
+  onBgmcomplete: _LivePusherOnBgmcomplete;
 }
 
 /**
@@ -529,16 +529,16 @@ export {
   _LivePusherCode as LivePusherCode,
   _LivePusherInfo as LivePusherInfo,
   _LiverPusherErrCode as LiverPusherErrCode,
-  _LivePusherStatechangeDetail as LivePusherStatechangeDetail,
-  _LivePusherStatechange as LivePusherStatechange,
-  _LivePusherNetstatusDetail as LivePusherNetstatusDetail,
-  _LivePusherNetstatus as LivePusherNetstatus,
-  _LivePusherErrorDetail as LivePusherErrorDetail,
-  _LivePusherError as LivePusherError,
-  _LivePusherBgmstart as LivePusherBgmstart,
-  _LivePusherBgmprogressDetail as LivePusherBgmprogressDetail,
-  _LivePusherBgmprogress as LivePusherBgmprogress,
-  _LivePusherBgmcomplete as LivePusherBgmcomplete,
+  _LivePusherOnStatechangeDetail as LivePusherOnStatechangeDetail,
+  _LivePusherOnStatechange as LivePusherOnStatechange,
+  _LivePusherOnNetstatusDetail as LivePusherOnNetstatusDetail,
+  _LivePusherOnNetstatus as LivePusherOnNetstatus,
+  _LivePusherOnErrorDetail as LivePusherOnErrorDetail,
+  _LivePusherOnError as LivePusherOnError,
+  _LivePusherOnBgmstart as LivePusherOnBgmstart,
+  _LivePusherOnBgmprogressDetail as LivePusherOnBgmprogressDetail,
+  _LivePusherOnBgmprogress as LivePusherOnBgmprogress,
+  _LivePusherOnBgmcomplete as LivePusherOnBgmcomplete,
   _LivePusherProps as LivePusherProps,
   _LivePusher as LivePusher,
 };
@@ -644,34 +644,34 @@ declare global {
      * @desc 10004 等待画面资源（waiting-image）加载失败
      */
     export type LiverPusherErrCode = _LiverPusherErrCode;
-    export interface LivePusherStatechangeDetail extends _LivePusherStatechangeDetail {}
+    export interface LivePusherOnStatechangeDetail extends _LivePusherOnStatechangeDetail {}
     /**
      * @desc 播放状态变化时触发
      */
-    export interface LivePusherStatechange extends _LivePusherStatechange {}
-    export interface LivePusherNetstatusDetail extends _LivePusherNetstatusDetail {}
+    export interface LivePusherOnStatechange extends _LivePusherOnStatechange {}
+    export interface LivePusherOnNetstatusDetail extends _LivePusherOnNetstatusDetail {}
     /**
      * @desc 网络状态变化时触发
      */
-    export interface LivePusherNetstatus extends _LivePusherNetstatus {}
-    export interface LivePusherErrorDetail extends _LivePusherErrorDetail {}
+    export interface LivePusherOnNetstatus extends _LivePusherOnNetstatus {}
+    export interface LivePusherOnErrorDetail extends _LivePusherOnErrorDetail {}
     /**
      * @desc 渲染错误时触发
      */
-    export interface LivePusherError extends _LivePusherError {}
+    export interface LivePusherOnError extends _LivePusherOnError {}
     /**
      * @desc 背景音开始播放时触发
      */
-    export interface LivePusherBgmstart extends _LivePusherBgmstart {}
-    export interface LivePusherBgmprogressDetail extends _LivePusherBgmprogressDetail {}
+    export interface LivePusherOnBgmstart extends _LivePusherOnBgmstart {}
+    export interface LivePusherOnBgmprogressDetail extends _LivePusherOnBgmprogressDetail {}
     /**
      * @desc 背景音进度变化时触发
      */
-    export interface LivePusherBgmprogress extends _LivePusherBgmprogress {}
+    export interface LivePusherOnBgmprogress extends _LivePusherOnBgmprogress {}
     /**
      * @desc 背景音播放完成时触发
      */
-    export interface LivePusherBgmcomplete extends _LivePusherBgmcomplete {}
+    export interface LivePusherOnBgmcomplete extends _LivePusherOnBgmcomplete {}
     /**
      * @desc 实时音视频录制（直播推流）属性
      */

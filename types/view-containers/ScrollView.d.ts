@@ -9,18 +9,18 @@ type _ScrollViewRefresherDefaultStyle = 'black' | 'white' | 'none';
 /**
  * @desc 滚动到顶部/左边时触发
  */
-interface _ScrollViewScrolltoupper {
+interface _ScrollViewOnScrolltoupper {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 滚动到底部/右边时触发
  */
-interface _ScrollViewScrolltolower {
+interface _ScrollViewOnScrolltolower {
   (event: BaseEvent): void;
 }
 
-interface _ScrollViewScrollDetail {
+interface _ScrollViewOnScrollDetail {
   scrollLeft: number;
   scrollTop: number;
   scrollHeight: number;
@@ -32,35 +32,35 @@ interface _ScrollViewScrollDetail {
 /**
  * @desc 滚动时触发
  */
-interface _ScrollViewScroll {
-  (event: CustomEvent<_ScrollViewScrollDetail>): void;
+interface _ScrollViewOnScroll {
+  (event: CustomEvent<_ScrollViewOnScrollDetail>): void;
 }
 
 /**
  * @desc 自定义下拉刷新控件被下拉时触发
  */
-interface _ScrollViewRefresherpulling {
+interface _ScrollViewOnRefresherpulling {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 自定义下拉刷新被触发时触发
  */
-interface _ScrollViewRefresherrefresh {
+interface _ScrollViewOnRefresherrefresh {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 自定义下拉刷新被复位时触发
  */
-interface _ScrollViewRefresherrestore {
+interface _ScrollViewOnRefresherrestore {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 自定义下拉刷新被中止时触发
  */
-interface _ScrollViewRefresherabort {
+interface _ScrollViewOnRefresherabort {
   (event: BaseEvent): void;
 }
 
@@ -165,31 +165,31 @@ interface _ScrollViewProps {
   /**
    * @desc 滚动到顶部/左边时触发
    */
-  onScrolltoupper: _ScrollViewScrolltoupper;
+  onScrolltoupper: _ScrollViewOnScrolltoupper;
   /**
    * @desc 滚动到底部/右边时触发
    */
-  onScrolltolower: _ScrollViewScrolltolower;
+  onScrolltolower: _ScrollViewOnScrolltolower;
   /**
    * @desc 滚动时触发
    */
-  onScroll: _ScrollViewScroll;
+  onScroll: _ScrollViewOnScroll;
   /**
    * @desc 自定义下拉刷新控件被下拉时触发
    */
-  onRefresherpulling: _ScrollViewRefresherpulling;
+  onRefresherpulling: _ScrollViewOnRefresherpulling;
   /**
    * @desc 自定义下拉刷新被触发时触发
    */
-  onRefresherrefresh: _ScrollViewRefresherrefresh;
+  onRefresherrefresh: _ScrollViewOnRefresherrefresh;
   /**
    * @desc 自定义下拉刷新被复位时触发
    */
-  onRefresherrestore: _ScrollViewRefresherrestore;
+  onRefresherrestore: _ScrollViewOnRefresherrestore;
   /**
    * @desc 自定义下拉刷新被中止时触发
    */
-  onRefresherabort: _ScrollViewRefresherabort;
+  onRefresherabort: _ScrollViewOnRefresherabort;
 }
 
 /**
@@ -203,14 +203,14 @@ type _ScrollView = Component<Partial<_ScrollViewProps>>;
 
 export {
   _ScrollViewRefresherDefaultStyle as ScrollViewRefresherDefaultStyle,
-  _ScrollViewScrolltoupper as ScrollViewScrolltoupper,
-  _ScrollViewScrolltolower as ScrollViewScrolltolower,
-  _ScrollViewScrollDetail as ScrollViewScrollDetail,
-  _ScrollViewScroll as ScrollViewScroll,
-  _ScrollViewRefresherpulling as ScrollViewRefresherpulling,
-  _ScrollViewRefresherrefresh as ScrollViewRefresherrefresh,
-  _ScrollViewRefresherrestore as ScrollViewRefresherrestore,
-  _ScrollViewRefresherabort as ScrollViewRefresherabort,
+  _ScrollViewOnScrolltoupper as ScrollViewOnScrolltoupper,
+  _ScrollViewOnScrolltolower as ScrollViewOnScrolltolower,
+  _ScrollViewOnScrollDetail as ScrollViewOnScrollDetail,
+  _ScrollViewOnScroll as ScrollViewOnScroll,
+  _ScrollViewOnRefresherpulling as ScrollViewOnRefresherpulling,
+  _ScrollViewOnRefresherrefresh as ScrollViewOnRefresherrefresh,
+  _ScrollViewOnRefresherrestore as ScrollViewOnRefresherrestore,
+  _ScrollViewOnRefresherabort as ScrollViewOnRefresherabort,
   _ScrollViewProps as ScrollViewProps,
   _ScrollView as ScrollView,
 };
@@ -224,32 +224,32 @@ declare global {
     /**
      * @desc 滚动到顶部/左边时触发
      */
-    export interface ScrollViewScrolltoupper extends _ScrollViewScrolltoupper {}
+    export interface ScrollViewOnScrolltoupper extends _ScrollViewOnScrolltoupper {}
     /**
      * @desc 滚动到底部/右边时触发
      */
-    export interface ScrollViewScrolltolower extends _ScrollViewScrolltolower {}
-    export interface ScrollViewScrollDetail extends _ScrollViewScrollDetail {}
+    export interface ScrollViewOnScrolltolower extends _ScrollViewOnScrolltolower {}
+    export interface ScrollViewOnScrollDetail extends _ScrollViewOnScrollDetail {}
     /**
      * @desc 滚动时触发
      */
-    export interface ScrollViewScroll extends _ScrollViewScroll {}
+    export interface ScrollViewOnScroll extends _ScrollViewOnScroll {}
     /**
      * @desc 自定义下拉刷新控件被下拉时触发
      */
-    export interface ScrollViewRefresherpulling extends _ScrollViewRefresherpulling {}
+    export interface ScrollViewOnRefresherpulling extends _ScrollViewOnRefresherpulling {}
     /**
      * @desc 自定义下拉刷新被触发时触发
      */
-    export interface ScrollViewRefresherrefresh extends _ScrollViewRefresherrefresh {}
+    export interface ScrollViewOnRefresherrefresh extends _ScrollViewOnRefresherrefresh {}
     /**
      * @desc 自定义下拉刷新被复位时触发
      */
-    export interface ScrollViewRefresherrestore extends _ScrollViewRefresherrestore {}
+    export interface ScrollViewOnRefresherrestore extends _ScrollViewOnRefresherrestore {}
     /**
      * @desc 自定义下拉刷新被中止时触发
      */
-    export interface ScrollViewRefresherabort extends _ScrollViewRefresherabort {}
+    export interface ScrollViewOnRefresherabort extends _ScrollViewOnRefresherabort {}
     /**
      * @desc 可滚动视图区域属性
      */

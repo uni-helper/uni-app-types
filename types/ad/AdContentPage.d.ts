@@ -3,11 +3,11 @@ import { Component } from '../Component';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdContentPageLoad {
+interface _AdContentPageOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdContentPageErrorDetail {
+interface _AdContentPageOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -21,11 +21,11 @@ interface _AdContentPageErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdContentPageError {
-  (event: CustomEvent<_AdContentPageErrorDetail>): void;
+interface _AdContentPageOnError {
+  (event: CustomEvent<_AdContentPageOnErrorDetail>): void;
 }
 
-interface _AdContentPageStartDetail {
+interface _AdContentPageOnStartDetail {
   /**
    * @desc 广告唯一标识
    */
@@ -48,11 +48,11 @@ interface _AdContentPageStartDetail {
 /**
  * @desc 广告开始播放时触发
  */
-interface _AdContentPageStart {
-  (event: CustomEvent<_AdContentPageStartDetail>): void;
+interface _AdContentPageOnStart {
+  (event: CustomEvent<_AdContentPageOnStartDetail>): void;
 }
 
-interface _AdContentPagePauseDetail {
+interface _AdContentPageOnPauseDetail {
   /**
    * @desc 广告唯一标识
    */
@@ -75,11 +75,11 @@ interface _AdContentPagePauseDetail {
 /**
  * @desc 广告暂停播放时触发
  */
-interface _AdContentPagePause {
-  (event: CustomEvent<_AdContentPagePauseDetail>): void;
+interface _AdContentPageOnPause {
+  (event: CustomEvent<_AdContentPageOnPauseDetail>): void;
 }
 
-interface _AdContentPageResumeDetail {
+interface _AdContentPageOnResumeDetail {
   /**
    * @desc 广告唯一标识
    */
@@ -102,11 +102,11 @@ interface _AdContentPageResumeDetail {
 /**
  * @desc 广告恢复播放时触发
  */
-interface _AdContentPageResume {
-  (event: CustomEvent<_AdContentPageResumeDetail>): void;
+interface _AdContentPageOnResume {
+  (event: CustomEvent<_AdContentPageOnResumeDetail>): void;
 }
 
-interface _AdContentPageCompleteDetail {
+interface _AdContentPageOnCompleteDetail {
   /**
    * @desc 广告唯一标识
    */
@@ -129,8 +129,8 @@ interface _AdContentPageCompleteDetail {
 /**
  * @desc 广告完成播放时触发
  */
-interface _AdContentPageComplete {
-  (event: CustomEvent<_AdContentPageCompleteDetail>): void;
+interface _AdContentPageOnComplete {
+  (event: CustomEvent<_AdContentPageOnCompleteDetail>): void;
 }
 
 /**
@@ -144,27 +144,27 @@ interface _AdContentPageProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdContentPageLoad;
+  onLoad: _AdContentPageOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdContentPageError;
+  onError: _AdContentPageOnError;
   /**
    * @desc 广告开始播放时触发
    */
-  onStart: _AdContentPageStart;
+  onStart: _AdContentPageOnStart;
   /**
    * @desc 广告暂停播放时触发
    */
-  onPause: _AdContentPagePause;
+  onPause: _AdContentPageOnPause;
   /**
    * @desc 广告恢复播放时触发
    */
-  onResume: _AdContentPageResume;
+  onResume: _AdContentPageOnResume;
   /**
    * @desc 广告完成播放时触发
    */
-  onComplete: _AdContentPageComplete;
+  onComplete: _AdContentPageOnComplete;
 }
 
 /**
@@ -173,17 +173,17 @@ interface _AdContentPageProps {
 type _AdContentPage = Component<Partial<_AdContentPageProps>>;
 
 export {
-  _AdContentPageLoad as AdContentPageLoad,
-  _AdContentPageErrorDetail as AdContentPageErrorDetail,
-  _AdContentPageError as AdContentPageError,
-  _AdContentPageStartDetail as AdContentPageStartDetail,
-  _AdContentPageStart as AdContentPageStart,
-  _AdContentPagePauseDetail as AdContentPagePauseDetail,
-  _AdContentPagePause as AdContentPagePause,
-  _AdContentPageResumeDetail as AdContentPageResumeDetail,
-  _AdContentPageResume as AdContentPageResume,
-  _AdContentPageCompleteDetail as AdContentPageCompleteDetail,
-  _AdContentPageComplete as AdContentPageComplete,
+  _AdContentPageOnLoad as AdContentPageOnLoad,
+  _AdContentPageOnErrorDetail as AdContentPageOnErrorDetail,
+  _AdContentPageOnError as AdContentPageOnError,
+  _AdContentPageOnStartDetail as AdContentPageOnStartDetail,
+  _AdContentPageOnStart as AdContentPageOnStart,
+  _AdContentPageOnPauseDetail as AdContentPageOnPauseDetail,
+  _AdContentPageOnPause as AdContentPageOnPause,
+  _AdContentPageOnResumeDetail as AdContentPageOnResumeDetail,
+  _AdContentPageOnResume as AdContentPageOnResume,
+  _AdContentPageOnCompleteDetail as AdContentPageOnCompleteDetail,
+  _AdContentPageOnComplete as AdContentPageOnComplete,
   _AdContentPageProps as AdContentPageProps,
   _AdContentPage as AdContentPage,
 };
@@ -193,32 +193,32 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdContentPageLoad extends _AdContentPageLoad {}
-    export interface AdContentPageErrorDetail extends _AdContentPageErrorDetail {}
+    export interface AdContentPageOnLoad extends _AdContentPageOnLoad {}
+    export interface AdContentPageOnErrorDetail extends _AdContentPageOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdContentPageError extends _AdContentPageError {}
-    export interface AdContentPageStartDetail extends _AdContentPageStartDetail {}
+    export interface AdContentPageOnError extends _AdContentPageOnError {}
+    export interface AdContentPageOnStartDetail extends _AdContentPageOnStartDetail {}
     /**
      * @desc 广告开始播放时触发
      */
-    export interface AdContentPageStart extends _AdContentPageStart {}
-    export interface AdContentPagePauseDetail extends _AdContentPagePauseDetail {}
+    export interface AdContentPageOnStart extends _AdContentPageOnStart {}
+    export interface AdContentPageOnPauseDetail extends _AdContentPageOnPauseDetail {}
     /**
      * @desc 广告暂停播放时触发
      */
-    export interface AdContentPagePause extends _AdContentPagePause {}
-    export interface AdContentPageResumeDetail extends _AdContentPageResumeDetail {}
+    export interface AdContentPageOnPause extends _AdContentPageOnPause {}
+    export interface AdContentPageOnResumeDetail extends _AdContentPageOnResumeDetail {}
     /**
      * @desc 广告恢复播放时触发
      */
-    export interface AdContentPageResume extends _AdContentPageResume {}
-    export interface AdContentPageCompleteDetail extends _AdContentPageCompleteDetail {}
+    export interface AdContentPageOnResume extends _AdContentPageOnResume {}
+    export interface AdContentPageOnCompleteDetail extends _AdContentPageOnCompleteDetail {}
     /**
      * @desc 广告完成播放时触发
      */
-    export interface AdContentPageComplete extends _AdContentPageComplete {}
+    export interface AdContentPageOnComplete extends _AdContentPageOnComplete {}
     /**
      * @desc 短视频内容联盟广告属性
      */

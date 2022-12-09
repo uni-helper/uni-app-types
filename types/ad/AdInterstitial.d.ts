@@ -3,11 +3,11 @@ import { Component } from '../Component';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdInterstitialLoad {
+interface _AdInterstitialOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdInterstitialErrorDetail {
+interface _AdInterstitialOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -21,14 +21,14 @@ interface _AdInterstitialErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdInterstitialError {
-  (event: CustomEvent<_AdInterstitialErrorDetail>): void;
+interface _AdInterstitialOnError {
+  (event: CustomEvent<_AdInterstitialOnErrorDetail>): void;
 }
 
 /**
  * @desc 广告关闭的回调
  */
-interface _AdInterstitialClose {
+interface _AdInterstitialOnClose {
   (event: BaseEvent): void;
 }
 
@@ -53,15 +53,15 @@ interface _AdInterstitialProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdInterstitialLoad;
+  onLoad: _AdInterstitialOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdInterstitialError;
+  onError: _AdInterstitialOnError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: _AdInterstitialClose;
+  onClose: _AdInterstitialOnClose;
 }
 
 /**
@@ -70,10 +70,10 @@ interface _AdInterstitialProps {
 type _AdInterstitial = Component<Partial<_AdInterstitialProps>>;
 
 export {
-  _AdInterstitialLoad as AdInterstitialLoad,
-  _AdInterstitialErrorDetail as AdInterstitialErrorDetail,
-  _AdInterstitialError as AdInterstitialError,
-  _AdInterstitialClose as AdInterstitialClose,
+  _AdInterstitialOnLoad as AdInterstitialOnLoad,
+  _AdInterstitialOnErrorDetail as AdInterstitialOnErrorDetail,
+  _AdInterstitialOnError as AdInterstitialOnError,
+  _AdInterstitialOnClose as AdInterstitialOnClose,
   _AdInterstitialProps as AdInterstitialProps,
   _AdInterstitial as AdInterstitial,
 };
@@ -83,16 +83,16 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdInterstitialLoad extends _AdInterstitialLoad {}
-    export interface AdInterstitialErrorDetail extends _AdInterstitialErrorDetail {}
+    export interface AdInterstitialOnLoad extends _AdInterstitialOnLoad {}
+    export interface AdInterstitialOnErrorDetail extends _AdInterstitialOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdInterstitialError extends _AdInterstitialError {}
+    export interface AdInterstitialOnError extends _AdInterstitialOnError {}
     /**
      * @desc 广告关闭的回调
      */
-    export interface AdInterstitialClose extends _AdInterstitialClose {}
+    export interface AdInterstitialOnClose extends _AdInterstitialOnClose {}
     /**
      * @desc 插屏广告属性
      */

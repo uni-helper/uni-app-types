@@ -9,39 +9,39 @@ type _CanvasType = '2d' | 'webgl';
 /**
  * @desc 手指触摸动作开始时触发
  */
-interface _CanvasTouchstart {
+interface _CanvasOnTouchstart {
   (event: TouchCanvasEvent): void;
 }
 
 /**
  * @desc 手指触摸后移动时触发
  */
-interface _CanvasTouchmove {
+interface _CanvasOnTouchmove {
   (event: TouchCanvasEvent): void;
 }
 
 /**
  * @desc 手指触摸动作结束时触发
  */
-interface _CanvasTouchend {
+interface _CanvasOnTouchend {
   (event: TouchCanvasEvent): void;
 }
 
 /**
  * @desc 手指触摸动作被打断时触发
  */
-interface _CanvasTouchcancel {
+interface _CanvasOnTouchcancel {
   (event: TouchCanvasEvent): void;
 }
 
 /**
  * @desc 手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动
  */
-interface _CanvasLongtap {
+interface _CanvasOnLongtap {
   (event: BaseEvent): void;
 }
 
-interface _CanvasErrorDetail {
+interface _CanvasOnErrorDetail {
   /**
    * @desc 错误信息
    */
@@ -51,8 +51,8 @@ interface _CanvasErrorDetail {
 /**
  * @desc 发生错误时触发
  */
-interface _CanvasError {
-  (event: CustomEvent<_CanvasErrorDetail>): void;
+interface _CanvasOnError {
+  (event: CustomEvent<_CanvasOnErrorDetail>): void;
 }
 
 /**
@@ -80,27 +80,27 @@ interface _CanvasProps {
   /**
    * @desc 手指触摸动作开始时触发
    */
-  onTouchstart: _CanvasTouchstart;
+  onTouchstart: _CanvasOnTouchstart;
   /**
    * @desc 手指触摸后移动时触发
    */
-  onTouchmove: _CanvasTouchmove;
+  onTouchmove: _CanvasOnTouchmove;
   /**
    * @desc 手指触摸动作结束时触发
    */
-  onTouchend: _CanvasTouchend;
+  onTouchend: _CanvasOnTouchend;
   /**
    * @desc 手指触摸动作被打断时触发
    */
-  onTouchcancel: _CanvasTouchcancel;
+  onTouchcancel: _CanvasOnTouchcancel;
   /**
    * @desc 手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动
    */
-  onLongtap: _CanvasLongtap;
+  onLongtap: _CanvasOnLongtap;
   /**
    * @desc 发生错误时触发
    */
-  onError: _CanvasError;
+  onError: _CanvasOnError;
 }
 
 /**
@@ -110,13 +110,13 @@ type _Canvas = Component<Partial<_CanvasProps>>;
 
 export {
   _CanvasType as CanvasType,
-  _CanvasTouchstart as CanvasTouchstart,
-  _CanvasTouchmove as CanvasTouchmove,
-  _CanvasTouchend as CanvasTouchend,
-  _CanvasTouchcancel as CanvasTouchcancel,
-  _CanvasLongtap as CanvasLongtap,
-  _CanvasErrorDetail as CanvasErrorDetail,
-  _CanvasError as CanvasError,
+  _CanvasOnTouchstart as CanvasOnTouchstart,
+  _CanvasOnTouchmove as CanvasOnTouchmove,
+  _CanvasOnTouchend as CanvasOnTouchend,
+  _CanvasOnTouchcancel as CanvasOnTouchcancel,
+  _CanvasOnLongtap as CanvasOnLongtap,
+  _CanvasOnErrorDetail as CanvasOnErrorDetail,
+  _CanvasOnError as CanvasOnError,
   _CanvasProps as CanvasProps,
   _Canvas as Canvas,
 };
@@ -130,28 +130,28 @@ declare global {
     /**
      * @desc 手指触摸动作开始时触发
      */
-    export interface CanvasTouchstart extends _CanvasTouchstart {}
+    export interface CanvasOnTouchstart extends _CanvasOnTouchstart {}
     /**
      * @desc 手指触摸后移动时触发
      */
-    export interface CanvasTouchmove extends _CanvasTouchmove {}
+    export interface CanvasOnTouchmove extends _CanvasOnTouchmove {}
     /**
      * @desc 手指触摸动作结束时触发
      */
-    export interface CanvasTouchend extends _CanvasTouchend {}
+    export interface CanvasOnTouchend extends _CanvasOnTouchend {}
     /**
      * @desc 手指触摸动作被打断时触发
      */
-    export interface CanvasTouchcancel extends _CanvasTouchcancel {}
+    export interface CanvasOnTouchcancel extends _CanvasOnTouchcancel {}
     /**
      * @desc 手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动
      */
-    export interface CanvasLongtap extends _CanvasLongtap {}
-    export interface CanvasErrorDetail extends _CanvasErrorDetail {}
+    export interface CanvasOnLongtap extends _CanvasOnLongtap {}
+    export interface CanvasOnErrorDetail extends _CanvasOnErrorDetail {}
     /**
      * @desc 发生错误时触发
      */
-    export interface CanvasError extends _CanvasError {}
+    export interface CanvasOnError extends _CanvasOnError {}
     /**
      * @desc 画布属性
      */

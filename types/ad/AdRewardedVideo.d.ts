@@ -12,11 +12,11 @@ interface _AdRewardedVideoUrlCallback {
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdRewardedVideoLoad {
+interface _AdRewardedVideoOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdRewardedVideoErrorDetail {
+interface _AdRewardedVideoOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -30,14 +30,14 @@ interface _AdRewardedVideoErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdRewardedVideoError {
-  (event: CustomEvent<_AdRewardedVideoErrorDetail>): void;
+interface _AdRewardedVideoOnError {
+  (event: CustomEvent<_AdRewardedVideoOnErrorDetail>): void;
 }
 
 /**
  * @desc 广告关闭的回调
  */
-interface _AdRewardedVideoClose {
+interface _AdRewardedVideoOnClose {
   (event: BaseEvent): void;
 }
 
@@ -66,15 +66,15 @@ interface _AdRewardedVideoProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdRewardedVideoLoad;
+  onLoad: _AdRewardedVideoOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdRewardedVideoError;
+  onError: _AdRewardedVideoOnError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: _AdRewardedVideoClose;
+  onClose: _AdRewardedVideoOnClose;
 }
 
 /**
@@ -84,10 +84,10 @@ type _AdRewardedVideo = Component<Partial<_AdRewardedVideoProps>>;
 
 export {
   _AdRewardedVideoUrlCallback as AdRewardedVideoUrlCallback,
-  _AdRewardedVideoLoad as AdRewardedVideoLoad,
-  _AdRewardedVideoErrorDetail as AdRewardedVideoErrorDetail,
-  _AdRewardedVideoError as AdRewardedVideoError,
-  _AdRewardedVideoClose as AdRewardedVideoClose,
+  _AdRewardedVideoOnLoad as AdRewardedVideoOnLoad,
+  _AdRewardedVideoOnErrorDetail as AdRewardedVideoOnErrorDetail,
+  _AdRewardedVideoOnError as AdRewardedVideoOnError,
+  _AdRewardedVideoOnClose as AdRewardedVideoOnClose,
   _AdRewardedVideoProps as AdRewardedVideoProps,
   _AdRewardedVideo as AdRewardedVideo,
 };
@@ -101,16 +101,16 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdRewardedVideoLoad extends _AdRewardedVideoLoad {}
-    export interface AdRewardedVideoErrorDetail extends _AdRewardedVideoErrorDetail {}
+    export interface AdRewardedVideoOnLoad extends _AdRewardedVideoOnLoad {}
+    export interface AdRewardedVideoOnErrorDetail extends _AdRewardedVideoOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdRewardedVideoError extends _AdRewardedVideoError {}
+    export interface AdRewardedVideoOnError extends _AdRewardedVideoOnError {}
     /**
      * @desc 广告关闭的回调
      */
-    export interface AdRewardedVideoClose extends _AdRewardedVideoClose {}
+    export interface AdRewardedVideoOnClose extends _AdRewardedVideoOnClose {}
     /**
      * @desc 激励视频广告属性
      */

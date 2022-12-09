@@ -4,14 +4,14 @@ import { BaseEvent } from '../events';
 /**
  * @desc 图片加载成功时触发
  */
-interface _CoverImageLoad {
+interface _CoverImageOnLoad {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 图片加载失败时触发
  */
-interface _CoverImageError {
+interface _CoverImageOnError {
   (event: BaseEvent): void;
 }
 
@@ -28,11 +28,11 @@ interface _CoverImageProps {
   /**
    * @desc 图片加载成功时触发
    */
-  onLoad: _CoverImageLoad;
+  onLoad: _CoverImageOnLoad;
   /**
    * @desc 图片加载失败时触发
    */
-  onError: _CoverImageError;
+  onError: _CoverImageOnError;
 }
 
 /**
@@ -43,8 +43,8 @@ interface _CoverImageProps {
 type _CoverImage = Component<Partial<_CoverImageProps>>;
 
 export {
-  _CoverImageLoad as CoverImageLoad,
-  _CoverImageError as CoverImageError,
+  _CoverImageOnLoad as CoverImageOnLoad,
+  _CoverImageOnError as CoverImageOnError,
   _CoverImageProps as CoverImageProps,
   _CoverImage as CoverImage,
 };
@@ -54,11 +54,11 @@ declare global {
     /**
      * @desc 图片加载成功时触发
      */
-    export interface CoverImageLoad extends _CoverImageLoad {}
+    export interface CoverImageOnLoad extends _CoverImageOnLoad {}
     /**
      * @desc 图片加载失败时触发
      */
-    export interface CoverImageError extends _CoverImageError {}
+    export interface CoverImageOnError extends _CoverImageOnError {}
     /**
      * @desc 覆盖在原生组件之上的图片视图属性
      */

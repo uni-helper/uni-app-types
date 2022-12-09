@@ -4,11 +4,11 @@ import { BaseEvent, CustomEvent } from '../events';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdLoad {
+interface _AdOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdErrorDetail {
+interface _AdOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -22,14 +22,14 @@ interface _AdErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdError {
+interface _AdOnError {
   (event: CustomEvent<_AdErrorDetail>): void;
 }
 
 /**
  * @desc 广告关闭的回调
  */
-interface _AdClose {
+interface _AdOnClose {
   (event: BaseEvent): void;
 }
 
@@ -91,15 +91,15 @@ interface _AdProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdLoad;
+  onLoad: _AdOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdError;
+  onError: _AdOnError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: _AdClose;
+  onClose: _AdOnClose;
 }
 
 /**
@@ -108,10 +108,10 @@ interface _AdProps {
 type _Ad = Component<Partial<_AdProps>>;
 
 export {
-  _AdLoad as AdLoad,
-  _AdErrorDetail as AdErrorDetail,
-  _AdError as AdError,
-  _AdClose as AdClose,
+  _AdOnLoad as AdOnLoad,
+  _AdOnErrorDetail as AdOnErrorDetail,
+  _AdOnError as AdOnError,
+  _AdOnClose as AdOnClose,
   _AdProps as AdProps,
   _Ad as Ad,
 };
@@ -121,16 +121,16 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdLoad extends _AdLoad {}
-    export interface AdErrorDetail extends _AdErrorDetail {}
+    export interface AdOnLoad extends _AdOnLoad {}
+    export interface AdOnErrorDetail extends _AdOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdError extends _AdError {}
+    export interface AdOnError extends _AdOnError {}
     /**
      * @desc 广告关闭的回调
      */
-    export interface AdClose extends _AdClose {}
+    export interface AdOnClose extends _AdOnClose {}
     /**
      * @desc 信息流广告属性
      */

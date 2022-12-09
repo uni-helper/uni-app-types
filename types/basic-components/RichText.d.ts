@@ -37,7 +37,7 @@ type _RichTextNodes = _RichTextNode[] | string;
 /**
  * @desc 拦截点击事件，支持 a 和 img 标签
  */
-interface _RichTextItemclick {
+interface _RichTextOnItemclick {
   (event: CustomEvent<{ node: _RichTextNode }>): void;
 }
 
@@ -74,7 +74,7 @@ interface _RichTextProps {
   /**
    * @desc 拦截点击事件，支持 a 和 img 标签
    */
-  onItemclick: _RichTextItemclick;
+  onItemclick: _RichTextOnItemclick;
 }
 
 /**
@@ -88,7 +88,7 @@ export {
   _RichTextNodeNode as RichTextNodeNode,
   _RichTextNode as RichTextNode,
   _RichTextNodes as RichTextNodes,
-  _RichTextItemclick as RichTextItemclick,
+  _RichTextOnItemclick as RichTextOnItemclick,
   _RichTextProps as RichTextProps,
   _RichText as RichText,
 };
@@ -118,7 +118,7 @@ declare global {
     /**
      * @desc 拦截点击事件，支持 a 和 img 标签
      */
-    export interface RichTextItemclick extends _RichTextItemclick {}
+    export interface RichTextOnItemclick extends _RichTextOnItemclick {}
     /**
      * @desc 富文本属性
      */

@@ -19,7 +19,7 @@ type _SwiperEasingFunction =
   | 'easeOutCubic'
   | 'easeInOutCubic';
 
-interface _SwiperChangeDetail {
+interface _SwiperOnChangeDetail {
   /**
    * @desc 当前所在滑块的下标
    */
@@ -36,11 +36,11 @@ interface _SwiperChangeDetail {
 /**
  * @desc current 改变时触发
  */
-interface _SwiperChange {
-  (event: CustomEvent<_SwiperChangeDetail>): void;
+interface _SwiperOnChange {
+  (event: CustomEvent<_SwiperOnChangeDetail>): void;
 }
 
-interface _SwiperTransitionDetail {
+interface _SwiperOnTransitionDetail {
   dx?: number;
   dy?: number;
 }
@@ -48,11 +48,11 @@ interface _SwiperTransitionDetail {
 /**
  * @desc swiper-item 位置改变时触发
  */
-interface _SwiperTransition {
-  (event: CustomEvent<_SwiperTransitionDetail>): void;
+interface _SwiperOnTransition {
+  (event: CustomEvent<_SwiperOnTransitionDetail>): void;
 }
 
-interface _SwiperAnimationfinishDetail {
+interface _SwiperOnAnimationfinishDetail {
   /**
    * @desc 当前所在滑块的下标
    */
@@ -69,8 +69,8 @@ interface _SwiperAnimationfinishDetail {
 /**
  * @desc 动画结束时触发
  */
-interface _SwiperAnimationfinish {
-  (event: CustomEvent<_SwiperAnimationfinishDetail>): void;
+interface _SwiperOnAnimationfinish {
+  (event: CustomEvent<_SwiperOnAnimationfinishDetail>): void;
 }
 
 /**
@@ -186,15 +186,15 @@ interface _SwiperProps {
   /**
    * @desc current 改变时触发
    */
-  onChange: _SwiperChange;
+  onChange: _SwiperOnChange;
   /**
    * @desc swiper-item 位置改变时触发
    */
-  onTransition: _SwiperTransition;
+  onTransition: _SwiperOnTransition;
   /**
    * @desc 动画结束时触发
    */
-  onAnimationfinish: _SwiperAnimationfinish;
+  onAnimationfinish: _SwiperOnAnimationfinish;
 }
 
 /**
@@ -207,12 +207,12 @@ type _Swiper = Component<Partial<_SwiperProps>>;
 export {
   _SwiperSource as SwiperSource,
   _SwiperEasingFunction as SwiperEasingFunction,
-  _SwiperChangeDetail as SwiperChangeDetail,
-  _SwiperChange as SwiperChange,
-  _SwiperTransitionDetail as SwiperTransitionDetail,
-  _SwiperTransition as SwiperTransition,
-  _SwiperAnimationfinishDetail as SwiperAnimationfinishDetail,
-  _SwiperAnimationfinish as SwiperAnimationfinish,
+  _SwiperOnChangeDetail as SwiperOnChangeDetail,
+  _SwiperOnChange as SwiperOnChange,
+  _SwiperOnTransitionDetail as SwiperOnTransitionDetail,
+  _SwiperOnTransition as SwiperOnTransition,
+  _SwiperOnAnimationfinishDetail as SwiperOnAnimationfinishDetail,
+  _SwiperOnAnimationfinish as SwiperOnAnimationfinish,
   _SwiperProps as SwiperProps,
   _Swiper as Swiper,
 };
@@ -230,21 +230,21 @@ declare global {
      * @desc swiper 切换动画类型
      */
     export type SwiperEasingFunction = _SwiperEasingFunction;
-    export interface SwiperChangeDetail extends _SwiperChangeDetail {}
+    export interface SwiperOnChangeDetail extends _SwiperOnChangeDetail {}
     /**
      * @desc current 改变时触发
      */
-    export interface SwiperChange extends _SwiperChange {}
-    export interface SwiperTransitionDetail extends _SwiperTransitionDetail {}
+    export interface SwiperOnChange extends _SwiperOnChange {}
+    export interface SwiperOnTransitionDetail extends _SwiperOnTransitionDetail {}
     /**
      * @desc swiper-item 位置改变时触发
      */
-    export interface SwiperTransition extends _SwiperTransition {}
-    export interface SwiperAnimationfinishDetail extends _SwiperAnimationfinishDetail {}
+    export interface SwiperOnTransition extends _SwiperOnTransition {}
+    export interface SwiperOnAnimationfinishDetail extends _SwiperOnAnimationfinishDetail {}
     /**
      * @desc 动画结束时触发
      */
-    export interface SwiperAnimationfinish extends _SwiperAnimationfinish {}
+    export interface SwiperOnAnimationfinish extends _SwiperOnAnimationfinish {}
     /**
      * @desc 滑块视图容器属性
      */

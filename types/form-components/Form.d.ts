@@ -10,7 +10,7 @@ import { SwitchChecked } from './Switch';
 /**
  * @desc 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对
  */
-interface _FormSubmitDetailValue {
+interface _FormOnSubmitDetailValue {
   [key: string]:
     | SwitchChecked
     | InputValue
@@ -20,11 +20,11 @@ interface _FormSubmitDetailValue {
     | PickerValue;
 }
 
-interface _FormSubmitDetail {
+interface _FormOnSubmitDetail {
   /**
    * @desc 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对
    */
-  value: _FormSubmitDetailValue;
+  value: _FormOnSubmitDetailValue;
   /**
    * @desc report-submit 为 true 时返回，用于发送模板消息
    */
@@ -34,14 +34,14 @@ interface _FormSubmitDetail {
 /**
  * @desc 表单提交时触发
  */
-interface _FormSubmit {
-  (event: CustomEvent<_FormSubmitDetail>): void;
+interface _FormOnSubmit {
+  (event: CustomEvent<_FormOnSubmitDetail>): void;
 }
 
 /**
  * @desc 表单重置时触发
  */
-interface _FormReset {
+interface _FormOnReset {
   (event: BaseEvent): void;
 }
 
@@ -66,11 +66,11 @@ interface _FormProps {
   /**
    * @desc 表单提交时触发
    */
-  onSubmit: _FormSubmit;
+  onSubmit: _FormOnSubmit;
   /**
    * @desc 表单重置时触发
    */
-  onReset: _FormReset;
+  onReset: _FormOnReset;
 }
 
 /**
@@ -80,10 +80,10 @@ interface _FormProps {
 type _Form = Component<Partial<_FormProps>>;
 
 export {
-  _FormSubmitDetailValue as FormSubmitDetailValue,
-  _FormSubmitDetail as FormSubmitDetail,
-  _FormSubmit as FormSubmit,
-  _FormReset as FormReset,
+  _FormOnSubmitDetailValue as FormOnSubmitDetailValue,
+  _FormOnSubmitDetail as FormOnSubmitDetail,
+  _FormOnSubmit as FormOnSubmit,
+  _FormOnReset as FormOnReset,
   _Form as Form,
 };
 
@@ -92,16 +92,16 @@ declare global {
     /**
      * @desc 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对
      */
-    export interface FormSubmitDetailValue extends _FormSubmitDetailValue {}
-    export interface FormSubmitDetail extends _FormSubmitDetail {}
+    export interface FormOnSubmitDetailValue extends _FormOnSubmitDetailValue {}
+    export interface FormOnSubmitDetail extends _FormOnSubmitDetail {}
     /**
      * @desc 表单提交时触发
      */
-    export interface FormSubmit extends _FormSubmit {}
+    export interface FormOnSubmit extends _FormOnSubmit {}
     /**
      * @desc 表单重置时触发
      */
-    export interface FormReset extends _FormReset {}
+    export interface FormOnReset extends _FormOnReset {}
     /**
      * @desc 表单属性
      */

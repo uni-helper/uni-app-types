@@ -14,21 +14,21 @@ interface _WebViewStyles {
   progress: boolean | { color: string };
 }
 
-interface _WebViewMessageDetail {
+interface _WebViewOnMessageDetail {
   data: any[];
 }
 
 /**
  * @desc 网页向应用 postMessage 时，会在特定时机（后退、组件销毁、分享）触发并收到消息
  */
-interface _WebViewMessage {
-  (event: CustomEvent<_WebViewMessageDetail>): void;
+interface _WebViewOnMessage {
+  (event: CustomEvent<_WebViewOnMessageDetail>): void;
 }
 
 /**
  * @desc 网页向应用实时 postMessage
  */
-interface _WebViewOnPostMessage {
+interface _WebViewOnOnPostMessage {
   (event: BaseEvent): void;
 }
 
@@ -59,11 +59,11 @@ interface _WebViewProps {
   /**
    * @desc 网页向应用 postMessage 时，会在特定时机（后退、组件销毁、分享）触发并收到消息
    */
-  onMessage: _WebViewMessage;
+  onMessage: _WebViewOnMessage;
   /**
    * @desc 网页向应用实时 postMessage
    */
-  onOnPostMessage: _WebViewOnPostMessage;
+  onOnPostMessage: _WebViewOnOnPostMessage;
 }
 
 /**
@@ -73,9 +73,9 @@ type _WebView = Component<Partial<_WebViewProps>>;
 
 export {
   _WebViewStyles as WebViewStyles,
-  _WebViewMessageDetail as WebViewMessageDetail,
-  _WebViewMessage as WebViewMessage,
-  _WebViewOnPostMessage as WebViewOnPostMessage,
+  _WebViewOnMessageDetail as WebViewOnMessageDetail,
+  _WebViewOnMessage as WebViewOnMessage,
+  _WebViewOnOnPostMessage as WebViewOnOnPostMessage,
   _WebViewProps as WebViewProps,
   _WebView as WebView,
 };
@@ -86,15 +86,15 @@ declare global {
      * @desc 样式
      */
     export interface WebViewStyles extends _WebViewStyles {}
-    export interface WebViewMessageDetail extends _WebViewMessageDetail {}
+    export interface WebViewOnMessageDetail extends _WebViewOnMessageDetail {}
     /**
      * @desc 网页向应用 postMessage 时，会在特定时机（后退、组件销毁、分享）触发并收到消息
      */
-    export interface WebViewMessage extends _WebViewMessage {}
+    export interface WebViewOnMessage extends _WebViewOnMessage {}
     /**
      * @desc 网页向应用实时 postMessage
      */
-    export interface WebViewOnPostMessage extends _WebViewOnPostMessage {}
+    export interface WebViewOnOnPostMessage extends _WebViewOnOnPostMessage {}
     /**
      * @desc web 浏览器组件属性
      */

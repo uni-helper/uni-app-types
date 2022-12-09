@@ -6,26 +6,26 @@ import { CustomEvent } from '../events';
  */
 type _SliderValue = number;
 
-interface _SliderChangeDetail {
+interface _SliderOnChangeDetail {
   value: _SliderValue;
 }
 
 /**
  * @desc 完成一次拖动后触发
  */
-interface _SliderChange {
-  (event: CustomEvent<_SliderChangeDetail>): void;
+interface _SliderOnChange {
+  (event: CustomEvent<_SliderOnChangeDetail>): void;
 }
 
-interface _SliderChangingDetail {
+interface _SliderOnChangingDetail {
   value: _SliderValue;
 }
 
 /**
  * @desc 拖动过程中触发
  */
-interface _SliderChanging {
-  (event: CustomEvent<_SliderChangingDetail>): void;
+interface _SliderOnChanging {
+  (event: CustomEvent<_SliderOnChangingDetail>): void;
 }
 
 /**
@@ -90,11 +90,11 @@ interface _SliderProps {
   /**
    * @desc 完成一次拖动后触发
    */
-  onChange: _SliderChange;
+  onChange: _SliderOnChange;
   /**
    * @desc 拖动过程中触发
    */
-  onChanging: _SliderChanging;
+  onChanging: _SliderOnChanging;
 }
 
 /**
@@ -104,10 +104,10 @@ type _Slider = Component<Partial<_SliderProps>>;
 
 export {
   _SliderValue as SliderValue,
-  _SliderChangeDetail as SliderChangeDetail,
-  _SliderChange as SliderChange,
-  _SliderChangingDetail as SliderChangingDetail,
-  _SliderChanging as SliderChanging,
+  _SliderOnChangeDetail as SliderOnChangeDetail,
+  _SliderOnChange as SliderOnChange,
+  _SliderOnChangingDetail as SliderOnChangingDetail,
+  _SliderOnChanging as SliderOnChanging,
   _SliderProps as SliderProps,
   _Slider as Slider,
 };
@@ -118,16 +118,16 @@ declare global {
      * @desc 取值
      */
     export type SliderValue = _SliderValue;
-    export interface SliderChangeDetail extends _SliderChangeDetail {}
+    export interface SliderOnChangeDetail extends _SliderOnChangeDetail {}
     /**
      * @desc 完成一次拖动后触发
      */
-    export interface SliderChange extends _SliderChange {}
-    export interface SliderChangingDetail extends _SliderChangingDetail {}
+    export interface SliderOnChange extends _SliderOnChange {}
+    export interface SliderOnChangingDetail extends _SliderOnChangingDetail {}
     /**
      * @desc 拖动过程中触发
      */
-    export interface SliderChanging extends _SliderChanging {}
+    export interface SliderOnChanging extends _SliderOnChanging {}
     /**
      * @desc 滑动选择器属性
      */

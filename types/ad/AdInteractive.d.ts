@@ -3,11 +3,11 @@ import { Component } from '../Component';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdInteractiveLoad {
+interface _AdInteractiveOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdInteractiveErrorDetail {
+interface _AdInteractiveOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -21,8 +21,8 @@ interface _AdInteractiveErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdInteractiveError {
-  (event: CustomEvent<_AdInteractiveErrorDetail>): void;
+interface _AdInteractiveOnError {
+  (event: CustomEvent<_AdInteractiveOnErrorDetail>): void;
 }
 
 /**
@@ -40,11 +40,11 @@ interface _AdInteractiveProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdInteractiveLoad;
+  onLoad: _AdInteractiveOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdInteractiveError;
+  onError: _AdInteractiveOnError;
 }
 
 /**
@@ -53,9 +53,9 @@ interface _AdInteractiveProps {
 type _AdInteractive = Component<Partial<_AdInteractiveProps>>;
 
 export {
-  _AdInteractiveLoad as AdInteractiveLoad,
-  _AdInteractiveErrorDetail as AdInteractiveErrorDetail,
-  _AdInteractiveError as AdInteractiveError,
+  _AdInteractiveOnLoad as AdInteractiveOnLoad,
+  _AdInteractiveOnErrorDetail as AdInteractiveOnErrorDetail,
+  _AdInteractiveOnError as AdInteractiveOnError,
   _AdInteractiveProps as AdInteractiveProps,
   _AdInteractive as AdInteractive,
 };
@@ -65,12 +65,12 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdInteractiveLoad extends _AdInteractiveLoad {}
-    export interface AdInteractiveErrorDetail extends _AdInteractiveErrorDetail {}
+    export interface AdInteractiveOnLoad extends _AdInteractiveOnLoad {}
+    export interface AdInteractiveOnErrorDetail extends _AdInteractiveOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdInteractiveError extends _AdInteractiveError {}
+    export interface AdInteractiveOnError extends _AdInteractiveOnError {}
     /**
      * @desc 互动广告属性
      */

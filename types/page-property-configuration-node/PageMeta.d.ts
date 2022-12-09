@@ -8,7 +8,7 @@ import { BaseEvent, CustomEvent } from '../events';
  */
 type _PageMetaBackgroundTextStyle = 'dark' | 'light';
 
-interface _PageMetaResizeDetail {
+interface _PageMetaOnResizeDetail {
   windowWidth: number;
   windowHeight: number;
 }
@@ -16,25 +16,25 @@ interface _PageMetaResizeDetail {
 /**
  * @desc 页面尺寸变化时触发
  */
-interface _PageMetaResize {
-  (event: CustomEvent<_PageMetaResizeDetail>): void;
+interface _PageMetaOnResize {
+  (event: CustomEvent<_PageMetaOnResizeDetail>): void;
 }
 
-interface _PageMetaScrollDetail {
+interface _PageMetaOnScrollDetail {
   scrollTop: number;
 }
 
 /**
  * @desc 页面滚动时触发
  */
-interface _PageMetaScroll {
-  (event: CustomEvent<_PageMetaScrollDetail>): void;
+interface _PageMetaOnScroll {
+  (event: CustomEvent<_PageMetaOnScrollDetail>): void;
 }
 
 /**
  * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
  */
-interface _PageMetaScrolldone {
+interface _PageMetaOnScrolldone {
   (event: BaseEvent): void;
 }
 
@@ -87,15 +87,15 @@ interface _PageMetaProps {
   /**
    * @desc 页面尺寸变化时触发
    */
-  onResize: _PageMetaResize;
+  onResize: _PageMetaOnResize;
   /**
    * @desc 页面滚动时触发
    */
-  onScroll: _PageMetaScroll;
+  onScroll: _PageMetaOnScroll;
   /**
    * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
    */
-  onScrolldone: _PageMetaScrolldone;
+  onScrolldone: _PageMetaOnScrolldone;
 }
 
 /**
@@ -107,11 +107,11 @@ type _PageMeta = Component<Partial<_PageMetaProps>>;
 
 export {
   _PageMetaBackgroundTextStyle as PageMetaBackgroundTextStyle,
-  _PageMetaResizeDetail as PageMetaResizeDetail,
-  _PageMetaResize as PageMetaResize,
-  _PageMetaScrollDetail as PageMetaScrollDetail,
-  _PageMetaScroll as PageMetaScroll,
-  _PageMetaScrolldone as PageMetaScrolldone,
+  _PageMetaOnResizeDetail as PageMetaOnResizeDetail,
+  _PageMetaOnResize as PageMetaOnResize,
+  _PageMetaOnScrollDetail as PageMetaOnScrollDetail,
+  _PageMetaOnScroll as PageMetaOnScroll,
+  _PageMetaOnScrolldone as PageMetaOnScrolldone,
   _PageMetaProps as PageMetaProps,
   _PageMeta as PageMeta,
 };
@@ -124,20 +124,20 @@ declare global {
      * @desc light 亮色
      */
     export type PageMetaBackgroundTextStyle = _PageMetaBackgroundTextStyle;
-    export interface PageMetaResizeDetail extends _PageMetaResizeDetail {}
+    export interface PageMetaOnResizeDetail extends _PageMetaOnResizeDetail {}
     /**
      * @desc 页面尺寸变化时触发
      */
-    export interface PageMetaResize extends _PageMetaResize {}
-    export interface PageMetaScrollDetail extends _PageMetaScrollDetail {}
+    export interface PageMetaOnResize extends _PageMetaOnResize {}
+    export interface PageMetaOnScrollDetail extends _PageMetaOnScrollDetail {}
     /**
      * @desc 页面滚动时触发
      */
-    export interface PageMetaScroll extends _PageMetaScroll {}
+    export interface PageMetaOnScroll extends _PageMetaOnScroll {}
     /**
      * @desc 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发
      */
-    export interface PageMetaScrolldone extends _PageMetaScrolldone {}
+    export interface PageMetaOnScrolldone extends _PageMetaOnScrolldone {}
     /**
      * @desc 页面属性配置节点属性
      */

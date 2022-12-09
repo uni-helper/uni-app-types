@@ -16,7 +16,7 @@ type _TextareaValue = string;
  */
 type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
-interface _TextareaFocusDetail {
+interface _TextareaOnFocusDetail {
   value: _TextareaValue;
   height: number;
 }
@@ -24,11 +24,11 @@ interface _TextareaFocusDetail {
 /**
  * @desc 聚焦时触发
  */
-interface _TextareaFocus {
-  (event: CustomEvent<_TextareaFocusDetail>): void;
+interface _TextareaOnFocus {
+  (event: CustomEvent<_TextareaOnFocusDetail>): void;
 }
 
-interface _TextareaBlurDetail {
+interface _TextareaOnBlurDetail {
   value: _TextareaValue;
   height: number;
 }
@@ -36,11 +36,11 @@ interface _TextareaBlurDetail {
 /**
  * @desc 失焦时触发
  */
-interface _TextareaBlur {
-  (event: CustomEvent<_TextareaBlurDetail>);
+interface _TextareaOnBlur {
+  (event: CustomEvent<_TextareaOnBlurDetail>);
 }
 
-interface _TextareaLinechangeDetail {
+interface _TextareaOnLinechangeDetail {
   height: number;
   heightRpx: number;
   lineCount: number;
@@ -49,11 +49,11 @@ interface _TextareaLinechangeDetail {
 /**
  * @desc 输入框行数变化时触发
  */
-interface _TextareaLinechange {
-  (event: CustomEvent<_TextareaLinechangeDetail>): void;
+interface _TextareaOnLinechange {
+  (event: CustomEvent<_TextareaOnLinechangeDetail>): void;
 }
 
-interface _TextareaInputDetail {
+interface _TextareaOnInputDetail {
   value: _TextareaValue;
   cursor: number;
 }
@@ -61,22 +61,22 @@ interface _TextareaInputDetail {
 /**
  * @desc 输入时触发
  */
-interface _TextareaInput {
-  (event: CustomEvent<_TextareaInputDetail>): string | void;
+interface _TextareaOnInput {
+  (event: CustomEvent<_TextareaOnInputDetail>): string | void;
 }
 
-interface _TextareaConfirmDetail {
+interface _TextareaOnConfirmDetail {
   value: _TextareaValue;
 }
 
 /**
  * @desc 点击完成按钮时触发
  */
-interface _TextareaConfirm {
-  (event: CustomEvent<_TextareaConfirmDetail>): void;
+interface _TextareaOnConfirm {
+  (event: CustomEvent<_TextareaOnConfirmDetail>): void;
 }
 
-interface _TextareaKeyboardheightchangeDetail {
+interface _TextareaOnKeyboardheightchangeDetail {
   height: number;
   duration: number;
 }
@@ -84,8 +84,8 @@ interface _TextareaKeyboardheightchangeDetail {
 /**
  * @desc 键盘高度变化时触发
  */
-interface _TextareaKeyboardheightchange {
-  (event: CustomEvent<_TextareaKeyboardheightchangeDetail>): void;
+interface _TextareaOnKeyboardheightchange {
+  (event: CustomEvent<_TextareaOnKeyboardheightchangeDetail>): void;
 }
 
 /**
@@ -210,27 +210,27 @@ interface _TextareaProps {
   /**
    * @desc 聚焦时触发
    */
-  onFocus: _TextareaFocus;
+  onFocus: _TextareaOnFocus;
   /**
    * @desc 失焦时触发
    */
-  onBlur: _TextareaBlur;
+  onBlur: _TextareaOnBlur;
   /**
    * @desc 输入框行数变化时触发
    */
-  onLinechange: _TextareaLinechange;
+  onLinechange: _TextareaOnLinechange;
   /**
    * @desc 输入时触发
    */
-  onInput: _TextareaInput;
+  onInput: _TextareaOnInput;
   /**
    * @desc 点击完成按钮时触发
    */
-  onConfirm: _TextareaConfirm;
+  onConfirm: _TextareaOnConfirm;
   /**
    * @desc 键盘高度变化时触发
    */
-  onKeyboardheightchange: _TextareaKeyboardheightchange;
+  onKeyboardheightchange: _TextareaOnKeyboardheightchange;
 }
 
 /**
@@ -241,18 +241,18 @@ type _Textarea = Component<Partial<_TextareaProps>>;
 export {
   _TextareaValue as TextareaValue,
   _TextareaConfirmType as TextareaConfirmType,
-  _TextareaFocusDetail as TextareaFocusDetail,
-  _TextareaFocus as TextareaFocus,
-  _TextareaBlurDetail as TextareaBlurDetail,
-  _TextareaBlur as TextareaBlur,
-  _TextareaLinechangeDetail as TextareaLinechangeDetail,
-  _TextareaLinechange as TextareaLinechange,
-  _TextareaInputDetail as TextareaInputDetail,
-  _TextareaInput as TextareaInput,
-  _TextareaConfirmDetail as TextareaConfirmDetail,
-  _TextareaConfirm as TextareaConfirm,
-  _TextareaKeyboardheightchangeDetail as TextareaKeyboardheightchangeDetail,
-  _TextareaKeyboardheightchange as TextareaKeyboardheightchange,
+  _TextareaOnFocusDetail as TextareaOnFocusDetail,
+  _TextareaOnFocus as TextareaOnFocus,
+  _TextareaOnBlurDetail as TextareaOnBlurDetail,
+  _TextareaOnBlur as TextareaOnBlur,
+  _TextareaOnLinechangeDetail as TextareaOnLinechangeDetail,
+  _TextareaOnLinechange as TextareaOnLinechange,
+  _TextareaOnInputDetail as TextareaOnInputDetail,
+  _TextareaOnInput as TextareaOnInput,
+  _TextareaOnConfirmDetail as TextareaOnConfirmDetail,
+  _TextareaOnConfirm as TextareaOnConfirm,
+  _TextareaOnKeyboardheightchangeDetail as TextareaOnKeyboardheightchangeDetail,
+  _TextareaOnKeyboardheightchange as TextareaOnKeyboardheightchange,
   _TextareaProps as TextareaProps,
   _Textarea as Textarea,
 };
@@ -272,37 +272,37 @@ declare global {
      * @desc done 完成
      */
     export type TextareaConfirmType = _TextareaConfirmType;
-    export interface TextareaFocusDetail extends _TextareaFocusDetail {}
+    export interface TextareaOnFocusDetail extends _TextareaOnFocusDetail {}
     /**
      * @desc 聚焦时触发
      */
-    export interface TextareaFocus extends _TextareaFocus {}
-    export interface TextareaBlurDetail extends _TextareaBlurDetail {}
+    export interface TextareaOnFocus extends _TextareaOnFocus {}
+    export interface TextareaOnBlurDetail extends _TextareaOnBlurDetail {}
     /**
      * @desc 失焦时触发
      */
-    export interface TextareaBlur extends _TextareaBlur {}
-    export interface TextareaLinechangeDetail extends _TextareaLinechangeDetail {}
+    export interface TextareaOnBlur extends _TextareaOnBlur {}
+    export interface TextareaOnLinechangeDetail extends _TextareaOnLinechangeDetail {}
     /**
      * @desc 输入框行数变化时触发
      */
-    export interface TextareaLinechange extends _TextareaLinechange {}
-    export interface TextareaInputDetail extends _TextareaInputDetail {}
+    export interface TextareaOnLinechange extends _TextareaOnLinechange {}
+    export interface TextareaOnInputDetail extends _TextareaOnInputDetail {}
     /**
      * @desc 输入时触发
      */
-    export interface TextareaInput extends _TextareaInput {}
-    export interface TextareaConfirmDetail extends _TextareaConfirmDetail {}
+    export interface TextareaOnInput extends _TextareaOnInput {}
+    export interface TextareaOnConfirmDetail extends _TextareaOnConfirmDetail {}
     /**
      * @desc 点击完成按钮时触发
      */
-    export interface TextareaConfirm extends _TextareaConfirm {}
-    export interface TextareaKeyboardheightchangeDetail
-      extends _TextareaKeyboardheightchangeDetail {}
+    export interface TextareaOnConfirm extends _TextareaOnConfirm {}
+    export interface TextareaOnKeyboardheightchangeDetail
+      extends _TextareaOnKeyboardheightchangeDetail {}
     /**
      * @desc 键盘高度变化时触发
      */
-    export interface TextareaKeyboardheightchange extends _TextareaKeyboardheightchange {}
+    export interface TextareaOnKeyboardheightchange extends _TextareaOnKeyboardheightchange {}
     /**
      * @desc 多行输入框属性
      */

@@ -88,7 +88,7 @@ type _ButtonOpenType =
  */
 type _ButtonLang = 'zh_CN' | 'zh_TW' | 'en';
 
-interface _ButtonGetphonenumberDetail {
+interface _ButtonOnGetphonenumberDetail {
   /**
    * @desc 错误信息
    */
@@ -115,18 +115,18 @@ interface _ButtonGetphonenumberDetail {
  * @desc 获取用户手机号时回调
  * @desc open-type="getPhoneNumber" 时有效
  */
-interface _ButtonGetphonenumber {
-  (event: CustomEvent<_ButtonGetphonenumberDetail>): void;
+interface _ButtonOnGetphonenumber {
+  (event: CustomEvent<_ButtonOnGetphonenumberDetail>): void;
 }
 
 /**
  * @desc 使用开放能力发生错误时回调
  */
-interface _ButtonError {
+interface _ButtonOnError {
   (event: BaseEvent): void;
 }
 
-interface _ButtonOpensettingDetail {
+interface _ButtonOnOpensettingDetail {
   authSetting: AnyRecord;
 }
 
@@ -134,15 +134,15 @@ interface _ButtonOpensettingDetail {
  * @desc 在打开授权设置页并关闭后回调
  * @desc open-type="openSetting" 时有效
  */
-interface _ButtonOpensetting {
-  (event: CustomEvent<_ButtonOpensettingDetail>): void;
+interface _ButtonOnOpensetting {
+  (event: CustomEvent<_ButtonOnOpensettingDetail>): void;
 }
 
 /**
  * @desc 从小程序成功打开 APP 回调
  * @desc open-type="launchApp" 时有效
  */
-interface _ButtonLaunchapp {
+interface _ButtonOnLaunchapp {
   (event: BaseEvent): void;
 }
 
@@ -150,7 +150,7 @@ interface _ButtonLaunchapp {
  * @desc 获取用户头像回调
  * @desc open-type="chooseAvatar" 时有效
  */
-interface _ButtonChooseavatar {
+interface _ButtonOnChooseavatar {
   (event: BaseEvent): void;
 }
 
@@ -158,7 +158,7 @@ interface _ButtonChooseavatar {
  * @desc 添加群应用回调
  * @desc open-type="addGroupApp" 时有效
  */
-interface _ButtonAddgroupapp {
+interface _ButtonOnAddgroupapp {
   (event: BaseEvent): void;
 }
 
@@ -166,7 +166,7 @@ interface _ButtonAddgroupapp {
  * @desc 用户编辑并选择收货地址回调
  * @desc open-type="chooseAddress" 时有效
  */
-interface _ButtonChooseaddress {
+interface _ButtonOnChooseaddress {
   (event: BaseEvent): void;
 }
 
@@ -174,7 +174,7 @@ interface _ButtonChooseaddress {
  * @desc 用户选择发票抬头回调
  * @desc open-type="chooseInvoiceTitle" 时有效
  */
-interface _ButtonChooseinvoicetitle {
+interface _ButtonOnChooseinvoicetitle {
   (event: BaseEvent): void;
 }
 
@@ -182,7 +182,7 @@ interface _ButtonChooseinvoicetitle {
  * @desc 订阅消息授权回调
  * @desc open-type="subscribe" 时有效
  */
-interface _ButtonSubscribe {
+interface _ButtonOnSubscribe {
   (event: BaseEvent): void;
 }
 
@@ -190,7 +190,7 @@ interface _ButtonSubscribe {
  * @desc 登录回调
  * @desc open-type="login" 时有效
  */
-interface _ButtonLogin {
+interface _ButtonOnLogin {
   (event: BaseEvent): void;
 }
 
@@ -349,51 +349,51 @@ interface _ButtonProps {
    * @desc 获取用户手机号时回调
    * @desc open-type="getPhoneNumber" 时有效
    */
-  onGetphonenumber: _ButtonGetphonenumber;
+  onGetphonenumber: _ButtonOnGetphonenumber;
   /**
    * @desc 使用开放能力发生错误时回调
    */
-  onError: _ButtonError;
+  onError: _ButtonOnError;
   /**
    * @desc 在打开授权设置页并关闭后回调
    * @desc open-type="openSetting" 时有效
    */
-  onOpensetting: _ButtonOpensetting;
+  onOpensetting: _ButtonOnOpensetting;
   /**
    * @desc 从小程序成功打开 APP 回调
    * @desc open-type="launchApp" 时有效
    */
-  onLaunchapp: _ButtonLaunchapp;
+  onLaunchapp: _ButtonOnLaunchapp;
   /**
    * @desc 获取用户头像回调
    * @desc open-type="chooseAvatar" 时有效
    */
-  onChooseavatar: _ButtonChooseavatar;
+  onChooseavatar: _ButtonOnChooseavatar;
   /**
    * @desc 添加群应用回调
    * @desc open-type="addGroupApp" 时有效
    */
-  onAddgroupapp: _ButtonAddgroupapp;
+  onAddgroupapp: _ButtonOnAddgroupapp;
   /**
    * @desc 用户编辑并选择收货地址回调
    * @desc open-type="chooseAddress" 时有效
    */
-  onChooseaddress: _ButtonChooseaddress;
+  onChooseaddress: _ButtonOnChooseaddress;
   /**
    * @desc 用户选择发票抬头回调
    * @desc open-type="chooseInvoiceTitle" 时有效
    */
-  onChooseinvoicetitle: _ButtonChooseinvoicetitle;
+  onChooseinvoicetitle: _ButtonOnChooseinvoicetitle;
   /**
    * @desc 订阅消息授权回调
    * @desc open-type="subscribe" 时有效
    */
-  onSubscribe: _ButtonSubscribe;
+  onSubscribe: _ButtonOnSubscribe;
   /**
    * @desc 登录回调
    * @desc open-type="login" 时有效
    */
-  onLogin: _ButtonLogin;
+  onLogin: _ButtonOnLogin;
 }
 
 /**
@@ -407,18 +407,18 @@ export {
   _ButtonFormType as ButtonFormType,
   _ButtonOpenType as ButtonOpenType,
   _ButtonLang as ButtonLang,
-  _ButtonGetphonenumberDetail as ButtonGetphonenumberDetail,
-  _ButtonGetphonenumber as ButtonGetphonenumber,
-  _ButtonError as ButtonError,
-  _ButtonOpensettingDetail as ButtonOpensettingDetail,
-  _ButtonOpensetting as ButtonOpensetting,
-  _ButtonLaunchapp as ButtonLaunchapp,
-  _ButtonChooseavatar as ButtonChooseavatar,
-  _ButtonAddgroupapp as ButtonAddgroupapp,
-  _ButtonChooseaddress as ButtonChooseaddress,
-  _ButtonChooseinvoicetitle as ButtonChooseinvoicetitle,
-  _ButtonSubscribe as ButtonSubscribe,
-  _ButtonLogin as ButtonLogin,
+  _ButtonOnGetphonenumberDetail as ButtonOnGetphonenumberDetail,
+  _ButtonOnGetphonenumber as ButtonOnGetphonenumber,
+  _ButtonOnError as ButtonOnError,
+  _ButtonOnOpensettingDetail as ButtonOnOpensettingDetail,
+  _ButtonOnOpensetting as ButtonOnOpensetting,
+  _ButtonOnLaunchapp as ButtonOnLaunchapp,
+  _ButtonOnChooseavatar as ButtonOnChooseavatar,
+  _ButtonOnAddgroupapp as ButtonOnAddgroupapp,
+  _ButtonOnChooseaddress as ButtonOnChooseaddress,
+  _ButtonOnChooseinvoicetitle as ButtonOnChooseinvoicetitle,
+  _ButtonOnSubscribe as ButtonOnSubscribe,
+  _ButtonOnLogin as ButtonOnLogin,
   _ButtonProps as ButtonProps,
   _Button as Button,
 };
@@ -482,57 +482,57 @@ declare global {
      * @desc en 英文
      */
     export type ButtonLang = _ButtonLang;
-    export interface ButtonGetphonenumberDetail extends _ButtonGetphonenumberDetail {}
+    export interface ButtonOnGetphonenumberDetail extends _ButtonOnGetphonenumberDetail {}
     /**
      * @desc 获取用户手机号时回调
      * @desc open-type="getPhoneNumber" 时有效
      */
-    export interface ButtonGetphonenumber extends _ButtonGetphonenumber {}
+    export interface ButtonOnGetphonenumber extends _ButtonOnGetphonenumber {}
     /**
      * @desc 使用开放能力发生错误时回调
      */
-    export interface ButtonError extends _ButtonError {}
-    export interface ButtonOpensettingDetail extends _ButtonOpensettingDetail {}
+    export interface ButtonOnError extends _ButtonOnError {}
+    export interface ButtonOnOpensettingDetail extends _ButtonOnOpensettingDetail {}
     /**
      * @desc 在打开授权设置页并关闭后回调
      * @desc open-type="openSetting" 时有效
      */
-    export interface ButtonOpensetting extends _ButtonOpensetting {}
+    export interface ButtonOnOpensetting extends _ButtonOnOpensetting {}
     /**
      * @desc 从小程序成功打开 APP 回调
      * @desc open-type="launchApp" 时有效
      */
-    export interface ButtonLaunchapp extends _ButtonLaunchapp {}
+    export interface ButtonOnLaunchapp extends _ButtonOnLaunchapp {}
     /**
      * @desc 获取用户头像回调
      * @desc open-type="chooseAvatar" 时有效
      */
-    export interface ButtonChooseavatar extends _ButtonChooseavatar {}
+    export interface ButtonOnChooseavatar extends _ButtonOnChooseavatar {}
     /**
      * @desc 添加群应用回调
      * @desc open-type="addGroupApp" 时有效
      */
-    export interface ButtonAddgroupapp extends _ButtonAddgroupapp {}
+    export interface ButtonOnAddgroupapp extends _ButtonOnAddgroupapp {}
     /**
      * @desc 用户编辑并选择收货地址回调
      * @desc open-type="chooseAddress" 时有效
      */
-    export interface ButtonChooseaddress extends _ButtonChooseaddress {}
+    export interface ButtonOnChooseaddress extends _ButtonOnChooseaddress {}
     /**
      * @desc 用户选择发票抬头回调
      * @desc open-type="chooseInvoiceTitle" 时有效
      */
-    export interface ButtonChooseinvoicetitle extends _ButtonChooseinvoicetitle {}
+    export interface ButtonOnChooseinvoicetitle extends _ButtonOnChooseinvoicetitle {}
     /**
      * @desc 订阅消息授权回调
      * @desc open-type="subscribe" 时有效
      */
-    export interface ButtonSubscribe extends _ButtonSubscribe {}
+    export interface ButtonOnSubscribe extends _ButtonOnSubscribe {}
     /**
      * @desc 登录回调
      * @desc open-type="login" 时有效
      */
-    export interface ButtonLogin extends _ButtonLogin {}
+    export interface ButtonOnLogin extends _ButtonOnLogin {}
     /**
      * @desc 按钮属性
      */

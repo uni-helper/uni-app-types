@@ -11,15 +11,15 @@ type _SwitchChecked = boolean;
  */
 type _SwitchType = '_Switch' | 'checkbox';
 
-interface _SwitchChangeDetail {
+interface _SwitchOnChangeDetail {
   value: _SwitchChecked;
 }
 
 /**
  * @desc checked 改变时触发
  */
-interface _SwitchChange {
-  (event: CustomEvent<_SwitchChangeDetail>): void;
+interface _SwitchOnChange {
+  (event: CustomEvent<_SwitchOnChangeDetail>): void;
 }
 
 /**
@@ -51,7 +51,7 @@ interface _SwitchProps {
   /**
    * @desc checked 改变时触发
    */
-  onChange: _SwitchChange;
+  onChange: _SwitchOnChange;
 }
 
 /**
@@ -62,8 +62,8 @@ type _Switch = Component<Partial<_SwitchProps>>;
 export {
   _SwitchChecked as SwitchChecked,
   _SwitchType as SwitchType,
-  _SwitchChangeDetail as SwitchChangeDetail,
-  _SwitchChange as SwitchChange,
+  _SwitchOnChangeDetail as SwitchOnChangeDetail,
+  _SwitchOnChange as SwitchOnChange,
   _SwitchProps as SwitchProps,
   _Switch as Switch,
 };
@@ -78,11 +78,11 @@ declare global {
      * @desc 样式
      */
     export type SwitchType = _SwitchType;
-    export interface SwitchChangeDetail extends _SwitchChangeDetail {}
+    export interface SwitchOnChangeDetail extends _SwitchOnChangeDetail {}
     /**
      * @desc checked 改变时触发
      */
-    export interface SwitchChange extends _SwitchChange {}
+    export interface SwitchOnChange extends _SwitchOnChange {}
     /**
      * @desc 开关选择器属性
      */

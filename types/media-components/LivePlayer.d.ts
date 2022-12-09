@@ -165,7 +165,7 @@ interface _LivePlayerInfo {
   audioCacheThreshold?: number;
 }
 
-interface _LivePlayerStatechangeDetail {
+interface _LivePlayerOnStatechangeDetail {
   /**
    * @desc 状态码
    * @desc 2001 已经连接服务器
@@ -198,11 +198,11 @@ interface _LivePlayerStatechangeDetail {
 /**
  * @desc 播放状态变化时触发
  */
-interface _LivePlayerStatechange {
-  (event: CustomEvent<_LivePlayerStatechangeDetail>): void;
+interface _LivePlayerOnStatechange {
+  (event: CustomEvent<_LivePlayerOnStatechangeDetail>): void;
 }
 
-interface _LivePlayerNetstatusDetail {
+interface _LivePlayerOnNetstatusDetail {
   /**
    * @desc 网络状态
    */
@@ -212,11 +212,11 @@ interface _LivePlayerNetstatusDetail {
 /**
  * @desc 网络状态变化时触发
  */
-interface _LivePlayerNetstatus {
-  (event: CustomEvent<_LivePlayerNetstatusDetail>): void;
+interface _LivePlayerOnNetstatus {
+  (event: CustomEvent<_LivePlayerOnNetstatusDetail>): void;
 }
 
-interface _LivePlayerFullscreenchangeDetail {
+interface _LivePlayerOnFullscreenchangeDetail {
   direction: _LivePlayerOrientation;
   fullScreen: boolean;
 }
@@ -224,28 +224,28 @@ interface _LivePlayerFullscreenchangeDetail {
 /**
  * @desc 全屏变化时触发
  */
-interface _LivePlayerFullscreenchange {
-  (event: CustomEvent<_LivePlayerFullscreenchangeDetail>): void;
+interface _LivePlayerOnFullscreenchange {
+  (event: CustomEvent<_LivePlayerOnFullscreenchangeDetail>): void;
 }
 
 /**
  * @desc 播放音量变化时触发
  */
-interface _LivePlayerAudiovolumenotify {
+interface _LivePlayerOnAudiovolumenotify {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 播放器进入小窗时触发
  */
-interface _LivePlayerEnterpictureinpicture {
+interface _LivePlayerOnEnterpictureinpicture {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 播放器退出小窗时触发
  */
-interface _LivePlayerLeavepictureinpicture {
+interface _LivePlayerOnLeavepictureinpicture {
   (event: BaseEvent): void;
 }
 
@@ -323,27 +323,27 @@ interface _LivePlayerProps {
   /**
    * @desc 播放状态变化时触发
    */
-  onStatechange: _LivePlayerStatechange;
+  onStatechange: _LivePlayerOnStatechange;
   /**
    * @desc 网络状态变化时触发
    */
-  onNetstatus: _LivePlayerNetstatus;
+  onNetstatus: _LivePlayerOnNetstatus;
   /**
    * @desc 全屏变化时触发
    */
-  onFullscreenchange: _LivePlayerFullscreenchange;
+  onFullscreenchange: _LivePlayerOnFullscreenchange;
   /**
    * @desc 播放音量变化时触发
    */
-  onAudiovolumenotify: _LivePlayerAudiovolumenotify;
+  onAudiovolumenotify: _LivePlayerOnAudiovolumenotify;
   /**
    * @desc 播放器进入小窗时触发
    */
-  onEnterpictureinpicture: _LivePlayerEnterpictureinpicture;
+  onEnterpictureinpicture: _LivePlayerOnEnterpictureinpicture;
   /**
    * @desc 播放器退出小窗时触发
    */
-  onLeavepictureinpicture: _LivePlayerLeavepictureinpicture;
+  onLeavepictureinpicture: _LivePlayerOnLeavepictureinpicture;
 }
 
 /**
@@ -359,15 +359,15 @@ export {
   _LivePlayerPictureInPictureMode as LivePlayerPictureInPictureMode,
   _LivePlayerCode as LivePlayerCode,
   _LivePlayerInfo as LivePlayerInfo,
-  _LivePlayerStatechangeDetail as LivePlayerStatechangeDetail,
-  _LivePlayerStatechange as LivePlayerStatechange,
-  _LivePlayerNetstatusDetail as LivePlayerNetstatusDetail,
-  _LivePlayerNetstatus as LivePlayerNetstatus,
-  _LivePlayerFullscreenchangeDetail as LivePlayerFullscreenchangeDetail,
-  _LivePlayerFullscreenchange as LivePlayerFullscreenchange,
-  _LivePlayerAudiovolumenotify as LivePlayerAudiovolumenotify,
-  _LivePlayerEnterpictureinpicture as LivePlayerEnterpictureinpicture,
-  _LivePlayerLeavepictureinpicture as LivePlayerLeavepictureinpicture,
+  _LivePlayerOnStatechangeDetail as LivePlayerOnStatechangeDetail,
+  _LivePlayerOnStatechange as LivePlayerOnStatechange,
+  _LivePlayerOnNetstatusDetail as LivePlayerOnNetstatusDetail,
+  _LivePlayerOnNetstatus as LivePlayerOnNetstatus,
+  _LivePlayerOnFullscreenchangeDetail as LivePlayerOnFullscreenchangeDetail,
+  _LivePlayerOnFullscreenchange as LivePlayerOnFullscreenchange,
+  _LivePlayerOnAudiovolumenotify as LivePlayerOnAudiovolumenotify,
+  _LivePlayerOnEnterpictureinpicture as LivePlayerOnEnterpictureinpicture,
+  _LivePlayerOnLeavepictureinpicture as LivePlayerOnLeavepictureinpicture,
   _LivePlayerProps as LivePlayerProps,
   _LivePlayer as LivePlayer,
 };
@@ -436,33 +436,34 @@ declare global {
      * @desc 网络状态
      */
     export interface LivePlayerInfo extends _LivePlayerInfo {}
-    export interface LivePlayerStatechangeDetail extends _LivePlayerStatechangeDetail {}
+    export interface LivePlayerOnStatechangeDetail extends _LivePlayerOnStatechangeDetail {}
     /**
      * @desc 播放状态变化时触发
      */
-    export interface LivePlayerStatechange extends _LivePlayerStatechange {}
-    export interface LivePlayerNetstatusDetail extends _LivePlayerNetstatusDetail {}
+    export interface LivePlayerOnStatechange extends _LivePlayerOnStatechange {}
+    export interface LivePlayerOnNetstatusDetail extends _LivePlayerOnNetstatusDetail {}
     /**
      * @desc 网络状态变化时触发
      */
-    export interface LivePlayerNetstatus extends _LivePlayerNetstatus {}
-    export interface LivePlayerFullscreenchangeDetail extends _LivePlayerFullscreenchangeDetail {}
+    export interface LivePlayerOnNetstatus extends _LivePlayerOnNetstatus {}
+    export interface LivePlayerOnFullscreenchangeDetail
+      extends _LivePlayerOnFullscreenchangeDetail {}
     /**
      * @desc 全屏变化时触发
      */
-    export interface LivePlayerFullscreenchange extends _LivePlayerFullscreenchange {}
+    export interface LivePlayerOnFullscreenchange extends _LivePlayerOnFullscreenchange {}
     /**
      * @desc 播放音量变化时触发
      */
-    export interface LivePlayerAudiovolumenotify extends _LivePlayerAudiovolumenotify {}
+    export interface LivePlayerOnAudiovolumenotify extends _LivePlayerOnAudiovolumenotify {}
     /**
      * @desc 播放器进入小窗时触发
      */
-    export interface LivePlayerEnterpictureinpicture extends _LivePlayerEnterpictureinpicture {}
+    export interface LivePlayerOnEnterpictureinpicture extends _LivePlayerOnEnterpictureinpicture {}
     /**
      * @desc 播放器退出小窗时触发
      */
-    export interface LivePlayerLeavepictureinpicture extends _LivePlayerLeavepictureinpicture {}
+    export interface LivePlayerOnLeavepictureinpicture extends _LivePlayerOnLeavepictureinpicture {}
     /**
      * @desc 实时音视频播放（直播拉流）属性
      */

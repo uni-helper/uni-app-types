@@ -1,16 +1,16 @@
 import { Component } from '../Component';
 import { CustomEvent } from '../events';
-import { CheckboxProps } from './Checkbox';
+import { CheckboxValue } from './Checkbox';
 
-interface _CheckboxGroupChangeDetail {
-  value: CheckboxProps['value'][];
+interface _CheckboxGroupOnChangeDetail {
+  value: CheckboxValue[];
 }
 
 /**
  * @desc 选中项发生改变时触发
  */
-interface _CheckboxGroupChange {
-  (event: CustomEvent<_CheckboxGroupChangeDetail>): void;
+interface _CheckboxGroupOnChange {
+  (event: CustomEvent<_CheckboxGroupOnChangeDetail>): void;
 }
 
 /**
@@ -20,7 +20,7 @@ interface _CheckboxGroupProps {
   /**
    * @desc 选中项发生改变时触发
    */
-  onChange: _CheckboxGroupChange;
+  onChange: _CheckboxGroupOnChange;
 }
 
 /**
@@ -29,19 +29,19 @@ interface _CheckboxGroupProps {
 type _CheckboxGroup = Component<Partial<_CheckboxGroupProps>>;
 
 export {
-  _CheckboxGroupChangeDetail as CheckboxGroupChangeDetail,
-  _CheckboxGroupChange as CheckboxGroupChange,
+  _CheckboxGroupOnChangeDetail as CheckboxGroupOnChangeDetail,
+  _CheckboxGroupOnChange as CheckboxGroupOnChange,
   _CheckboxGroupProps as CheckboxGroupProps,
   _CheckboxGroup as CheckboxGroup,
 };
 
 declare global {
   namespace UniHelper {
-    export interface CheckboxGroupChangeDetail extends _CheckboxGroupChangeDetail {}
+    export interface CheckboxGroupOnChangeDetail extends _CheckboxGroupOnChangeDetail {}
     /**
      * @desc 选中项发生改变时触发
      */
-    export interface CheckboxGroupChange extends _CheckboxGroupChange {}
+    export interface CheckboxGroupOnChange extends _CheckboxGroupOnChange {}
     /**
      * @desc 多项选择器属性
      */

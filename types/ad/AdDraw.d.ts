@@ -3,11 +3,11 @@ import { AnyRecord, Component } from '../Component';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdDrawLoad {
+interface _AdDrawOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdDrawErrorDetail {
+interface _AdDrawOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -21,8 +21,8 @@ interface _AdDrawErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdDrawError {
-  (event: CustomEvent<_AdDrawErrorDetail>): void;
+interface _AdDrawOnError {
+  (event: CustomEvent<_AdDrawOnErrorDetail>): void;
 }
 
 /**
@@ -40,11 +40,11 @@ interface _AdDrawProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: AdDrawLoad;
+  onLoad: AdDrawOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: AdDrawError;
+  onError: AdDrawOnError;
 }
 
 /**
@@ -53,9 +53,9 @@ interface _AdDrawProps {
 type _AdDraw = Component<Partial<_AdDrawProps>>;
 
 export {
-  _AdDrawLoad as AdDrawLoad,
-  _AdDrawErrorDetail as AdDrawErrorDetail,
-  _AdDrawError as AdDrawError,
+  _AdDrawOnLoad as AdDrawOnLoad,
+  _AdDrawOnErrorDetail as AdDrawOnErrorDetail,
+  _AdDrawOnError as AdDrawOnError,
   _AdDrawProps as AdDrawProps,
   _AdDraw as AdDraw,
 };
@@ -65,12 +65,12 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdDrawLoad extends _AdDrawLoad {}
-    export interface AdDrawErrorDetail extends _AdDrawErrorDetail {}
+    export interface AdDrawOnLoad extends _AdDrawOnLoad {}
+    export interface AdDrawOnErrorDetail extends _AdDrawOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdDrawError extends _AdDrawError {}
+    export interface AdDrawOnError extends _AdDrawOnError {}
     /**
      * @desc 沉浸视频流广告属性
      */

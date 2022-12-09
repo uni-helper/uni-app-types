@@ -2,15 +2,15 @@ import { Component } from '../Component';
 import { CustomEvent } from '../events';
 import { RadioValue } from './Radio';
 
-interface _RadioGroupChangeDetail {
+interface _RadioGroupOnChangeDetail {
   value: RadioValue;
 }
 
 /**
  * @desc 选中项发生变化时触发
  */
-interface _RadioGroupChange {
-  (event: CustomEvent<_RadioGroupChangeDetail>): void;
+interface _RadioGroupOnChange {
+  (event: CustomEvent<_RadioGroupOnChangeDetail>): void;
 }
 
 /**
@@ -20,7 +20,7 @@ interface _RadioGroupProps {
   /**
    * @desc 选中项发生变化时触发
    */
-  onChange: _RadioGroupChange;
+  onChange: _RadioGroupOnChange;
 }
 
 /**
@@ -30,19 +30,19 @@ interface _RadioGroupProps {
 type _RadioGroup = Component<Partial<_RadioGroupProps>>;
 
 export {
-  _RadioGroupChangeDetail as RadioGroupChangeDetail,
-  _RadioGroupChange as RadioGroupChange,
+  _RadioGroupOnChangeDetail as RadioGroupOnChangeDetail,
+  _RadioGroupOnChange as RadioGroupOnChange,
   _RadioGroupProps as RadioGroupProps,
   _RadioGroup as RadioGroup,
 };
 
 declare global {
   namespace UniHelper {
-    export interface RadioGroupChangeDetail extends _RadioGroupChangeDetail {}
+    export interface RadioGroupOnChangeDetail extends _RadioGroupOnChangeDetail {}
     /**
      * @desc 选中项发生变化时触发
      */
-    export interface RadioGroupChange extends _RadioGroupChange {}
+    export interface RadioGroupOnChange extends _RadioGroupOnChange {}
     /**
      * @desc 单项选择器属性
      */

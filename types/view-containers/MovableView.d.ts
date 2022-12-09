@@ -16,7 +16,7 @@ type _MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
  */
 type _MovableViewSource = 'touch' | 'touch-out-of-bounds' | 'out-of-bounds' | 'friction' | '';
 
-interface _MovableViewChangeDetail {
+interface _MovableViewOnChangeDetail {
   x: number;
   y: number;
   /**
@@ -33,11 +33,11 @@ interface _MovableViewChangeDetail {
 /**
  * @desc 拖动过程中触发
  */
-interface _MovableViewChange {
-  (event: CustomEvent<_MovableViewChangeDetail>): void;
+interface _MovableViewOnChange {
+  (event: CustomEvent<_MovableViewOnChangeDetail>): void;
 }
 
-interface _MovableViewScaleDetail {
+interface _MovableViewOnScaleDetail {
   x: number;
   y: number;
   /**
@@ -50,8 +50,8 @@ interface _MovableViewScaleDetail {
 /**
  * @desc 缩放过程中触发
  */
-interface _MovableViewScale {
-  (event: CustomEvent<_MovableViewScaleDetail>): void;
+interface _MovableViewOnScale {
+  (event: CustomEvent<_MovableViewOnScaleDetail>): void;
 }
 
 /**
@@ -133,11 +133,11 @@ interface _MovableViewProps {
   /**
    * @desc 拖动过程中触发
    */
-  onChange: _MovableViewChange;
+  onChange: _MovableViewOnChange;
   /**
    * @desc 缩放过程中触发
    */
-  onScale: _MovableViewScale;
+  onScale: _MovableViewOnScale;
 }
 
 /**
@@ -149,10 +149,10 @@ type _MovableView = Component<Partial<_MovableViewProps>>;
 export {
   _MovableViewDirection as MovableViewDirection,
   _MovableViewSource as MovableViewSource,
-  _MovableViewChangeDetail as MovableViewChangeDetail,
-  _MovableViewChange as MovableViewChange,
-  _MovableViewScaleDetail as MovableViewScaleDetail,
-  _MovableViewScale as MovableViewScale,
+  _MovableViewOnChangeDetail as MovableViewOnChangeDetail,
+  _MovableViewOnChange as MovableViewOnChange,
+  _MovableViewOnScaleDetail as MovableViewOnScaleDetail,
+  _MovableViewOnScale as MovableViewOnScale,
   _MovableViewProps as MovableViewProps,
   _MovableView as MovableView,
 };
@@ -172,16 +172,16 @@ declare global {
      * @desc 空字符串 setData
      */
     export type MovableViewSource = _MovableViewSource;
-    export interface MovableViewChangeDetail extends _MovableViewChangeDetail {}
+    export interface MovableViewOnChangeDetail extends _MovableViewOnChangeDetail {}
     /**
      * @desc 拖动过程中触发
      */
-    export interface MovableViewChange extends _MovableViewChange {}
-    export interface MovableViewScaleDetail extends _MovableViewScaleDetail {}
+    export interface MovableViewOnChange extends _MovableViewOnChange {}
+    export interface MovableViewOnScaleDetail extends _MovableViewOnScaleDetail {}
     /**
      * @desc 缩放过程中触发
      */
-    export interface MovableViewScale extends _MovableViewScale {}
+    export interface MovableViewOnScale extends _MovableViewOnScale {}
     /**
      * @desc 可移动的视图容器属性
      */

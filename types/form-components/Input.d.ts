@@ -35,18 +35,18 @@ type _InputTextContentType = 'oneTimeCode';
  */
 type _InputConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
-interface _InputInputDetail {
+interface _InputOnInputDetail {
   value: _InputValue;
 }
 
 /**
  * @desc 输入时触发
  */
-interface _InputInput {
-  (event: CustomEvent<_InputInputDetail>): string | void;
+interface _InputOnInput {
+  (event: CustomEvent<_InputOnInputDetail>): string | void;
 }
 
-interface _InputFocusDetail {
+interface _InputOnFocusDetail {
   value: _InputValue;
   height: number;
 }
@@ -54,33 +54,33 @@ interface _InputFocusDetail {
 /**
  * @desc 聚焦时触发
  */
-interface _InputFocus {
-  (event: CustomEvent<_InputFocusDetail>): void;
+interface _InputOnFocus {
+  (event: CustomEvent<_InputOnFocusDetail>): void;
 }
 
-interface _InputBlurDetail {
+interface _InputOnBlurDetail {
   value: _InputValue;
 }
 
 /**
  * @desc 失焦时触发
  */
-interface _InputBlur {
-  (event: CustomEvent<_InputBlurDetail>): void;
+interface _InputOnBlur {
+  (event: CustomEvent<_InputOnBlurDetail>): void;
 }
 
-interface _InputConfirmDetail {
+interface _InputOnConfirmDetail {
   value: _InputValue;
 }
 
 /**
  * @desc 点击完成按钮时触发
  */
-interface _InputConfirm {
-  (event: CustomEvent<_InputConfirmDetail>): void;
+interface _InputOnConfirm {
+  (event: CustomEvent<_InputOnConfirmDetail>): void;
 }
 
-interface _InputKeyboardheightchangeDetail {
+interface _InputOnKeyboardheightchangeDetail {
   height: number;
   duration: number;
 }
@@ -88,8 +88,8 @@ interface _InputKeyboardheightchangeDetail {
 /**
  * @desc 键盘高度变化时触发
  */
-interface _InputKeyboardheightchange {
-  (event: CustomEvent<_InputKeyboardheightchangeDetail>): void;
+interface _InputOnKeyboardheightchange {
+  (event: CustomEvent<_InputOnKeyboardheightchangeDetail>): void;
 }
 
 /**
@@ -268,23 +268,23 @@ interface _InputProps {
   /**
    * @desc 输入时触发
    */
-  onInput: _InputInput;
+  onInput: _InputOnInput;
   /**
    * @desc 聚焦时触发
    */
-  onFocus: _InputFocus;
+  onFocus: _InputOnFocus;
   /**
    * @desc 失焦时触发
    */
-  onBlur: _InputBlur;
+  onBlur: _InputOnBlur;
   /**
    * @desc 点击完成按钮时触发
    */
-  onConfirm: _InputConfirm;
+  onConfirm: _InputOnConfirm;
   /**
    * @desc 键盘高度变化时触发
    */
-  onKeyboardheightchange: _InputKeyboardheightchange;
+  onKeyboardheightchange: _InputOnKeyboardheightchange;
 }
 
 /**
@@ -297,16 +297,16 @@ export {
   _InputType as InputType,
   _InputTextContentType as InputTextContentType,
   _InputConfirmType as InputConfirmType,
-  _InputInputDetail as InputInputDetail,
-  _InputInput as InputInput,
-  _InputFocusDetail as InputFocusDetail,
-  _InputFocus as InputFocus,
-  _InputBlurDetail as InputBlurDetail,
-  _InputBlur as InputBlur,
-  _InputConfirmDetail as InputConfirmDetail,
-  _InputConfirm as InputConfirm,
-  _InputKeyboardheightchangeDetail as InputKeyboardheightchangeDetail,
-  _InputKeyboardheightchange as InputKeyboardheightchange,
+  _InputOnInputDetail as InputOnInputDetail,
+  _InputOnInput as InputOnInput,
+  _InputOnFocusDetail as InputOnFocusDetail,
+  _InputOnFocus as InputOnFocus,
+  _InputOnBlurDetail as InputOnBlurDetail,
+  _InputOnBlur as InputOnBlur,
+  _InputOnConfirmDetail as InputOnConfirmDetail,
+  _InputOnConfirm as InputOnConfirm,
+  _InputOnKeyboardheightchangeDetail as InputOnKeyboardheightchangeDetail,
+  _InputOnKeyboardheightchange as InputOnKeyboardheightchange,
   _InputProps as InputProps,
   _Input as Input,
 };
@@ -343,31 +343,31 @@ declare global {
      * @desc type="text" 时有效
      */
     export type InputConfirmType = _InputConfirmType;
-    export interface InputInputDetail extends _InputInputDetail {}
+    export interface InputOnInputDetail extends _InputOnInputDetail {}
     /**
      * @desc 输入时触发
      */
-    export interface InputInput extends _InputInput {}
-    export interface InputFocusDetail extends _InputFocusDetail {}
+    export interface InputOnInput extends _InputOnInput {}
+    export interface InputOnFocusDetail extends _InputOnFocusDetail {}
     /**
      * @desc 聚焦时触发
      */
-    export interface InputFocus extends _InputFocus {}
-    export interface InputBlurDetail extends _InputBlurDetail {}
+    export interface InputOnFocus extends _InputOnFocus {}
+    export interface InputOnBlurDetail extends _InputOnBlurDetail {}
     /**
      * @desc 失焦时触发
      */
-    export interface InputBlur extends _InputBlur {}
-    export interface InputConfirmDetail extends _InputConfirmDetail {}
+    export interface InputOnBlur extends _InputOnBlur {}
+    export interface InputOnConfirmDetail extends _InputOnConfirmDetail {}
     /**
      * @desc 点击完成按钮时触发
      */
-    export interface InputConfirm extends _InputConfirm {}
-    export interface InputKeyboardheightchangeDetail extends _InputKeyboardheightchangeDetail {}
+    export interface InputOnConfirm extends _InputOnConfirm {}
+    export interface InputOnKeyboardheightchangeDetail extends _InputOnKeyboardheightchangeDetail {}
     /**
      * @desc 键盘高度变化时触发
      */
-    export interface InputKeyboardheightchange extends _InputKeyboardheightchange {}
+    export interface InputOnKeyboardheightchange extends _InputOnKeyboardheightchange {}
     /**
      * @desc 输入框属性
      */

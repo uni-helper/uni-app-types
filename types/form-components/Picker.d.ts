@@ -16,21 +16,21 @@ type _SelectorPickerValue = number;
  */
 type _SelectorPickerSelectorType = 'auto' | 'picker' | 'select';
 
-interface _SelectorPickerChangeDetail {
+interface _SelectorPickerOnChangeDetail {
   value: _SelectorPickerValue;
 }
 
 /**
  * @desc value 改变时触发
  */
-interface _SelectorPickerChange {
-  (event: CustomEvent<_SelectorPickerChangeDetail>): void;
+interface _SelectorPickerOnChange {
+  (event: CustomEvent<_SelectorPickerOnChangeDetail>): void;
 }
 
 /**
  * @desc 取消选择时触发
  */
-interface _SelectorPickerCancel {
+interface _SelectorPickerOnCancel {
   (event: BaseEvent): void;
 }
 
@@ -72,11 +72,11 @@ interface _SelectorPickerProps {
   /**
    * @desc value 改变时触发
    */
-  onChange: _SelectorPickerChange;
+  onChange: _SelectorPickerOnChange;
   /**
    * @desc 取消选择时触发
    */
-  onCancel: _SelectorPickerCancel;
+  onCancel: _SelectorPickerOnCancel;
 }
 
 /**
@@ -94,18 +94,18 @@ type _MultiSelectorPickerValueElement = number;
  */
 type _MultiSelectorPickerValue = _MultiSelectorPickerValueElement[];
 
-interface _MultiSelectorPickerChangeDetail {
+interface _MultiSelectorPickerOnChangeDetail {
   value: _MultiSelectorPickerValue;
 }
 
 /**
  * @desc value 改变时触发
  */
-interface _MultiSelectorPickerChange {
-  (event: CustomEvent<_MultiSelectorPickerChangeDetail>): void;
+interface _MultiSelectorPickerOnChange {
+  (event: CustomEvent<_MultiSelectorPickerOnChangeDetail>): void;
 }
 
-interface _MultiSelectorPickerColumnchangeDetail {
+interface _MultiSelectorPickerOnColumnchangeDetail {
   column: number;
   value: _MultiSelectorPickerValueElement;
 }
@@ -113,14 +113,14 @@ interface _MultiSelectorPickerColumnchangeDetail {
 /**
  * @desc 某一列 value 改变时触发
  */
-interface _MultiSelectorPickerColumnchange {
-  (event: CustomEvent<_MultiSelectorPickerColumnchangeDetail>): void;
+interface _MultiSelectorPickerOnColumnchange {
+  (event: CustomEvent<_MultiSelectorPickerOnColumnchangeDetail>): void;
 }
 
 /**
  * @desc 取消选择时触发
  */
-interface _MultiSelectorPickerCancel {
+interface _MultiSelectorPickerOnCancel {
   (event: BaseEvent): void;
 }
 
@@ -155,15 +155,15 @@ interface _MultiSelectorPickerProps {
   /**
    * @desc value 改变时触发
    */
-  onChange: _MultiSelectorPickerChange;
+  onChange: _MultiSelectorPickerOnChange;
   /**
    * @desc 某一列 value 改变时触发
    */
-  onColumnchange: _MultiSelectorPickerColumnchange;
+  onColumnchange: _MultiSelectorPickerOnColumnchange;
   /**
    * @desc 取消选择时触发
    */
-  onCancel: _MultiSelectorPickerCancel;
+  onCancel: _MultiSelectorPickerOnCancel;
 }
 
 /**
@@ -172,21 +172,21 @@ interface _MultiSelectorPickerProps {
  */
 type _TimePickerValue = 'string';
 
-interface _TimePickerChangeDetail {
+interface _TimePickerOnChangeDetail {
   value: _TimePickerValue;
 }
 
 /**
  * @desc value 改变时触发
  */
-interface _TimePickerChange {
-  (event: CustomEvent<_TimePickerChangeDetail>): void;
+interface _TimePickerOnChange {
+  (event: CustomEvent<_TimePickerOnChangeDetail>): void;
 }
 
 /**
  * @desc 取消选择时触发
  */
-interface _TimePickerCancel {
+interface _TimePickerOnCancel {
   (event: BaseEvent): void;
 }
 
@@ -222,11 +222,11 @@ interface _TimePickerProps {
   /**
    * @desc value 改变时触发
    */
-  onChange: _TimePickerChange;
+  onChange: _TimePickerOnChange;
   /**
    * @desc 取消选择时触发
    */
-  onCancel: _TimePickerCancel;
+  onCancel: _TimePickerOnCancel;
 }
 
 /**
@@ -243,21 +243,21 @@ type _DatePickerValue = string;
  */
 type _DatePickerFields = 'year' | 'month' | 'day';
 
-interface _DatePickerChangeDetail {
+interface _DatePickerOnChangeDetail {
   value: _DatePickerValue;
 }
 
 /**
  * @desc value 改变时触发
  */
-interface _DatePickerChange {
-  (event: CustomEvent<_DatePickerChangeDetail>): void;
+interface _DatePickerOnChange {
+  (event: CustomEvent<_DatePickerOnChangeDetail>): void;
 }
 
 /**
  * @desc 取消选择时触发
  */
-interface _DatePickerCancel {
+interface _DatePickerOnCancel {
   (event: BaseEvent): void;
 }
 
@@ -301,11 +301,11 @@ interface _DatePickerProps {
   /**
    * @desc value 改变时触发
    */
-  onChange: _DatePickerChange;
+  onChange: _DatePickerOnChange;
   /**
    * @desc 取消选择时触发
    */
-  onCancel: _DatePickerCancel;
+  onCancel: _DatePickerOnCancel;
 }
 
 type _RegionPickerValueElement = string;
@@ -324,21 +324,21 @@ type _RegionPickerValue = _RegionPickerValueElement[];
  */
 type _RegionPickerLevel = 'province' | 'city' | 'region' | 'sub-district';
 
-interface _RegionPickerChangeDetail {
+interface _RegionPickerOnChangeDetail {
   value: _RegionPickerValue;
 }
 
 /**
  * @desc value 改变时触发
  */
-interface _RegionPickerChange {
-  (event: CustomEvent<_RegionPickerChangeDetail>): void;
+interface _RegionPickerOnChange {
+  (event: CustomEvent<_RegionPickerOnChangeDetail>): void;
 }
 
 /**
  * @desc 取消选择时触发
  */
-interface _RegionPickerCancel {
+interface _RegionPickerOnCancel {
   (event: BaseEvent): void;
 }
 
@@ -376,11 +376,11 @@ interface _RegionPickerProps {
   /**
    * @desc value 改变时触发
    */
-  onChange: _RegionPickerChange;
+  onChange: _RegionPickerOnChange;
   /**
    * @desc 取消选择时触发
    */
-  onCancel: _RegionPickerCancel;
+  onCancel: _RegionPickerOnCancel;
 }
 
 type _PickerValue =
@@ -409,36 +409,36 @@ export {
   _SelectorPickerRange as SelectorPickerRange,
   _SelectorPickerValue as SelectorPickerValue,
   _SelectorPickerSelectorType as SelectorPickerSelectorType,
-  _SelectorPickerChangeDetail as SelectorPickerChangeDetail,
-  _SelectorPickerChange as SelectorPickerChange,
-  _SelectorPickerCancel as SelectorPickerCancel,
+  _SelectorPickerOnChangeDetail as SelectorPickerOnChangeDetail,
+  _SelectorPickerOnChange as SelectorPickerOnChange,
+  _SelectorPickerOnCancel as SelectorPickerOnCancel,
   _SelectorPickerProps as SelectorPickerProps,
   _MultiSelectorPickerRange as MultiSelectorPickerRange,
   _MultiSelectorPickerValueElement as MultiSelectorPickerValueElement,
   _MultiSelectorPickerValue as MultiSelectorPickerValue,
-  _MultiSelectorPickerChangeDetail as MultiSelectorPickerChangeDetail,
-  _MultiSelectorPickerChange as MultiSelectorPickerChange,
-  _MultiSelectorPickerColumnchangeDetail as MultiSelectorPickerColumnchangeDetail,
-  _MultiSelectorPickerColumnchange as MultiSelectorPickerColumnchange,
-  _MultiSelectorPickerCancel as MultiSelectorPickerCancel,
+  _MultiSelectorPickerOnChangeDetail as MultiSelectorPickerOnChangeDetail,
+  _MultiSelectorPickerOnChange as MultiSelectorPickerOnChange,
+  _MultiSelectorPickerOnColumnchangeDetail as MultiSelectorPickerOnColumnchangeDetail,
+  _MultiSelectorPickerOnColumnchange as MultiSelectorPickerOnColumnchange,
+  _MultiSelectorPickerOnCancel as MultiSelectorPickerOnCancel,
   _MultiSelectorPickerProps as MultiSelectorPickerProps,
   _TimePickerValue as TimePickerValue,
-  _TimePickerChangeDetail as TimePickerChangeDetail,
-  _TimePickerChange as TimePickerChange,
-  _TimePickerCancel as TimePickerCancel,
+  _TimePickerOnChangeDetail as TimePickerOnChangeDetail,
+  _TimePickerOnChange as TimePickerOnChange,
+  _TimePickerOnCancel as TimePickerOnCancel,
   _TimePickerProps as TimePickerProps,
   _DatePickerValue as DatePickerValue,
   _DatePickerFields as DatePickerFields,
-  _DatePickerChangeDetail as DatePickerChangeDetail,
-  _DatePickerChange as DatePickerChange,
-  _DatePickerCancel as DatePickerCancel,
+  _DatePickerOnChangeDetail as DatePickerOnChangeDetail,
+  _DatePickerOnChange as DatePickerOnChange,
+  _DatePickerOnCancel as DatePickerOnCancel,
   _DatePickerProps as DatePickerProps,
   _RegionPickerValueElement as RegionPickerValueElement,
   _RegionPickerValue as RegionPickerValue,
   _RegionPickerLevel as RegionPickerLevel,
-  _RegionPickerChangeDetail as RegionPickerChangeDetail,
-  _RegionPickerChange as RegionPickerChange,
-  _RegionPickerCancel as RegionPickerCancel,
+  _RegionPickerOnChangeDetail as RegionPickerOnChangeDetail,
+  _RegionPickerOnChange as RegionPickerOnChange,
+  _RegionPickerOnCancel as RegionPickerOnCancel,
   _RegionPickerProps as RegionPickerProps,
   _PickerValue as PickerValue,
   _PickerProps as PickerProps,
@@ -459,15 +459,15 @@ declare global {
      * @desc 大屏时 UI 类型，支持 picker、select、auto
      */
     export type SelectorPickerSelectorType = _SelectorPickerSelectorType;
-    export interface SelectorPickerChangeDetail extends _SelectorPickerChangeDetail {}
+    export interface SelectorPickerOnChangeDetail extends _SelectorPickerOnChangeDetail {}
     /**
      * @desc value 改变时触发
      */
-    export interface SelectorPickerChange extends _SelectorPickerChange {}
+    export interface SelectorPickerOnChange extends _SelectorPickerOnChange {}
     /**
      * @desc 取消选择时触发
      */
-    export interface SelectorPickerCancel extends _SelectorPickerCancel {}
+    export interface SelectorPickerOnCancel extends _SelectorPickerOnCancel {}
     export interface SelectorPickerProps extends _SelectorPickerProps {}
     /**
      * @desc 需要展示的内容
@@ -481,36 +481,36 @@ declare global {
      * @desc 当前每列选择的下标
      */
     export type MultiSelectorPickerValue = _MultiSelectorPickerValue;
-    export interface MultiSelectorPickerChangeDetail extends _MultiSelectorPickerChangeDetail {}
+    export interface MultiSelectorPickerOnChangeDetail extends _MultiSelectorPickerOnChangeDetail {}
     /**
      * @desc value 改变时触发
      */
-    export interface MultiSelectorPickerChange extends MultiSelectorPickerChange {}
-    export interface MultiSelectorPickerColumnchangeDetail
-      extends _MultiSelectorPickerColumnchangeDetail {}
+    export interface MultiSelectorPickerOnChange extends MultiSelectorPickerOnChange {}
+    export interface MultiSelectorPickerOnColumnchangeDetail
+      extends _MultiSelectorPickerOnColumnchangeDetail {}
     /**
      * @desc 某一列 value 改变时触发
      */
-    export interface MultiSelectorPickerColumnchange extends _MultiSelectorPickerColumnchange {}
+    export interface MultiSelectorPickerOnColumnchange extends _MultiSelectorPickerOnColumnchange {}
     /**
      * @desc 取消选择时触发
      */
-    export interface MultiSelectorPickerCancel extends _MultiSelectorPickerCancel {}
+    export interface MultiSelectorPickerOnCancel extends _MultiSelectorPickerOnCancel {}
     export interface MultiSelectorPickerProps extends _MultiSelectorPickerProps {}
     /**
      * @desc 选中的时间
      * @desc 格式为 hh:mm
      */
     export type TimePickerValue = _TimePickerValue;
-    export interface TimePickerChangeDetail extends _TimePickerChangeDetail {}
+    export interface TimePickerOnChangeDetail extends _TimePickerOnChangeDetail {}
     /**
      * @desc value 改变时触发
      */
-    export interface TimePickerChange extends _TimePickerChange {}
+    export interface TimePickerOnChange extends _TimePickerOnChange {}
     /**
      * @desc 取消选择时触发
      */
-    export interface TimePickerCancel extends _TimePickerCancel {}
+    export interface TimePickerOnCancel extends _TimePickerOnCancel {}
     export interface TimePickerProps extends _TimePickerProps {}
     /**
      * @desc 选中的日期
@@ -524,15 +524,15 @@ declare global {
      * @desc day 日
      */
     export type DatePickerFields = _DatePickerFields;
-    export interface DatePickerChangeDetail extends _DatePickerChangeDetail {}
+    export interface DatePickerOnChangeDetail extends _DatePickerOnChangeDetail {}
     /**
      * @desc value 改变时触发
      */
-    export interface DatePickerChange extends _DatePickerChange {}
+    export interface DatePickerOnChange extends _DatePickerOnChange {}
     /**
      * @desc 取消选择时触发
      */
-    export interface DatePickerCancel extends _DatePickerCancel {}
+    export interface DatePickerOnCancel extends _DatePickerOnCancel {}
     export interface DatePickerProps extends _DatePickerProps {}
     export type RegionPickerValueElement = _RegionPickerValueElement;
     /**
@@ -547,15 +547,15 @@ declare global {
      * @desc sub-district 街道级
      */
     export type RegionPickerLevel = _RegionPickerLevel;
-    export interface RegionPickerChangeDetail extends _RegionPickerChangeDetail {}
+    export interface RegionPickerOnChangeDetail extends _RegionPickerOnChangeDetail {}
     /**
      * @desc value 改变时触发
      */
-    export interface RegionPickerChange extends _RegionPickerChange {}
+    export interface RegionPickerOnChange extends _RegionPickerOnChange {}
     /**
      * @desc 取消选择时触发
      */
-    export interface RegionPickerCancel extends _RegionPickerCancel {}
+    export interface RegionPickerOnCancel extends _RegionPickerOnCancel {}
     export type PickerValue = _PickerValue;
     export type RegionPickerProps = _RegionPickerProps;
     /**

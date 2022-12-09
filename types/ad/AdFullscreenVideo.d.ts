@@ -3,11 +3,11 @@ import { Component } from '../Component';
 /**
  * @desc 广告加载成功的回调
  */
-interface _AdFullscreenVideoLoad {
+interface _AdFullscreenVideoOnLoad {
   (event: BaseEvent): void;
 }
 
-interface _AdFullscreenVideoErrorDetail {
+interface _AdFullscreenVideoOnErrorDetail {
   /**
    * @desc 错误码
    */
@@ -21,14 +21,14 @@ interface _AdFullscreenVideoErrorDetail {
 /**
  * @desc 广告加载失败的回调
  */
-interface _AdFullscreenVideoError {
-  (event: CustomEvent<_AdFullscreenVideoErrorDetail>): void;
+interface _AdFullscreenVideoOnError {
+  (event: CustomEvent<_AdFullscreenVideoOnErrorDetail>): void;
 }
 
 /**
  * @desc 广告关闭的回调
  */
-interface _AdFullscreenVideoClose {
+interface _AdFullscreenVideoOnClose {
   (event: BaseEvent): void;
 }
 
@@ -53,15 +53,15 @@ interface _AdFullscreenVideoProps {
   /**
    * @desc 广告加载成功的回调
    */
-  onLoad: _AdFullscreenVideoLoad;
+  onLoad: _AdFullscreenVideoOnLoad;
   /**
    * @desc 广告加载失败的回调
    */
-  onError: _AdFullscreenVideoError;
+  onError: _AdFullscreenVideoOnError;
   /**
    * @desc 广告关闭的回调
    */
-  onClose: _AdFullscreenVideoClose;
+  onClose: _AdFullscreenVideoOnClose;
 }
 
 /**
@@ -70,10 +70,10 @@ interface _AdFullscreenVideoProps {
 type _AdFullscreenVideo = Component<Partial<_AdFullscreenVideoProps>>;
 
 export {
-  _AdFullscreenVideoLoad as AdFullscreenVideoLoad,
-  _AdFullscreenVideoErrorDetail as AdFullscreenVideoErrorDetail,
-  _AdFullscreenVideoError as AdFullscreenVideoError,
-  _AdFullscreenVideoClose as AdFullscreenVideoClose,
+  _AdFullscreenVideoOnLoad as AdFullscreenVideoOnLoad,
+  _AdFullscreenVideoOnErrorDetail as AdFullscreenVideoOnErrorDetail,
+  _AdFullscreenVideoOnError as AdFullscreenVideoOnError,
+  _AdFullscreenVideoOnClose as AdFullscreenVideoOnClose,
   _AdFullscreenVideoProps as AdFullscreenVideoProps,
   _AdFullscreenVideo as AdFullscreenVideo,
 };
@@ -83,16 +83,16 @@ declare global {
     /**
      * @desc 广告加载成功的回调
      */
-    export interface AdFullscreenVideoLoad extends _AdFullscreenVideoLoad {}
-    export interface AdFullscreenVideoErrorDetail extends _AdFullscreenVideoErrorDetail {}
+    export interface AdFullscreenVideoOnLoad extends _AdFullscreenVideoOnLoad {}
+    export interface AdFullscreenVideoOnErrorDetail extends _AdFullscreenVideoOnErrorDetail {}
     /**
      * @desc 广告加载失败的回调
      */
-    export interface AdFullscreenVideoError extends _AdFullscreenVideoError {}
+    export interface AdFullscreenVideoOnError extends _AdFullscreenVideoOnError {}
     /**
      * @desc 广告关闭的回调
      */
-    export interface AdFullscreenVideoClose extends _AdFullscreenVideoClose {}
+    export interface AdFullscreenVideoOnClose extends _AdFullscreenVideoOnClose {}
     /**
      * @desc 全屏视频广告属性
      */

@@ -68,25 +68,25 @@ type _VideoPlayStrategy = 0 | 1 | 2;
 /**
  * @desc 开始/继续播放时触发
  */
-interface _VideoPlay {
+interface _VideoOnPlay {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 暂停播放时触发
  */
-interface _VideoPause {
+interface _VideoOnPause {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 播放到末尾时触发
  */
-interface _VideoEnded {
+interface _VideoOnEnded {
   (event: BaseEvent): void;
 }
 
-interface _VideoTimeupdateDetail {
+interface _VideoOnTimeupdateDetail {
   currentTime: number;
   duration: number;
 }
@@ -95,11 +95,11 @@ interface _VideoTimeupdateDetail {
  * @desc 播放进度变化时触发
  * @desc 250ms 一次
  */
-interface _VideoTimeupdate {
-  (event: CustomEvent<_VideoTimeupdateDetail>): void;
+interface _VideoOnTimeupdate {
+  (event: CustomEvent<_VideoOnTimeupdateDetail>): void;
 }
 
-interface _VideoFullscreenchangeDetail {
+interface _VideoOnFullscreenchangeDetail {
   fullScreen: boolean;
   direction: _VideoDirection;
 }
@@ -107,64 +107,64 @@ interface _VideoFullscreenchangeDetail {
 /**
  * @desc 视频进入和退出全屏时触发
  */
-interface _VideoFullscreenchange {
-  (event: CustomEvent<_VideoFullscreenchangeDetail>): void;
+interface _VideoOnFullscreenchange {
+  (event: CustomEvent<_VideoOnFullscreenchangeDetail>): void;
 }
 
 /**
  * @desc 视频缓冲时触发
  */
-interface _VideoWaiting {
+interface _VideoOnWaiting {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 视频播放出错时触发
  */
-interface _VideoError {
+interface _VideoOnError {
   (event: BaseEvent): void;
 }
 
-interface _VideoProgressDetail {
+interface _VideoOnProgressDetail {
   buffered: number;
 }
 
 /**
  * @desc 加载进度变化时触发
  */
-interface _VideoProgress {
-  (event: CustomEvent<_VideoProgressDetail>): void;
+interface _VideoOnProgress {
+  (event: CustomEvent<_VideoOnProgressDetail>): void;
 }
 
 /**
  * @desc 视频资源开始加载时触发
  */
-interface _VideoLoadeddata {
+interface _VideoOnLoadeddata {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 开始加载数据时触发
  */
-interface _VideoLoadstart {
+interface _VideoOnLoadstart {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 拖动进度条结束时触发
  */
-interface _VideoSeeked {
+interface _VideoOnSeeked {
   (event: BaseEvent): void;
 }
 
 /**
  * @desc 拖动进度条时触发
  */
-interface _VideoSeeking {
+interface _VideoOnSeeking {
   (event: BaseEvent): void;
 }
 
-interface _VideoLoadedmetadataDetail {
+interface _VideoOnLoadedmetadataDetail {
   width: number;
   height: number;
   duration: number;
@@ -173,11 +173,11 @@ interface _VideoLoadedmetadataDetail {
 /**
  * @desc 视频元数据加载完成时触发
  */
-interface _VideoLoadedmetadata {
-  (event: CustomEvent<_VideoLoadedmetadataDetail>): void;
+interface _VideoOnLoadedmetadata {
+  (event: CustomEvent<_VideoOnLoadedmetadataDetail>): void;
 }
 
-interface _VideoFullscreenclickDetail {
+interface _VideoOnFullscreenclickDetail {
   screenX: number;
   screenY: number;
   screenWidth: number;
@@ -187,19 +187,19 @@ interface _VideoFullscreenclickDetail {
 /**
  * @desc 视频播放全屏播放点击时触发
  */
-interface _VideoFullscreenclick {
-  (event: CustomEvent<_VideoFullscreenclickDetail>): void;
+interface _VideoOnFullscreenclick {
+  (event: CustomEvent<_VideoOnFullscreenclickDetail>): void;
 }
 
-interface _VideoControlstoggleDetail {
+interface _VideoOnControlstoggleDetail {
   show: boolean;
 }
 
 /**
  * @desc 切换 controls 显示隐藏时触发
  */
-interface _VideoControlstoggle {
-  (event: CustomEvent<_VideoControlstoggleDetail>): void;
+interface _VideoOnControlstoggle {
+  (event: CustomEvent<_VideoOnControlstoggleDetail>): void;
 }
 
 /**
@@ -395,64 +395,64 @@ interface _VideoProps {
   /**
    * @desc 开始/继续播放时触发
    */
-  onPlay: _VideoPlay;
+  onPlay: _VideoOnPlay;
   /**
    * @desc 暂停播放时触发
    */
-  onPause: _VideoPause;
+  onPause: _VideoOnPause;
   /**
    * @desc 播放到末尾时触发
    */
-  onEnded: _VideoEnded;
+  onEnded: _VideoOnEnded;
   /**
    * @desc 播放进度变化时触发
    * @desc 250ms 一次
    */
-  onTimeupdate: _VideoTimeupdate;
+  onTimeupdate: _VideoOnTimeupdate;
   /**
    * @desc 视频进入和退出全屏时触发
    */
-  onFullscreenchange: _VideoFullscreenchange;
+  onFullscreenchange: _VideoOnFullscreenchange;
   /**
    * @desc 视频缓冲时触发
    */
-  onWaiting: _VideoWaiting;
+  onWaiting: _VideoOnWaiting;
   /**
    * @desc 视频播放出错时触发
    */
-  onError: _VideoError;
+  onError: _VideoOnError;
   /**
    * @desc 加载进度变化时触发
    */
-  onProgress: _VideoProgress;
+  onProgress: _VideoOnProgress;
   /**
    * @desc 视频资源开始加载时触发
    */
-  onLoadeddata: _VideoLoadeddata;
+  onLoadeddata: _VideoOnLoadeddata;
   /**
    * @desc 开始加载数据时触发
    */
-  onLoadstart: _VideoLoadstart;
+  onLoadstart: _VideoOnLoadstart;
   /**
    * @desc 拖动进度条结束时触发
    */
-  onSeeked: _VideoSeeked;
+  onSeeked: _VideoOnSeeked;
   /**
    * @desc 拖动进度条时触发
    */
-  onSeeking: _VideoSeeking;
+  onSeeking: _VideoOnSeeking;
   /**
    * @desc 视频元数据加载完成时触发
    */
-  onLoadedmetadata: _VideoLoadedmetadata;
+  onLoadedmetadata: _VideoOnLoadedmetadata;
   /**
    * @desc 视频播放全屏播放点击时触发
    */
-  onFullscreenclick: _VideoFullscreenclick;
+  onFullscreenclick: _VideoOnFullscreenclick;
   /**
    * @desc 切换 controls 显示隐藏时触发
    */
-  onControlstoggle: _VideoControlstoggle;
+  onControlstoggle: _VideoOnControlstoggle;
 }
 
 /**
@@ -469,27 +469,27 @@ export {
   _VideoCodec as VideoCodec,
   _VideoMobilenetHintType as VideoMobilenetHintType,
   _VideoPlayStrategy as VideoPlayStrategy,
-  _VideoPlay as VideoPlay,
-  _VideoPause as VideoPause,
-  _VideoEnded as VideoEnded,
-  _VideoTimeupdateDetail as VideoTimeupdateDetail,
-  _VideoTimeupdate as VideoTimeupdate,
-  _VideoFullscreenchangeDetail as VideoFullscreenchangeDetail,
-  _VideoFullscreenchange as VideoFullscreenchange,
-  _VideoWaiting as VideoWaiting,
-  _VideoError as VideoError,
-  _VideoProgressDetail as VideoProgressDetail,
-  _VideoProgress as VideoProgress,
-  _VideoLoadeddata as VideoLoadeddata,
-  _VideoLoadstart as VideoLoadstart,
-  _VideoSeeked as VideoSeeked,
-  _VideoSeeking as VideoSeeking,
-  _VideoLoadedmetadataDetail as VideoLoadedmetadataDetail,
-  _VideoLoadedmetadata as VideoLoadedmetadata,
-  _VideoFullscreenclickDetail as VideoFullscreenclickDetail,
-  _VideoFullscreenclick as VideoFullscreenclick,
-  _VideoControlstoggleDetail as VideoControlstoggleDetail,
-  _VideoControlstoggle as VideoControlstoggle,
+  _VideoOnPlay as VideoOnPlay,
+  _VideoOnPause as VideoOnPause,
+  _VideoOnEnded as VideoOnEnded,
+  _VideoOnTimeupdateDetail as VideoOnTimeupdateDetail,
+  _VideoOnTimeupdate as VideoOnTimeupdate,
+  _VideoOnFullscreenchangeDetail as VideoOnFullscreenchangeDetail,
+  _VideoOnFullscreenchange as VideoOnFullscreenchange,
+  _VideoOnWaiting as VideoOnWaiting,
+  _VideoOnError as VideoOnError,
+  _VideoOnProgressDetail as VideoOnProgressDetail,
+  _VideoOnProgress as VideoOnProgress,
+  _VideoOnLoadeddata as VideoOnLoadeddata,
+  _VideoOnLoadstart as VideoOnLoadstart,
+  _VideoOnSeeked as VideoOnSeeked,
+  _VideoOnSeeking as VideoOnSeeking,
+  _VideoOnLoadedmetadataDetail as VideoOnLoadedmetadataDetail,
+  _VideoOnLoadedmetadata as VideoOnLoadedmetadata,
+  _VideoOnFullscreenclickDetail as VideoOnFullscreenclickDetail,
+  _VideoOnFullscreenclick as VideoOnFullscreenclick,
+  _VideoOnControlstoggleDetail as VideoOnControlstoggleDetail,
+  _VideoOnControlstoggle as VideoOnControlstoggle,
   _VideoProps as VideoProps,
   _Video as Video,
 };
@@ -542,70 +542,70 @@ declare global {
     /**
      * @desc 开始/继续播放时触发
      */
-    export interface VideoPlay extends _VideoPlay {}
+    export interface VideoOnPlay extends _VideoOnPlay {}
     /**
      * @desc 暂停播放时触发
      */
-    export interface VideoPause extends _VideoPause {}
+    export interface VideoOnPause extends _VideoOnPause {}
     /**
      * @desc 播放到末尾时触发
      */
-    export interface VideoEnded extends _VideoEnded {}
-    export interface VideoTimeupdateDetail extends _VideoTimeupdateDetail {}
+    export interface VideoOnEnded extends _VideoOnEnded {}
+    export interface VideoOnTimeupdateDetail extends _VideoOnTimeupdateDetail {}
     /**
      * @desc 播放进度变化时触发
      * @desc 250ms 一次
      */
-    export interface VideoTimeupdate extends _VideoTimeupdate {}
-    export interface VideoFullscreenchangeDetail extends _VideoFullscreenchangeDetail {}
+    export interface VideoOnTimeupdate extends _VideoOnTimeupdate {}
+    export interface VideoOnFullscreenchangeDetail extends _VideoOnFullscreenchangeDetail {}
     /**
      * @desc 视频进入和退出全屏时触发
      */
-    export interface VideoFullscreenchange extends _VideoFullscreenchange {}
+    export interface VideoOnFullscreenchange extends _VideoOnFullscreenchange {}
     /**
      * @desc 视频缓冲时触发
      */
-    export interface VideoWaiting extends _VideoWaiting {}
+    export interface VideoOnWaiting extends _VideoOnWaiting {}
     /**
      * @desc 视频播放出错时触发
      */
-    export interface VideoError extends _VideoError {}
-    export interface VideoProgressDetail extends _VideoProgressDetail {}
+    export interface VideoOnError extends _VideoOnError {}
+    export interface VideoOnProgressDetail extends _VideoOnProgressDetail {}
     /**
      * @desc 加载进度变化时触发
      */
-    export interface VideoProgress extends _VideoProgress {}
+    export interface VideoOnProgress extends _VideoOnProgress {}
     /**
      * @desc 视频资源开始加载时触发
      */
-    export interface VideoLoadeddata extends _VideoLoadeddata {}
+    export interface VideoOnLoadeddata extends _VideoOnLoadeddata {}
     /**
      * @desc 开始加载数据时触发
      */
-    export interface VideoLoadstart extends _VideoLoadstart {}
+    export interface VideoOnLoadstart extends _VideoOnLoadstart {}
     /**
      * @desc 拖动进度条结束时触发
      */
-    export interface VideoSeeked extends _VideoSeeked {}
+    export interface VideoOnSeeked extends _VideoOnSeeked {}
     /**
      * @desc 拖动进度条时触发
      */
-    export interface VideoSeeking extends _VideoSeeking {}
-    export interface VideoLoadedmetadataDetail extends _VideoLoadedmetadataDetail {}
+    export interface VideoOnSeeking extends _VideoOnSeeking {}
+    export interface VideoOnLoadedmetadataDetail extends _VideoOnLoadedmetadataDetail {}
     /**
      * @desc 视频元数据加载完成时触发
      */
-    export interface VideoLoadedmetadata extends _VideoLoadedmetadata {}
-    export interface VideoFullscreenclickDetail extends _VideoFullscreenclickDetail {}
+    export interface VideoOnLoadedmetadata extends _VideoOnLoadedmetadata {}
+    export interface VideoOnFullscreenclickDetail extends _VideoOnFullscreenclickDetail {}
     /**
      * @desc 视频播放全屏播放点击时触发
      */
-    export interface VideoFullscreenclick extends _VideoFullscreenclick {}
-    export interface VideoControlstoggleDetail extends _VideoControlstoggleDetail {}
+    export interface VideoOnFullscreenclick extends _VideoOnFullscreenclick {}
+    export interface VideoOnControlstoggleDetail extends _VideoOnControlstoggleDetail {}
     /**
      * @desc 切换 controls 显示隐藏时触发
      */
-    export interface VideoControlstoggle extends _VideoControlstoggle {}
+    export interface VideoOnControlstoggle extends _VideoOnControlstoggle {}
     /**
      * @desc 视频播放组件属性
      */
