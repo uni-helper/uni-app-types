@@ -33,8 +33,8 @@
     "lint": "run-p lint:eslint lint:markdownlint check:types test:coverage",
     "lint:eslint": "eslint ./types --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue --ignore-path=.gitignore --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
-    "test": "vitest typecheck",
-    "test:coverage": "vitest typecheck --coverage",
+    "test": "vitest typecheck --run",
+    "test:coverage": "vitest typecheck --run --coverage",
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
