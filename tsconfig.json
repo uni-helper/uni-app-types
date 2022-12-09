@@ -6,6 +6,9 @@
     "module": "ES2022",
     "target": "ES2022",
     "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./types/*"]
+    },
     "types": ["@dcloudio/types", "node"]
   },
   "include": [
@@ -20,7 +23,9 @@
     "**/*.mjs",
     "**/*.ts",
     "**/*.cts",
+    "**/*.d.cts",
     "**/*.mts",
+    "**/*.d.mts",
     "**/*.jsx",
     "**/*.tsx",
     "**/*.vue"
