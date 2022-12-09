@@ -30,7 +30,7 @@
   "scripts": {
     "release": "release-it",
     "check:types": "tsc --noEmit",
-    "lint": "run-p lint:eslint lint:markdownlint check:types",
+    "lint": "run-p lint:eslint lint:markdownlint check:types test:coverage",
     "lint:eslint": "eslint ./types --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue --ignore-path=.gitignore --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "test": "vitest typecheck",
@@ -38,7 +38,7 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "@dcloudio/types": "^3.0.20",
+    "@dcloudio/types": "^3.2.2",
     "vue3": "npm:vue@^3.2.45"
   },
   "devDependencies": {
@@ -68,7 +68,7 @@
     "vitest": "^0.25.6"
   },
   "peerDependencies": {
-    "typescript": "^4.5.0"
+    "typescript": "^4.8.0"
   },
   "packageManager": "pnpm@7.18.1",
   "engines": {
