@@ -54,10 +54,10 @@ npm i -D @uni-helper/uni-app-types
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { ScrollViewUpperThreshold, ScrollViewScroll } from '@uni-helper/uni-app-types';
+import type { ScrollViewUpperThreshold, ScrollViewOnScroll } from '@uni-helper/uni-app-types';
 
 const upperThreshold = ref<ScrollViewUpperThreshold>(50);
-const onScroll: ScrollViewScroll = (event) => {
+const onScroll: ScrollViewOnScroll = (event) => {
   ...
 };
 </script>
@@ -74,7 +74,7 @@ const onScroll: ScrollViewScroll = (event) => {
 import { ref } from 'vue';
 
 const upperThreshold = ref<UniHelper.ScrollViewUpperThreshold>(50);
-const onScroll: UniHelper.ScrollViewScroll = (event) => {
+const onScroll: UniHelper.ScrollViewOnScroll = (event) => {
   ...
 };
 </script>
