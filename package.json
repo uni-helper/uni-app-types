@@ -47,7 +47,7 @@
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@commitlint/prompt": "^17.3.0",
-    "@dcloudio/types": "3.2.2",
+    "@dcloudio/types": "3.2.3",
     "@modyqyw/fabric": "^5.13.0",
     "@tsconfig/node18": "^1.0.1",
     "@types/node": "^18.11.13",
