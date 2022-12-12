@@ -170,7 +170,7 @@ interface _MultiSelectorPickerProps {
  * @desc 选中的时间
  * @desc 格式为 hh:mm
  */
-type _TimePickerValue = 'string';
+type _TimePickerValue = string;
 
 interface _TimePickerOnChangeDetail {
   value: _TimePickerValue;
@@ -485,7 +485,7 @@ declare global {
     /**
      * @desc value 改变时触发
      */
-    export interface MultiSelectorPickerOnChange extends MultiSelectorPickerOnChange {}
+    export interface MultiSelectorPickerOnChange extends _MultiSelectorPickerOnChange {}
     export interface MultiSelectorPickerOnColumnchangeDetail
       extends _MultiSelectorPickerOnColumnchangeDetail {}
     /**
@@ -561,7 +561,7 @@ declare global {
     /**
      * @desc 滚动选择器属性
      */
-    export interface PickerProps extends _PickerProps {}
+    export type PickerProps = _PickerProps;
     /**
      * @desc 从底部弹起的滚动选择器，通过 mode 来区分
      */

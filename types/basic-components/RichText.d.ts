@@ -9,20 +9,20 @@ type _RichTextSpace = 'ensp' | 'emsp' | 'nbsp';
 /**
  * @desc 文本节点
  */
-type _RichTextTextNode = {
+interface _RichTextTextNode {
   type: 'text';
   text: string;
-};
+}
 
 /**
  * @desc 元素节点
  */
-type _RichTextNodeNode = {
+interface _RichTextNodeNode {
   type?: 'node';
   name: string;
   attrs?: AnyRecord;
   children?: Array<_RichTextTextNode | _RichTextNodeNode>;
-};
+}
 
 /**
  * @desc 节点
@@ -102,11 +102,11 @@ declare global {
     /**
      * @desc 文本节点
      */
-    export type RichTextTextNode = _RichTextTextNode;
+    export interface RichTextTextNode extends _RichTextTextNode {}
     /**
      * @desc 元素节点
      */
-    export type RichTextNodeNode = _RichTextNodeNode;
+    export interface RichTextNodeNode extends _RichTextNodeNode {}
     /**
      * @desc 节点
      */

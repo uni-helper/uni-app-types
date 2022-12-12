@@ -84,6 +84,7 @@ export {
   _FormOnSubmitDetail as FormOnSubmitDetail,
   _FormOnSubmit as FormOnSubmit,
   _FormOnReset as FormOnReset,
+  _FormProps as FormProps,
   _Form as Form,
 };
 

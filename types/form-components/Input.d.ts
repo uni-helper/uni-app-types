@@ -4,7 +4,7 @@ import { CustomEvent } from '../events';
 /**
  * @desc 输入框的内容
  */
-type _InputValue = 'string';
+type _InputValue = string;
 
 /**
  * @desc input 类型
