@@ -12,10 +12,10 @@ importers:
       '@dcloudio/types': ^3.2.2
       '@modyqyw/fabric': ^5.13.0
       '@tsconfig/node18': ^1.0.1
-      '@types/node': ^18.11.12
+      '@types/node': ^18.11.13
       '@typescript-eslint/eslint-plugin': ^5.46.0
       '@typescript-eslint/parser': ^5.46.0
-      '@vitest/coverage-c8': ^0.25.6
+      '@vitest/coverage-c8': ^0.25.7
       c8: ^7.12.0
       commitizen: ^4.2.6
       eslint: ^8.29.0
@@ -27,7 +27,7 @@ importers:
       prettier: ^2.8.1
       release-it: ^15.5.1
       typescript: ^4.9.4
-      vitest: ^0.25.6
+      vitest: ^0.25.7
       vue3: npm:vue@^3.2.45
     dependencies:
       '@dcloudio/types': 3.2.2
@@ -40,10 +40,10 @@ importers:
       '@commitlint/prompt': 17.3.0
       '@modyqyw/fabric': 5.13.0_wdw3qg4p7crmsoaizcyntelyni
       '@tsconfig/node18': 1.0.1
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
       '@typescript-eslint/eslint-plugin': 5.46.0_5mle7isnkfgjmrghnnczirv6iy
       '@typescript-eslint/parser': 5.46.0_ha6vam6werchizxrnqvarmz2zu
-      '@vitest/coverage-c8': 0.25.6
+      '@vitest/coverage-c8': 0.25.7
       c8: 7.12.0
       commitizen: 4.2.6
       eslint: 8.29.0
@@ -55,11 +55,11 @@ importers:
       prettier: 2.8.1
       release-it: 15.5.1
       typescript: 4.9.4
-      vitest: 0.25.6
+      vitest: 0.25.7
 
   playground:
     specifiers:
-      '@dcloudio/types': ^3.0.20
+      '@dcloudio/types': ^3.2.2
       '@dcloudio/uni-app': 3.0.0-alpha-3061120221205002
       '@dcloudio/uni-app-plus': 3.0.0-alpha-3061120221205002
       '@dcloudio/uni-automator': 3.0.0-alpha-3061120221205002
@@ -82,7 +82,7 @@ importers:
       vue: ^3.2.45
       vue-i18n: ^9.2.2
     dependencies:
-      '@dcloudio/uni-app': 3.0.0-alpha-3061120221205002_pjzp2lvwwfy3c5zjwayhrtktr4
+      '@dcloudio/uni-app': 3.0.0-alpha-3061120221205002_iolmuts3clzvhpv7yg5tjzkv2a
       '@dcloudio/uni-app-plus': 3.0.0-alpha-3061120221205002_vite@3.2.5+vue@3.2.45
       '@dcloudio/uni-components': 3.0.0-alpha-3061120221205002
       '@dcloudio/uni-h5': 3.0.0-alpha-3061120221205002_vue@3.2.45
@@ -97,7 +97,7 @@ importers:
       vue: 3.2.45
       vue-i18n: 9.2.2_vue@3.2.45
     devDependencies:
-      '@dcloudio/types': 3.0.20
+      '@dcloudio/types': 3.2.2
       '@dcloudio/uni-automator': 3.0.0-alpha-3061120221205002_vue@3.2.45
       '@dcloudio/uni-cli-shared': 3.0.0-alpha-3061120221205002_vue@3.2.45
       '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061120221205002
@@ -632,12 +632,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@dcloudio/types/3.0.20:
-    resolution: {integrity: sha512-rZ4okvj3LCN77rzZWtQg/uQLL4DPl72XjNdmRxTXgboGpBYuyjJ9V9do87RkHNM0bA0l0RIUoy3nh7P6Exb3hA==}
-
   /@dcloudio/types/3.2.2:
     resolution: {integrity: sha512-efHpsZABWdOEIVYI6dYtG1OTXfum1JQB5b6KTeIQLRNealQxnGGsPGecMk4YHLGamRoev0Fy/k6wUITYYKzbJQ==}
-    dev: false
 
   /@dcloudio/uni-app-plus/3.0.0-alpha-3061120221205002_vite@3.2.5+vue@3.2.45:
     resolution: {integrity: sha512-7VGB1REcj+MRtpzl6vGiPm5RNO3/SdT3WEFxjlLCai8f8kvlmDYjYraGpNXg5WkwFRPsHI1eGWEuM/VzhhL3vA==}
@@ -679,12 +675,12 @@ packages:
     resolution: {integrity: sha512-U8SFbXpypfAhqr7NQUI7MyWojOYxYBVZoPdGb24+5Nf1TgBFtQa5v+8ituyM3Mvs15AgaaOqTlzD5A25LuOFCQ==}
     dev: false
 
-  /@dcloudio/uni-app/3.0.0-alpha-3061120221205002_pjzp2lvwwfy3c5zjwayhrtktr4:
+  /@dcloudio/uni-app/3.0.0-alpha-3061120221205002_iolmuts3clzvhpv7yg5tjzkv2a:
     resolution: {integrity: sha512-J+P8Oe+bOeLwyPavCjtrkwCjDzFxhyeGD6DsJWTyGJh5WJCWhWLCIMB6Dx2AV5Ofr4abtGkkWkacmmiThvbvLA==}
     peerDependencies:
       '@dcloudio/types': ^3.0.20
     dependencies:
-      '@dcloudio/types': 3.0.20
+      '@dcloudio/types': 3.2.2
       '@dcloudio/uni-cloud': 3.0.0-alpha-3061120221205002_vue@3.2.45
       '@dcloudio/uni-components': 3.0.0-alpha-3061120221205002
       '@dcloudio/uni-i18n': 3.0.0-alpha-3061120221205002
@@ -1334,7 +1330,7 @@ packages:
       '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.29.0
       '@rushstack/eslint-patch': 1.2.0
       '@types/eslint': 8.4.10
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
       '@types/prettier': 2.7.1
       '@typescript-eslint/eslint-plugin': 5.46.0_5mle7isnkfgjmrghnnczirv6iy
       '@typescript-eslint/parser': 5.46.0_ha6vam6werchizxrnqvarmz2zu
@@ -1381,7 +1377,7 @@ packages:
       stylelint-order: 5.0.0
       stylelint-prettier: 2.0.0_prettier@2.8.1
       svelte-eslint-parser: 0.21.0
-      ts-node: 10.9.1_r65g46xrm45gbuklnvp6xevc2y
+      ts-node: 10.9.1_73migmg77y47omm5253gettkxi
       tsutils: 3.21.0_typescript@4.9.4
       typescript: 4.9.4
       vue-eslint-parser: 9.1.0_eslint@8.29.0
@@ -1650,7 +1646,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
     dev: true
 
   /@types/http-cache-semantics/4.0.1:
@@ -1691,8 +1687,8 @@ packages:
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
     dev: true
 
-  /@types/node/18.11.12:
-    resolution: {integrity: sha512-FgD3NtTAKvyMmD44T07zz2fEf+OKwutgBCEVM8GcvMGVGaDktiLNTDvPwC/LUe3PinMW+X6CuLOF2Ui1mAlSXg==}
+  /@types/node/18.11.13:
+    resolution: {integrity: sha512-IASpMGVcWpUsx5xBOrxMj7Bl8lqfuTY7FKAnPmu5cHkfQVWF8GulWS1jbRqA934qZL35xh5xN/+Xe/i26Bod4w==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -1948,11 +1944,11 @@ packages:
       vite: 3.2.5
       vue: 3.2.45
 
-  /@vitest/coverage-c8/0.25.6:
-    resolution: {integrity: sha512-+Bcs1XZ8CuEe52QSOgzqmqiV82CXZRRj3yclPQqtLkUV4S6+kdOdfRTtMHOilwhZH70giDjBQx3jgiZoYgFVMA==}
+  /@vitest/coverage-c8/0.25.7:
+    resolution: {integrity: sha512-TEoYjW4YIDXKCMmLqduIGpIq2JmlhE3M0Q68apjNM0ljrJyEvYpaDI5b7OyfXbAJjhmZvIlfEZfZnmhbExHLHg==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.25.6
+      vitest: 0.25.7
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -7000,7 +6996,7 @@ packages:
     dependencies:
       lilconfig: 2.0.6
       postcss: 8.4.19
-      ts-node: 10.9.1_r65g46xrm45gbuklnvp6xevc2y
+      ts-node: 10.9.1_73migmg77y47omm5253gettkxi
       yaml: 1.10.2
     dev: true
 
@@ -8321,7 +8317,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-node/10.9.1_r65g46xrm45gbuklnvp6xevc2y:
+  /ts-node/10.9.1_73migmg77y47omm5253gettkxi:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -8340,7 +8336,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
       acorn: 8.8.1
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -8654,7 +8650,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vite/3.2.5_@types+node@18.11.12:
+  /vite/3.2.5_@types+node@18.11.13:
     resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -8679,7 +8675,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
       esbuild: 0.15.18
       postcss: 8.4.19
       resolve: 1.22.1
@@ -8688,8 +8684,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.25.6:
-    resolution: {integrity: sha512-jdPgmZ7BcDnm1+hmMPIl9BZjSy+b8Y8V0tQMsv7ECO90Qic7EZ5/+traILXLpsXgqK5KgVrUJmchevAUuKL/1w==}
+  /vitest/0.25.7:
+    resolution: {integrity: sha512-lJ+Ue+v8kHl2JzjaKHJ9u5Yo/loU7zrWK2/Whn8OKQjtq5G7nkeWfXuq3elZaC8xKdkdIuWiiIicaNBG1F5yzg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -8712,7 +8708,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.12
+      '@types/node': 18.11.13
       acorn: 8.8.1
       acorn-walk: 8.2.0
       chai: 4.3.7
@@ -8723,7 +8719,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 3.2.5_@types+node@18.11.12
+      vite: 3.2.5_@types+node@18.11.13
     transitivePeerDependencies:
       - less
       - sass
