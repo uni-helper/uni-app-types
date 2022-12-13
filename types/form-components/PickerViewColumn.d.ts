@@ -1,11 +1,14 @@
 import { Component } from '../Component';
 
-type _PickerViewColumn = Component;
+interface _PickerViewColumnProps {}
 
-export { _PickerViewColumn as PickerViewColumn };
+type _PickerViewColumn = Component<Partial<_PickerViewColumnProps>>;
+
+export { _PickerViewColumnProps as PickerViewColumnProps, _PickerViewColumn as PickerViewColumn };
 
 declare global {
   namespace UniHelper {
+    export interface PickerViewColumnProps extends _PickerViewColumnProps {}
     export type PickerViewColumn = _PickerViewColumn;
   }
 }
