@@ -1,18 +1,21 @@
 import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
-/**
- * @desc 输入框内容
- */
+/** 输入框内容 */
 type _TextareaValue = string;
 
 /**
- * @desc 设置键盘右下角按钮的文字
- * @desc send 发送
- * @desc search 搜索
- * @desc next 下一个
- * @desc go 前往
- * @desc done 完成
+ * 设置键盘右下角按钮的文字
+ *
+ * Send 发送
+ *
+ * Search 搜索
+ *
+ * Next 下一个
+ *
+ * Go 前往
+ *
+ * Done 完成
  */
 type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
@@ -21,9 +24,7 @@ interface _TextareaOnFocusDetail {
   height: number;
 }
 
-/**
- * @desc 聚焦时触发
- */
+/** 聚焦时触发 */
 interface _TextareaOnFocus {
   (event: CustomEvent<_TextareaOnFocusDetail>): void;
 }
@@ -33,9 +34,7 @@ interface _TextareaOnBlurDetail {
   height: number;
 }
 
-/**
- * @desc 失焦时触发
- */
+/** 失焦时触发 */
 interface _TextareaOnBlur {
   (event: CustomEvent<_TextareaOnBlurDetail>);
 }
@@ -46,9 +45,7 @@ interface _TextareaOnLinechangeDetail {
   lineCount: number;
 }
 
-/**
- * @desc 输入框行数变化时触发
- */
+/** 输入框行数变化时触发 */
 interface _TextareaOnLinechange {
   (event: CustomEvent<_TextareaOnLinechangeDetail>): void;
 }
@@ -58,9 +55,7 @@ interface _TextareaOnInputDetail {
   cursor: number;
 }
 
-/**
- * @desc 输入时触发
- */
+/** 输入时触发 */
 interface _TextareaOnInput {
   (event: CustomEvent<_TextareaOnInputDetail>): string | void;
 }
@@ -69,9 +64,7 @@ interface _TextareaOnConfirmDetail {
   value: _TextareaValue;
 }
 
-/**
- * @desc 点击完成按钮时触发
- */
+/** 点击完成按钮时触发 */
 interface _TextareaOnConfirm {
   (event: CustomEvent<_TextareaOnConfirmDetail>): void;
 }
@@ -81,161 +74,162 @@ interface _TextareaOnKeyboardheightchangeDetail {
   duration: number;
 }
 
-/**
- * @desc 键盘高度变化时触发
- */
+/** 键盘高度变化时触发 */
 interface _TextareaOnKeyboardheightchange {
   (event: CustomEvent<_TextareaOnKeyboardheightchangeDetail>): void;
 }
 
-/**
- * @desc 多行输入框属性
- */
+/** 多行输入框属性 */
 interface _TextareaProps {
-  /**
-   * @desc 输入框的内容
-   */
+  /** 输入框的内容 */
   value: string;
-  /**
-   * @desc 输入框为空时占位符
-   */
+  /** 输入框为空时占位符 */
   placeholder: string;
-  /**
-   * @desc 指定 placeholder 的样式
-   */
+  /** 指定 placeholder 的样式 */
   placeholderStyle: string;
   /**
-   * @desc 指定 placeholder 的样式类
-   * @desc 默认为 textarea-placeholder
+   * 指定 placeholder 的样式类
+   *
+   * 默认为 textarea-placeholder
    */
   placeholderClass: string;
   /**
-   * @desc 是否禁用
-   * @desc 默认为 false
+   * 是否禁用
+   *
+   * 默认为 false
    */
   disabled: boolean;
   /**
-   * @desc 最大输入长度，设置为 -1 的时候不限制最大长度
-   * @desc 默认为 140
+   * 最大输入长度，设置为 -1 的时候不限制最大长度
+   *
+   * 默认为 140
    */
   maxlength: number;
   /**
-   * @desc 是否获取焦点
-   * @desc 默认为 false
+   * 是否获取焦点
+   *
+   * 默认为 false
    */
   focus: boolean;
   /**
-   * @desc 是否自动聚焦，拉起键盘
-   * @desc 默认为 false
+   * 是否自动聚焦，拉起键盘
+   *
+   * 默认为 false
    */
   autoFocus: boolean;
   /**
-   * @desc 是否自动增高
-   * @desc 设置时，样式里的 height 不生效
-   * @desc 默认为 false
+   * 是否自动增高
+   *
+   * 设置时，样式里的 height 不生效
+   *
+   * 默认为 false
    */
   autoHeight: boolean;
   /**
-   * @desc 如果 textarea 在 position: fixed 的区域内，需要指定为 true
-   * @desc 默认为 false
+   * 如果 textarea 在 position: fixed 的区域内，需要指定为 true
+   *
+   * 默认为 false
    */
   fixed: boolean;
   /**
-   * @desc 指定光标与键盘的距离
-   * @desc 取 textarea 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
-   * @desc 单位为 px
-   * @desc 默认为 0
+   * 指定光标与键盘的距离
+   *
+   * 取 textarea 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
+   *
+   * 单位为 px
+   *
+   * 默认为 0
    */
   cursorSpacing: number;
-  /**
-   * @desc 指定 focus 时的光标位置
-   */
+  /** 指定 focus 时的光标位置 */
   cursor: number;
   /**
-   * @desc 设置键盘右下角按钮的文字
-   * @desc send 发送
-   * @desc search 搜索
-   * @desc next 下一个
-   * @desc go 前往
-   * @desc done 完成
-   * @desc 默认为 done
+   * 设置键盘右下角按钮的文字
+   *
+   * Send 发送
+   *
+   * Search 搜索
+   *
+   * Next 下一个
+   *
+   * Go 前往
+   *
+   * Done 完成
+   *
+   * 默认为 done
    */
   confirmType: _TextareaConfirmType;
   /**
-   * @desc 点击键盘右下角按钮时是否保持键盘不收起
-   * @desc 默认为 false
+   * 点击键盘右下角按钮时是否保持键盘不收起
+   *
+   * 默认为 false
    */
   confirmHold: boolean;
   /**
-   * @desc 是否显示键盘上方带有”完成“按钮那一栏
-   * @desc 默认为 true
+   * 是否显示键盘上方带有”完成“按钮那一栏
+   *
+   * 默认为 true
    */
   showConfirmBar: boolean;
   /**
-   * @desc 光标起始位置，自动聚焦时有效，需与 selection-end 搭配使用
-   * @desc 默认为 -1
+   * 光标起始位置，自动聚焦时有效，需与 selection-end 搭配使用
+   *
+   * 默认为 -1
    */
   selectionStart: number;
   /**
-   * @desc 光标结束位置，自动聚焦时有效，需与 selection-start 搭配使用
-   * @desc 默认为 -1
+   * 光标结束位置，自动聚焦时有效，需与 selection-start 搭配使用
+   *
+   * 默认为 -1
    */
   selectionEnd: number;
   /**
-   * @desc 键盘弹起时，是否自动上推页面
-   * @desc 默认为 true
+   * 键盘弹起时，是否自动上推页面
+   *
+   * 默认为 true
    */
   adjustPosition: boolean;
   /**
-   * @desc 是否去掉 iOS 下的默认内边距
-   * @desc 默认为 false
+   * 是否去掉 iOS 下的默认内边距
+   *
+   * 默认为 false
    */
   disableDefaultPadding: boolean;
   /**
-   * @desc 聚焦时点击页面的时候是否不收起键盘
-   * @desc 默认为 false
+   * 聚焦时点击页面的时候是否不收起键盘
+   *
+   * 默认为 false
    */
   holdKeyboard: boolean;
   /**
-   * @desc 键盘收起时是否自动失焦
-   * @desc 默认为 false
+   * 键盘收起时是否自动失焦
+   *
+   * 默认为 false
    */
   autoBlur: boolean;
   /**
-   * @desc 是否忽略组件内对文本合成系统事件的处理
-   * @desc 为 false 时将触发 compositionstart、compositionend、compositionupdate 事件，且在文本合成期间会触发 input 事件
-   * @desc 默认为 true
+   * 是否忽略组件内对文本合成系统事件的处理
+   *
+   * 为 false 时将触发 compositionstart、compositionend、compositionupdate 事件，且在文本合成期间会触发 input 事件
+   *
+   * 默认为 true
    */
   ignoreCompositionEvent: boolean;
-  /**
-   * @desc 聚焦时触发
-   */
+  /** 聚焦时触发 */
   onFocus: _TextareaOnFocus;
-  /**
-   * @desc 失焦时触发
-   */
+  /** 失焦时触发 */
   onBlur: _TextareaOnBlur;
-  /**
-   * @desc 输入框行数变化时触发
-   */
+  /** 输入框行数变化时触发 */
   onLinechange: _TextareaOnLinechange;
-  /**
-   * @desc 输入时触发
-   */
+  /** 输入时触发 */
   onInput: _TextareaOnInput;
-  /**
-   * @desc 点击完成按钮时触发
-   */
+  /** 点击完成按钮时触发 */
   onConfirm: _TextareaOnConfirm;
-  /**
-   * @desc 键盘高度变化时触发
-   */
+  /** 键盘高度变化时触发 */
   onKeyboardheightchange: _TextareaOnKeyboardheightchange;
 }
 
-/**
- * @desc 多行输入框
- */
+/** 多行输入框 */
 type _Textarea = Component<Partial<_TextareaProps>>;
 
 export {
@@ -259,66 +253,51 @@ export {
 
 declare global {
   namespace UniHelper {
-    /**
-     * @desc 输入框内容
-     */
+    /** 输入框内容 */
     export type TextareaValue = _TextareaValue;
     /**
-     * @desc 设置键盘右下角按钮的文字
-     * @desc send 发送
-     * @desc search 搜索
-     * @desc next 下一个
-     * @desc go 前往
-     * @desc done 完成
+     * 设置键盘右下角按钮的文字
+     *
+     * Send 发送
+     *
+     * Search 搜索
+     *
+     * Next 下一个
+     *
+     * Go 前往
+     *
+     * Done 完成
      */
     export type TextareaConfirmType = _TextareaConfirmType;
     export interface TextareaOnFocusDetail extends _TextareaOnFocusDetail {}
-    /**
-     * @desc 聚焦时触发
-     */
+    /** 聚焦时触发 */
     export interface TextareaOnFocus extends _TextareaOnFocus {}
     export interface TextareaOnBlurDetail extends _TextareaOnBlurDetail {}
-    /**
-     * @desc 失焦时触发
-     */
+    /** 失焦时触发 */
     export interface TextareaOnBlur extends _TextareaOnBlur {}
     export interface TextareaOnLinechangeDetail extends _TextareaOnLinechangeDetail {}
-    /**
-     * @desc 输入框行数变化时触发
-     */
+    /** 输入框行数变化时触发 */
     export interface TextareaOnLinechange extends _TextareaOnLinechange {}
     export interface TextareaOnInputDetail extends _TextareaOnInputDetail {}
-    /**
-     * @desc 输入时触发
-     */
+    /** 输入时触发 */
     export interface TextareaOnInput extends _TextareaOnInput {}
     export interface TextareaOnConfirmDetail extends _TextareaOnConfirmDetail {}
-    /**
-     * @desc 点击完成按钮时触发
-     */
+    /** 点击完成按钮时触发 */
     export interface TextareaOnConfirm extends _TextareaOnConfirm {}
     export interface TextareaOnKeyboardheightchangeDetail
       extends _TextareaOnKeyboardheightchangeDetail {}
-    /**
-     * @desc 键盘高度变化时触发
-     */
+    /** 键盘高度变化时触发 */
     export interface TextareaOnKeyboardheightchange extends _TextareaOnKeyboardheightchange {}
-    /**
-     * @desc 多行输入框属性
-     */
+    /** 多行输入框属性 */
     export interface TextareaProps extends _TextareaProps {}
-    /**
-     * @desc 多行输入框
-     */
+    /** 多行输入框 */
     export type Textarea = _Textarea;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    /**
-     * @desc 多行输入框
-     */
+    /** 多行输入框 */
     Textarea: _Textarea;
   }
 }

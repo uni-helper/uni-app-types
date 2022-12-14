@@ -1,22 +1,16 @@
 import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
-/**
- * @desc 显示连续空格
- */
+/** 显示连续空格 */
 type _RichTextSpace = 'ensp' | 'emsp' | 'nbsp';
 
-/**
- * @desc 文本节点
- */
+/** 文本节点 */
 interface _RichTextTextNode {
   type: 'text';
   text: string;
 }
 
-/**
- * @desc 元素节点
- */
+/** 元素节点 */
 interface _RichTextNodeNode {
   type?: 'node';
   name: string;
@@ -24,62 +18,54 @@ interface _RichTextNodeNode {
   children?: Array<_RichTextTextNode | _RichTextNodeNode>;
 }
 
-/**
- * @desc 节点
- */
+/** 节点 */
 type _RichTextNode = _RichTextTextNode | _RichTextNodeNode;
 
-/**
- * @desc 节点列表
- */
+/** 节点列表 */
 type _RichTextNodes = _RichTextNode[] | string;
 
-/**
- * @desc 拦截点击事件，支持 a 和 img 标签
- */
+/** 拦截点击事件，支持 a 和 img 标签 */
 interface _RichTextOnItemclick {
   (event: CustomEvent<{ node: _RichTextNode }>): void;
 }
 
-/**
- * @desc 富文本属性
- */
+/** 富文本属性 */
 interface _RichTextProps {
-  /**
-   * @desc 节点列表
-   */
+  /** 节点列表 */
   nodes: _RichTextNodes;
   /**
-   * @desc 显示连续空格
-   * @desc 没有默认值
+   * 显示连续空格
+   *
+   * 没有默认值
    */
   space: _RichTextSpace;
   /**
-   * @desc 富文本是否可以长按选中
-   * @desc 默认为 true
+   * 富文本是否可以长按选中
+   *
+   * 默认为 true
    */
   selectable: boolean;
   /**
-   * @desc 是否阻止长按图片时弹起默认菜单
-   * @desc 只在初始化时有效，不支持动态修改
-   * @desc 默认为 false
+   * 是否阻止长按图片时弹起默认菜单
+   *
+   * 只在初始化时有效，不支持动态修改
+   *
+   * 默认为 false
    */
   imageMenuPrevent: boolean;
   /**
-   * @desc 富文本中的图片是否可点击预览
-   * @desc 在不设置的情况下，若 rich-text 未监听点击事件，则默认开启
-   * @desc 未显示设置 preview 时会进行点击默认预览判断，建议显示设置 preview
+   * 富文本中的图片是否可点击预览
+   *
+   * 在不设置的情况下，若 rich-text 未监听点击事件，则默认开启
+   *
+   * 未显示设置 preview 时会进行点击默认预览判断，建议显示设置 preview
    */
   preview: boolean;
-  /**
-   * @desc 拦截点击事件，支持 a 和 img 标签
-   */
+  /** 拦截点击事件，支持 a 和 img 标签 */
   onItemclick: _RichTextOnItemclick;
 }
 
-/**
- * @desc 富文本
- */
+/** 富文本 */
 type _RichText = Component<Partial<_RichTextProps>>;
 
 export {
@@ -95,46 +81,28 @@ export {
 
 declare global {
   namespace UniHelper {
-    /**
-     * @desc 显示连续空格
-     */
+    /** 显示连续空格 */
     export type RichTextSpace = _RichTextSpace;
-    /**
-     * @desc 文本节点
-     */
+    /** 文本节点 */
     export interface RichTextTextNode extends _RichTextTextNode {}
-    /**
-     * @desc 元素节点
-     */
+    /** 元素节点 */
     export interface RichTextNodeNode extends _RichTextNodeNode {}
-    /**
-     * @desc 节点
-     */
+    /** 节点 */
     export type RichTextNode = _RichTextNode;
-    /**
-     * @desc 节点列表
-     */
+    /** 节点列表 */
     export type RichTextNodes = _RichTextNodes;
-    /**
-     * @desc 拦截点击事件，支持 a 和 img 标签
-     */
+    /** 拦截点击事件，支持 a 和 img 标签 */
     export interface RichTextOnItemclick extends _RichTextOnItemclick {}
-    /**
-     * @desc 富文本属性
-     */
+    /** 富文本属性 */
     export interface RichTextProps extends _RichTextProps {}
-    /**
-     * @desc 富文本
-     */
+    /** 富文本 */
     export type RichText = _RichText;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    /**
-     * @desc 富文本
-     */
+    /** 富文本 */
     RichText: _RichText;
   }
 }

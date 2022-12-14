@@ -1,152 +1,183 @@
 import { Component } from '../Component';
 
 /**
- * @desc 副标题文字超出显示区域时处理方式
- * @desc clip 超出显示区域时内容裁剪
- * @desc ellipsis 超出显示区域时尾部显示省略标记
+ * 副标题文字超出显示区域时处理方式
+ *
+ * Clip 超出显示区域时内容裁剪
+ *
+ * Ellipsis 超出显示区域时尾部显示省略标记
  */
 type _NavigationBarSubtitleOverflow = 'clip' | 'ellipsis';
 
 /**
- * @desc 标题对齐方式
- * @desc center 居中对齐
- * @desc left 左对齐
- * @desc auto 自动
+ * 标题对齐方式
+ *
+ * Center 居中对齐
+ *
+ * Left 左对齐
+ *
+ * Auto 自动
  */
 type _NavigationBarTitleAlign = 'center' | 'left' | 'auto';
 
 /**
- * @desc 背景图片重复方式
- * @desc backgroundImage 设置为图片路径时有效
- * @desc repeat 背景图片在垂直方向和水平方向平铺
- * @desc repeat-x 背景图片在水平方向平铺，垂直方向拉伸
- * @desc repeat-y 背景图片在垂直方向平铺，水平方向拉伸
- * @desc 背景图片在垂直方向和水平方向都拉伸
+ * 背景图片重复方式
+ *
+ * BackgroundImage 设置为图片路径时有效
+ *
+ * Repeat 背景图片在垂直方向和水平方向平铺
+ *
+ * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+ *
+ * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+ *
+ * 背景图片在垂直方向和水平方向都拉伸
  */
 type _NavigationBarBackgroundRepeat = 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat';
 
 /**
- * @desc 高斯模糊标题栏的风格
- * @desc dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
- * @desc extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
- * @desc light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
- * @desc none 无模糊效果
+ * 高斯模糊标题栏的风格
+ *
+ * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+ *
+ * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+ *
+ * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+ *
+ * None 无模糊效果
  */
 type _NavigationBarBlurEffect = 'none' | 'dark' | 'extralight' | 'light';
 
-/**
- * @desc 导航条前景颜色值，包括按钮、标题、状态栏的颜色
- */
+/** 导航条前景颜色值，包括按钮、标题、状态栏的颜色 */
 type _NavigationFrontColor = '#ffffff' | '#000000';
 
-/**
- * @desc 改变导航栏颜色时的动画方式
- */
+/** 改变导航栏颜色时的动画方式 */
 type _NavigationBarColorAnimationTimingFunc = 'linear' | 'easeIn' | 'easeOut' | 'easeInOut';
 
-/**
- * @desc 页面导航条配置节点属性
- */
+/** 页面导航条配置节点属性 */
 interface _NavigationBarProps {
-  /**
-   * @desc 导航条标题
-   */
+  /** 导航条标题 */
   title: string;
   /**
-   * @desc 标题图标
-   * @desc 仅支持本地文件路径、相对路径
-   * @desc 固定宽高 34px
-   * @desc 设置后标题将居左显示
+   * 标题图标
+   *
+   * 仅支持本地文件路径、相对路径
+   *
+   * 固定宽高 34px
+   *
+   * 设置后标题将居左显示
    */
   titleIcon: string;
   /**
-   * @desc 标题图标圆角
-   * @desc 单位为 px
+   * 标题图标圆角
+   *
+   * 单位为 px
    */
   titleIconRadius: string;
   /**
-   * @desc 副标题文字内容
-   * @desc 设置副标题后将显示两行标题，副标题在主标题下方
-   * @desc 设置副标题后将居左显示
+   * 副标题文字内容
+   *
+   * 设置副标题后将显示两行标题，副标题在主标题下方
+   *
+   * 设置副标题后将居左显示
    */
   subtitleText: string;
   /**
-   * @desc 副标题文字字体大小
-   * @desc 单位为 px
-   * @desc 默认为 12px
+   * 副标题文字字体大小
+   *
+   * 单位为 px
+   *
+   * 默认为 12px
    */
   subtitleSize: string;
   /**
-   * @desc 副标题文字颜色
-   * @desc 默认为主标题文字颜色
+   * 副标题文字颜色
+   *
+   * 默认为主标题文字颜色
    */
   subtitleColor: string;
   /**
-   * @desc 副标题文字超出显示区域时处理方式
-   * @desc clip 超出显示区域时内容裁剪
-   * @desc ellipsis 超出显示区域时尾部显示省略标记
-   * @desc 默认为 ellipsis
+   * 副标题文字超出显示区域时处理方式
+   *
+   * Clip 超出显示区域时内容裁剪
+   *
+   * Ellipsis 超出显示区域时尾部显示省略标记
+   *
+   * 默认为 ellipsis
    */
   subtitleOverflow: _NavigationBarSubtitleOverflow;
   /**
-   * @desc 标题对齐方式
-   * @desc center 居中对齐
-   * @desc left 左对齐
-   * @desc auto 自动
-   * @desc 默认 Android left，iOS center
+   * 标题对齐方式
+   *
+   * Center 居中对齐
+   *
+   * Left 左对齐
+   *
+   * Auto 自动
+   *
+   * 默认 Android left，iOS center
    */
   titleAlign: _NavigationBarTitleAlign;
   /**
-   * @desc 背景图片
-   * @desc 支持本地文件路径、相对路径、渐变色
+   * 背景图片
+   *
+   * 支持本地文件路径、相对路径、渐变色
    */
   backgroundImage: string;
   /**
-   * @desc 背景图片重复方式
-   * @desc backgroundImage 设置为图片路径时有效
-   * @desc repeat 背景图片在垂直方向和水平方向平铺
-   * @desc repeat-x 背景图片在水平方向平铺，垂直方向拉伸
-   * @desc repeat-y 背景图片在垂直方向平铺，水平方向拉伸
-   * @desc 背景图片在垂直方向和水平方向都拉伸
-   * @desc 默认为 no-repeat
+   * 背景图片重复方式
+   *
+   * BackgroundImage 设置为图片路径时有效
+   *
+   * Repeat 背景图片在垂直方向和水平方向平铺
+   *
+   * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+   *
+   * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+   *
+   * 背景图片在垂直方向和水平方向都拉伸
+   *
+   * 默认为 no-repeat
    */
   backgroundRepeat: _NavigationBarBackgroundRepeat;
   /**
-   * @desc 高斯模糊标题栏的风格
-   * @desc dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
-   * @desc extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
-   * @desc light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
-   * @desc none 无模糊效果
-   * @desc 默认为 none
+   * 高斯模糊标题栏的风格
+   *
+   * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+   *
+   * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+   *
+   * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+   *
+   * None 无模糊效果
+   *
+   * 默认为 none
    */
   blurEffect: _NavigationBarBlurEffect;
   /**
-   * @desc 是否在导航条显示 loading 加载提示
-   * @desc 默认为 false
+   * 是否在导航条显示 loading 加载提示
+   *
+   * 默认为 false
    */
   loading: boolean;
-  /**
-   * @desc 导航条前景颜色值，包括按钮、标题、状态栏的颜色
-   */
+  /** 导航条前景颜色值，包括按钮、标题、状态栏的颜色 */
   frontColor: _NavigationFrontColor;
-  /**
-   * @desc 导航条背景颜色值
-   */
+  /** 导航条背景颜色值 */
   backgroundColor: string;
   /**
-   * @desc 改变导航栏颜色时的动画时长
-   * @desc 默认为 0
+   * 改变导航栏颜色时的动画时长
+   *
+   * 默认为 0
    */
   colorAnimationDuration: number;
-  /**
-   * @desc 改变导航栏颜色时的动画方式
-   */
+  /** 改变导航栏颜色时的动画方式 */
   colorAnimationTimingFunc: _NavigationBarColorAnimationTimingFunc;
 }
 
 /**
- * @desc 页面导航条配置节点，用于指定导航栏的一些属性
- * @desc 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
+ * 页面导航条配置节点，用于指定导航栏的一些属性
+ *
+ * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
  */
 type _NavigationBar = Component<Partial<_NavigationBarProps>>;
 
@@ -164,50 +195,59 @@ export {
 declare global {
   namespace UniHelper {
     /**
-     * @desc 副标题文字超出显示区域时处理方式
-     * @desc clip 超出显示区域时内容裁剪
-     * @desc ellipsis 超出显示区域时尾部显示省略标记
+     * 副标题文字超出显示区域时处理方式
+     *
+     * Clip 超出显示区域时内容裁剪
+     *
+     * Ellipsis 超出显示区域时尾部显示省略标记
      */
     export type NavigationBarSubtitleOverflow = _NavigationBarSubtitleOverflow;
     /**
-     * @desc 标题对齐方式
-     * @desc center 居中对齐
-     * @desc left 左对齐
-     * @desc auto 自动
+     * 标题对齐方式
+     *
+     * Center 居中对齐
+     *
+     * Left 左对齐
+     *
+     * Auto 自动
      */
     export type NavigationBarTitleAlign = _NavigationBarTitleAlign;
     /**
-     * @desc 背景图片重复方式
-     * @desc backgroundImage 设置为图片路径时有效
-     * @desc repeat 背景图片在垂直方向和水平方向平铺
-     * @desc repeat-x 背景图片在水平方向平铺，垂直方向拉伸
-     * @desc repeat-y 背景图片在垂直方向平铺，水平方向拉伸
-     * @desc 背景图片在垂直方向和水平方向都拉伸
+     * 背景图片重复方式
+     *
+     * BackgroundImage 设置为图片路径时有效
+     *
+     * Repeat 背景图片在垂直方向和水平方向平铺
+     *
+     * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+     *
+     * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+     *
+     * 背景图片在垂直方向和水平方向都拉伸
      */
     export type NavigationBarBackgroundRepeat = _NavigationBarBackgroundRepeat;
     /**
-     * @desc 高斯模糊标题栏的风格
-     * @desc dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
-     * @desc extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
-     * @desc light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
-     * @desc none 无模糊效果
+     * 高斯模糊标题栏的风格
+     *
+     * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+     *
+     * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+     *
+     * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+     *
+     * None 无模糊效果
      */
     export type NavigationBarBlurEffect = _NavigationBarBlurEffect;
-    /**
-     * @desc 导航条前景颜色值，包括按钮、标题、状态栏的颜色
-     */
+    /** 导航条前景颜色值，包括按钮、标题、状态栏的颜色 */
     export type NavigationFrontColor = _NavigationFrontColor;
-    /**
-     * @desc 改变导航栏颜色时的动画方式
-     */
+    /** 改变导航栏颜色时的动画方式 */
     export type NavigationBarColorAnimationTimingFunc = _NavigationBarColorAnimationTimingFunc;
-    /**
-     * @desc 页面导航条配置节点属性
-     */
+    /** 页面导航条配置节点属性 */
     export interface NavigationBarProps extends _NavigationBarProps {}
     /**
-     * @desc 页面导航条配置节点，用于指定导航栏的一些属性
-     * @desc 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
+     * 页面导航条配置节点，用于指定导航栏的一些属性
+     *
+     * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
      */
     export type NavigationBar = _NavigationBar;
   }
@@ -216,8 +256,9 @@ declare global {
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
-     * @desc 页面导航条配置节点，用于指定导航栏的一些属性
-     * @desc 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
+     * 页面导航条配置节点，用于指定导航栏的一些属性
+     *
+     * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
      */
     NavigationBar: _NavigationBar;
   }
