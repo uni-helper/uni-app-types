@@ -29,7 +29,7 @@ interface _CheckboxProps {
    * 默认为 false
    */
   checked: boolean;
-  /** 的颜色 */
+  /** 颜色 */
   color: string;
 }
 

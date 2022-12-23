@@ -34,7 +34,7 @@ interface _SwitchProps {
   disabled: boolean;
   /** 样式 */
   type: _SwitchType;
-  /** _Switch 的颜色 */
+  /** 颜色 */
   color: string;
   /** Checked 改变时触发 */
   onChange: _SwitchOnChange;
