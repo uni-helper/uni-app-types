@@ -38,24 +38,24 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "@dcloudio/types": "^3.2.3",
+    "@dcloudio/types": "^3.2.5",
     "vue3": "npm:vue@^3.2.45"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
+    "@babel/core": "^7.20.7",
     "@babel/eslint-parser": "^7.19.1",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@commitlint/prompt": "^17.3.0",
     "@modyqyw/fabric": "^5.14.0",
     "@tsconfig/node18": "^1.0.1",
-    "@types/node": "^18.11.15",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
-    "@vitest/coverage-c8": "^0.25.8",
+    "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "@vitest/coverage-c8": "^0.26.2",
     "c8": "^7.12.0",
     "commitizen": "^4.2.6",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "husky": "^8.0.2",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.1.0",
@@ -64,7 +64,7 @@
     "prettier": "^2.8.1",
     "release-it": "^15.5.1",
     "typescript": "^4.9.4",
-    "vitest": "^0.25.8"
+    "vitest": "^0.26.2"
   },
   "peerDependencies": {
     "typescript": "^4.8.0"
