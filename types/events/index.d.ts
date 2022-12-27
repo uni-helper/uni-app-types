@@ -31,7 +31,7 @@ interface _BaseEvent<
   /** 触发事件的源组件的一些属性值集合 */
   target?: _EventTarget<TargetDataset>;
   /** 事件绑定的当前组件的一些属性值集合 */
-  currentTarget?: Target<CurrentTargetDataset>;
+  currentTarget?: _EventTarget<CurrentTargetDataset>;
   [key: string]: any;
 }
 
