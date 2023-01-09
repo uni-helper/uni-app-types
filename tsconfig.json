@@ -1,10 +1,10 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
+  "extends": "@tsconfig/node18",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["DOM", "ES2022"],
-    "module": "ES2022",
-    "target": "ES2022",
+    "lib": ["DOM", "ESNext"],
+    "module": "ESNext",
+    "target": "ESNext",
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./types/*"]
