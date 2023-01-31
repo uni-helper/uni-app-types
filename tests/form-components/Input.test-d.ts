@@ -4,6 +4,7 @@ import type {
   InputType,
   InputTextContentType,
   InputConfirmType,
+  InputInputMode,
   InputOnInputDetail,
   InputOnInput,
   InputOnFocusDetail,
@@ -27,6 +28,9 @@ describe('Input', () => {
 
   expectTypeOf<InputTextContentType>().toBeString();
   expectTypeOf<InputTextContentType>().toEqualTypeOf<UniHelper.InputTextContentType>();
+
+  expectTypeOf<InputInputMode>().toBeString();
+  expectTypeOf<InputInputMode>().toEqualTypeOf<UniHelper.InputInputMode>();
 
   expectTypeOf<InputConfirmType>().toBeString();
   expectTypeOf<InputConfirmType>().toEqualTypeOf<UniHelper.InputConfirmType>();
