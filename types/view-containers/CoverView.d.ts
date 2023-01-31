@@ -13,7 +13,7 @@ interface _CoverViewProps {
 /**
  * 覆盖在原生组件之上的视图
  *
- * App-vue 和小程序框架，渲染引擎是 webview
+ * app-vue 和小程序框架，渲染引擎是 webview
  *
  * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
  *
@@ -30,7 +30,7 @@ declare global {
     /**
      * 覆盖在原生组件之上的视图
      *
-     * App-vue 和小程序框架，渲染引擎是 webview
+     * app-vue 和小程序框架，渲染引擎是 webview
      *
      * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
      *
@@ -45,7 +45,7 @@ declare module '@vue/runtime-core' {
     /**
      * 覆盖在原生组件之上的视图
      *
-     * App-vue 和小程序框架，渲染引擎是 webview
+     * app-vue 和小程序框架，渲染引擎是 webview
      *
      * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
      *
