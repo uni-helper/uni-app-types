@@ -29,29 +29,29 @@ type _VideoDirection = 0 | 90 | -90;
 /**
  * 当视频大小与 video 容器大小不一致时，视频的表现形式
  *
- * Contain 包含
+ * contain 包含
  *
- * Fill 填充
+ * fill 填充
  *
- * Cover 覆盖
+ * cover 覆盖
  */
 type _VideoObjectFit = 'contain' | 'fill' | 'cover';
 
 /**
  * 播放按钮的位置
  *
- * Bottom 控制栏上
+ * bottom 控制栏上
  *
- * Center 视频中间
+ * center 视频中间
  */
 type _VideoPlayBtnPosition = 'bottom' | 'center';
 
 /**
  * 解码器选择
  *
- * Hardware 硬件解码
+ * hardware 硬件解码
  *
- * Software 软件解码
+ * software 软件解码
  */
 type _VideoCodec = 'hardware' | 'software';
 
@@ -296,11 +296,11 @@ interface _VideoProps {
   /**
    * 当视频大小与 video 容器大小不一致时，视频的表现形式
    *
-   * Contain 包含
+   * contain 包含
    *
-   * Fill 填充
+   * fill 填充
    *
-   * Cover 覆盖
+   * cover 覆盖
    *
    * 默认为 contain
    */
@@ -322,9 +322,9 @@ interface _VideoProps {
   /**
    * 播放按钮的位置
    *
-   * Bottom 控制栏上
+   * bottom 控制栏上
    *
-   * Center 视频中间
+   * center 视频中间
    *
    * 默认为 bottom
    */
@@ -382,9 +382,9 @@ interface _VideoProps {
   /**
    * 解码器选择
    *
-   * Hardware 硬件解码
+   * hardware 硬件解码
    *
-   * Software 软件解码
+   * software 软件解码
    *
    * 默认为 hardware
    */
@@ -502,27 +502,27 @@ declare global {
     /**
      * 当视频大小与 video 容器大小不一致时，视频的表现形式
      *
-     * Contain 包含
+     * contain 包含
      *
-     * Fill 填充
+     * fill 填充
      *
-     * Cover 覆盖
+     * cover 覆盖
      */
     export type VideoObjectFit = _VideoObjectFit;
     /**
      * 播放按钮的位置
      *
-     * Bottom 控制栏上
+     * bottom 控制栏上
      *
-     * Center 视频中间
+     * center 视频中间
      */
     export type VideoPlayBtnPosition = _VideoPlayBtnPosition;
     /**
      * 解码器选择
      *
-     * Hardware 硬件解码
+     * hardware 硬件解码
      *
-     * Software 软件解码
+     * software 软件解码
      */
     export type VideoCodec = _VideoCodec;
     /**

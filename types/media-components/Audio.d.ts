@@ -48,7 +48,7 @@ interface _AudioOnEnded {
 
 /** 音频属性 */
 interface _AudioProps {
-  /** Audio 组件的唯一标识符 */
+  /** audio 组件的唯一标识符 */
   id: string;
   /** 要播放音频的资源地址 */
   src: string;

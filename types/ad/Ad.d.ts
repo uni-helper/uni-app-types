@@ -44,19 +44,19 @@ interface _AdProps {
   /** 小程序广告位 ID */
   apid: string;
   /**
-   * Type 为 feeds 时广告左边距，必须大于 0
+   * type 为 feeds 时广告左边距，必须大于 0
    *
    * 单位为 px
    */
   adLeft: number;
   /**
-   * Type 为 feeds 时广告上边距，必须大于 0
+   * type 为 feeds 时广告上边距，必须大于 0
    *
    * 单位为 px
    */
   adTop: number;
   /**
-   * Type 为 feeds 时广告宽度，最大值为屏幕宽度，最小值为 265
+   * type 为 feeds 时广告宽度，最大值为屏幕宽度，最小值为 265
    *
    * 单位为 px
    *
@@ -64,7 +64,7 @@ interface _AdProps {
    */
   adWidth: number;
   /**
-   * Type 为 feeds 时广告高度，最大值为 160，最小值为 85
+   * type 为 feeds 时广告高度，最大值为 160，最小值为 85
    *
    * 单位为 px
    */

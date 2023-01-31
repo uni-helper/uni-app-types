@@ -1,7 +1,11 @@
 import { Component } from '../Component';
 import { BaseEvent, CustomEvent } from '../events';
 
-/** 设置自定义下拉刷新默认样式 */
+/**
+ * 设置自定义下拉刷新默认样式
+ *
+ * none 不使用默认样式
+ */
 type _ScrollViewRefresherDefaultStyle = 'black' | 'white' | 'none';
 
 /** 滚动到顶部/左边时触发 */
@@ -133,7 +137,7 @@ interface _ScrollViewProps {
   /**
    * 设置自定义下拉刷新默认样式
    *
-   * None 不使用默认样式
+   * none 不使用默认样式
    *
    * 默认为 black
    */
@@ -147,9 +151,9 @@ interface _ScrollViewProps {
   /**
    * 设置当前下拉刷新状态
    *
-   * True 下拉刷新已经被触发
+   * true 下拉刷新已经被触发
    *
-   * False 下拉刷新未被触发
+   * false 下拉刷新未被触发
    *
    * 默认为 false
    */
@@ -195,7 +199,7 @@ interface _ScrollViewProps {
  *
  * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
  *
- * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
+ * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
  * transparent 透明渐变
  */
 type _ScrollView = Component<Partial<_ScrollViewProps>>;
@@ -216,7 +220,11 @@ export {
 
 declare global {
   namespace UniHelper {
-    /** 设置自定义下拉刷新默认样式 */
+    /**
+     * 设置自定义下拉刷新默认样式
+     *
+     * none 不使用默认样式
+     */
     export type ScrollViewRefresherDefaultStyle = _ScrollViewRefresherDefaultStyle;
     /** 滚动到顶部/左边时触发 */
     export interface ScrollViewOnScrolltoupper extends _ScrollViewOnScrolltoupper {}
@@ -244,7 +252,7 @@ declare global {
      *
      * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
      *
-     * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
+     * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底 onReachBottomDistance、titleNView 的
      * transparent 透明渐变
      */
     export type ScrollView = _ScrollView;
@@ -262,7 +270,7 @@ declare module '@vue/runtime-core' {
      *
      * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
      *
-     * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
+     * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底 onReachBottomDistance、titleNView 的
      * transparent 透明渐变
      */
     ScrollView: _ScrollView;

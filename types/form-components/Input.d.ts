@@ -5,43 +5,43 @@ import { CustomEvent } from '../events';
 type _InputValue = string;
 
 /**
- * Input 类型
+ * input 类型
  *
- * Text 文本输入键盘
+ * text 文本输入键盘
  *
- * Number 数字输入键盘
+ * number 数字输入键盘
  *
- * Idcard 身份证输入键盘
+ * idcard 身份证输入键盘
  *
- * Digit 带小数点的数字键盘
+ * digit 带小数点的数字键盘
  *
- * Tel 电话输入键盘
+ * tel 电话输入键盘
  *
- * Safe-password 密码安全输入键盘
+ * safe-password 密码安全输入键盘
  *
- * Nickname 昵称输入键盘
+ * nickname 昵称输入键盘
  */
 type _InputType = 'text' | 'number' | 'idcard' | 'digit' | 'tel' | 'safe-password' | 'nickname';
 
 /**
  * 文本区域的语义，根据类型自动填充
  *
- * OneTimeCode 一次性验证码
+ * oneTimeCode 一次性验证码
  */
 type _InputTextContentType = 'oneTimeCode';
 
 /**
  * 设置键盘右下角按钮的文字
  *
- * Send 发送
+ * send 发送
  *
- * Search 搜索
+ * search 搜索
  *
- * Next 下一个
+ * next 下一个
  *
- * Go 前往
+ * go 前往
  *
- * Type="text" 时有效
+ * type="text" 时有效
  *
  * @decs done 完成
  */
@@ -101,21 +101,21 @@ interface _InputProps {
   /** 输入框的初始内容 */
   value: _InputValue;
   /**
-   * Input 类型
+   * input 类型
    *
-   * Text 文本输入键盘
+   * text 文本输入键盘
    *
-   * Number 数字输入键盘
+   * number 数字输入键盘
    *
-   * Idcard 身份证输入键盘
+   * idcard 身份证输入键盘
    *
-   * Digit 带小数点的数字键盘
+   * digit 带小数点的数字键盘
    *
-   * Tel 电话输入键盘
+   * tel 电话输入键盘
    *
-   * Safe-password 密码安全输入键盘
+   * safe-password 密码安全输入键盘
    *
-   * Nickname 昵称输入键盘
+   * nickname 昵称输入键盘
    *
    * 默认为 text
    */
@@ -123,7 +123,7 @@ interface _InputProps {
   /**
    * 文本区域的语义，根据类型自动填充
    *
-   * OneTimeCode 一次性验证码
+   * oneTimeCode 一次性验证码
    */
   textContentType: _InputTextContentType;
   /**
@@ -181,15 +181,15 @@ interface _InputProps {
   /**
    * 设置键盘右下角按钮的文字
    *
-   * Send 发送
+   * send 发送
    *
-   * Search 搜索
+   * search 搜索
    *
-   * Next 下一个
+   * next 下一个
    *
-   * Go 前往
+   * go 前往
    *
-   * Type="text" 时有效
+   * type="text" 时有效
    *
    * 默认为 done
    *
@@ -323,41 +323,41 @@ declare global {
     /** 输入框的内容 */
     export type InputValue = _InputValue;
     /**
-     * Input 类型
+     * input 类型
      *
-     * Text 文本输入键盘
+     * text 文本输入键盘
      *
-     * Number 数字输入键盘
+     * number 数字输入键盘
      *
-     * Idcard 身份证输入键盘
+     * idcard 身份证输入键盘
      *
-     * Digit 带小数点的数字键盘
+     * digit 带小数点的数字键盘
      *
-     * Tel 电话输入键盘
+     * tel 电话输入键盘
      *
-     * Safe-password 密码安全输入键盘
+     * safe-password 密码安全输入键盘
      *
-     * Nickname 昵称输入键盘
+     * nickname 昵称输入键盘
      */
     export type InputType = _InputType;
     /**
      * 文本区域的语义，根据类型自动填充
      *
-     * OneTimeCode 一次性验证码
+     * oneTimeCode 一次性验证码
      */
     export type InputTextContentType = _InputTextContentType;
     /**
      * 设置键盘右下角按钮的文字
      *
-     * Send 发送
+     * send 发送
      *
-     * Search 搜索
+     * search 搜索
      *
-     * Next 下一个
+     * next 下一个
      *
-     * Go 前往
+     * go 前往
      *
-     * Type="text" 时有效
+     * type="text" 时有效
      *
      * @decs done 完成
      */

@@ -1,19 +1,19 @@
 import { Component } from '../Component';
 import { CustomEvent } from '../events';
 
-/** Movable-view 的移动方向 */
+/** movable-view 的移动方向 */
 type _MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
 
 /**
- * Movable-view 产生移动的原因
+ * movable-view 产生移动的原因
  *
- * Touch 拖动
+ * touch 拖动
  *
- * Touch-out-of-bounds 超出移动范围
+ * touch-out-of-bounds 超出移动范围
  *
- * Out-of-bounds 超出移动范围后的回弹
+ * out-of-bounds 超出移动范围后的回弹
  *
- * Friction 惯性
+ * friction 惯性
  *
  * 空字符串 setData
  */
@@ -23,15 +23,15 @@ interface _MovableViewOnChangeDetail {
   x: number;
   y: number;
   /**
-   * Movable-view 产生移动的原因
+   * movable-view 产生移动的原因
    *
-   * Touch 拖动
+   * touch 拖动
    *
-   * Touch-out-of-bounds 超出移动范围
+   * touch-out-of-bounds 超出移动范围
    *
-   * Out-of-bounds 超出移动范围后的回弹
+   * out-of-bounds 超出移动范围后的回弹
    *
-   * Friction 惯性
+   * friction 惯性
    *
    * 空字符串 setData
    */
@@ -62,7 +62,7 @@ interface _MovableViewOnScale {
 /** 可移动的视图容器属性 */
 interface _MovableViewProps {
   /**
-   * Movable-view 的移动方向
+   * movable-view 的移动方向
    *
    * 默认为 none
    */
@@ -162,7 +162,7 @@ interface _MovableViewProps {
 /**
  * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
  *
- * Movable-area 直接子组件
+ * movable-area 直接子组件
  */
 type _MovableView = Component<Partial<_MovableViewProps>>;
 
@@ -179,18 +179,18 @@ export {
 
 declare global {
   namespace UniHelper {
-    /** Movable-view 的移动方向 */
+    /** movable-view 的移动方向 */
     export type MovableViewDirection = _MovableViewDirection;
     /**
-     * Movable-view 产生移动的原因
+     * movable-view 产生移动的原因
      *
-     * Touch 拖动
+     * touch 拖动
      *
-     * Touch-out-of-bounds 超出移动范围
+     * touch-out-of-bounds 超出移动范围
      *
-     * Out-of-bounds 超出移动范围后的回弹
+     * out-of-bounds 超出移动范围后的回弹
      *
-     * Friction 惯性
+     * friction 惯性
      *
      * 空字符串 setData
      */
@@ -206,7 +206,7 @@ declare global {
     /**
      * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
      *
-     * Movable-area 直接子组件
+     * movable-area 直接子组件
      */
     export interface MovableView extends _MovableView {}
   }
@@ -217,7 +217,7 @@ declare module '@vue/runtime-core' {
     /**
      * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
      *
-     * Movable-area 直接子组件
+     * movable-area 直接子组件
      */
     MovableView: _MovableView;
   }

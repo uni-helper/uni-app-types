@@ -15,38 +15,38 @@ type _LivePusherMode = 'SD' | 'HD' | 'FHD';
 /**
  * 画面方向
  *
- * Vertical 纵向
+ * vertical 纵向
  *
- * Horizontal 横向
+ * horizontal 横向
  */
 type _LivePusherOrientation = 'vertical' | 'horizontal';
 
 /**
  * 音质
  *
- * High 高音质 48KHz
+ * high 高音质 48KHz
  *
- * Low 低音质 16KHz
+ * low 低音质 16KHz
  */
 type _LivePusherAudioQuality = 'high' | 'low';
 
 /**
  * 使用的摄像头
  *
- * Front 前置摄像头
+ * front 前置摄像头
  *
- * Back 后置摄像头
+ * back 后置摄像头
  */
 type _LivePusherDevicePosition = 'front' | 'back';
 
 /**
  * 控制本地预览画面是否镜像
  *
- * Auto 前置摄像头镜像，后置摄像头不镜像
+ * auto 前置摄像头镜像，后置摄像头不镜像
  *
- * Enable 前后置摄像头均镜像
+ * enable 前后置摄像头均镜像
  *
- * Disable 前后置摄像头均不镜像
+ * disable 前后置摄像头均不镜像
  */
 type _LivePusherLocalMirror = 'auto' | 'enable' | 'disable';
 
@@ -74,11 +74,11 @@ type _LivePusherAudioReverbType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 /**
  * 音量类型
  *
- * 自动
+ * auto 自动
  *
- * Media 媒体音量
+ * media 媒体音量
  *
- * Voicecall 通话音量
+ * voicecall 通话音量
  */
 type _LivePusherAudioVolumeType = 'auto' | 'media' | 'voicecall';
 
@@ -305,7 +305,7 @@ interface _LivePusherInfo {
  *
  * 10004 等待画面资源（waiting-image）加载失败
  */
-type _LiverPusherErrCode = 10001 | 10002 | 10003 | 10004;
+type _LiverPusherErrCode = 10_001 | 10_002 | 10_003 | 10_004;
 
 interface _LivePusherOnStatechangeDetail {
   /**
@@ -498,9 +498,9 @@ interface _LivePusherProps {
   /**
    * 画面方向
    *
-   * Vertical 纵向
+   * vertical 纵向
    *
-   * Horizontal 横向
+   * horizontal 横向
    *
    * 默认为 vertical
    */
@@ -520,9 +520,9 @@ interface _LivePusherProps {
   /**
    * 音质
    *
-   * High 高音质 48KHz
+   * high 高音质 48KHz
    *
-   * Low 低音质 16KHz
+   * low 低音质 16KHz
    *
    * 默认为 high
    */
@@ -540,9 +540,9 @@ interface _LivePusherProps {
   /**
    * 使用的摄像头
    *
-   * Front 前置摄像头
+   * front 前置摄像头
    *
-   * Back 后置摄像头
+   * back 后置摄像头
    *
    * 默认为 front
    */
@@ -562,11 +562,11 @@ interface _LivePusherProps {
   /**
    * 控制本地预览画面是否镜像
    *
-   * Auto 前置摄像头镜像，后置摄像头不镜像
+   * auto 前置摄像头镜像，后置摄像头不镜像
    *
-   * Enable 前后置摄像头均镜像
+   * enable 前后置摄像头均镜像
    *
-   * Disable 前后置摄像头均不镜像
+   * disable 前后置摄像头均不镜像
    *
    * 默认为 auto
    */
@@ -614,11 +614,11 @@ interface _LivePusherProps {
   /**
    * 音量类型
    *
-   * 自动
+   * auto 自动
    *
-   * Media 媒体音量
+   * media 媒体音量
    *
-   * Voicecall 通话音量
+   * voicecall 通话音量
    *
    * 默认为 auto
    */
@@ -680,35 +680,35 @@ declare global {
     /**
      * 画面方向
      *
-     * Vertical 纵向
+     * vertical 纵向
      *
-     * Horizontal 横向
+     * horizontal 横向
      */
     export type LivePusherOrientation = _LivePusherOrientation;
     /**
      * 音质
      *
-     * High 高音质 48KHz
+     * high 高音质 48KHz
      *
-     * Low 低音质 16KHz
+     * low 低音质 16KHz
      */
     export type LivePusherAudioQuality = _LivePusherAudioQuality;
     /**
      * 使用的摄像头
      *
-     * Front 前置摄像头
+     * front 前置摄像头
      *
-     * Back 后置摄像头
+     * back 后置摄像头
      */
     export type LivePusherDevicePosition = _LivePusherDevicePosition;
     /**
      * 控制本地预览画面是否镜像
      *
-     * Auto 前置摄像头镜像，后置摄像头不镜像
+     * auto 前置摄像头镜像，后置摄像头不镜像
      *
-     * Enable 前后置摄像头均镜像
+     * enable 前后置摄像头均镜像
      *
-     * Disable 前后置摄像头均不镜像
+     * disable 前后置摄像头均不镜像
      */
     export type LivePusherLocalMirror = _LivePusherLocalMirror;
     /**
@@ -734,11 +734,11 @@ declare global {
     /**
      * 音量类型
      *
-     * 自动
+     * auto 自动
      *
-     * Media 媒体音量
+     * media 媒体音量
      *
-     * Voicecall 通话音量
+     * voicecall 通话音量
      */
     export type LivePusherAudioVolumeType = _LivePusherAudioVolumeType;
 

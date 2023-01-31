@@ -3,13 +3,13 @@ import { Component } from '../Component';
 /**
  * 屏幕方向
  *
- * Landscape 横向
+ * landscape 横向
  *
- * Portrait 纵向
+ * portrait 纵向
  */
 type _MatchMediaOrientation = 'landscape' | 'portrait';
 
-/** Media query 匹配检测节点属性 */
+/** media query 匹配检测节点属性 */
 interface _MatchMediaProps {
   /**
    * 页面最小宽度
@@ -50,15 +50,15 @@ interface _MatchMediaProps {
   /**
    * 屏幕方向
    *
-   * Landscape 横向
+   * landscape 横向
    *
-   * Portrait 纵向
+   * portrait 纵向
    */
   orientation: _MatchMediaOrientation;
 }
 
 /**
- * Media query 匹配检测节点
+ * media query 匹配检测节点
  *
  * 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
  *
@@ -77,15 +77,15 @@ declare global {
     /**
      * 屏幕方向
      *
-     * Landscape 横向
+     * landscape 横向
      *
-     * Portrait 纵向
+     * portrait 纵向
      */
     export type MatchMediaOrientation = _MatchMediaOrientation;
-    /** Media query 匹配检测节点属性 */
+    /** media query 匹配检测节点属性 */
     export interface MatchMediaProps extends _MatchMediaProps {}
     /**
-     * Media query 匹配检测节点
+     * media query 匹配检测节点
      *
      * 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
      *
@@ -98,7 +98,7 @@ declare global {
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
-     * Media query 匹配检测节点
+     * media query 匹配检测节点
      *
      * 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
      *

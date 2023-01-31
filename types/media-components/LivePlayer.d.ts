@@ -13,27 +13,27 @@ type _LivePlayerMode = 'live' | 'RTC';
 /**
  * 画面方向
  *
- * Vertical 纵向
+ * vertical 纵向
  *
- * Horizontal 横向
+ * horizontal 横向
  */
 type _LivePlayerOrientation = 'vertical' | 'horizontal';
 
 /**
  * 填充模式
  *
- * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+ * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
  *
- * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+ * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
  */
 type _LivePlayerObjectFit = 'contain' | 'fillCrop';
 
 /**
  * 声音输出方式
  *
- * Speaker 扬声器
+ * speaker 扬声器
  *
- * Ear 听筒
+ * ear 听筒
  *
  * 默认为 speaker
  */
@@ -42,9 +42,9 @@ type _LivePlayerSoundMode = 'speaker' | 'ear';
 /**
  * 设置小窗模式
  *
- * Push 路由 push 时触发小窗
+ * push 路由 push 时触发小窗
  *
- * Pop 路由 pop 时触发小窗
+ * pop 路由 pop 时触发小窗
  */
 type _LivePlayerPictureInPictureMode = 'push' | 'pop';
 
@@ -310,9 +310,9 @@ interface _LivePlayerProps {
   /**
    * 画面方向
    *
-   * Vertical 纵向
+   * vertical 纵向
    *
-   * Horizontal 横向
+   * horizontal 横向
    *
    * 默认为 vertical
    */
@@ -320,9 +320,9 @@ interface _LivePlayerProps {
   /**
    * 填充模式
    *
-   * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+   * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
    *
-   * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+   * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
    *
    * 默认为 contain
    */
@@ -336,9 +336,9 @@ interface _LivePlayerProps {
   /**
    * 声音输出方式
    *
-   * Speaker 扬声器
+   * speaker 扬声器
    *
-   * Ear 听筒
+   * ear 听筒
    *
    * 默认为 speaker
    */
@@ -412,25 +412,25 @@ declare global {
     /**
      * 画面方向
      *
-     * Vertical 纵向
+     * vertical 纵向
      *
-     * Horizontal 横向
+     * horizontal 横向
      */
     export type LivePlayerOrientation = _LivePlayerOrientation;
     /**
      * 填充模式
      *
-     * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+     * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
      *
-     * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+     * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
      */
     export type LivePlayerObjectFit = _LivePlayerObjectFit;
     /**
      * 声音输出方式
      *
-     * Speaker 扬声器
+     * speaker 扬声器
      *
-     * Ear 听筒
+     * ear 听筒
      *
      * 默认为 speaker
      */
@@ -438,9 +438,9 @@ declare global {
     /**
      * 设置小窗模式
      *
-     * Push 路由 push 时触发小窗
+     * push 路由 push 时触发小窗
      *
-     * Pop 路由 pop 时触发小窗
+     * pop 路由 pop 时触发小窗
      */
     export type LivePlayerPictureInPictureMode = _LivePlayerPictureInPictureMode;
     /**

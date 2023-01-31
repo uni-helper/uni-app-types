@@ -10,7 +10,7 @@ interface _PickerViewOnChangeDetail {
   value: _PickerViewValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _PickerViewOnChange {
   (event: CustomEvent<_PickerViewOnChangeDetail>): void;
 }
@@ -48,7 +48,7 @@ interface _PickerViewProps {
    * 默认为 false
    */
   immediateChange: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _PickerViewOnChange;
   /** 滚动选择开始时触发 */
   onPickstart: _PickerViewOnPickstart;
@@ -76,7 +76,7 @@ declare global {
     /** 依次表示 picker-view 内 picker-view-column 选择的下标 */
     export type PickerViewValue = _PickerViewValue;
     export interface PickerViewOnChangeDetail extends _PickerViewOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface PickerViewOnChange extends _PickerViewOnChange {}
     /** 滚动选择开始时触发 */
     export interface PickerViewOnPickstart extends _PickerViewOnPickstart {}

@@ -4,9 +4,9 @@ import { BaseEvent } from '../events';
 /**
  * 动画播放方式
  *
- * Backwards 动画从头播
+ * backwards 动画从头播
  *
- * Forwards 动画从上次结束点接着播
+ * forwards 动画从上次结束点接着播
  */
 type _ProgressActiveMode = 'backwards' | 'forwards';
 
@@ -72,9 +72,9 @@ interface _ProgressProps {
   /**
    * 动画播放方式
    *
-   * Backwards 动画从头播
+   * backwards 动画从头播
    *
-   * Forwards 动画从上次结束点接着播
+   * forwards 动画从上次结束点接着播
    *
    * 默认为 backwards
    */
@@ -106,9 +106,9 @@ declare global {
     /**
      * 动画播放方式
      *
-     * Backwards 动画从头播
+     * backwards 动画从头播
      *
-     * Forwards 动画从上次结束点接着播
+     * forwards 动画从上次结束点接着播
      */
     export type ProgressActiveMode = _ProgressActiveMode;
     /** 动画完成时触发 */

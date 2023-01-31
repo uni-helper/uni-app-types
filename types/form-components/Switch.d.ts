@@ -11,7 +11,7 @@ interface _SwitchOnChangeDetail {
   value: _SwitchChecked;
 }
 
-/** Checked 改变时触发 */
+/** checked 改变时触发 */
 interface _SwitchOnChange {
   (event: CustomEvent<_SwitchOnChangeDetail>): void;
 }
@@ -36,7 +36,7 @@ interface _SwitchProps {
   type: _SwitchType;
   /** 颜色 */
   color: string;
-  /** Checked 改变时触发 */
+  /** checked 改变时触发 */
   onChange: _SwitchOnChange;
 }
 
@@ -59,7 +59,7 @@ declare global {
     /** 样式 */
     export type SwitchType = _SwitchType;
     export interface SwitchOnChangeDetail extends _SwitchOnChangeDetail {}
-    /** Checked 改变时触发 */
+    /** checked 改变时触发 */
     export interface SwitchOnChange extends _SwitchOnChange {}
     /** 开关选择器属性 */
     export interface SwitchProps extends _SwitchProps {}

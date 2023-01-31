@@ -4,51 +4,51 @@ import { BaseEvent, CustomEvent } from '../events';
 /**
  * 应用模式，不支持动态修改
  *
- * Normal 普通
+ * normal 普通
  *
- * ScanCode 扫码
+ * scanCode 扫码
  */
 type _CameraMode = 'normal' | 'scanCode';
 
 /**
  * 分辨率，不支持动态修改
  *
- * Low 低
+ * low 低
  *
- * Medium 中等
+ * medium 中等
  *
- * High 高
+ * high 高
  */
 type _CameraResolution = 'low' | 'medium' | 'high';
 
 /**
  * 摄像头朝向
  *
- * Front 前置摄像头
+ * front 前置摄像头
  *
- * Back 后置摄像头
+ * back 后置摄像头
  */
 type _CameraDevicePosition = 'front' | 'back';
 
 /**
  * 闪光灯
  *
- * Auto 自动
+ * auto 自动
  *
- * On 打开
+ * on 打开
  *
- * Off 关闭
+ * off 关闭
  */
 type _CameraFlash = 'auto' | 'on' | 'off';
 
 /**
  * 期望的相机帧数据尺寸
  *
- * Small 小
+ * small 小
  *
- * Medium 中
+ * medium 中
  *
- * Large 大
+ * large 大
  */
 type _CameraFrameSize = 'small' | 'medium' | 'large';
 
@@ -74,7 +74,7 @@ interface _CameraOnInitdone {
 /**
  * 扫码识别成功时触发
  *
- * Mode="scanCode" 时有效
+ * mode="scanCode" 时有效
  */
 interface _CameraOnScancode {
   (event: BaseEvent): void;
@@ -85,9 +85,9 @@ interface _CameraProps {
   /**
    * 应用模式，不支持动态修改
    *
-   * Normal 普通
+   * normal 普通
    *
-   * ScanCode 扫码
+   * scanCode 扫码
    *
    * 默认为 normal
    */
@@ -95,11 +95,11 @@ interface _CameraProps {
   /**
    * 分辨率，不支持动态修改
    *
-   * Low 低
+   * low 低
    *
-   * Medium 中等
+   * medium 中等
    *
-   * High 高
+   * high 高
    *
    * 默认为 medium
    */
@@ -107,9 +107,9 @@ interface _CameraProps {
   /**
    * 摄像头朝向
    *
-   * Front 前置摄像头
+   * front 前置摄像头
    *
-   * Back 后置摄像头
+   * back 后置摄像头
    *
    * 默认为 back
    */
@@ -117,11 +117,11 @@ interface _CameraProps {
   /**
    * 闪光灯
    *
-   * Auto 自动
+   * auto 自动
    *
-   * On 打开
+   * on 打开
    *
-   * Off 关闭
+   * off 关闭
    *
    * 默认为 auto
    */
@@ -129,11 +129,11 @@ interface _CameraProps {
   /**
    * 期望的相机帧数据尺寸
    *
-   * Small 小
+   * small 小
    *
-   * Medium 中
+   * medium 中
    *
-   * Large 大
+   * large 大
    *
    * 默认为 medium
    */
@@ -147,7 +147,7 @@ interface _CameraProps {
   /**
    * 扫码识别成功时触发
    *
-   * Mode="scanCode" 时有效
+   * mode="scanCode" 时有效
    */
   onScancode: _CameraOnScancode;
 }
@@ -175,47 +175,47 @@ declare global {
     /**
      * 应用模式，不支持动态修改
      *
-     * Normal 普通
+     * normal 普通
      *
-     * ScanCode 扫码
+     * scanCode 扫码
      */
     export type CameraMode = _CameraMode;
     /**
      * 分辨率，不支持动态修改
      *
-     * Low 低
+     * low 低
      *
-     * Medium 中等
+     * medium 中等
      *
-     * High 高
+     * high 高
      */
     export type CameraResolution = _CameraResolution;
     /**
      * 摄像头朝向
      *
-     * Front 前置摄像头
+     * front 前置摄像头
      *
-     * Back 后置摄像头
+     * back 后置摄像头
      */
     export type CameraDevicePosition = _CameraDevicePosition;
     /**
      * 闪光灯
      *
-     * Auto 自动
+     * auto 自动
      *
-     * On 打开
+     * on 打开
      *
-     * Off 关闭
+     * off 关闭
      */
     export type CameraFlash = _CameraFlash;
     /**
      * 期望的相机帧数据尺寸
      *
-     * Small 小
+     * small 小
      *
-     * Medium 中
+     * medium 中
      *
-     * Large 大
+     * large 大
      */
     export type CameraFrameSize = _CameraFrameSize;
     /** 摄像头在非正常终止时触发 */
@@ -228,7 +228,7 @@ declare global {
     /**
      * 扫码识别成功时触发
      *
-     * Mode="scanCode" 时有效
+     * mode="scanCode" 时有效
      */
     export interface CameraOnScancode extends _CameraOnScancode {}
     /** 页面内嵌的区域相机组件属性 */

@@ -4,9 +4,9 @@ import { BaseEvent, CustomEvent } from '../events';
 /**
  * 下拉背景字体、loading 图的样式
  *
- * Dark 暗色
+ * dark 暗色
  *
- * Light 亮色
+ * light 亮色
  */
 type _PageMetaBackgroundTextStyle = 'dark' | 'light';
 
@@ -39,9 +39,9 @@ interface _PageMetaProps {
   /**
    * 下拉背景字体、loading 图的样式
    *
-   * Dark 暗色
+   * dark 暗色
    *
-   * Light 亮色
+   * light 亮色
    */
   backgroundTextStyle: _PageMetaBackgroundTextStyle;
   /** 窗口的背景色 */
@@ -109,9 +109,9 @@ declare global {
     /**
      * 下拉背景字体、loading 图的样式
      *
-     * Dark 暗色
+     * dark 暗色
      *
-     * Light 亮色
+     * light 亮色
      */
     export type PageMetaBackgroundTextStyle = _PageMetaBackgroundTextStyle;
     export interface PageMetaOnResizeDetail extends _PageMetaOnResizeDetail {}

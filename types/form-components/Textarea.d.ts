@@ -7,15 +7,15 @@ type _TextareaValue = string;
 /**
  * 设置键盘右下角按钮的文字
  *
- * Send 发送
+ * send 发送
  *
- * Search 搜索
+ * search 搜索
  *
- * Next 下一个
+ * next 下一个
  *
- * Go 前往
+ * go 前往
  *
- * Done 完成
+ * done 完成
  */
 type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
@@ -146,15 +146,15 @@ interface _TextareaProps {
   /**
    * 设置键盘右下角按钮的文字
    *
-   * Send 发送
+   * send 发送
    *
-   * Search 搜索
+   * search 搜索
    *
-   * Next 下一个
+   * next 下一个
    *
-   * Go 前往
+   * go 前往
    *
-   * Done 完成
+   * done 完成
    *
    * 默认为 done
    */
@@ -258,15 +258,15 @@ declare global {
     /**
      * 设置键盘右下角按钮的文字
      *
-     * Send 发送
+     * send 发送
      *
-     * Search 搜索
+     * search 搜索
      *
-     * Next 下一个
+     * next 下一个
      *
-     * Go 前往
+     * go 前往
      *
-     * Done 完成
+     * done 完成
      */
     export type TextareaConfirmType = _TextareaConfirmType;
     export interface TextareaOnFocusDetail extends _TextareaOnFocusDetail {}

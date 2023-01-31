@@ -14,7 +14,7 @@ interface _SelectorPickerOnChangeDetail {
   value: _SelectorPickerValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _SelectorPickerOnChange {
   (event: CustomEvent<_SelectorPickerOnChangeDetail>): void;
 }
@@ -59,7 +59,7 @@ interface _SelectorPickerProps {
    * 默认为 false
    */
   disabled: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _SelectorPickerOnChange;
   /** 取消选择时触发 */
   onCancel: _SelectorPickerOnCancel;
@@ -78,7 +78,7 @@ interface _MultiSelectorPickerOnChangeDetail {
   value: _MultiSelectorPickerValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _MultiSelectorPickerOnChange {
   (event: CustomEvent<_MultiSelectorPickerOnChangeDetail>): void;
 }
@@ -123,7 +123,7 @@ interface _MultiSelectorPickerProps {
    * 默认为 false
    */
   disabled: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _MultiSelectorPickerOnChange;
   /** 某一列 value 改变时触发 */
   onColumnchange: _MultiSelectorPickerOnColumnchange;
@@ -142,7 +142,7 @@ interface _TimePickerOnChangeDetail {
   value: _TimePickerValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _TimePickerOnChange {
   (event: CustomEvent<_TimePickerOnChangeDetail>): void;
 }
@@ -181,7 +181,7 @@ interface _TimePickerProps {
    * 默认为 false
    */
   disabled: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _TimePickerOnChange;
   /** 取消选择时触发 */
   onCancel: _TimePickerOnCancel;
@@ -197,11 +197,11 @@ type _DatePickerValue = string;
 /**
  * 选择器的粒度
  *
- * Year 年
+ * year 年
  *
- * Month 月
+ * month 月
  *
- * Day 日
+ * day 日
  */
 type _DatePickerFields = 'year' | 'month' | 'day';
 
@@ -209,7 +209,7 @@ interface _DatePickerOnChangeDetail {
   value: _DatePickerValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _DatePickerOnChange {
   (event: CustomEvent<_DatePickerOnChangeDetail>): void;
 }
@@ -245,11 +245,11 @@ interface _DatePickerProps {
   /**
    * 选择器的粒度
    *
-   * Year 年
+   * year 年
    *
-   * Month 月
+   * month 月
    *
-   * Day 日
+   * day 日
    *
    * 默认为 day
    */
@@ -260,7 +260,7 @@ interface _DatePickerProps {
    * 默认为 false
    */
   disabled: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _DatePickerOnChange;
   /** 取消选择时触发 */
   onCancel: _DatePickerOnCancel;
@@ -274,13 +274,13 @@ type _RegionPickerValue = _RegionPickerValueElement[];
 /**
  * 选择器层级
  *
- * Province 省级
+ * province 省级
  *
- * City 市级
+ * city 市级
  *
- * Region 区级
+ * region 区级
  *
- * Sub-district 街道级
+ * sub-district 街道级
  */
 type _RegionPickerLevel = 'province' | 'city' | 'region' | 'sub-district';
 
@@ -288,7 +288,7 @@ interface _RegionPickerOnChangeDetail {
   value: _RegionPickerValue;
 }
 
-/** Value 改变时触发 */
+/** value 改变时触发 */
 interface _RegionPickerOnChange {
   (event: CustomEvent<_RegionPickerOnChangeDetail>): void;
 }
@@ -314,13 +314,13 @@ interface _RegionPickerProps {
   /**
    * 选择器层级
    *
-   * Province 省级
+   * province 省级
    *
-   * City 市级
+   * city 市级
    *
-   * Region 区级
+   * region 区级
    *
-   * Sub-district 街道级
+   * sub-district 街道级
    */
   level: _RegionPickerLevel;
   /**
@@ -329,7 +329,7 @@ interface _RegionPickerProps {
    * 默认为 false
    */
   disabled: boolean;
-  /** Value 改变时触发 */
+  /** value 改变时触发 */
   onChange: _RegionPickerOnChange;
   /** 取消选择时触发 */
   onCancel: _RegionPickerOnCancel;
@@ -402,7 +402,7 @@ declare global {
     /** 大屏时 UI 类型，支持 picker、select、auto */
     export type SelectorPickerSelectorType = _SelectorPickerSelectorType;
     export interface SelectorPickerOnChangeDetail extends _SelectorPickerOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface SelectorPickerOnChange extends _SelectorPickerOnChange {}
     /** 取消选择时触发 */
     export interface SelectorPickerOnCancel extends _SelectorPickerOnCancel {}
@@ -414,7 +414,7 @@ declare global {
     /** 当前每列选择的下标 */
     export type MultiSelectorPickerValue = _MultiSelectorPickerValue;
     export interface MultiSelectorPickerOnChangeDetail extends _MultiSelectorPickerOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface MultiSelectorPickerOnChange extends _MultiSelectorPickerOnChange {}
     export interface MultiSelectorPickerOnColumnchangeDetail
       extends _MultiSelectorPickerOnColumnchangeDetail {}
@@ -430,7 +430,7 @@ declare global {
      */
     export type TimePickerValue = _TimePickerValue;
     export interface TimePickerOnChangeDetail extends _TimePickerOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface TimePickerOnChange extends _TimePickerOnChange {}
     /** 取消选择时触发 */
     export interface TimePickerOnCancel extends _TimePickerOnCancel {}
@@ -444,15 +444,15 @@ declare global {
     /**
      * 选择器的粒度
      *
-     * Year 年
+     * year 年
      *
-     * Month 月
+     * month 月
      *
-     * Day 日
+     * day 日
      */
     export type DatePickerFields = _DatePickerFields;
     export interface DatePickerOnChangeDetail extends _DatePickerOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface DatePickerOnChange extends _DatePickerOnChange {}
     /** 取消选择时触发 */
     export interface DatePickerOnCancel extends _DatePickerOnCancel {}
@@ -463,17 +463,17 @@ declare global {
     /**
      * 选择器层级
      *
-     * Province 省级
+     * province 省级
      *
-     * City 市级
+     * city 市级
      *
-     * Region 区级
+     * region 区级
      *
-     * Sub-district 街道级
+     * sub-district 街道级
      */
     export type RegionPickerLevel = _RegionPickerLevel;
     export interface RegionPickerOnChangeDetail extends _RegionPickerOnChangeDetail {}
-    /** Value 改变时触发 */
+    /** value 改变时触发 */
     export interface RegionPickerOnChange extends _RegionPickerOnChange {}
     /** 取消选择时触发 */
     export interface RegionPickerOnCancel extends _RegionPickerOnCancel {}

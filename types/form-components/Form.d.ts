@@ -21,7 +21,7 @@ interface _FormOnSubmitDetailValue {
 interface _FormOnSubmitDetail {
   /** 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对 */
   value: _FormOnSubmitDetailValue;
-  /** Report-submit 为 true 时返回，用于发送模板消息 */
+  /** report-submit 为 true 时返回，用于发送模板消息 */
   formId?: string;
 }
 

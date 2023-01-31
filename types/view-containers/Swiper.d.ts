@@ -4,15 +4,15 @@ import { CustomEvent } from '../events';
 /**
  * 导致变更的原因
  *
- * Autoplay 自动播放
+ * autoplay 自动播放
  *
- * Touch 用户滑动
+ * touch 用户滑动
  *
  * 空字符串 其它原因
  */
 type _SwiperSource = 'autoplay' | 'touch' | '';
 
-/** Swiper 切换动画类型 */
+/** swiper 切换动画类型 */
 type _SwiperEasingFunction =
   | 'default'
   | 'linear'
@@ -26,16 +26,16 @@ interface _SwiperOnChangeDetail {
   /**
    * 导致变更的原因
    *
-   * Autoplay 自动播放
+   * autoplay 自动播放
    *
-   * Touch 用户滑动
+   * touch 用户滑动
    *
    * 空字符串 其它原因
    */
   source: _SwiperSource;
 }
 
-/** Current 改变时触发 */
+/** current 改变时触发 */
 interface _SwiperOnChange {
   (event: CustomEvent<_SwiperOnChangeDetail>): void;
 }
@@ -45,7 +45,7 @@ interface _SwiperOnTransitionDetail {
   dy?: number;
 }
 
-/** Swiper-item 位置改变时触发 */
+/** swiper-item 位置改变时触发 */
 interface _SwiperOnTransition {
   (event: CustomEvent<_SwiperOnTransitionDetail>): void;
 }
@@ -56,9 +56,9 @@ interface _SwiperOnAnimationfinishDetail {
   /**
    * 导致变更的原因
    *
-   * Autoplay 自动播放
+   * autoplay 自动播放
    *
-   * Touch 用户滑动
+   * touch 用户滑动
    *
    * 空字符串其它原因
    */
@@ -90,9 +90,9 @@ interface _SwiperProps {
    * 默认为 #000000
    */
   indicatorActiveColor: string;
-  /** Swiper-item 可见时的 class */
+  /** swiper-item 可见时的 class */
   activeClass: string;
-  /** Acceleration 设置为 true 时且处于滑动过程中，中间若干屏处于可见时的 class */
+  /** acceleration 设置为 true 时且处于滑动过程中，中间若干屏处于可见时的 class */
   changingClass: boolean;
   /**
    * 是否自动切换
@@ -194,9 +194,9 @@ interface _SwiperProps {
    * 默认为 default
    */
   easingFunction: _SwiperEasingFunction;
-  /** Current 改变时触发 */
+  /** current 改变时触发 */
   onChange: _SwiperOnChange;
-  /** Swiper-item 位置改变时触发 */
+  /** swiper-item 位置改变时触发 */
   onTransition: _SwiperOnTransition;
   /** 动画结束时触发 */
   onAnimationfinish: _SwiperOnAnimationfinish;
@@ -207,7 +207,7 @@ interface _SwiperProps {
  *
  * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
  *
- * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+ * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
  */
 type _Swiper = Component<Partial<_SwiperProps>>;
 
@@ -229,20 +229,20 @@ declare global {
     /**
      * 导致变更的原因
      *
-     * Autoplay 自动播放
+     * autoplay 自动播放
      *
-     * Touch 用户滑动
+     * touch 用户滑动
      *
      * 空字符串 其它原因
      */
     export type SwiperSource = _SwiperSource;
-    /** Swiper 切换动画类型 */
+    /** swiper 切换动画类型 */
     export type SwiperEasingFunction = _SwiperEasingFunction;
     export interface SwiperOnChangeDetail extends _SwiperOnChangeDetail {}
-    /** Current 改变时触发 */
+    /** current 改变时触发 */
     export interface SwiperOnChange extends _SwiperOnChange {}
     export interface SwiperOnTransitionDetail extends _SwiperOnTransitionDetail {}
-    /** Swiper-item 位置改变时触发 */
+    /** swiper-item 位置改变时触发 */
     export interface SwiperOnTransition extends _SwiperOnTransition {}
     export interface SwiperOnAnimationfinishDetail extends _SwiperOnAnimationfinishDetail {}
     /** 动画结束时触发 */
@@ -254,7 +254,7 @@ declare global {
      *
      * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
      *
-     * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
      */
     export interface Swiper extends _Swiper {}
   }
@@ -267,7 +267,7 @@ declare module '@vue/runtime-core' {
      *
      * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
      *
-     * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
      */
     Swiper: _Swiper;
   }

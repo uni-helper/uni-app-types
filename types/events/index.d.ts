@@ -93,7 +93,7 @@ interface _TouchEvent<
   TargetDataset extends AnyRecord = CurrentTargetDataset,
 > extends _BaseTouchEvent<Detail, _TouchDetail, Mark, CurrentTargetDataset, TargetDataset> {}
 
-/** Canvas 触摸事件响应 */
+/** canvas 触摸事件响应 */
 interface _TouchCanvasEvent<
   Mark extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = AnyRecord,
@@ -128,7 +128,7 @@ declare global {
     export interface BaseTouchEvent extends _BaseTouchEvent {}
     /** 触摸事件响应 */
     export interface TouchEvent extends _TouchEvent {}
-    /** Canvas 触摸事件响应 */
+    /** canvas 触摸事件响应 */
     export interface TouchCanvasEvent extends _TouchCanvasEvent {}
   }
 }

@@ -3,9 +3,9 @@ import { Component } from '../Component';
 /**
  * 选项的排列方向
  *
- * Vertical 纵向
+ * vertical 纵向
  *
- * Horizontal 横向
+ * horizontal 横向
  */
 type _CustomTabBarDirection = 'vertical' | 'horizontal';
 
@@ -28,9 +28,9 @@ interface _CustomTabBarProps {
   /**
    * 选项的排列方向
    *
-   * Vertical 纵向
+   * vertical 纵向
    *
-   * Horizontal 横向
+   * horizontal 横向
    *
    * 默认为 horizontal
    */
@@ -67,9 +67,9 @@ declare global {
     /**
      * 选项的排列方向
      *
-     * Vertical 纵向
+     * vertical 纵向
      *
-     * Horizontal 横向
+     * horizontal 横向
      */
     export type CustomTabBarDirection = _CustomTabBarDirection;
     export interface CustomTabBarOnTabItemTapDetail extends _CustomTabBarOnTabItemTapDetail {}

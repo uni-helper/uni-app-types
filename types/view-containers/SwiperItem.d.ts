@@ -6,7 +6,7 @@ interface _SwiperItemProps {
 }
 
 /**
- * Swiper 直接子组件，宽高自动设置为父组件的 100%
+ * swiper 直接子组件，宽高自动设置为父组件的 100%
  *
  * 不能被子组件自动撑开
  */
@@ -18,7 +18,7 @@ declare global {
   namespace UniHelper {
     export interface SwiperItemProps extends _SwiperItemProps {}
     /**
-     * Swiper 直接子组件，宽高自动设置为父组件的 100%
+     * swiper 直接子组件，宽高自动设置为父组件的 100%
      *
      * 不能被子组件自动撑开
      */
@@ -29,7 +29,7 @@ declare global {
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
-     * Swiper 直接子组件，宽高自动设置为父组件的 100%
+     * swiper 直接子组件，宽高自动设置为父组件的 100%
      *
      * 不能被子组件自动撑开
      */

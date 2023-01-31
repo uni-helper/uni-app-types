@@ -7,11 +7,11 @@ type _MapDisplay = 'BYCLICK' | 'ALWAYS';
 /**
  * 文本对齐方式
  *
- * Left 左对齐
+ * left 左对齐
  *
- * Right 右对齐
+ * right 右对齐
  *
- * Center 居中对齐
+ * center 居中对齐
  */
 type _MapTextAlign = 'left' | 'right' | 'center';
 
@@ -38,11 +38,11 @@ interface _MapCallout {
   /**
    * 文本对齐方式
    *
-   * Left 左对齐
+   * left 左对齐
    *
-   * Right 右对齐
+   * right 右对齐
    *
-   * Center 居中对齐
+   * center 居中对齐
    */
   textAlign: _MapTextAlign;
 }
@@ -88,11 +88,11 @@ interface _MapLabel {
   /**
    * 文本对齐方式
    *
-   * Left 左对齐
+   * left 左对齐
    *
-   * Right 右对齐
+   * right 右对齐
    *
-   * Center 居中对齐
+   * center 居中对齐
    */
   textAlign: _MapTextAlign;
   /** 自定义气泡 */
@@ -156,11 +156,11 @@ interface _MapPoint {
 /**
  * 压盖关系
  *
- * Abovelabels 显示在所有 POI 之上
+ * abovelabels 显示在所有 POI 之上
  *
- * Abovebuildings 显示在楼块之上 POI 之下
+ * abovebuildings 显示在楼块之上 POI 之下
  *
- * Aboveroads 显示在道路之上楼块之下
+ * aboveroads 显示在道路之上楼块之下
  */
 type _MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
 
@@ -171,16 +171,16 @@ type _MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
  *
  * 仅 Android 支持
  *
- * Normal 正常
+ * normal 正常
  *
- * Satellite 卫星图
+ * satellite 卫星图
  */
 type _MapTheme = 'normal' | 'satellite';
 
 /**
  * 标记点 ID
  *
- * Marker 点击事件回调中会返回
+ * marker 点击事件回调中会返回
  *
  * 最大限制 9 位数
  */
@@ -191,7 +191,7 @@ interface _MapMarker {
   /**
    * 标记点 ID
    *
-   * Marker 点击事件回调中会返回
+   * marker 点击事件回调中会返回
    *
    * 最大限制 9 位数
    */
@@ -273,7 +273,7 @@ interface _MapPolyline {
   /**
    * 十六进制颜色
    *
-   * ColorList 不存在时有效
+   * colorList 不存在时有效
    */
   color: string;
   /** 线的宽度 */
@@ -295,7 +295,7 @@ interface _MapPolyline {
    *
    * 项目目录下的图片路径，支持相对路径和临时路径
    *
-   * ArrowLine 为 true 时有效
+   * arrowLine 为 true 时有效
    */
   arrowIconPath: string;
   /** 线的边框颜色 */
@@ -311,11 +311,11 @@ interface _MapPolyline {
   /**
    * 压盖关系
    *
-   * Abovelabels 显示在所有 POI 之上
+   * abovelabels 显示在所有 POI 之上
    *
-   * Abovebuildings 显示在楼块之上 POI 之下
+   * abovebuildings 显示在楼块之上 POI 之下
    *
-   * Aboveroads 显示在道路之上楼块之下
+   * aboveroads 显示在道路之上楼块之下
    */
   level: _MapLevel;
 }
@@ -330,16 +330,16 @@ interface _MapPolygon {
   strokeColor: string;
   /** 十六进制填充颜色 */
   fillColor: string;
-  /** Z 轴数值 */
+  /** z 轴数值 */
   zIndex: number;
   /**
    * 压盖关系
    *
-   * Abovelabels 显示在所有 POI 之上
+   * abovelabels 显示在所有 POI 之上
    *
-   * Abovebuildings 显示在楼块之上 POI 之下
+   * abovebuildings 显示在楼块之上 POI 之下
    *
-   * Aboveroads 显示在道路之上楼块之下
+   * aboveroads 显示在道路之上楼块之下
    */
   level: _MapLevel;
 }
@@ -369,11 +369,11 @@ interface _MapCircle {
   /**
    * 压盖关系
    *
-   * Abovelabels 显示在所有 POI 之上
+   * abovelabels 显示在所有 POI 之上
    *
-   * Abovebuildings 显示在楼块之上 POI 之下
+   * abovebuildings 显示在楼块之上 POI 之下
    *
-   * Aboveroads 显示在道路之上楼块之下
+   * aboveroads 显示在道路之上楼块之下
    */
   level: _MapLevel;
 }
@@ -573,9 +573,9 @@ interface _MapProps {
    *
    * 仅 Android 支持
    *
-   * Normal 正常
+   * normal 正常
    *
-   * Satellite 卫星图
+   * satellite 卫星图
    *
    * 默认为 normal
    */
@@ -751,11 +751,11 @@ declare global {
     /**
      * 文本对齐方式
      *
-     * Left 左对齐
+     * left 左对齐
      *
-     * Right 右对齐
+     * right 右对齐
      *
-     * Center 居中对齐
+     * center 居中对齐
      */
     export type MapTextAlign = _MapTextAlign;
     /** 气泡 */
@@ -783,11 +783,11 @@ declare global {
     /**
      * 压盖关系
      *
-     * Abovelabels 显示在所有 POI 之上
+     * abovelabels 显示在所有 POI 之上
      *
-     * Abovebuildings 显示在楼块之上 POI 之下
+     * abovebuildings 显示在楼块之上 POI 之下
      *
-     * Aboveroads 显示在道路之上楼块之下
+     * aboveroads 显示在道路之上楼块之下
      */
     export type MapLevel = _MapLevel;
     /**
@@ -797,15 +797,15 @@ declare global {
      *
      * 仅 Android 支持
      *
-     * Normal 正常
+     * normal 正常
      *
-     * Satellite 卫星图
+     * satellite 卫星图
      */
     export type MapTheme = _MapTheme;
     /**
      * 标记点 ID
      *
-     * Marker 点击事件回调中会返回
+     * marker 点击事件回调中会返回
      *
      * 最大限制 9 位数
      */
