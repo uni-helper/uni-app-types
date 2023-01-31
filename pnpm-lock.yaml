@@ -8,7 +8,7 @@ importers:
       '@commitlint/config-conventional': ^17.4.2
       '@commitlint/prompt': ^17.4.2
       '@dcloudio/types': ^3.2.10
-      '@modyqyw/fabric': ^6.0.0
+      '@modyqyw/fabric': ^6.0.1
       '@tsconfig/node18': ^1.0.1
       '@types/node': ^18.11.18
       '@typescript-eslint/eslint-plugin': ^5.49.0
@@ -34,7 +34,7 @@ importers:
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
       '@commitlint/prompt': 17.4.2
-      '@modyqyw/fabric': 6.0.0_6xprzernlpxwjedpj2snzq4bpq
+      '@modyqyw/fabric': 6.0.1_6xprzernlpxwjedpj2snzq4bpq
       '@tsconfig/node18': 1.0.1
       '@types/node': 18.11.18
       '@typescript-eslint/eslint-plugin': 5.49.0_m6tbzvr4xlk3mnjhhcnwwtg7r4
@@ -356,13 +356,6 @@ packages:
       '@babel/plugin-syntax-typescript': 7.20.0_@babel+core@7.20.12
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@babel/runtime/7.20.1:
-    resolution: {integrity: sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
     dev: true
 
   /@babel/runtime/7.20.13:
@@ -1453,8 +1446,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@modyqyw/fabric/6.0.0_6xprzernlpxwjedpj2snzq4bpq:
-    resolution: {integrity: sha512-kIvClZqNaAksbht0UDbys4Cq/RZgmczfUTOvLp71mM0NSlQluKfaUUpCCGse7rxBUFJLyeazls6227wKvJkEwg==}
+  /@modyqyw/fabric/6.0.1_6xprzernlpxwjedpj2snzq4bpq:
+    resolution: {integrity: sha512-jQVd8BN8KNf5aAm0u0PhU8tRZdlM74wlDSWcfDbHyZ6V63FtrhUB5jqaOrQlen0q4qOqI9zXKzYr1+szdPjkKQ==}
     engines: {node: '>=14.18'}
     peerDependencies:
       eslint: ^8.0.0
@@ -3659,7 +3652,7 @@ packages:
       globby: 13.1.2
       is-core-module: 2.11.0
       is-glob: 4.0.3
-      synckit: 0.8.4
+      synckit: 0.8.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3846,7 +3839,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.20.1
+      '@babel/runtime': 7.20.13
       ast-types-flow: 0.0.7
       eslint: 8.33.0
       jsx-ast-utils: 3.3.3
@@ -5170,7 +5163,7 @@ packages:
   /is-language-code/3.1.0:
     resolution: {integrity: sha512-zJdQ3QTeLye+iphMeK3wks+vXSRFKh68/Pnlw7aOfApFSEIOhYa8P9vwwa6QrImNNBMJTiL1PpYF0f4BxDuEgA==}
     dependencies:
-      '@babel/runtime': 7.20.1
+      '@babel/runtime': 7.20.13
     dev: true
 
   /is-map/2.0.2:
@@ -8092,14 +8085,6 @@ packages:
 
   /svg-tags/1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
-    dev: true
-
-  /synckit/0.8.4:
-    resolution: {integrity: sha512-Dn2ZkzMdSX827QbowGbU/4yjWuvNaCoScLLoMo/yKbu+P4GBR6cRGKZH27k6a9bRzdqcyd1DE96pQtQ6uNkmyw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    dependencies:
-      '@pkgr/utils': 2.3.1
-      tslib: 2.4.1
     dev: true
 
   /synckit/0.8.5:
