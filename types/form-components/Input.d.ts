@@ -47,8 +47,33 @@ type _InputTextContentType = 'oneTimeCode';
  */
 type _InputConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
+/**
+ * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
+ *
+ * none 无虚拟键盘，常用于实现自己的键盘输入控件
+ *
+ * text 使用用户本地区域设置的标准文本输入键盘
+ *
+ * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+ *
+ * numeric 数字输入键盘，减号键的显示与否因设备而异
+ *
+ * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+ *
+ * search 搜索输入键盘
+ *
+ * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+ *
+ * url 网址输入键盘，表单内网址输入因 type="url"
+ */
+type _InputInputMode = 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+
 interface _InputOnInputDetail {
   value: _InputValue;
+  /** 光标位置 */
+  cursor?: number;
+  /** 键值 */
+  keyCode?: number;
 }
 
 /** 输入时触发 */
@@ -58,7 +83,8 @@ interface _InputOnInput {
 
 interface _InputOnFocusDetail {
   value: _InputValue;
-  height: number;
+  /** 键盘高度 */
+  height?: number;
 }
 
 /** 聚焦时触发 */
@@ -85,6 +111,7 @@ interface _InputOnConfirm {
 }
 
 interface _InputOnKeyboardheightchangeDetail {
+  /** 键盘高度 */
   height: number;
   duration: number;
 }
@@ -159,7 +186,7 @@ interface _InputProps {
   /**
    * 指定光标与键盘的距离
    *
-   * 取 textarea 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
+   * 取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离
    *
    * 单位为 px
    *
@@ -250,6 +277,8 @@ interface _InputProps {
    * 默认为 false
    */
   alwaysEmbed: boolean;
+  /** focus 时，点击页面的时候不收起键盘 */
+  holdKeyboard: boolean;
   /** 安全键盘加密公钥的路径，只支持包内路径 */
   safePasswordCertPath: string;
   /** 安全键盘输入密码长度 */
@@ -284,6 +313,26 @@ interface _InputProps {
    * 默认为 false
    */
   alwaysSystem: boolean;
+  /**
+   * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
+   *
+   * none 无虚拟键盘，常用于实现自己的键盘输入控件
+   *
+   * text 使用用户本地区域设置的标准文本输入键盘
+   *
+   * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+   *
+   * numeric 数字输入键盘，减号键的显示与否因设备而异
+   *
+   * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+   *
+   * search 搜索输入键盘
+   *
+   * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+   *
+   * url 网址输入键盘，表单内网址输入因 type="url"
+   */
+  inputMode: _InputInputMode;
   /** 输入时触发 */
   onInput: _InputOnInput;
   /** 聚焦时触发 */
@@ -304,6 +353,7 @@ export {
   _InputType as InputType,
   _InputTextContentType as InputTextContentType,
   _InputConfirmType as InputConfirmType,
+  _InputInputMode as InputInputMode,
   _InputOnInputDetail as InputOnInputDetail,
   _InputOnInput as InputOnInput,
   _InputOnFocusDetail as InputOnFocusDetail,
@@ -362,6 +412,26 @@ declare global {
      * @decs done 完成
      */
     export type InputConfirmType = _InputConfirmType;
+    /**
+     * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
+     *
+     * none 无虚拟键盘，常用于实现自己的键盘输入控件
+     *
+     * text 使用用户本地区域设置的标准文本输入键盘
+     *
+     * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+     *
+     * numeric 数字输入键盘，减号键的显示与否因设备而异
+     *
+     * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+     *
+     * search 搜索输入键盘
+     *
+     * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+     *
+     * url 网址输入键盘，表单内网址输入因 type="url"
+     */
+    export type InputInputMode = _InputInputMode;
     export interface InputOnInputDetail extends _InputOnInputDetail {}
     /** 输入时触发 */
     export interface InputOnInput extends _InputOnInput {}
