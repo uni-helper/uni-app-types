@@ -34,7 +34,7 @@ interface _CustomTabBarProps {
    *
    * 默认为 horizontal
    */
-  direction: 'vertical' | 'horizontal';
+  direction: _CustomTabBarDirection;
   /**
    * 是否显示 icon
    *
