@@ -11,16 +11,6 @@
     },
     "types": ["@dcloudio/types", "node"]
   },
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.jsx",
-    "**/*.tsx",
-    "**/*.vue"
-  ],
+  "include": ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.ts", "**/*.cts", "**/*.mts"],
   "exclude": ["**/node_modules", "**/dist", "playground"]
 }
