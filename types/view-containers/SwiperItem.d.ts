@@ -33,7 +33,7 @@ declare global {
      */
     export type SwiperItem = _SwiperItem;
     /** swiper 直接子组件实例 */
-    export type SwiperInstance = _SwiperItemInstance;
+    export type SwiperItemInstance = _SwiperItemInstance;
   }
 }
 

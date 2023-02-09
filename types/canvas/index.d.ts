@@ -109,7 +109,7 @@ declare global {
     /** 发生错误时触发 */
     export interface CanvasOnError extends _CanvasOnError {}
     /** 画布属性 */
-    export type CanvasProp = _CanvasProps;
+    export type CanvasProps = _CanvasProps;
     /** 画布 */
     export type Canvas = _Canvas;
     /** 画布实例 */

@@ -159,7 +159,7 @@ export {
   _AdContentPageOnComplete as AdContentPageOnComplete,
   _AdContentPageProps as AdContentPageProps,
   _AdContentPage as AdContentPage,
-  _AdContentPageInstance as _AdContentPageInstance,
+  _AdContentPageInstance as AdContentPageInstance,
 };
 
 declare global {
