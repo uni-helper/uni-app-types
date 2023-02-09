@@ -22,7 +22,7 @@ importers:
       lint-staged: ^13.1.1
       markdownlint-cli: ^0.33.0
       npm-run-all: ^4.1.5
-      prettier: ^2.8.3
+      prettier: ^2.8.4
       release-it: ^15.6.0
       typescript: ^4.9.5
       vitest: ^0.28.4
@@ -34,7 +34,7 @@ importers:
       '@commitlint/cli': 17.4.2
       '@commitlint/config-conventional': 17.4.2
       '@commitlint/prompt': 17.4.2
-      '@modyqyw/fabric': 6.0.6_6xprzernlpxwjedpj2snzq4bpq
+      '@modyqyw/fabric': 6.0.6_kcm2pbg4372aakdkvxabn7z2ri
       '@tsconfig/node18': 1.0.1
       '@types/node': 18.13.0
       '@typescript-eslint/eslint-plugin': 5.51.0_b635kmla6dsb4frxfihkw4m47e
@@ -48,7 +48,7 @@ importers:
       lint-staged: 13.1.1
       markdownlint-cli: 0.33.0
       npm-run-all: 4.1.5
-      prettier: 2.8.3
+      prettier: 2.8.4
       release-it: 15.6.0
       typescript: 4.9.5
       vitest: 0.28.4
@@ -300,13 +300,6 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       chalk: 2.4.2
       js-tokens: 4.0.0
-
-  /@babel/parser/7.20.5:
-    resolution: {integrity: sha512-r27t/cy/m9uKLXQNWWebeCUHgnAZq0CpG1OwKRxzJMP1vpSU4bSIK2hq+/cp0bQxetkXx38n09rNu8jVkcK/zA==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.20.7
 
   /@babel/parser/7.20.7:
     resolution: {integrity: sha512-T3Z9oHybU+0vZlY9CiDSJQTD5ZapcW18ZctFMi0MOAl/4BjFF4ul7NVSARLdbGO5vDqy9eQiGTV0LtKfvCYvcg==}
@@ -971,7 +964,7 @@ packages:
     dependencies:
       '@vue/shared': 3.2.45
       parse-css-font: 4.0.0
-      postcss: 8.4.20
+      postcss: 8.4.21
     dev: false
 
   /@dcloudio/uni-push/3.0.0-alpha-3061620221230002_vue@3.2.45:
@@ -1446,7 +1439,7 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@modyqyw/fabric/6.0.6_6xprzernlpxwjedpj2snzq4bpq:
+  /@modyqyw/fabric/6.0.6_kcm2pbg4372aakdkvxabn7z2ri:
     resolution: {integrity: sha512-+Kup5rDZAvCU5iIjXpTrNp8mMvnTdxRL54gK/ifbMWLld+UZJpC1GLqYBklXsa7GnOEEb6NYe5DNLvN63/qvUQ==}
     engines: {node: '>=14.18'}
     peerDependencies:
@@ -1494,7 +1487,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.7.1_eslint@8.33.0
       eslint-plugin-n: 15.6.1_eslint@8.33.0
       eslint-plugin-nuxt: 4.0.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-react: 7.32.2_eslint@8.33.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.33.0
       eslint-plugin-react-native: 4.0.0_eslint@8.33.0
@@ -1511,17 +1504,17 @@ packages:
       postcss: 8.4.21
       postcss-html: 1.5.0
       postcss-scss: 4.0.6_postcss@8.4.21
-      prettier: 2.8.3
-      prettier-plugin-jsdoc: 0.4.2_prettier@2.8.3
-      prettier-plugin-packagejson: 2.4.2_prettier@2.8.3
-      prettier-plugin-tailwindcss: 0.2.2_qrpnlz42swvdaoihcyizj2yojy
+      prettier: 2.8.4
+      prettier-plugin-jsdoc: 0.4.2_prettier@2.8.4
+      prettier-plugin-packagejson: 2.4.2_prettier@2.8.4
+      prettier-plugin-tailwindcss: 0.2.2_x4gaxqj23vsezyyngxezgebpae
       stylelint-config-prettier: 9.0.4
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.1.0
       stylelint-config-recommended: 9.0.0
       stylelint-config-recommended-scss: 8.0.0_postcss@8.4.21
       stylelint-order: 6.0.1
-      stylelint-prettier: 2.0.0_prettier@2.8.3
+      stylelint-prettier: 2.0.0_prettier@2.8.4
       tsutils: 3.21.0_typescript@4.9.5
       typescript: 4.9.5
       vue-eslint-parser: 9.1.0_eslint@8.33.0
@@ -2117,7 +2110,7 @@ packages:
   /@vue/compiler-sfc/3.2.45:
     resolution: {integrity: sha512-1jXDuWah1ggsnSAOGsec8cFjT/K6TMZ0sPL3o3d84Ft2AYZi2jWJgRMjw4iaK0rBfA89L5gw427H4n1RZQBu6Q==}
     dependencies:
-      '@babel/parser': 7.20.5
+      '@babel/parser': 7.20.7
       '@vue/compiler-core': 3.2.45
       '@vue/compiler-dom': 3.2.45
       '@vue/compiler-ssr': 3.2.45
@@ -2125,7 +2118,7 @@ packages:
       '@vue/shared': 3.2.45
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.19
+      postcss: 8.4.21
       source-map: 0.6.1
 
   /@vue/compiler-sfc/3.2.47:
@@ -3734,7 +3727,7 @@ packages:
       eslint: 8.33.0
       eslint-plugin-import: 2.27.5_kuqv7qxblf6fgldep4hddd7xwa
       get-tsconfig: 4.2.0
-      globby: 13.1.2
+      globby: 13.1.3
       is-core-module: 2.11.0
       is-glob: 4.0.3
       synckit: 0.8.5
@@ -3892,7 +3885,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq:
+  /eslint-plugin-prettier/4.2.1_qa2thblfovmfepmgrc7z2owbo4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3905,7 +3898,7 @@ packages:
     dependencies:
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0_eslint@8.33.0
-      prettier: 2.8.3
+      prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -4778,7 +4771,18 @@ packages:
     dependencies:
       dir-glob: 3.0.1
       fast-glob: 3.2.12
-      ignore: 5.2.0
+      ignore: 5.2.4
+      merge2: 1.4.1
+      slash: 4.0.0
+    dev: true
+
+  /globby/13.1.3:
+    resolution: {integrity: sha512-8krCNHXvlCgHDpegPzleMq07yMYTO2sXKASmZmquEYWEmCx6J5UTRbp5RwMJkTJGtcQ44YpiUYUiN0b9mzy8Bw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      dir-glob: 3.0.1
+      fast-glob: 3.2.12
+      ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
     dev: true
@@ -4981,11 +4985,6 @@ packages:
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
-    dev: true
-
-  /ignore/5.2.0:
-    resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
-    engines: {node: '>= 4'}
     dev: true
 
   /ignore/5.2.4:
@@ -6992,14 +6991,6 @@ packages:
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  /postcss/8.4.19:
-    resolution: {integrity: sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss/8.4.20:
     resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}
     engines: {node: ^10 || ^12 || >=14}
@@ -7033,7 +7024,7 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-jsdoc/0.4.2_prettier@2.8.3:
+  /prettier-plugin-jsdoc/0.4.2_prettier@2.8.4:
     resolution: {integrity: sha512-w2jnAQm3z0GAG0bhzVJeehzDtrhGMSxJjit5ApCc2oxWfc7+jmLAkbtdOXaSpfwZz3IWkk+PiQPeRrLNpbM+Mw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -7042,12 +7033,12 @@ packages:
       binary-searching: 2.0.5
       comment-parser: 1.3.1
       mdast-util-from-markdown: 1.2.0
-      prettier: 2.8.3
+      prettier: 2.8.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /prettier-plugin-packagejson/2.4.2_prettier@2.8.3:
+  /prettier-plugin-packagejson/2.4.2_prettier@2.8.4:
     resolution: {integrity: sha512-Y/sW29qq0FhEQRA+85K98VOlMW7/Wicrm0Tm2j/EZ+Eh7F6jVUpGVv7WIMku+WsaEab/PyxaA5ckmTd3E0seNg==}
     peerDependencies:
       prettier: '>= 1.16.0'
@@ -7055,12 +7046,12 @@ packages:
       prettier:
         optional: true
     dependencies:
-      prettier: 2.8.3
+      prettier: 2.8.4
       sort-package-json: 2.2.0
       synckit: 0.8.5
     dev: true
 
-  /prettier-plugin-tailwindcss/0.2.2_qrpnlz42swvdaoihcyizj2yojy:
+  /prettier-plugin-tailwindcss/0.2.2_x4gaxqj23vsezyyngxezgebpae:
     resolution: {integrity: sha512-5RjUbWRe305pUpc48MosoIp6uxZvZxrM6GyOgsbGLTce+ehePKNm7ziW2dLG2air9aXbGuXlHVSQQw4Lbosq3w==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
@@ -7109,12 +7100,12 @@ packages:
       prettier-plugin-twig-melody:
         optional: true
     dependencies:
-      prettier: 2.8.3
-      prettier-plugin-jsdoc: 0.4.2_prettier@2.8.3
+      prettier: 2.8.4
+      prettier-plugin-jsdoc: 0.4.2_prettier@2.8.4
     dev: true
 
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -7813,7 +7804,7 @@ packages:
       detect-indent: 7.0.1
       detect-newline: 4.0.0
       git-hooks-list: 3.0.0
-      globby: 13.1.2
+      globby: 13.1.3
       is-plain-obj: 4.1.0
       sort-object-keys: 1.1.3
     dev: true
@@ -7848,6 +7839,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
 
   /spdx-correct/3.1.1:
     resolution: {integrity: sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w==}
@@ -8108,14 +8100,14 @@ packages:
       postcss-sorting: 8.0.1_postcss@8.4.21
     dev: true
 
-  /stylelint-prettier/2.0.0_prettier@2.8.3:
+  /stylelint-prettier/2.0.0_prettier@2.8.4:
     resolution: {integrity: sha512-jvT3G+9lopkeB0ARmDPszyfaOnvnIF+30QCjZxyt7E6fynI1T9mOKgYDNb9bXX17M7PXMZaX3j/26wqakjp1tw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       prettier: '>=2.0.0'
       stylelint: '>=14.0.0'
     dependencies:
-      prettier: 2.8.3
+      prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
     dev: true
 
