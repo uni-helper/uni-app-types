@@ -1,15 +1,23 @@
 import { Component } from './Component';
 
-interface _TemplateProps {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type _TemplateProps = Partial<{}>;
 
-type _Template = Component<Partial<_TemplateProps>>;
+type _Template = Component<_TemplateProps>;
 
-export { _TemplateProps as TemplateProps, _Template as Template };
+type _TemplateInstance = InstanceType<_Template>;
+
+export {
+  _TemplateProps as TemplateProps,
+  _Template as Template,
+  _TemplateInstance as TemplateInstance,
+};
 
 // declare global {
 //   namespace UniHelper {
-//     export interface TemplateProps extends _TemplateProps {}
+//     export type TemplateProps = _TemplateProps;
 //     export type Template = _Template;
+//     export type TemplateInstance = _TemplateInstance;
 //   }
 // }
 
