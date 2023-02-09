@@ -1,10 +1,10 @@
 import { Component } from '../Component';
 
 /** 表单标签属性 */
-interface _LabelProps {
+type _LabelProps = Partial<{
   /** 绑定控件的 id */
   for: string;
-}
+}>;
 
 /**
  * 表单标签
@@ -15,14 +15,17 @@ interface _LabelProps {
  *
  * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
  */
-type _Label = Component<Partial<_LabelProps>>;
+type _Label = Component<_LabelProps>;
 
-export { _LabelProps as LabelProps, _Label as Label };
+/** 表单标签实例 */
+type _LabelInstance = InstanceType<_Label>;
+
+export { _LabelProps as LabelProps, _Label as Label, _LabelInstance as LabelInstance };
 
 declare global {
   namespace UniHelper {
     /** 标签属性 */
-    export interface LabelProps extends _LabelProps {}
+    export type LabelProps = _LabelProps;
     /**
      * 表单标签
      *
@@ -33,6 +36,8 @@ declare global {
      * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
      */
     export type Label = _Label;
+    /** 表单标签实例 */
+    export type LabelInstance = _LabelInstance;
   }
 }
 

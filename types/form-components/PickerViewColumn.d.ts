@@ -1,15 +1,23 @@
 import { Component } from '../Component';
 
-interface _PickerViewColumnProps {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type _PickerViewColumnProps = Partial<{}>;
 
-type _PickerViewColumn = Component<Partial<_PickerViewColumnProps>>;
+type _PickerViewColumn = Component<_PickerViewColumnProps>;
 
-export { _PickerViewColumnProps as PickerViewColumnProps, _PickerViewColumn as PickerViewColumn };
+type _PickerViewColumnInstance = InstanceType<_PickerViewColumn>;
+
+export {
+  _PickerViewColumnProps as PickerViewColumnProps,
+  _PickerViewColumn as PickerViewColumn,
+  _PickerViewColumnInstance as PickerViewColumnInstance,
+};
 
 declare global {
   namespace UniHelper {
-    export interface PickerViewColumnProps extends _PickerViewColumnProps {}
+    export type PickerViewColumnProps = _PickerViewColumnProps;
     export type PickerViewColumn = _PickerViewColumn;
+    export type PickerViewColumnInstance = _PickerViewColumnInstance;
   }
 }
 

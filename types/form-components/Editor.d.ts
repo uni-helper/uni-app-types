@@ -45,7 +45,7 @@ interface _EditorOnStatuschange {
 }
 
 /** 编辑器属性 */
-interface _EditorProps {
+type _EditorProps = Partial<{
   /**
    * 是否只读
    *
@@ -82,7 +82,7 @@ interface _EditorProps {
   onInput: _EditorOnInput;
   /** 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式 */
   onStatuschange: _EditorOnStatuschange;
-}
+}>;
 
 /**
  * 富文本编辑器，可以对图片、文字进行编辑和混排
@@ -93,7 +93,10 @@ interface _EditorProps {
  *
  * 图片控件仅初始化时设置有效
  */
-type _Editor = Component<Partial<_EditorProps>>;
+type _Editor = Component<_EditorProps>;
+
+/** 富文本编辑器实例 */
+type _EditorInstance = InstanceType<_Editor>;
 
 export {
   _EditorOnReady as EditorOnReady,
@@ -106,6 +109,7 @@ export {
   _EditorOnStatuschange as EditorOnStatuschange,
   _EditorProps as EditorProps,
   _Editor as Editor,
+  _EditorInstance as EditorInstance,
 };
 
 declare global {
@@ -124,7 +128,7 @@ declare global {
     /** 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式 */
     export interface EditorOnStatuschange extends _EditorOnStatuschange {}
     /** 编辑器属性 */
-    export interface EditorProps extends _EditorProps {}
+    export type EditorProps = _EditorProps;
     /**
      * 富文本编辑器，可以对图片、文字进行编辑和混排
      *
@@ -135,6 +139,8 @@ declare global {
      * 图片控件仅初始化时设置有效
      */
     export type Editor = _Editor;
+    /** 富文本编辑器实例 */
+    export type EditorInstance = _EditorInstance;
   }
 }
 

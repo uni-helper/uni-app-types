@@ -18,7 +18,7 @@ interface _AdInteractiveOnError {
 }
 
 /** 互动广告属性 */
-interface _AdInteractiveProps {
+type _AdInteractiveProps = Partial<{
   /** APP 广告位 id */
   adpid: string;
   /** 点击广告后打开的页面路径 */
@@ -27,10 +27,13 @@ interface _AdInteractiveProps {
   onLoad: _AdInteractiveOnLoad;
   /** 广告加载失败的回调 */
   onError: _AdInteractiveOnError;
-}
+}>;
 
 /** 互动广告 */
-type _AdInteractive = Component<Partial<_AdInteractiveProps>>;
+type _AdInteractive = Component<_AdInteractiveProps>;
+
+/** 互动广告实例 */
+type _AdInteractiveInstance = InstanceType<_AdInteractive>;
 
 export {
   _AdInteractiveOnLoad as AdInteractiveOnLoad,
@@ -38,6 +41,7 @@ export {
   _AdInteractiveOnError as AdInteractiveOnError,
   _AdInteractiveProps as AdInteractiveProps,
   _AdInteractive as AdInteractive,
+  _AdInteractiveInstance as AdInteractiveInstance,
 };
 
 declare global {
@@ -48,9 +52,11 @@ declare global {
     /** 广告加载失败的回调 */
     export interface AdInteractiveOnError extends _AdInteractiveOnError {}
     /** 互动广告属性 */
-    export interface AdInteractiveProps extends _AdInteractiveProps {}
+    export type AdInteractiveProps = _AdInteractiveProps;
     /** 互动广告 */
     export type AdInteractive = _AdInteractive;
+    /** 互动广告实例 */
+    export type AdInteractiveInstance = _AdInteractiveInstance;
   }
 }
 

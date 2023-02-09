@@ -16,7 +16,7 @@ interface _ProgressOnActiveend {
 }
 
 /** 进度条属性 */
-interface _ProgressProps {
+type _ProgressProps = Partial<{
   /**
    * 百分比
    *
@@ -89,16 +89,20 @@ interface _ProgressProps {
   duration: number;
   /** 动画完成时触发 */
   onActiveend: _ProgressOnActiveend;
-}
+}>;
 
 /** 进度条 */
-type _Progress = Component<Partial<_ProgressProps>>;
+type _Progress = Component<_ProgressProps>;
+
+/** 进度条实例 */
+type _ProgressInstance = InstanceType<_Progress>;
 
 export {
   _ProgressActiveMode as ProgressActiveMode,
   _ProgressOnActiveend as ProgressOnActiveend,
   _ProgressProps as ProgressProps,
   _Progress as Progress,
+  _ProgressInstance as ProgressInstance,
 };
 
 declare global {
@@ -114,9 +118,11 @@ declare global {
     /** 动画完成时触发 */
     export interface ProgressOnActiveend extends _ProgressOnActiveend {}
     /** 进度条属性 */
-    export interface ProgressProps extends _ProgressProps {}
+    export type ProgressProps = _ProgressProps;
     /** 进度条 */
     export type Progress = _Progress;
+    /** 进度条实例 */
+    export type ProgressInstance = _ProgressInstance;
   }
 }
 

@@ -24,7 +24,7 @@ interface _AdOnClose {
 }
 
 /** 信息流广告属性 */
-interface _AdProps {
+type _AdProps = Partial<{
   /** APP 广告位 id */
   adpid: string;
   /** 广告单元 id，可在小程序管理后台的流量主模块新建 */
@@ -77,10 +77,13 @@ interface _AdProps {
   onError: _AdOnError;
   /** 广告关闭的回调 */
   onClose: _AdOnClose;
-}
+}>;
 
 /** 信息流广告 */
-type _Ad = Component<Partial<_AdProps>>;
+type _Ad = Component<_AdProps>;
+
+/** 信息流广告实例 */
+type _AdInstance = InstanceType<_Ad>;
 
 export {
   _AdOnLoad as AdOnLoad,
@@ -89,6 +92,7 @@ export {
   _AdOnClose as AdOnClose,
   _AdProps as AdProps,
   _Ad as Ad,
+  _AdInstance as AdInstance,
 };
 
 declare global {
@@ -101,9 +105,11 @@ declare global {
     /** 广告关闭的回调 */
     export interface AdOnClose extends _AdOnClose {}
     /** 信息流广告属性 */
-    export interface AdProps extends _AdProps {}
+    export type AdProps = _AdProps;
     /** 信息流广告 */
     export type Ad = _Ad;
+    /** 信息流广告实例 */
+    export type AdInstance = _AdInstance;
   }
 }
 

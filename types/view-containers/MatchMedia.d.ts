@@ -10,7 +10,7 @@ import { Component } from '../Component';
 type _MatchMediaOrientation = 'landscape' | 'portrait';
 
 /** media query 匹配检测节点属性 */
-interface _MatchMediaProps {
+type _MatchMediaProps = Partial<{
   /**
    * 页面最小宽度
    *
@@ -55,7 +55,7 @@ interface _MatchMediaProps {
    * portrait 纵向
    */
   orientation: _MatchMediaOrientation;
-}
+}>;
 
 /**
  * media query 匹配检测节点
@@ -64,12 +64,16 @@ interface _MatchMediaProps {
  *
  * 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
  */
-type _MatchMedia = Component<Partial<_MatchMediaProps>>;
+type _MatchMedia = Component<_MatchMediaProps>;
+
+/** media query 匹配检测节点实例 */
+type _MatchMediaInstance = InstanceType<_MatchMedia>;
 
 export {
   _MatchMediaOrientation as MatchMediaOrientation,
   _MatchMediaProps as MatchMediaProps,
   _MatchMedia as MatchMedia,
+  _MatchMediaInstance as MatchMediaInstance,
 };
 
 declare global {
@@ -83,7 +87,7 @@ declare global {
      */
     export type MatchMediaOrientation = _MatchMediaOrientation;
     /** media query 匹配检测节点属性 */
-    export interface MatchMediaProps extends _MatchMediaProps {}
+    export type MatchMediaProps = _MatchMediaProps;
     /**
      * media query 匹配检测节点
      *
@@ -92,6 +96,8 @@ declare global {
      * 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
      */
     export type MatchMedia = _MatchMedia;
+    /** media query 匹配检测节点 */
+    export type MatchMediaInstance = _MatchMediaInstance;
   }
 }
 

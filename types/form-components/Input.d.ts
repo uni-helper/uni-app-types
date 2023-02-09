@@ -122,7 +122,7 @@ interface _InputOnKeyboardheightchange {
 }
 
 /** 输入框属性 */
-interface _InputProps {
+type _InputProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 输入框的初始内容 */
@@ -343,10 +343,13 @@ interface _InputProps {
   onConfirm: _InputOnConfirm;
   /** 键盘高度变化时触发 */
   onKeyboardheightchange: _InputOnKeyboardheightchange;
-}
+}>;
 
 /** 输入框 */
-type _Input = Component<Partial<_InputProps>>;
+type _Input = Component<_InputProps>;
+
+/** 输入框实例 */
+type _InputInstance = InstanceType<_Input>;
 
 export {
   _InputValue as InputValue,
@@ -366,6 +369,7 @@ export {
   _InputOnKeyboardheightchange as InputOnKeyboardheightchange,
   _InputProps as InputProps,
   _Input as Input,
+  _InputInstance as InputInstance,
 };
 
 declare global {
@@ -448,9 +452,11 @@ declare global {
     /** 键盘高度变化时触发 */
     export interface InputOnKeyboardheightchange extends _InputOnKeyboardheightchange {}
     /** 输入框属性 */
-    export interface InputProps extends _InputProps {}
+    export type InputProps = _InputProps;
     /** 输入框 */
     export type Input = _Input;
+    /** 输入框实例 */
+    export type InputInstance = _InputInstance;
   }
 }
 

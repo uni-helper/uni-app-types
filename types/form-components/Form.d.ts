@@ -36,7 +36,7 @@ interface _FormOnReset {
 }
 
 /** 表单属性 */
-interface _FormProps {
+type _FormProps = Partial<{
   /**
    * 是否返回 formId 用于发送模板消息
    *
@@ -61,14 +61,17 @@ interface _FormProps {
   onSubmit: _FormOnSubmit;
   /** 表单重置时触发 */
   onReset: _FormOnReset;
-}
+}>;
 
 /**
  * 表单
  *
  * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
  */
-type _Form = Component<Partial<_FormProps>>;
+type _Form = Component<_FormProps>;
+
+/** 表单实例 */
+type _FormInstance = InstanceType<_Form>;
 
 export {
   _FormOnSubmitDetailValue as FormOnSubmitDetailValue,
@@ -77,6 +80,7 @@ export {
   _FormOnReset as FormOnReset,
   _FormProps as FormProps,
   _Form as Form,
+  _FormInstance as FormInstance,
 };
 
 declare global {
@@ -89,13 +93,15 @@ declare global {
     /** 表单重置时触发 */
     export interface FormOnReset extends _FormOnReset {}
     /** 表单属性 */
-    export interface FormProps extends _FormProps {}
+    export type FormProps = _FormProps;
     /**
      * 表单
      *
      * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
      */
     export type Form = _Form;
+    /** 表单实例 */
+    export type FormInstance = _FormInstance;
   }
 }
 

@@ -80,7 +80,7 @@ interface _TextareaOnKeyboardheightchange {
 }
 
 /** 多行输入框属性 */
-interface _TextareaProps {
+type _TextareaProps = Partial<{
   /** 输入框的内容 */
   value: string;
   /** 输入框为空时占位符 */
@@ -227,10 +227,13 @@ interface _TextareaProps {
   onConfirm: _TextareaOnConfirm;
   /** 键盘高度变化时触发 */
   onKeyboardheightchange: _TextareaOnKeyboardheightchange;
-}
+}>;
 
 /** 多行输入框 */
-type _Textarea = Component<Partial<_TextareaProps>>;
+type _Textarea = Component<_TextareaProps>;
+
+/** 多行输入框实例 */
+type _TextareaInstance = InstanceType<_Textarea>;
 
 export {
   _TextareaValue as TextareaValue,
@@ -249,6 +252,7 @@ export {
   _TextareaOnKeyboardheightchange as TextareaOnKeyboardheightchange,
   _TextareaProps as TextareaProps,
   _Textarea as Textarea,
+  _TextareaInstance as TextareaInstance,
 };
 
 declare global {
@@ -289,9 +293,11 @@ declare global {
     /** 键盘高度变化时触发 */
     export interface TextareaOnKeyboardheightchange extends _TextareaOnKeyboardheightchange {}
     /** 多行输入框属性 */
-    export interface TextareaProps extends _TextareaProps {}
+    export type TextareaProps = _TextareaProps;
     /** 多行输入框 */
     export type Textarea = _Textarea;
+    /** 多行输入框实例 */
+    export type TextareaInstance = _TextareaInstance;
   }
 }
 

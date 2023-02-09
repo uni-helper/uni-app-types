@@ -547,7 +547,7 @@ interface _MapOnPoitap {
 }
 
 /** 地图属性 */
-interface _MapProps {
+type _MapProps = Partial<{
   /**
    * 中心纬度
    *
@@ -700,10 +700,13 @@ interface _MapProps {
   onAnchorpointtap: _MapOnAnchorpointtap;
   /** 点击地图 poi 点时触发 */
   onPoitap: _MapOnPoitap;
-}
+}>;
 
 /** 地图组件，用于展示地图 */
-type _Map = Component<Partial<_MapProps>>;
+type _Map = Component<_MapProps>;
+
+/** 地图组件实例 */
+type _MapInstance = InstanceType<_Map>;
 
 export {
   _MapDisplay as MapDisplay,
@@ -742,6 +745,7 @@ export {
   _MapOnPoitap as MapOnPoitap,
   _MapProps as MapProps,
   _Map as Map,
+  _MapInstance as MapInstance,
 };
 
 declare global {
@@ -853,9 +857,11 @@ declare global {
     /** 点击地图 poi 点时触发 */
     export interface MapOnPoitap extends _MapOnPoitap {}
     /** 地图属性 */
-    export interface MapProps extends _MapProps {}
+    export type MapProps = _MapProps;
     /** 地图组件，用于展示地图 */
     export type Map = _Map;
+    /** 地图组件实例 */
+    export type MapInstance = _MapInstance;
   }
 }
 

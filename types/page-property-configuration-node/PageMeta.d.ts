@@ -35,7 +35,7 @@ interface _PageMetaOnScrolldone {
 }
 
 /** 页面属性配置节点属性 */
-interface _PageMetaProps {
+type _PageMetaProps = Partial<{
   /**
    * 下拉背景字体、loading 图的样式
    *
@@ -82,7 +82,7 @@ interface _PageMetaProps {
   onScroll: _PageMetaOnScroll;
   /** 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发 */
   onScrolldone: _PageMetaOnScrolldone;
-}
+}>;
 
 /**
  * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
@@ -91,7 +91,10 @@ interface _PageMetaProps {
  *
  * 只能是页面内的第一个节点
  */
-type _PageMeta = Component<Partial<_PageMetaProps>>;
+type _PageMeta = Component<_PageMetaProps>;
+
+/** 页面属性配置节点实例 */
+type _PageMetaInstance = InstanceType<_PageMeta>;
 
 export {
   _PageMetaBackgroundTextStyle as PageMetaBackgroundTextStyle,
@@ -102,6 +105,7 @@ export {
   _PageMetaOnScrolldone as PageMetaOnScrolldone,
   _PageMetaProps as PageMetaProps,
   _PageMeta as PageMeta,
+  _PageMetaInstance as PageMetaInstance,
 };
 
 declare global {
@@ -123,7 +127,7 @@ declare global {
     /** 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发 */
     export interface PageMetaOnScrolldone extends _PageMetaOnScrolldone {}
     /** 页面属性配置节点属性 */
-    export interface PageMetaProps extends _PageMetaProps {}
+    export type PageMetaProps = _PageMetaProps;
     /**
      * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
      *
@@ -132,6 +136,8 @@ declare global {
      * 只能是页面内的第一个节点
      */
     export type PageMeta = _PageMeta;
+    /** 页面属性配置节点实例 */
+    export type PageMetaInstance = _PageMetaInstance;
   }
 }
 

@@ -228,7 +228,7 @@ interface _ButtonOnLogin {
 }
 
 /** 按钮属性 */
-interface _ButtonProps {
+type _ButtonProps = Partial<{
   /**
    * 按钮的大小
    *
@@ -494,10 +494,13 @@ interface _ButtonProps {
    * open-type="login" 时有效
    */
   onLogin: _ButtonOnLogin;
-}
+}>;
 
 /** 按钮 */
-type _Button = Component<Partial<_ButtonProps>>;
+type _Button = Component<_ButtonProps>;
+
+/** 按钮实例 */
+type _ButtonInstance = InstanceType<_Button>;
 
 export {
   _ButtonSize as ButtonSize,
@@ -519,6 +522,7 @@ export {
   _ButtonOnLogin as ButtonOnLogin,
   _ButtonProps as ButtonProps,
   _Button as Button,
+  _ButtonInstance as ButtonInstance,
 };
 
 declare global {
@@ -677,9 +681,11 @@ declare global {
      */
     export interface ButtonOnLogin extends _ButtonOnLogin {}
     /** 按钮属性 */
-    export interface ButtonProps extends _ButtonProps {}
+    export type ButtonProps = _ButtonProps;
     /** 按钮 */
     export type Button = _Button;
+    /** 按钮实例 */
+    export type ButtonInstance = _ButtonInstance;
   }
 }
 

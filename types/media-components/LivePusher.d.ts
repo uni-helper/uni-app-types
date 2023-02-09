@@ -434,7 +434,7 @@ interface _LivePusherOnBgmcomplete {
 }
 
 /** 实时音视频录制（直播推流）属性 */
-interface _LivePusherProps {
+type _LivePusherProps = Partial<{
   /** 推流地址，支持 RTMP 协议 */
   url: string;
   /**
@@ -635,10 +635,13 @@ interface _LivePusherProps {
   onBgmprogress: _LivePusherOnBgmprogress;
   /** 背景音播放完成时触发 */
   onBgmcomplete: _LivePusherOnBgmcomplete;
-}
+}>;
 
 /** 实时音视频录制（直播推流） */
-type _LivePusher = Component<Partial<_LivePusherProps>>;
+type _LivePusher = Component<_LivePusherProps>;
+
+/** 实时音视频录制（直播推流）实例 */
+type _LivePusherInstance = InstanceType<_LivePusher>;
 
 export {
   _LivePusherMode as LivePusherMode,
@@ -663,6 +666,7 @@ export {
   _LivePusherOnBgmcomplete as LivePusherOnBgmcomplete,
   _LivePusherProps as LivePusherProps,
   _LivePusher as LivePusher,
+  _LivePusherInstance as LivePusherInstance,
 };
 
 declare global {
@@ -839,9 +843,11 @@ declare global {
     /** 背景音播放完成时触发 */
     export interface LivePusherOnBgmcomplete extends _LivePusherOnBgmcomplete {}
     /** 实时音视频录制（直播推流）属性 */
-    export interface LivePusherProps extends _LivePusherProps {}
+    export type LivePusherProps = _LivePusherProps;
     /** 实时音视频录制（直播推流） */
     export type LivePusher = _LivePusher;
+    /** 实时音视频录制（直播推流）实例 */
+    export type LivePusherInstance = _LivePusherInstance;
   }
 }
 

@@ -60,7 +60,7 @@ interface _MovableViewOnScale {
 }
 
 /** 可移动的视图容器属性 */
-interface _MovableViewProps {
+type _MovableViewProps = Partial<{
   /**
    * movable-view 的移动方向
    *
@@ -157,14 +157,17 @@ interface _MovableViewProps {
   onChange: _MovableViewOnChange;
   /** 缩放过程中触发 */
   onScale: _MovableViewOnScale;
-}
+}>;
 
 /**
  * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
  *
  * movable-area 直接子组件
  */
-type _MovableView = Component<Partial<_MovableViewProps>>;
+type _MovableView = Component<_MovableViewProps>;
+
+/** 可移动的视图容器实例 */
+type _MovableViewInstance = InstanceType<_MovableView>;
 
 export {
   _MovableViewDirection as MovableViewDirection,
@@ -175,6 +178,7 @@ export {
   _MovableViewOnScale as MovableViewOnScale,
   _MovableViewProps as MovableViewProps,
   _MovableView as MovableView,
+  _MovableViewInstance as MovableViewInstance,
 };
 
 declare global {
@@ -202,13 +206,15 @@ declare global {
     /** 缩放过程中触发 */
     export interface MovableViewOnScale extends _MovableViewOnScale {}
     /** 可移动的视图容器属性 */
-    export interface MovableViewProps extends _MovableViewProps {}
+    export type MovableViewProps = _MovableViewProps;
     /**
      * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
      *
      * movable-area 直接子组件
      */
-    export interface MovableView extends _MovableView {}
+    export type MovableView = _MovableView;
+    /** 可移动的视图容器实例 */
+    export type MovableViewInstance = _MovableViewInstance;
   }
 }
 

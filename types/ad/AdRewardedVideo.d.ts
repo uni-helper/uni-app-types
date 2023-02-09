@@ -30,7 +30,7 @@ interface _AdRewardedVideoOnClose {
 }
 
 /** 激励视频广告属性 */
-interface _AdRewardedVideoProps {
+type _AdRewardedVideoProps = Partial<{
   /** APP 广告位 id */
   adpid: string | number | (string | number)[];
   /**
@@ -53,10 +53,13 @@ interface _AdRewardedVideoProps {
   onError: _AdRewardedVideoOnError;
   /** 广告关闭的回调 */
   onClose: _AdRewardedVideoOnClose;
-}
+}>;
 
 /** 激励视频广告 */
-type _AdRewardedVideo = Component<Partial<_AdRewardedVideoProps>>;
+type _AdRewardedVideo = Component<_AdRewardedVideoProps>;
+
+/** 激励视频广告实例 */
+type _AdRewardedVideoInstance = InstanceType<_AdRewardedVideo>;
 
 export {
   _AdRewardedVideoUrlCallback as AdRewardedVideoUrlCallback,
@@ -66,6 +69,7 @@ export {
   _AdRewardedVideoOnClose as AdRewardedVideoOnClose,
   _AdRewardedVideoProps as AdRewardedVideoProps,
   _AdRewardedVideo as AdRewardedVideo,
+  _AdRewardedVideoInstance as AdRewardedVideoInstance,
 };
 
 declare global {
@@ -80,9 +84,11 @@ declare global {
     /** 广告关闭的回调 */
     export interface AdRewardedVideoOnClose extends _AdRewardedVideoOnClose {}
     /** 激励视频广告属性 */
-    export interface AdRewardedVideoProps extends _AdRewardedVideoProps {}
+    export type AdRewardedVideoProps = _AdRewardedVideoProps;
     /** 激励视频广告 */
     export type AdRewardedVideo = _AdRewardedVideo;
+    /** 激励视频广告实例 */
+    export type AdRewardedVideoInstance = _AdRewardedVideoInstance;
   }
 }
 

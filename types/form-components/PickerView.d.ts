@@ -25,7 +25,7 @@ interface _PickerViewOnPickend {
   (event: BaseEvent): void;
 }
 
-interface _PickerViewProps {
+type _PickerViewProps = Partial<{
   /**
    * 依次表示 picker-view 内 picker-view-column 选择的下标
    *
@@ -54,10 +54,13 @@ interface _PickerViewProps {
   onPickstart: _PickerViewOnPickstart;
   /** 滚动选择结束时触发 */
   onPickend: _PickerViewOnPickend;
-}
+}>;
 
 /** 嵌入页面的滚动选择器，比 picker 更灵活 */
-type _PickerView = Component<Partial<_PickerViewProps>>;
+type _PickerView = Component<_PickerViewProps>;
+
+/** 嵌入页面的滚动选择器 */
+type _PickerViewInstance = InstanceType<_PickerView>;
 
 export {
   _PickerViewValueElement as PickerViewValueElement,
@@ -68,6 +71,7 @@ export {
   _PickerViewOnPickend as PickerViewOnPickend,
   _PickerViewProps as PickerViewProps,
   _PickerView as PickerView,
+  _PickerViewInstance as PickerViewInstance,
 };
 
 declare global {
@@ -82,9 +86,11 @@ declare global {
     export interface PickerViewOnPickstart extends _PickerViewOnPickstart {}
     /** 滚动选择结束时触发 */
     export interface PickerViewOnPickend extends _PickerViewOnPickend {}
-    export interface PickerViewProps extends _PickerViewProps {}
+    export type PickerViewProps = _PickerViewProps;
     /** 嵌入页面的滚动选择器，比 picker 更灵活 */
     export type PickerView = _PickerView;
+    /** 嵌入页面的滚动选择器实例 */
+    export type PickerViewInstance = _PickerViewInstance;
   }
 }
 

@@ -55,7 +55,7 @@ type _NavigationFrontColor = '#ffffff' | '#000000';
 type _NavigationBarColorAnimationTimingFunc = 'linear' | 'easeIn' | 'easeOut' | 'easeInOut';
 
 /** 页面导航条配置节点属性 */
-interface _NavigationBarProps {
+type _NavigationBarProps = Partial<{
   /** 导航条标题 */
   title: string;
   /**
@@ -172,14 +172,17 @@ interface _NavigationBarProps {
   colorAnimationDuration: number;
   /** 改变导航栏颜色时的动画方式 */
   colorAnimationTimingFunc: _NavigationBarColorAnimationTimingFunc;
-}
+}>;
 
 /**
  * 页面导航条配置节点，用于指定导航栏的一些属性
  *
  * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
  */
-type _NavigationBar = Component<Partial<_NavigationBarProps>>;
+type _NavigationBar = Component<_NavigationBarProps>;
+
+/** 页面导航条配置节点实例 */
+type _NavigationBarInstance = InstanceType<_NavigationBar>;
 
 export {
   _NavigationBarSubtitleOverflow as NavigationBarSubtitleOverflow,
@@ -190,6 +193,7 @@ export {
   _NavigationBarColorAnimationTimingFunc as NavigationBarColorAnimationTimingFunc,
   _NavigationBarProps as NavigationBarProps,
   _NavigationBar as NavigationBar,
+  _NavigationBarInstance as NavigationBarInstance,
 };
 
 declare global {
@@ -243,13 +247,15 @@ declare global {
     /** 改变导航栏颜色时的动画方式 */
     export type NavigationBarColorAnimationTimingFunc = _NavigationBarColorAnimationTimingFunc;
     /** 页面导航条配置节点属性 */
-    export interface NavigationBarProps extends _NavigationBarProps {}
+    export type NavigationBarProps = _NavigationBarProps;
     /**
      * 页面导航条配置节点，用于指定导航栏的一些属性
      *
      * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
      */
     export type NavigationBar = _NavigationBar;
+    /** 页面导航条配置节点实例 */
+    export type NavigationBarInstance = _NavigationBarInstance;
   }
 }
 

@@ -23,7 +23,7 @@ interface _AdInterstitialOnClose {
 }
 
 /** 插屏广告属性 */
-interface _AdInterstitialProps {
+type _AdInterstitialProps = Partial<{
   /** APP 广告位 id */
   adpid: string | number | (string | number)[];
   /**
@@ -44,10 +44,13 @@ interface _AdInterstitialProps {
   onError: _AdInterstitialOnError;
   /** 广告关闭的回调 */
   onClose: _AdInterstitialOnClose;
-}
+}>;
 
 /** 插屏广告 */
-type _AdInterstitial = Component<Partial<_AdInterstitialProps>>;
+type _AdInterstitial = Component<_AdInterstitialProps>;
+
+/** 插屏广告实例 */
+type _AdInterstitialInstance = InstanceType<_AdInterstitial>;
 
 export {
   _AdInterstitialOnLoad as AdInterstitialOnLoad,
@@ -56,6 +59,7 @@ export {
   _AdInterstitialOnClose as AdInterstitialOnClose,
   _AdInterstitialProps as AdInterstitialProps,
   _AdInterstitial as AdInterstitial,
+  _AdInterstitialInstance as AdInterstitialInstance,
 };
 
 declare global {
@@ -68,9 +72,11 @@ declare global {
     /** 广告关闭的回调 */
     export interface AdInterstitialOnClose extends _AdInterstitialOnClose {}
     /** 插屏广告属性 */
-    export interface AdInterstitialProps extends _AdInterstitialProps {}
+    export type AdInterstitialProps = _AdInterstitialProps;
     /** 插屏广告 */
     export type AdInterstitial = _AdInterstitial;
+    /** 插屏广告实例 */
+    export type AdInterstitialInstance = _AdInterstitialInstance;
   }
 }
 

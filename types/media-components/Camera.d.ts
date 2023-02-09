@@ -81,7 +81,7 @@ interface _CameraOnScancode {
 }
 
 /** 页面内嵌的区域相机组件属性 */
-interface _CameraProps {
+type _CameraProps = Partial<{
   /**
    * 应用模式，不支持动态修改
    *
@@ -150,10 +150,13 @@ interface _CameraProps {
    * mode="scanCode" 时有效
    */
   onScancode: _CameraOnScancode;
-}
+}>;
 
 /** 页面内嵌的区域相机组件 */
-type _Camera = Component<Partial<_CameraProps>>;
+type _Camera = Component<_CameraProps>;
+
+/** 页面内嵌的区域相机组件实例 */
+type _CameraInstance = InstanceType<_Camera>;
 
 export {
   _CameraMode as CameraMode,
@@ -168,6 +171,7 @@ export {
   _CameraOnScancode as CameraOnScancode,
   _CameraProps as CameraProps,
   _Camera as Camera,
+  _CameraInstance as CameraInstance,
 };
 
 declare global {
@@ -232,9 +236,11 @@ declare global {
      */
     export interface CameraOnScancode extends _CameraOnScancode {}
     /** 页面内嵌的区域相机组件属性 */
-    export interface CameraProps extends _CameraProps {}
+    export type CameraProps = _CameraProps;
     /** 页面内嵌的区域相机组件 */
     export type Camera = _Camera;
+    /** 页面内嵌的区域相机组件实例 */
+    export type CameraInstance = _CameraInstance;
   }
 }
 

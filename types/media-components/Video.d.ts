@@ -186,7 +186,7 @@ interface _VideoOnControlstoggle {
 }
 
 /** 视频播放组件属性 */
-interface _VideoProps {
+type _VideoProps = Partial<{
   /** 要播放视频的资源地址 */
   src: string;
   /**
@@ -443,14 +443,17 @@ interface _VideoProps {
   onFullscreenclick: _VideoOnFullscreenclick;
   /** 切换 controls 显示隐藏时触发 */
   onControlstoggle: _VideoOnControlstoggle;
-}
+}>;
 
 /**
  * 视频播放组件
  *
  * 默认宽度 300px、高度 225px，可通过 css 设置宽高
  */
-type _Video = Component<Partial<_VideoProps>>;
+type _Video = Component<_VideoProps>;
+
+/** 视频播放组件实例 */
+type _VideoInstance = InstanceType<_Video>;
 
 export {
   _VideoDanmu as VideoDanmu,
@@ -483,6 +486,7 @@ export {
   _VideoOnControlstoggle as VideoOnControlstoggle,
   _VideoProps as VideoProps,
   _Video as Video,
+  _VideoInstance as VideoInstance,
 };
 
 declare global {
@@ -584,13 +588,15 @@ declare global {
     /** 切换 controls 显示隐藏时触发 */
     export interface VideoOnControlstoggle extends _VideoOnControlstoggle {}
     /** 视频播放组件属性 */
-    export interface VideoProps extends _VideoProps {}
+    export type VideoProps = _VideoProps;
     /**
      * 视频播放组件
      *
      * 默认宽度 300px、高度 225px，可通过 css 设置宽高
      */
     export type Video = _Video;
+    /** 视频播放组件实例 */
+    export type VideoInstance = _VideoInstance;
   }
 }
 

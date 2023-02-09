@@ -122,7 +122,7 @@ interface _AdContentPageOnComplete {
 }
 
 /** 短视频内容联盟广告属性 */
-interface _AdContentPageProps {
+type _AdContentPageProps = Partial<{
   /** APP 广告位 id */
   adpid: string;
   /** 广告加载成功的回调 */
@@ -137,10 +137,13 @@ interface _AdContentPageProps {
   onResume: _AdContentPageOnResume;
   /** 广告完成播放时触发 */
   onComplete: _AdContentPageOnComplete;
-}
+}>;
 
 /** 短视频内容联盟广告 */
-type _AdContentPage = Component<Partial<_AdContentPageProps>>;
+type _AdContentPage = Component<_AdContentPageProps>;
+
+/** 短视频内容联盟广告实例 */
+type _AdContentPageInstance = InstanceType<_AdContentPage>;
 
 export {
   _AdContentPageOnLoad as AdContentPageOnLoad,
@@ -156,6 +159,7 @@ export {
   _AdContentPageOnComplete as AdContentPageOnComplete,
   _AdContentPageProps as AdContentPageProps,
   _AdContentPage as AdContentPage,
+  _AdContentPageInstance as _AdContentPageInstance,
 };
 
 declare global {
@@ -178,9 +182,11 @@ declare global {
     /** 广告完成播放时触发 */
     export interface AdContentPageOnComplete extends _AdContentPageOnComplete {}
     /** 短视频内容联盟广告属性 */
-    export interface AdContentPageProps extends _AdContentPageProps {}
+    export type AdContentPageProps = _AdContentPageProps;
     /** 短视频内容联盟广告 */
     export type AdContentPage = _AdContentPage;
+    /** 短视频内容联盟广告实例 */
+    export type AdContentPageInstance = _AdContentPageInstance;
   }
 }
 

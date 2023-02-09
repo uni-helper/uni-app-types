@@ -1,3 +1,4 @@
+import { type } from 'node:os';
 import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
@@ -23,7 +24,7 @@ interface _AdFullscreenVideoOnClose {
 }
 
 /** 全屏视频广告属性 */
-interface _AdFullscreenVideoProps {
+type _AdFullscreenVideoProps = Partial<{
   /** APP 广告位 id */
   adpid: string | number | (string | number)[];
   /**
@@ -44,10 +45,13 @@ interface _AdFullscreenVideoProps {
   onError: _AdFullscreenVideoOnError;
   /** 广告关闭的回调 */
   onClose: _AdFullscreenVideoOnClose;
-}
+}>;
 
 /** 全屏视频广告 */
-type _AdFullscreenVideo = Component<Partial<_AdFullscreenVideoProps>>;
+type _AdFullscreenVideo = Component<_AdFullscreenVideoProps>;
+
+/** 全屏视频广告实例 */
+type _AdFullscreenVideoInstance = InstanceType<_AdFullscreenVideo>;
 
 export {
   _AdFullscreenVideoOnLoad as AdFullscreenVideoOnLoad,
@@ -56,6 +60,7 @@ export {
   _AdFullscreenVideoOnClose as AdFullscreenVideoOnClose,
   _AdFullscreenVideoProps as AdFullscreenVideoProps,
   _AdFullscreenVideo as AdFullscreenVideo,
+  _AdFullscreenVideoInstance as AdFullscreenVideoInstance,
 };
 
 declare global {
@@ -68,9 +73,11 @@ declare global {
     /** 广告关闭的回调 */
     export interface AdFullscreenVideoOnClose extends _AdFullscreenVideoOnClose {}
     /** 全屏视频广告属性 */
-    export interface AdFullscreenVideoProps extends _AdFullscreenVideoProps {}
+    export type AdFullscreenVideoProps = _AdFullscreenVideoProps;
     /** 全屏视频广告 */
     export type AdFullscreenVideo = _AdFullscreenVideo;
+    /** 全屏视频广告实例 */
+    export type AdFullscreenVideoInstance = _AdFullscreenVideoInstance;
   }
 }
 

@@ -1,7 +1,7 @@
 import { Component } from '../Component';
 
 /** 图标属性 */
-interface _IconProps {
+type _IconProps = Partial<{
   /** 类型 */
   type: string;
   /**
@@ -14,19 +14,24 @@ interface _IconProps {
   size: number;
   /** 颜色 */
   color: string;
-}
+}>;
 
 /** 图标 */
-type _Icon = Component<Partial<_IconProps>>;
+type _Icon = Component<_IconProps>;
 
-export { _IconProps as IconProps, _Icon as Icon };
+/** 图标实例 */
+type _IconInstance = InstanceType<_Icon>;
+
+export { _IconProps as IconProps, _Icon as Icon, _IconInstance as IconInstance };
 
 declare global {
   namespace UniHelper {
     /** 图标属性 */
-    export interface IconProps extends _IconProps {}
+    export type IconProps = _IconProps;
     /** 图标 */
     export type Icon = _Icon;
+    /** 图标实例 */
+    export type IconInstance = _IconInstance;
   }
 }
 

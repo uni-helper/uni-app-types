@@ -47,7 +47,7 @@ interface _AudioOnEnded {
 }
 
 /** 音频属性 */
-interface _AudioProps {
+type _AudioProps = Partial<{
   /** audio 组件的唯一标识符 */
   id: string;
   /** 要播放音频的资源地址 */
@@ -96,10 +96,13 @@ interface _AudioProps {
   onTimeupdate: _AudioOnTimeupdate;
   /** 播放到末尾时触发 */
   onEnded: _AudioOnEnded;
-}
+}>;
 
 /** 音频 */
-type _Audio = Component<Partial<_AudioProps>>;
+type _Audio = Component<_AudioProps>;
+
+/** 音频实例 */
+type _AudioInstance = InstanceType<_Audio>;
 
 export {
   _AudioOnErrorDetail as AudioOnErrorDetail,
@@ -111,6 +114,7 @@ export {
   _AudioOnEnded as AudioOnEnded,
   _AudioProps as AudioProps,
   _Audio as Audio,
+  _AudioInstance as AudioInstance,
 };
 
 declare global {
@@ -128,9 +132,11 @@ declare global {
     /** 播放到末尾时触发 */
     export interface AudioOnEnded extends _AudioOnEnded {}
     /** 音频属性 */
-    export interface AudioProps extends _AudioProps {}
+    export type AudioProps = _AudioProps;
     /** 音频 */
     export type Audio = _Audio;
+    /** 音频实例 */
+    export type AudioInstance = _AudioInstance;
   }
 }
 

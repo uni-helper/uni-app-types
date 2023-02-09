@@ -74,7 +74,7 @@ interface _ImageOnLoad {
 }
 
 /** 图片属性 */
-interface _ImageProps {
+type _ImageProps = Partial<{
   /** 图片资源地址 */
   src: string;
   /**
@@ -147,10 +147,13 @@ interface _ImageProps {
   onError: _ImageOnError;
   /** 图片加载完毕时触发 */
   onLoad: _ImageOnLoad;
-}
+}>;
 
 /** 图片 */
-type _Image = Component<Partial<_ImageProps>>;
+type _Image = Component<_ImageProps>;
+
+/** 图片实例 */
+type _ImageInstance = InstanceType<_Image>;
 
 export {
   _ImageMode as ImageMode,
@@ -159,6 +162,7 @@ export {
   _ImageOnLoad as ImageOnLoad,
   _ImageProps as ImageProps,
   _Image as Image,
+  _ImageInstance as ImageInstance,
 };
 
 declare global {
@@ -201,9 +205,11 @@ declare global {
     /** 图片加载完毕时触发 */
     export interface ImageOnLoad extends _ImageOnLoad {}
     /** 图片属性 */
-    export interface ImageProps extends _ImageProps {}
+    export type ImageProps = _ImageProps;
     /** 图片 */
     export type Image = _Image;
+    /** 图片实例 */
+    export type ImageInstance = _ImageInstance;
   }
 }
 

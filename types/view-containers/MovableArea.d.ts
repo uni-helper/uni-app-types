@@ -1,14 +1,14 @@
 import { Component } from '../Component';
 
 /** 可拖动区域属性 */
-interface _MovableAreaProps {
+type _MovableAreaProps = Partial<{
   /**
    * 当里面的 movable-view 设置为支持双指缩放时，设置此值可将缩放手势生效区域修改为整个 movable-area
    *
    * 默认为 false
    */
   scaleArea: boolean;
-}
+}>;
 
 /**
  * 可拖动区域
@@ -21,14 +21,21 @@ interface _MovableAreaProps {
  *
  * 默认宽高为 10px
  */
-type _MovableArea = Component<Partial<_MovableAreaProps>>;
+type _MovableArea = Component<_MovableAreaProps>;
 
-export { _MovableAreaProps as MovableAreaProps, _MovableArea as MovableArea };
+/** 可拖动区域实例 */
+type _MovableAreaInstance = InstanceType<_MovableArea>;
+
+export {
+  _MovableAreaProps as MovableAreaProps,
+  _MovableArea as MovableArea,
+  _MovableAreaInstance as MovableAreaInstance,
+};
 
 declare global {
   namespace UniHelper {
     /** 可拖动区域属性 */
-    export interface MovableAreaProps extends _MovableAreaProps {}
+    export type MovableAreaProps = _MovableAreaProps;
     /**
      * 可拖动区域
      *
@@ -41,6 +48,8 @@ declare global {
      * 默认宽高为 10px
      */
     export type MovableArea = _MovableArea;
+    /** 可拖动区域实例 */
+    export type MovableAreaInstance = _MovableAreaInstance;
   }
 }
 

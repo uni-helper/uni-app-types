@@ -24,7 +24,7 @@ interface _SelectorPickerOnCancel {
   (event: BaseEvent): void;
 }
 
-interface _SelectorPickerProps {
+type _SelectorPickerProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 设置为普通选择器 */
@@ -63,7 +63,7 @@ interface _SelectorPickerProps {
   onChange: _SelectorPickerOnChange;
   /** 取消选择时触发 */
   onCancel: _SelectorPickerOnCancel;
-}
+}>;
 
 /** 需要展示的内容 */
 type _MultiSelectorPickerRange = string[][] | AnyRecord[][];
@@ -98,7 +98,7 @@ interface _MultiSelectorPickerOnCancel {
   (event: BaseEvent): void;
 }
 
-interface _MultiSelectorPickerProps {
+type _MultiSelectorPickerProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 设置为多列选择器 */
@@ -129,7 +129,7 @@ interface _MultiSelectorPickerProps {
   onColumnchange: _MultiSelectorPickerOnColumnchange;
   /** 取消选择时触发 */
   onCancel: _MultiSelectorPickerOnCancel;
-}
+}>;
 
 /**
  * 选中的时间
@@ -152,7 +152,7 @@ interface _TimePickerOnCancel {
   (event: BaseEvent): void;
 }
 
-interface _TimePickerProps {
+type _TimePickerProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 设置为时间选择器 */
@@ -185,7 +185,7 @@ interface _TimePickerProps {
   onChange: _TimePickerOnChange;
   /** 取消选择时触发 */
   onCancel: _TimePickerOnCancel;
-}
+}>;
 
 /**
  * 选中的日期
@@ -219,7 +219,7 @@ interface _DatePickerOnCancel {
   (event: BaseEvent): void;
 }
 
-interface _DatePickerProps {
+type _DatePickerProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 设置为日期选择器 */
@@ -264,7 +264,7 @@ interface _DatePickerProps {
   onChange: _DatePickerOnChange;
   /** 取消选择时触发 */
   onCancel: _DatePickerOnCancel;
-}
+}>;
 
 type _RegionPickerValueElement = string;
 
@@ -298,7 +298,7 @@ interface _RegionPickerOnCancel {
   (event: BaseEvent): void;
 }
 
-interface _RegionPickerProps {
+type _RegionPickerProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /** 设置为省市区选择器 */
@@ -333,7 +333,7 @@ interface _RegionPickerProps {
   onChange: _RegionPickerOnChange;
   /** 取消选择时触发 */
   onCancel: _RegionPickerOnCancel;
-}
+}>;
 
 type _PickerValue =
   | _SelectorPickerValue
@@ -351,7 +351,10 @@ type _PickerProps =
   | _RegionPickerProps;
 
 /** 从底部弹起的滚动选择器，通过 mode 来区分 */
-type _Picker = Component<Partial<_PickerProps>>;
+type _Picker = Component<_PickerProps>;
+
+/** 从底部弹起的滚动选择器实例 */
+type _PickerInstance = InstanceType<_Picker>;
 
 export {
   _SelectorPickerRange as SelectorPickerRange,
@@ -391,6 +394,7 @@ export {
   _PickerValue as PickerValue,
   _PickerProps as PickerProps,
   _Picker as Picker,
+  _PickerInstance as PickerInstance,
 };
 
 declare global {
@@ -406,7 +410,7 @@ declare global {
     export interface SelectorPickerOnChange extends _SelectorPickerOnChange {}
     /** 取消选择时触发 */
     export interface SelectorPickerOnCancel extends _SelectorPickerOnCancel {}
-    export interface SelectorPickerProps extends _SelectorPickerProps {}
+    export type SelectorPickerProps = _SelectorPickerProps;
     /** 需要展示的内容 */
     export type MultiSelectorPickerRange = _MultiSelectorPickerRange;
     /** 当前某列选择的下标 */
@@ -422,7 +426,7 @@ declare global {
     export interface MultiSelectorPickerOnColumnchange extends _MultiSelectorPickerOnColumnchange {}
     /** 取消选择时触发 */
     export interface MultiSelectorPickerOnCancel extends _MultiSelectorPickerOnCancel {}
-    export interface MultiSelectorPickerProps extends _MultiSelectorPickerProps {}
+    export type MultiSelectorPickerProps = _MultiSelectorPickerProps;
     /**
      * 选中的时间
      *
@@ -434,7 +438,7 @@ declare global {
     export interface TimePickerOnChange extends _TimePickerOnChange {}
     /** 取消选择时触发 */
     export interface TimePickerOnCancel extends _TimePickerOnCancel {}
-    export interface TimePickerProps extends _TimePickerProps {}
+    export type TimePickerProps = _TimePickerProps;
     /**
      * 选中的日期
      *
@@ -456,7 +460,7 @@ declare global {
     export interface DatePickerOnChange extends _DatePickerOnChange {}
     /** 取消选择时触发 */
     export interface DatePickerOnCancel extends _DatePickerOnCancel {}
-    export interface DatePickerProps extends _DatePickerProps {}
+    export type DatePickerProps = _DatePickerProps;
     export type RegionPickerValueElement = _RegionPickerValueElement;
     /** 选中的省市区 */
     export type RegionPickerValue = _RegionPickerValue;
@@ -483,6 +487,8 @@ declare global {
     export type PickerProps = _PickerProps;
     /** 从底部弹起的滚动选择器，通过 mode 来区分 */
     export type Picker = _Picker;
+    /** 从底部弹起的滚动选择器实例 */
+    export type PickerInstance = _PickerInstance;
   }
 }
 

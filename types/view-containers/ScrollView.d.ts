@@ -53,7 +53,7 @@ interface _ScrollViewOnRefresherabort {
 }
 
 /** 可滚动视图区域属性 */
-interface _ScrollViewProps {
+type _ScrollViewProps = Partial<{
   /**
    * 是否允许横向滚动
    *
@@ -188,7 +188,7 @@ interface _ScrollViewProps {
   onRefresherrestore: _ScrollViewOnRefresherrestore;
   /** 自定义下拉刷新被中止时触发 */
   onRefresherabort: _ScrollViewOnRefresherabort;
-}
+}>;
 
 /**
  * 可滚动视图区域，用于区域滚动
@@ -202,7 +202,10 @@ interface _ScrollViewProps {
  * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
  * transparent 透明渐变
  */
-type _ScrollView = Component<Partial<_ScrollViewProps>>;
+type _ScrollView = Component<_ScrollViewProps>;
+
+/** 可滚动视图区域实例 */
+type _ScrollViewInstance = InstanceType<_ScrollView>;
 
 export {
   _ScrollViewRefresherDefaultStyle as ScrollViewRefresherDefaultStyle,
@@ -216,6 +219,7 @@ export {
   _ScrollViewOnRefresherabort as ScrollViewOnRefresherabort,
   _ScrollViewProps as ScrollViewProps,
   _ScrollView as ScrollView,
+  _ScrollViewInstance as ScrollViewInstance,
 };
 
 declare global {
@@ -242,7 +246,7 @@ declare global {
     /** 自定义下拉刷新被中止时触发 */
     export interface ScrollViewOnRefresherabort extends _ScrollViewOnRefresherabort {}
     /** 可滚动视图区域属性 */
-    export interface ScrollViewProps extends _ScrollViewProps {}
+    export type ScrollViewProps = _ScrollViewProps;
     /**
      * 可滚动视图区域，用于区域滚动
      *
@@ -256,6 +260,8 @@ declare global {
      * transparent 透明渐变
      */
     export type ScrollView = _ScrollView;
+    /** 可滚动视图区域实例 */
+    export type ScrollViewInstance = _ScrollViewInstance;
   }
 }
 

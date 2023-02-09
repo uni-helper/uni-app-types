@@ -280,7 +280,7 @@ interface _LivePlayerOnLeavepictureinpicture {
 }
 
 /** 实时音视频播放（直播拉流）属性 */
-interface _LivePlayerProps {
+type _LivePlayerProps = Partial<{
   /** 唯一标志符 */
   id: string;
   /** 音视频地址 */
@@ -373,10 +373,13 @@ interface _LivePlayerProps {
   onEnterpictureinpicture: _LivePlayerOnEnterpictureinpicture;
   /** 播放器退出小窗时触发 */
   onLeavepictureinpicture: _LivePlayerOnLeavepictureinpicture;
-}
+}>;
 
 /** 实时音视频播放（直播拉流） */
-type _LivePlayer = Component<Partial<_LivePlayerProps>>;
+type _LivePlayer = Component<_LivePlayerProps>;
+
+/** 实时音视频播放（直播拉流）实例 */
+type _LivePlayerInstance = InstanceType<_LivePlayer>;
 
 export {
   _LivePlayerMode as LivePlayerMode,
@@ -397,6 +400,7 @@ export {
   _LivePlayerOnLeavepictureinpicture as LivePlayerOnLeavepictureinpicture,
   _LivePlayerProps as LivePlayerProps,
   _LivePlayer as LivePlayer,
+  _LivePlayerInstance as LivePlayerInstance,
 };
 
 declare global {
@@ -512,9 +516,11 @@ declare global {
     /** 播放器退出小窗时触发 */
     export interface LivePlayerOnLeavepictureinpicture extends _LivePlayerOnLeavepictureinpicture {}
     /** 实时音视频播放（直播拉流）属性 */
-    export interface LivePlayerProps extends _LivePlayerProps {}
+    export type LivePlayerProps = _LivePlayerProps;
     /** 实时音视频播放（直播拉流） */
     export type LivePlayer = _LivePlayer;
+    /** 实时音视频播放（直播拉流）实例 */
+    export type LivePlayerInstance = _LivePlayerInstance;
   }
 }
 

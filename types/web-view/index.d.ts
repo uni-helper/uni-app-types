@@ -30,7 +30,7 @@ interface _WebViewOnOnPostMessage {
 }
 
 /** Web 浏览器组件属性 */
-interface _WebViewProps {
+type _WebViewProps = Partial<{
   /** 指向网页的链接 */
   src: string;
   /** 用于为 iframe 指定其特征策略 */
@@ -45,10 +45,13 @@ interface _WebViewProps {
   onMessage: _WebViewOnMessage;
   /** 网页向应用实时 postMessage */
   onOnPostMessage: _WebViewOnOnPostMessage;
-}
+}>;
 
 /** Web 浏览器组件，可承载网页 */
-type _WebView = Component<Partial<_WebViewProps>>;
+type _WebView = Component<_WebViewProps>;
+
+/** Web 浏览器组件实例 */
+type _WebViewInstance = InstanceType<_WebView>;
 
 export {
   _WebViewStyles as WebViewStyles,
@@ -57,6 +60,7 @@ export {
   _WebViewOnOnPostMessage as WebViewOnOnPostMessage,
   _WebViewProps as WebViewProps,
   _WebView as WebView,
+  _WebViewInstance as WebViewInstance,
 };
 
 declare global {
@@ -69,9 +73,11 @@ declare global {
     /** 网页向应用实时 postMessage */
     export interface WebViewOnOnPostMessage extends _WebViewOnOnPostMessage {}
     /** Web 浏览器组件属性 */
-    export interface WebViewProps extends _WebViewProps {}
+    export type WebViewProps = _WebViewProps;
     /** Web 浏览器组件，可承载网页 */
     export type WebView = _WebView;
+    /** Web 浏览器组件实例 */
+    export type WebViewInstance = _WebViewInstance;
   }
 }
 

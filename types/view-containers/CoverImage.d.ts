@@ -12,7 +12,7 @@ interface _CoverImageOnError {
 }
 
 /** 覆盖在原生组件之上的图片视图属性 */
-interface _CoverImageProps {
+type _CoverImageProps = Partial<{
   /**
    * 图片路径
    *
@@ -25,7 +25,7 @@ interface _CoverImageProps {
   onLoad: _CoverImageOnLoad;
   /** 图片加载失败时触发 */
   onError: _CoverImageOnError;
-}
+}>;
 
 /**
  * 覆盖在原生组件之上的图片视图
@@ -34,13 +34,17 @@ interface _CoverImageProps {
  *
  * 支持嵌套在 cover-view 里
  */
-type _CoverImage = Component<Partial<_CoverImageProps>>;
+type _CoverImage = Component<_CoverImageProps>;
+
+/** 覆盖在原生组件之上的图片视图实例 */
+type _CoverImageInstance = InstanceType<_CoverImage>;
 
 export {
   _CoverImageOnLoad as CoverImageOnLoad,
   _CoverImageOnError as CoverImageOnError,
   _CoverImageProps as CoverImageProps,
   _CoverImage as CoverImage,
+  _CoverImageInstance as CoverImageInstance,
 };
 
 declare global {
@@ -50,7 +54,7 @@ declare global {
     /** 图片加载失败时触发 */
     export interface CoverImageOnError extends _CoverImageOnError {}
     /** 覆盖在原生组件之上的图片视图属性 */
-    export interface CoverImageProps extends _CoverImageProps {}
+    export type CoverImageProps = _CoverImageProps;
     /**
      * 覆盖在原生组件之上的图片视图
      *
@@ -59,6 +63,8 @@ declare global {
      * 支持嵌套在 cover-view 里
      */
     export type CoverImage = _CoverImage;
+    /** 覆盖在原生组件之上的图片视图实例 */
+    export type CoverImageInstance = _CoverImageInstance;
   }
 }
 

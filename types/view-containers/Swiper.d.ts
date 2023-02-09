@@ -71,7 +71,7 @@ interface _SwiperOnAnimationfinish {
 }
 
 /** 滑块视图容器属性 */
-interface _SwiperProps {
+type _SwiperProps = Partial<{
   /**
    * 是否显示面板指示点
    *
@@ -200,7 +200,7 @@ interface _SwiperProps {
   onTransition: _SwiperOnTransition;
   /** 动画结束时触发 */
   onAnimationfinish: _SwiperOnAnimationfinish;
-}
+}>;
 
 /**
  * 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
@@ -209,7 +209,10 @@ interface _SwiperProps {
  *
  * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
  */
-type _Swiper = Component<Partial<_SwiperProps>>;
+type _Swiper = Component<_SwiperProps>;
+
+/** 滑块视图容器实例 */
+type _SwiperInstance = InstanceType<_Swiper>;
 
 export {
   _SwiperSource as SwiperSource,
@@ -222,6 +225,7 @@ export {
   _SwiperOnAnimationfinish as SwiperOnAnimationfinish,
   _SwiperProps as SwiperProps,
   _Swiper as Swiper,
+  _SwiperInstance as SwiperInstance,
 };
 
 declare global {
@@ -248,7 +252,7 @@ declare global {
     /** 动画结束时触发 */
     export interface SwiperOnAnimationfinish extends _SwiperOnAnimationfinish {}
     /** 滑块视图容器属性 */
-    export interface SwiperProps extends _SwiperProps {}
+    export type SwiperProps = _SwiperProps;
     /**
      * 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
      *
@@ -256,7 +260,9 @@ declare global {
      *
      * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
      */
-    export interface Swiper extends _Swiper {}
+    export type Swiper = _Swiper;
+    /** 滑块视图容器实例 */
+    export type SwiperInstance = _SwiperInstance;
   }
 }
 

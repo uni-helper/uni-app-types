@@ -30,7 +30,7 @@ interface _RichTextOnItemclick {
 }
 
 /** 富文本属性 */
-interface _RichTextProps {
+type _RichTextProps = Partial<{
   /** 节点列表 */
   nodes: _RichTextNodes;
   /**
@@ -63,10 +63,13 @@ interface _RichTextProps {
   preview: boolean;
   /** 拦截点击事件，支持 a 和 img 标签 */
   onItemclick: _RichTextOnItemclick;
-}
+}>;
 
 /** 富文本 */
-type _RichText = Component<Partial<_RichTextProps>>;
+type _RichText = Component<_RichTextProps>;
+
+/** 富文本实例 */
+type _RichTextInstance = InstanceType<_RichText>;
 
 export {
   _RichTextSpace as RichTextSpace,
@@ -77,6 +80,7 @@ export {
   _RichTextOnItemclick as RichTextOnItemclick,
   _RichTextProps as RichTextProps,
   _RichText as RichText,
+  _RichTextInstance as RichTextInstance,
 };
 
 declare global {
@@ -94,9 +98,11 @@ declare global {
     /** 拦截点击事件，支持 a 和 img 标签 */
     export interface RichTextOnItemclick extends _RichTextOnItemclick {}
     /** 富文本属性 */
-    export interface RichTextProps extends _RichTextProps {}
+    export type RichTextProps = _RichTextProps;
     /** 富文本 */
     export type RichText = _RichText;
+    /** 富文本实例 */
+    export type RichTextInstance = _RichTextInstance;
   }
 }
 

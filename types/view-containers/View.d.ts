@@ -1,7 +1,7 @@
 import { Component } from '../Component';
 
 /** 视图容器属性 */
-interface _ViewProps {
+type _ViewProps = Partial<{
   /**
    * 指定按下去的样式类
    *
@@ -32,7 +32,7 @@ interface _ViewProps {
    * 默认为 400
    */
   hoverStayTime: number;
-}
+}>;
 
 /**
  * 视图容器，和 div 类似，用于包裹各种元素内容
@@ -41,14 +41,17 @@ interface _ViewProps {
  *
  * 如果使用 div，会编译成 view
  */
-type _View = Component<Partial<_ViewProps>>;
+type _View = Component<_ViewProps>;
 
-export { _ViewProps as ViewProps, _View as View };
+/** 视图容器实例 */
+type _ViewInstance = InstanceType<_View>;
+
+export { _ViewProps as ViewProps, _View as View, _ViewInstance as ViewInstance };
 
 declare global {
   namespace UniHelper {
     /** 视图容器属性 */
-    export interface ViewProps extends _ViewProps {}
+    export type ViewProps = _ViewProps;
     /**
      * 视图容器，和 div 类似，用于包裹各种元素内容
      *
@@ -57,6 +60,8 @@ declare global {
      * 如果使用 div，会编译成 view
      */
     export type View = _View;
+    /** 视图容器实例 */
+    export type ViewInstance = _ViewInstance;
   }
 }
 

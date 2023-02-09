@@ -24,7 +24,7 @@ interface _CustomTabBarOnTabItemTap {
 }
 
 /** 自定义 tabBar 组件属性 */
-interface _CustomTabBarProps {
+type _CustomTabBarProps = Partial<{
   /**
    * 选项的排列方向
    *
@@ -49,10 +49,13 @@ interface _CustomTabBarProps {
   selected: number;
   /** 点击事件 */
   onTabItemTap: _CustomTabBarOnTabItemTap;
-}
+}>;
 
 /** 自定义 tabBar 组件 */
-type _CustomTabBar = Component<Partial<_CustomTabBarProps>>;
+type _CustomTabBar = Component<_CustomTabBarProps>;
+
+/** 自定义 tabBar 组件实例 */
+type _CustomTabBarInstance = InstanceType<_CustomTabBar>;
 
 export {
   _CustomTabBarDirection as CustomTabBarDirection,
@@ -60,6 +63,7 @@ export {
   _CustomTabBarOnTabItemTap as CustomTabBarOnTabItemTap,
   _CustomTabBarProps as CustomTabBarProps,
   _CustomTabBar as CustomTabBar,
+  _CustomTabBarInstance as CustomTabBarInstance,
 };
 
 declare global {
@@ -76,9 +80,11 @@ declare global {
     /** 点击事件 */
     export interface CustomTabBarOnTabItemTap extends _CustomTabBarOnTabItemTap {}
     /** 自定义 tabBar 组件属性 */
-    export interface CustomTabBarProps extends _CustomTabBarProps {}
+    export type CustomTabBarProps = _CustomTabBarProps;
     /** 自定义 tabBar 组件 */
     export type CustomTabBar = _CustomTabBar;
+    /** 自定义 tabBar 组件实例 */
+    export type CustomTabBarInstance = _CustomTabBarInstance;
   }
 }
 

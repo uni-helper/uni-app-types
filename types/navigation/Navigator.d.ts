@@ -76,7 +76,7 @@ type _NavigatorTarget = 'self' | 'miniProgram';
 type _NavigatorVersion = 'develop' | 'trial' | 'release';
 
 /** 页面跳转属性 */
-interface _NavigatorProps {
+type _NavigatorProps = Partial<{
   /**
    * 应用内的跳转链接
    *
@@ -207,16 +207,19 @@ interface _NavigatorProps {
    * target="miniProgram" 时有效
    */
   shortLink: string;
-}
+}>;
 
 /**
- * 页面跳转
+ * 页面跳转组件
  *
  * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
  *
  * 目标页面必须在 pages.json 中注册
  */
-type _Navigator = Component<Partial<_NavigatorProps>>;
+type _Navigator = Component<_NavigatorProps>;
+
+/** 页面跳转组件实例 */
+type _NavigatorInstance = InstanceType<_Navigator>;
 
 export {
   _NavigatorOpenType as NavigatorOpenType,
@@ -225,6 +228,7 @@ export {
   _NavigatorVersion as NavigatorVersion,
   _NavigatorProps as NavigatorProps,
   _Navigator as Navigator,
+  _NavigatorInstance as NavigatorInstance,
 };
 
 declare global {
@@ -278,22 +282,24 @@ declare global {
      */
     export type NavigatorVersion = _NavigatorVersion;
     /** 页面跳转属性 */
-    export interface NavigatorProps extends _NavigatorProps {}
+    export type NavigatorProps = _NavigatorProps;
     /**
-     * 页面跳转
+     * 页面跳转组件
      *
      * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
      *
      * 目标页面必须在 pages.json 中注册
      */
     export type Navigator = _Navigator;
+    /** 页面跳转组件实例 */
+    export type NavigatorInstance = _NavigatorInstance;
   }
 }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
-     * 页面跳转
+     * 页面跳转组件
      *
      * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
      *

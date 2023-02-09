@@ -8,7 +8,7 @@ import { Component } from '../Component';
 type _CheckboxValue = string;
 
 /** 多选项目属性 */
-interface _CheckboxProps {
+type _CheckboxProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /**
@@ -31,12 +31,20 @@ interface _CheckboxProps {
   checked: boolean;
   /** 颜色 */
   color: string;
-}
+}>;
 
 /** 多选项目 */
-type _Checkbox = Component<Partial<_CheckboxProps>>;
+type _Checkbox = Component<_CheckboxProps>;
 
-export { _CheckboxValue as CheckboxValue, _CheckboxProps as CheckboxProps, _Checkbox as Checkbox };
+/** 多选项目实例 */
+type _CheckboxInstance = InstanceType<_Checkbox>;
+
+export {
+  _CheckboxValue as CheckboxValue,
+  _CheckboxProps as CheckboxProps,
+  _Checkbox as Checkbox,
+  _CheckboxInstance as CheckboxInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -47,9 +55,11 @@ declare global {
      */
     export type CheckboxValue = _CheckboxValue;
     /** 多选项目属性 */
-    export interface CheckboxProps extends _CheckboxProps {}
+    export type CheckboxProps = _CheckboxProps;
     /** 多选项目 */
     export type Checkbox = _Checkbox;
+    /** 多选项目实例 */
+    export type CheckboxInstance = _CheckboxInstance;
   }
 }
 

@@ -17,7 +17,7 @@ interface _SwitchOnChange {
 }
 
 /** 开关选择器属性 */
-interface _SwitchProps {
+type _SwitchProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /**
@@ -38,10 +38,13 @@ interface _SwitchProps {
   color: string;
   /** checked 改变时触发 */
   onChange: _SwitchOnChange;
-}
+}>;
 
 /** 开关选择器 */
-type _Switch = Component<Partial<_SwitchProps>>;
+type _Switch = Component<_SwitchProps>;
+
+/** 开关选择器实例 */
+type _SwitchInstance = InstanceType<_Switch>;
 
 export {
   _SwitchChecked as SwitchChecked,
@@ -50,6 +53,7 @@ export {
   _SwitchOnChange as SwitchOnChange,
   _SwitchProps as SwitchProps,
   _Switch as Switch,
+  _SwitchInstance as SwitchInstance,
 };
 
 declare global {
@@ -62,9 +66,11 @@ declare global {
     /** checked 改变时触发 */
     export interface SwitchOnChange extends _SwitchOnChange {}
     /** 开关选择器属性 */
-    export interface SwitchProps extends _SwitchProps {}
+    export type SwitchProps = _SwitchProps;
     /** 开关选择器 */
     export type Switch = _Switch;
+    /** 开关选择器实例 */
+    export type SwitchInstance = _SwitchInstance;
   }
 }
 

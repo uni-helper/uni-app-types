@@ -23,7 +23,7 @@ interface _SliderOnChanging {
 }
 
 /** 滑动选择器属性 */
-interface _SliderProps {
+type _SliderProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /**
@@ -92,10 +92,13 @@ interface _SliderProps {
   onChange: _SliderOnChange;
   /** 拖动过程中触发 */
   onChanging: _SliderOnChanging;
-}
+}>;
 
 /** 滑动选择器 */
-type _Slider = Component<Partial<_SliderProps>>;
+type _Slider = Component<_SliderProps>;
+
+/** 滑动选择器实例 */
+type _SliderInstance = InstanceType<_Slider>;
 
 export {
   _SliderValue as SliderValue,
@@ -105,6 +108,7 @@ export {
   _SliderOnChanging as SliderOnChanging,
   _SliderProps as SliderProps,
   _Slider as Slider,
+  _SliderInstance as SliderInstance,
 };
 
 declare global {
@@ -118,9 +122,11 @@ declare global {
     /** 拖动过程中触发 */
     export interface SliderOnChanging extends _SliderOnChanging {}
     /** 滑动选择器属性 */
-    export interface SliderProps extends _SliderProps {}
+    export type SliderProps = _SliderProps;
     /** 滑动选择器 */
     export type Slider = _Slider;
+    /** 滑动选择器实例 */
+    export type SliderInstance = _SliderInstance;
   }
 }
 

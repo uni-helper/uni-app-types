@@ -7,7 +7,8 @@ import { Component } from '../Component';
  */
 type _RadioValue = string;
 
-interface _RadioProps {
+/** 单选项目属性 */
+type _RadioProps = Partial<{
   /** 在 form 中作为 key */
   name: string;
   /**
@@ -30,12 +31,20 @@ interface _RadioProps {
   disabled: boolean;
   /** 颜色 */
   color: string;
-}
+}>;
 
 /** 单选项目 */
-type _Radio = Component<Partial<_RadioProps>>;
+type _Radio = Component<_RadioProps>;
 
-export { _RadioValue as RadioValue, _RadioProps as RadioProps, _Radio as Radio };
+/** 单选项目实例 */
+type _RadioInstance = InstanceType<_Radio>;
+
+export {
+  _RadioValue as RadioValue,
+  _RadioProps as RadioProps,
+  _Radio as Radio,
+  _RadioInstance as RadioInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -45,9 +54,12 @@ declare global {
      * 被选中时，radio-group 的 change 事件会携带该 value
      */
     export type RadioValue = _RadioValue;
-    export interface RadioProps extends _RadioProps {}
+    /** 单选项目属性 */
+    export type RadioProps = _RadioProps;
     /** 单选项目 */
     export type Radio = _Radio;
+    /** 单选项目实例 */
+    export type RadioInstance = _RadioInstance;
   }
 }
 

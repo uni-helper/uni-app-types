@@ -18,7 +18,7 @@ interface _AdDrawOnError {
 }
 
 /** 沉浸视频流广告属性 */
-interface _AdDrawProps {
+type _AdDrawProps = Partial<{
   /** APP 广告位 id */
   adpid: string;
   /** 广告数据 */
@@ -27,10 +27,13 @@ interface _AdDrawProps {
   onLoad: AdDrawOnLoad;
   /** 广告加载失败的回调 */
   onError: AdDrawOnError;
-}
+}>;
 
 /** 沉浸视频流广告 */
-type _AdDraw = Component<Partial<_AdDrawProps>>;
+type _AdDraw = Component<_AdDrawProps>;
+
+/** 沉浸视频流广告实例 */
+type _AdDrawInstance = InstanceType<_AdDraw>;
 
 export {
   _AdDrawOnLoad as AdDrawOnLoad,
@@ -38,6 +41,7 @@ export {
   _AdDrawOnError as AdDrawOnError,
   _AdDrawProps as AdDrawProps,
   _AdDraw as AdDraw,
+  _AdDrawInstance as AdDrawInstance,
 };
 
 declare global {
@@ -48,9 +52,11 @@ declare global {
     /** 广告加载失败的回调 */
     export interface AdDrawOnError extends _AdDrawOnError {}
     /** 沉浸视频流广告属性 */
-    export interface AdDrawProps extends _AdDrawProps {}
+    export type AdDrawProps = _AdDrawProps;
     /** 沉浸视频流广告 */
     export type AdDraw = _AdDraw;
+    /** 沉浸视频流广告实例 */
+    export type AdDrawInstance = _AdDrawInstance;
   }
 }
 

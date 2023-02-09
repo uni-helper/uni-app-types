@@ -40,7 +40,7 @@ interface _CanvasOnError {
 }
 
 /** 画布属性 */
-interface _CanvasProps {
+type _CanvasProps = Partial<{
   /** 类型 */
   type: _CanvasType;
   /** 唯一标识符 */
@@ -69,10 +69,13 @@ interface _CanvasProps {
   onLongtap: _CanvasOnLongtap;
   /** 发生错误时触发 */
   onError: _CanvasOnError;
-}
+}>;
 
 /** 画布 */
-type _Canvas = Component<Partial<_CanvasProps>>;
+type _Canvas = Component<_CanvasProps>;
+
+/** 画布实例 */
+type _CanvasInstance = InstanceType<_Canvas>;
 
 export {
   _CanvasType as CanvasType,
@@ -85,6 +88,7 @@ export {
   _CanvasOnError as CanvasOnError,
   _CanvasProps as CanvasProps,
   _Canvas as Canvas,
+  _CanvasInstance as CanvasInstance,
 };
 
 declare global {
@@ -105,9 +109,11 @@ declare global {
     /** 发生错误时触发 */
     export interface CanvasOnError extends _CanvasOnError {}
     /** 画布属性 */
-    export interface CanvasProps extends _CanvasProps {}
+    export type CanvasProp = _CanvasProps;
     /** 画布 */
     export type Canvas = _Canvas;
+    /** 画布实例 */
+    export type CanvasInstance = _CanvasInstance;
   }
 }
 
