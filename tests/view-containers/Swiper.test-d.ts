@@ -10,6 +10,7 @@ import type {
   SwiperOnAnimationfinish,
   SwiperProps,
   Swiper,
+  SwiperInstance,
 } from '@/view-containers/Swiper';
 
 describe('Swiper', () => {
@@ -42,4 +43,7 @@ describe('Swiper', () => {
 
   expectTypeOf<Swiper>().not.toBeAny();
   expectTypeOf<Swiper>().toEqualTypeOf<UniHelper.Swiper>();
+
+  expectTypeOf<SwiperInstance>().not.toBeAny();
+  expectTypeOf<SwiperInstance>().toEqualTypeOf<UniHelper.SwiperInstance>();
 });

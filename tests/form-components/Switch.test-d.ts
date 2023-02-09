@@ -6,6 +6,7 @@ import type {
   SwitchOnChange,
   SwitchProps,
   Switch,
+  SwitchInstance,
 } from '@/form-components/Switch';
 
 describe('Switch', () => {
@@ -26,4 +27,7 @@ describe('Switch', () => {
 
   expectTypeOf<Switch>().not.toBeAny();
   expectTypeOf<Switch>().toEqualTypeOf<UniHelper.Switch>();
+
+  expectTypeOf<SwitchInstance>().not.toBeAny();
+  expectTypeOf<SwitchInstance>().toEqualTypeOf<UniHelper.SwitchInstance>();
 });

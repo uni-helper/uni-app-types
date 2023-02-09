@@ -1,5 +1,10 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { CheckboxValue, CheckboxProps, Checkbox } from '@/form-components/Checkbox';
+import type {
+  CheckboxValue,
+  CheckboxProps,
+  Checkbox,
+  CheckboxInstance,
+} from '@/form-components/Checkbox';
 
 describe('Checkbox', () => {
   expectTypeOf<CheckboxValue>().toBeString();
@@ -10,4 +15,7 @@ describe('Checkbox', () => {
 
   expectTypeOf<Checkbox>().not.toBeAny();
   expectTypeOf<Checkbox>().toEqualTypeOf<UniHelper.Checkbox>();
+
+  expectTypeOf<CheckboxInstance>().not.toBeAny();
+  expectTypeOf<CheckboxInstance>().toEqualTypeOf<UniHelper.CheckboxInstance>();
 });

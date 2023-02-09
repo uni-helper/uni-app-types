@@ -8,6 +8,7 @@ import type {
   PageMetaOnScrolldone,
   PageMetaProps,
   PageMeta,
+  PageMetaInstance,
 } from '@/page-property-configuration-node/PageMeta';
 
 describe('PageMeta', () => {
@@ -34,4 +35,7 @@ describe('PageMeta', () => {
 
   expectTypeOf<PageMeta>().not.toBeAny();
   expectTypeOf<PageMeta>().toEqualTypeOf<UniHelper.PageMeta>();
+
+  expectTypeOf<PageMetaInstance>().not.toBeAny();
+  expectTypeOf<PageMetaInstance>().toEqualTypeOf<UniHelper.PageMetaInstance>();
 });

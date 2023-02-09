@@ -10,7 +10,7 @@ import type {
   TouchCanvasEvent,
 } from '@/events';
 
-describe('Ad', () => {
+describe('Events', () => {
   expectTypeOf<EventTarget>().toBeObject();
   expectTypeOf<EventTarget>().toEqualTypeOf<UniHelper.EventTarget>();
 

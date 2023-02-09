@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { ViewProps, View } from '@/view-containers/View';
+import type { ViewProps, View, ViewInstance } from '@/view-containers/View';
 
 describe('View', () => {
   expectTypeOf<ViewProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('View', () => {
 
   expectTypeOf<View>().not.toBeAny();
   expectTypeOf<View>().toEqualTypeOf<UniHelper.View>();
+
+  expectTypeOf<ViewInstance>().not.toBeAny();
+  expectTypeOf<ViewInstance>().toEqualTypeOf<UniHelper.ViewInstance>();
 });

@@ -8,6 +8,7 @@ import type {
   NavigationBarColorAnimationTimingFunc,
   NavigationBarProps,
   NavigationBar,
+  NavigationBarInstance,
 } from '@/page-property-configuration-node/NavigationBar';
 
 describe('NavigationBar', () => {
@@ -34,4 +35,7 @@ describe('NavigationBar', () => {
 
   expectTypeOf<NavigationBar>().not.toBeAny();
   expectTypeOf<NavigationBar>().toEqualTypeOf<UniHelper.NavigationBar>();
+
+  expectTypeOf<NavigationBarInstance>().not.toBeAny();
+  expectTypeOf<NavigationBarInstance>().toEqualTypeOf<UniHelper.NavigationBarInstance>();
 });

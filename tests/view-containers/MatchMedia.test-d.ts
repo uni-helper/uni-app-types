@@ -3,6 +3,7 @@ import type {
   MatchMediaOrientation,
   MatchMediaProps,
   MatchMedia,
+  MatchMediaInstance,
 } from '@/view-containers/MatchMedia';
 
 describe('MatchMedia', () => {
@@ -14,4 +15,7 @@ describe('MatchMedia', () => {
 
   expectTypeOf<MatchMedia>().not.toBeAny();
   expectTypeOf<MatchMedia>().toEqualTypeOf<UniHelper.MatchMedia>();
+
+  expectTypeOf<MatchMediaInstance>().not.toBeAny();
+  expectTypeOf<MatchMediaInstance>().toEqualTypeOf<UniHelper.MatchMediaInstance>();
 });

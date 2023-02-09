@@ -37,6 +37,7 @@ import type {
   PickerValue,
   PickerProps,
   Picker,
+  PickerInstance,
 } from '@/form-components/Picker';
 
 describe('Picker', () => {
@@ -150,4 +151,7 @@ describe('Picker', () => {
 
   expectTypeOf<Picker>().not.toBeAny();
   expectTypeOf<Picker>().toEqualTypeOf<UniHelper.Picker>();
+
+  expectTypeOf<PickerInstance>().not.toBeAny();
+  expectTypeOf<PickerInstance>().toEqualTypeOf<UniHelper.PickerInstance>();
 });

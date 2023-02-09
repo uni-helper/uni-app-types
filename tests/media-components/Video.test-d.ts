@@ -30,6 +30,7 @@ import type {
   VideoOnControlstoggle,
   VideoProps,
   Video,
+  VideoInstance,
 } from '@/media-components/Video';
 
 describe('Video', () => {
@@ -122,4 +123,7 @@ describe('Video', () => {
 
   expectTypeOf<Video>().not.toBeAny();
   expectTypeOf<Video>().toEqualTypeOf<UniHelper.Video>();
+
+  expectTypeOf<VideoInstance>().not.toBeAny();
+  expectTypeOf<VideoInstance>().toEqualTypeOf<UniHelper.VideoInstance>();
 });

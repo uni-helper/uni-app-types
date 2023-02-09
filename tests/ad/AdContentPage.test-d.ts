@@ -13,6 +13,7 @@ import type {
   AdContentPageOnComplete,
   AdContentPageProps,
   AdContentPage,
+  AdContentPageInstance,
 } from '@/ad/AdContentPage';
 
 describe('AdContentPage', () => {
@@ -54,4 +55,7 @@ describe('AdContentPage', () => {
 
   expectTypeOf<AdContentPage>().not.toBeAny();
   expectTypeOf<AdContentPage>().toEqualTypeOf<UniHelper.AdContentPage>();
+
+  expectTypeOf<AdContentPageInstance>().not.toBeAny();
+  expectTypeOf<AdContentPageInstance>().toEqualTypeOf<UniHelper.AdContentPageInstance>();
 });

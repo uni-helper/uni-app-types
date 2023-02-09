@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { CoverViewProps, CoverView } from '@/view-containers/CoverView';
+import type { CoverViewProps, CoverView, CoverViewInstance } from '@/view-containers/CoverView';
 
 describe('CoverView', () => {
   expectTypeOf<CoverViewProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('CoverView', () => {
 
   expectTypeOf<CoverView>().not.toBeAny();
   expectTypeOf<CoverView>().toEqualTypeOf<UniHelper.CoverView>();
+
+  expectTypeOf<CoverViewInstance>().not.toBeAny();
+  expectTypeOf<CoverViewInstance>().toEqualTypeOf<UniHelper.CoverViewInstance>();
 });

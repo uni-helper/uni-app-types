@@ -16,6 +16,7 @@ import type {
   TextareaOnKeyboardheightchange,
   TextareaProps,
   Textarea,
+  TextareaInstance,
 } from '@/form-components/Textarea';
 
 describe('Textarea', () => {
@@ -66,4 +67,7 @@ describe('Textarea', () => {
 
   expectTypeOf<Textarea>().not.toBeAny();
   expectTypeOf<Textarea>().toEqualTypeOf<UniHelper.Textarea>();
+
+  expectTypeOf<TextareaInstance>().not.toBeAny();
+  expectTypeOf<TextareaInstance>().toEqualTypeOf<UniHelper.TextareaInstance>();
 });

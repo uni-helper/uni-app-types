@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { IconProps, Icon } from '@/basic-components/Icon';
+import type { IconProps, Icon, IconInstance } from '@/basic-components/Icon';
 
 describe('Icon', () => {
   expectTypeOf<IconProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('Icon', () => {
 
   expectTypeOf<Icon>().not.toBeAny();
   expectTypeOf<Icon>().toEqualTypeOf<UniHelper.Icon>();
+
+  expectTypeOf<IconInstance>().not.toBeAny();
+  expectTypeOf<IconInstance>().toEqualTypeOf<UniHelper.IconInstance>();
 });

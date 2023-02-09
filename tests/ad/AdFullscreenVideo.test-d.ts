@@ -6,6 +6,7 @@ import type {
   AdFullscreenVideoOnClose,
   AdFullscreenVideoProps,
   AdFullscreenVideo,
+  AdFullscreenVideoInstance,
 } from '@/ad/AdFullscreenVideo';
 
 describe('AdFullscreenVideo', () => {
@@ -26,4 +27,7 @@ describe('AdFullscreenVideo', () => {
 
   expectTypeOf<AdFullscreenVideo>().not.toBeAny();
   expectTypeOf<AdFullscreenVideo>().toEqualTypeOf<UniHelper.AdFullscreenVideo>();
+
+  expectTypeOf<AdFullscreenVideoInstance>().not.toBeAny();
+  expectTypeOf<AdFullscreenVideoInstance>().toEqualTypeOf<UniHelper.AdFullscreenVideoInstance>();
 });

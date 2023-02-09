@@ -4,6 +4,7 @@ import type {
   RadioGroupOnChange,
   RadioGroupProps,
   RadioGroup,
+  RadioGroupInstance,
 } from '@/form-components/RadioGroup';
 
 describe('RadioGroup', () => {
@@ -18,4 +19,7 @@ describe('RadioGroup', () => {
 
   expectTypeOf<RadioGroup>().not.toBeAny();
   expectTypeOf<RadioGroup>().toEqualTypeOf<UniHelper.RadioGroup>();
+
+  expectTypeOf<RadioGroupInstance>().not.toBeAny();
+  expectTypeOf<RadioGroupInstance>().toEqualTypeOf<UniHelper.RadioGroupInstance>();
 });

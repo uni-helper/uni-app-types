@@ -7,6 +7,7 @@ import type {
   SliderOnChanging,
   SliderProps,
   Slider,
+  SliderInstance,
 } from '@/form-components/Slider';
 
 describe('Slider', () => {
@@ -30,4 +31,7 @@ describe('Slider', () => {
 
   expectTypeOf<Slider>().not.toBeAny();
   expectTypeOf<Slider>().toEqualTypeOf<UniHelper.Slider>();
+
+  expectTypeOf<SliderInstance>().not.toBeAny();
+  expectTypeOf<SliderInstance>().toEqualTypeOf<UniHelper.SliderInstance>();
 });

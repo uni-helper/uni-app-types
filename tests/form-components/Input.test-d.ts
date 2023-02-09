@@ -17,6 +17,7 @@ import type {
   InputOnKeyboardheightchange,
   InputProps,
   Input,
+  InputInstance,
 } from '@/form-components/Input';
 
 describe('Input', () => {
@@ -70,4 +71,7 @@ describe('Input', () => {
 
   expectTypeOf<Input>().not.toBeAny();
   expectTypeOf<Input>().toEqualTypeOf<UniHelper.Input>();
+
+  expectTypeOf<InputInstance>().not.toBeAny();
+  expectTypeOf<InputInstance>().toEqualTypeOf<UniHelper.InputInstance>();
 });

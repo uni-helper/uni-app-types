@@ -1,5 +1,13 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { AdOnLoad, AdOnErrorDetail, AdOnError, AdOnClose, AdProps, Ad } from '@/ad/Ad';
+import type {
+  AdOnLoad,
+  AdOnErrorDetail,
+  AdOnError,
+  AdOnClose,
+  AdProps,
+  Ad,
+  AdInstance,
+} from '@/ad/Ad';
 
 describe('Ad', () => {
   expectTypeOf<AdOnLoad>().toBeFunction();
@@ -19,4 +27,7 @@ describe('Ad', () => {
 
   expectTypeOf<Ad>().not.toBeAny();
   expectTypeOf<Ad>().toEqualTypeOf<UniHelper.Ad>();
+
+  expectTypeOf<AdInstance>().not.toBeAny();
+  expectTypeOf<AdInstance>().toEqualTypeOf<UniHelper.AdInstance>();
 });

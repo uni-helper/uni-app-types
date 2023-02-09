@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { LabelProps, Label } from '@/form-components/Label';
+import type { LabelProps, Label, LabelInstance } from '@/form-components/Label';
 
 describe('Label', () => {
   expectTypeOf<LabelProps>().toBeObject();
@@ -7,4 +7,7 @@ describe('Label', () => {
 
   expectTypeOf<Label>().not.toBeAny();
   expectTypeOf<Label>().toEqualTypeOf<UniHelper.Label>();
+
+  expectTypeOf<LabelInstance>().not.toBeAny();
+  expectTypeOf<LabelInstance>().toEqualTypeOf<UniHelper.LabelInstance>();
 });

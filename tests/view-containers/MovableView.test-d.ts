@@ -8,6 +8,7 @@ import type {
   MovableViewOnScale,
   MovableViewProps,
   MovableView,
+  MovableViewInstance,
 } from '@/view-containers/MovableView';
 
 describe('MovableView', () => {
@@ -34,4 +35,7 @@ describe('MovableView', () => {
 
   expectTypeOf<MovableView>().not.toBeAny();
   expectTypeOf<MovableView>().toEqualTypeOf<UniHelper.MovableView>();
+
+  expectTypeOf<MovableViewInstance>().not.toBeAny();
+  expectTypeOf<MovableViewInstance>().toEqualTypeOf<UniHelper.MovableViewInstance>();
 });

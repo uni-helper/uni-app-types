@@ -5,6 +5,7 @@ import type {
   CustomTabBarOnTabItemTap,
   CustomTabBarProps,
   CustomTabBar,
+  CustomTabBarInstance,
 } from '@/page-property-configuration-node/CustomTabBar';
 
 describe('CustomTabBar', () => {
@@ -22,4 +23,7 @@ describe('CustomTabBar', () => {
 
   expectTypeOf<CustomTabBar>().not.toBeAny();
   expectTypeOf<CustomTabBar>().toEqualTypeOf<UniHelper.CustomTabBar>();
+
+  expectTypeOf<CustomTabBarInstance>().not.toBeAny();
+  expectTypeOf<CustomTabBarInstance>().toEqualTypeOf<UniHelper.CustomTabBarInstance>();
 });

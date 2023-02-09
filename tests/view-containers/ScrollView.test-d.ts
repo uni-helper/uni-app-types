@@ -11,6 +11,7 @@ import type {
   ScrollViewOnRefresherabort,
   ScrollViewProps,
   ScrollView,
+  ScrollViewInstance,
 } from '@/view-containers/ScrollView';
 
 describe('ScrollView', () => {
@@ -46,4 +47,7 @@ describe('ScrollView', () => {
 
   expectTypeOf<ScrollView>().not.toBeAny();
   expectTypeOf<ScrollView>().toEqualTypeOf<UniHelper.ScrollView>();
+
+  expectTypeOf<ScrollViewInstance>().not.toBeAny();
+  expectTypeOf<ScrollViewInstance>().toEqualTypeOf<UniHelper.ScrollViewInstance>();
 });

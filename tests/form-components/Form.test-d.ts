@@ -6,6 +6,7 @@ import type {
   FormOnReset,
   FormProps,
   Form,
+  FormInstance,
 } from '@/form-components/Form';
 
 describe('Form', () => {
@@ -26,4 +27,7 @@ describe('Form', () => {
 
   expectTypeOf<Form>().not.toBeAny();
   expectTypeOf<Form>().toEqualTypeOf<UniHelper.Form>();
+
+  expectTypeOf<FormInstance>().not.toBeAny();
+  expectTypeOf<FormInstance>().toEqualTypeOf<UniHelper.FormInstance>();
 });

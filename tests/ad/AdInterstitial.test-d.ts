@@ -6,6 +6,7 @@ import type {
   AdInterstitialOnClose,
   AdInterstitialProps,
   AdInterstitial,
+  AdInterstitialInstance,
 } from '@/ad/AdInterstitial';
 
 describe('AdInterstitial', () => {
@@ -26,4 +27,7 @@ describe('AdInterstitial', () => {
 
   expectTypeOf<AdInterstitial>().not.toBeAny();
   expectTypeOf<AdInterstitial>().toEqualTypeOf<UniHelper.AdInterstitial>();
+
+  expectTypeOf<AdInterstitialInstance>().not.toBeAny();
+  expectTypeOf<AdInterstitialInstance>().toEqualTypeOf<UniHelper.AdInterstitialInstance>();
 });

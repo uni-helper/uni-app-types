@@ -19,6 +19,7 @@ import type {
   ButtonOnLogin,
   ButtonProps,
   Button,
+  ButtonInstance,
 } from '@/form-components/Button';
 
 describe('Button', () => {
@@ -78,4 +79,7 @@ describe('Button', () => {
 
   expectTypeOf<Button>().not.toBeAny();
   expectTypeOf<Button>().toEqualTypeOf<UniHelper.Button>();
+
+  expectTypeOf<ButtonInstance>().not.toBeAny();
+  expectTypeOf<ButtonInstance>().toEqualTypeOf<UniHelper.ButtonInstance>();
 });

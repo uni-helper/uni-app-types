@@ -8,6 +8,7 @@ import type {
   PickerViewOnPickend,
   PickerViewProps,
   PickerView,
+  PickerViewInstance,
 } from '@/form-components/PickerView';
 
 describe('PickerView', () => {
@@ -34,4 +35,7 @@ describe('PickerView', () => {
 
   expectTypeOf<PickerView>().not.toBeAny();
   expectTypeOf<PickerView>().toEqualTypeOf<UniHelper.PickerView>();
+
+  expectTypeOf<PickerViewInstance>().not.toBeAny();
+  expectTypeOf<PickerViewInstance>().toEqualTypeOf<UniHelper.PickerViewInstance>();
 });

@@ -22,6 +22,7 @@ import type {
   LivePusherOnBgmcomplete,
   LivePusherProps,
   LivePusher,
+  LivePusherInstance,
 } from '@/media-components/LivePusher';
 
 describe('LivePusher', () => {
@@ -90,4 +91,7 @@ describe('LivePusher', () => {
 
   expectTypeOf<LivePusher>().not.toBeAny();
   expectTypeOf<LivePusher>().toEqualTypeOf<UniHelper.LivePusher>();
+
+  expectTypeOf<LivePusherInstance>().not.toBeAny();
+  expectTypeOf<LivePusherInstance>().toEqualTypeOf<UniHelper.LivePusherInstance>();
 });

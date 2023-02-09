@@ -7,6 +7,7 @@ import type {
   AdRewardedVideoOnClose,
   AdRewardedVideoProps,
   AdRewardedVideo,
+  AdRewardedVideoInstance,
 } from '@/ad/AdRewardedVideo';
 
 describe('AdRewardedVideo', () => {
@@ -30,4 +31,7 @@ describe('AdRewardedVideo', () => {
 
   expectTypeOf<AdRewardedVideo>().not.toBeAny();
   expectTypeOf<AdRewardedVideo>().toEqualTypeOf<UniHelper.AdRewardedVideo>();
+
+  expectTypeOf<AdRewardedVideoInstance>().not.toBeAny();
+  expectTypeOf<AdRewardedVideoInstance>().toEqualTypeOf<UniHelper.AdRewardedVideoInstance>();
 });

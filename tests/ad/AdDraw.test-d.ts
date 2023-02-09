@@ -5,6 +5,7 @@ import type {
   AdDrawOnError,
   AdDrawProps,
   AdDraw,
+  AdDrawInstance,
 } from '@/ad/AdDraw';
 
 describe('AdDraw', () => {
@@ -22,4 +23,7 @@ describe('AdDraw', () => {
 
   expectTypeOf<AdDraw>().not.toBeAny();
   expectTypeOf<AdDraw>().toEqualTypeOf<UniHelper.AdDraw>();
+
+  expectTypeOf<AdDrawInstance>().not.toBeAny();
+  expectTypeOf<AdDrawInstance>().toEqualTypeOf<UniHelper.AdDrawInstance>();
 });

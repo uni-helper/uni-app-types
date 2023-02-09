@@ -10,6 +10,7 @@ import type {
   CanvasOnError,
   CanvasProps,
   Canvas,
+  CanvasInstance,
 } from '@/canvas';
 
 describe('Canvas', () => {
@@ -42,4 +43,7 @@ describe('Canvas', () => {
 
   expectTypeOf<Canvas>().not.toBeAny();
   expectTypeOf<Canvas>().toEqualTypeOf<UniHelper.Canvas>();
+
+  expectTypeOf<CanvasInstance>().not.toBeAny();
+  expectTypeOf<CanvasInstance>().toEqualTypeOf<UniHelper.CanvasInstance>();
 });

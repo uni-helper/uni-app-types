@@ -10,6 +10,7 @@ import type {
   EditorOnStatuschange,
   EditorProps,
   Editor,
+  EditorInstance,
 } from '@/form-components/Editor';
 
 describe('Editor', () => {
@@ -42,4 +43,7 @@ describe('Editor', () => {
 
   expectTypeOf<Editor>().not.toBeAny();
   expectTypeOf<Editor>().toEqualTypeOf<UniHelper.Editor>();
+
+  expectTypeOf<EditorInstance>().not.toBeAny();
+  expectTypeOf<EditorInstance>().toEqualTypeOf<UniHelper.EditorInstance>();
 });

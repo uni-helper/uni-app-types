@@ -4,6 +4,7 @@ import type {
   CoverImageOnError,
   CoverImageProps,
   CoverImage,
+  CoverImageInstance,
 } from '@/view-containers/CoverImage';
 
 describe('CoverImage', () => {
@@ -18,4 +19,7 @@ describe('CoverImage', () => {
 
   expectTypeOf<CoverImage>().not.toBeAny();
   expectTypeOf<CoverImage>().toEqualTypeOf<UniHelper.CoverImage>();
+
+  expectTypeOf<CoverImageInstance>().not.toBeAny();
+  expectTypeOf<CoverImageInstance>().toEqualTypeOf<UniHelper.CoverImageInstance>();
 });

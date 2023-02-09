@@ -4,6 +4,7 @@ import type {
   CheckboxGroupOnChange,
   CheckboxGroupProps,
   CheckboxGroup,
+  CheckboxGroupInstance,
 } from '@/form-components/CheckboxGroup';
 
 describe('CheckboxGroup', () => {
@@ -18,4 +19,7 @@ describe('CheckboxGroup', () => {
 
   expectTypeOf<CheckboxGroup>().not.toBeAny();
   expectTypeOf<CheckboxGroup>().toEqualTypeOf<UniHelper.CheckboxGroup>();
+
+  expectTypeOf<CheckboxGroupInstance>().not.toBeAny();
+  expectTypeOf<CheckboxGroupInstance>().toEqualTypeOf<UniHelper.CheckboxGroupInstance>();
 });

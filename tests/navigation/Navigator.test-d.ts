@@ -6,6 +6,7 @@ import type {
   NavigatorVersion,
   NavigatorProps,
   Navigator,
+  NavigatorInstance,
 } from '@/navigation/Navigator';
 
 describe('Navigator', () => {
@@ -26,4 +27,7 @@ describe('Navigator', () => {
 
   expectTypeOf<Navigator>().not.toBeAny();
   expectTypeOf<Navigator>().toEqualTypeOf<UniHelper.Navigator>();
+
+  expectTypeOf<NavigatorInstance>().not.toBeAny();
+  expectTypeOf<NavigatorInstance>().toEqualTypeOf<UniHelper.NavigatorInstance>();
 });

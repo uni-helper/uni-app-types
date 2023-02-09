@@ -12,6 +12,7 @@ import type {
   CameraOnScancode,
   CameraProps,
   Camera,
+  CameraInstance,
 } from '@/media-components/Camera';
 
 describe('Camera', () => {
@@ -50,4 +51,7 @@ describe('Camera', () => {
 
   expectTypeOf<Camera>().not.toBeAny();
   expectTypeOf<Camera>().toEqualTypeOf<UniHelper.Camera>();
+
+  expectTypeOf<CameraInstance>().not.toBeAny();
+  expectTypeOf<CameraInstance>().toEqualTypeOf<UniHelper.CameraInstance>();
 });

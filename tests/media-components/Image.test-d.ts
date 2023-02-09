@@ -6,6 +6,7 @@ import type {
   ImageOnLoad,
   ImageProps,
   Image,
+  ImageInstance,
 } from '@/media-components/Image';
 
 describe('Image', () => {
@@ -26,4 +27,7 @@ describe('Image', () => {
 
   expectTypeOf<Image>().not.toBeAny();
   expectTypeOf<Image>().toEqualTypeOf<UniHelper.Image>();
+
+  expectTypeOf<ImageInstance>().not.toBeAny();
+  expectTypeOf<ImageInstance>().toEqualTypeOf<UniHelper.ImageInstance>();
 });

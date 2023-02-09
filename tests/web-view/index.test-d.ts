@@ -6,6 +6,7 @@ import type {
   WebViewOnOnPostMessage,
   WebViewProps,
   WebView,
+  WebViewInstance,
 } from '@/web-view';
 
 describe('WebView', () => {
@@ -26,4 +27,7 @@ describe('WebView', () => {
 
   expectTypeOf<WebView>().not.toBeAny();
   expectTypeOf<WebView>().toEqualTypeOf<UniHelper.WebView>();
+
+  expectTypeOf<WebViewInstance>().not.toBeAny();
+  expectTypeOf<WebViewInstance>().toEqualTypeOf<UniHelper.WebViewInstance>();
 });

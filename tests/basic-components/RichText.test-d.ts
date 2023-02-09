@@ -8,6 +8,7 @@ import type {
   RichTextOnItemclick,
   RichTextProps,
   RichText,
+  RichTextInstance,
 } from '@/basic-components/RichText';
 
 describe('RichText', () => {
@@ -33,4 +34,7 @@ describe('RichText', () => {
 
   expectTypeOf<RichText>().not.toBeAny();
   expectTypeOf<RichText>().toEqualTypeOf<UniHelper.RichText>();
+
+  expectTypeOf<RichTextInstance>().not.toBeAny();
+  expectTypeOf<RichTextInstance>().toEqualTypeOf<UniHelper.RichTextInstance>();
 });

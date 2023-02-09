@@ -1,5 +1,5 @@
 import { describe, expectTypeOf } from 'vitest';
-import type { RadioValue, RadioProps, Radio } from '@/form-components/Radio';
+import type { RadioValue, RadioProps, Radio, RadioInstance } from '@/form-components/Radio';
 
 describe('Radio', () => {
   expectTypeOf<RadioValue>().toBeString();
@@ -10,4 +10,7 @@ describe('Radio', () => {
 
   expectTypeOf<Radio>().not.toBeAny();
   expectTypeOf<Radio>().toEqualTypeOf<UniHelper.Radio>();
+
+  expectTypeOf<RadioInstance>().not.toBeAny();
+  expectTypeOf<RadioInstance>().toEqualTypeOf<UniHelper.RadioInstance>();
 });

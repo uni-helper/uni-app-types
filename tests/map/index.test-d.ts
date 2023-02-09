@@ -36,6 +36,7 @@ import type {
   MapOnPoitap,
   MapProps,
   Map,
+  MapInstance,
 } from '@/map';
 
 describe('Map', () => {
@@ -146,4 +147,7 @@ describe('Map', () => {
 
   expectTypeOf<Map>().not.toBeAny();
   expectTypeOf<Map>().toEqualTypeOf<UniHelper.Map>();
+
+  expectTypeOf<MapInstance>().not.toBeAny();
+  expectTypeOf<MapInstance>().toEqualTypeOf<UniHelper.MapInstance>();
 });

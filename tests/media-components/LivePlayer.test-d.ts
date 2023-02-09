@@ -18,6 +18,7 @@ import type {
   LivePlayerOnLeavepictureinpicture,
   LivePlayerProps,
   LivePlayer,
+  LivePlayerInstance,
 } from '@/media-components/LivePlayer';
 
 describe('LivePlayer', () => {
@@ -74,4 +75,7 @@ describe('LivePlayer', () => {
 
   expectTypeOf<LivePlayer>().not.toBeAny();
   expectTypeOf<LivePlayer>().toEqualTypeOf<UniHelper.LivePlayer>();
+
+  expectTypeOf<LivePlayerInstance>().not.toBeAny();
+  expectTypeOf<LivePlayerInstance>().toEqualTypeOf<UniHelper.LivePlayerInstance>();
 });

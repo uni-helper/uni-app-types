@@ -5,6 +5,7 @@ import type {
   AdInteractiveOnError,
   AdInteractiveProps,
   AdInteractive,
+  AdInteractiveInstance,
 } from '@/ad/AdInteractive';
 
 describe('AdInteractive', () => {
@@ -22,4 +23,7 @@ describe('AdInteractive', () => {
 
   expectTypeOf<AdInteractive>().not.toBeAny();
   expectTypeOf<AdInteractive>().toEqualTypeOf<UniHelper.AdInteractive>();
+
+  expectTypeOf<AdInteractiveInstance>().not.toBeAny();
+  expectTypeOf<AdInteractiveInstance>().toEqualTypeOf<UniHelper.AdInteractiveInstance>();
 });

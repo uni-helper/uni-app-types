@@ -9,6 +9,7 @@ import type {
   AudioOnEnded,
   AudioProps,
   Audio,
+  AudioInstance,
 } from '@/media-components/Audio';
 
 describe('Audio', () => {
@@ -38,4 +39,7 @@ describe('Audio', () => {
 
   expectTypeOf<Audio>().not.toBeAny();
   expectTypeOf<Audio>().toEqualTypeOf<UniHelper.Audio>();
+
+  expectTypeOf<AudioInstance>().not.toBeAny();
+  expectTypeOf<AudioInstance>().toEqualTypeOf<UniHelper.AudioInstance>();
 });

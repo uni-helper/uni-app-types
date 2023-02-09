@@ -4,9 +4,10 @@ import type {
   ProgressOnActiveend,
   ProgressProps,
   Progress,
+  ProgressInstance,
 } from '@/basic-components/Progress';
 
-describe('Ad', () => {
+describe('Progress', () => {
   expectTypeOf<ProgressActiveMode>().toBeString();
   expectTypeOf<ProgressActiveMode>().toEqualTypeOf<UniHelper.ProgressActiveMode>();
 
@@ -18,4 +19,7 @@ describe('Ad', () => {
 
   expectTypeOf<Progress>().not.toBeAny();
   expectTypeOf<Progress>().toEqualTypeOf<UniHelper.Progress>();
+
+  expectTypeOf<ProgressInstance>().not.toBeAny();
+  expectTypeOf<ProgressInstance>().toEqualTypeOf<UniHelper.ProgressInstance>();
 });
