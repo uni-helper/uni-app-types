@@ -1,4 +1,3 @@
-import { type } from 'node:os';
 import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
