@@ -1,5 +1,79 @@
 # 改动日志
 
+## 0.4.0 (2023-02-09)
+
+- feat: 提供所有组件的实例类型
+
+之前：
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { Button } from '@uni-helper/uni-app-types';
+
+// 你必须手动构造组件实例类型
+type ButtonInstance = InstanceOf<Button>;
+
+const buttonRef = ref<ButtonInstance | null>();
+</script>
+
+<template>
+  <button ref="buttonRef">button</button>
+</template>
+```
+
+现在：
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+// 你无需手动构造，导入即可使用
+import type { ButtonInstance } from '@uni-helper/uni-app-types';
+
+const buttonRef = ref<ButtonInstance | null>();
+
+// 也可以直接使用全局命名空间下的组件实例类型
+// const buttonRef = ref<UniHelper.ButtonInstance | null>();
+</script>
+
+<template>
+  <button ref="buttonRef">button</button>
+</template>
+```
+
+- feat: 现在所有组件 Props 类型下的属性都是可选的，使用 `v-bind` 直接绑定一个对象更为方便
+
+之前：
+
+```vue
+<script setup lang="ts">
+import type { ButtonProps } from '@uni-helper/uni-app-types';
+
+// 你必须手动设置 Partial
+// 否则你需要设置所有属性或禁用检查
+const buttonProps: Partial<ButtonProps> = { ... };
+</script>
+
+<template>
+  <button v-bind="buttonProps">button</button>
+</template>
+```
+
+现在：
+
+```vue
+<script setup lang="ts">
+import type { ButtonProps } from '@uni-helper/uni-app-types';
+
+// 不需要设置 Partial，也不需要设置所有属性
+const buttonProps: ButtonProps = { ... };
+</script>
+
+<template>
+  <button v-bind="buttonProps">button</button>
+</template>
+```
+
 ## 0.3.2 (2023-01-31)
 
 - fix: 修复大小写
