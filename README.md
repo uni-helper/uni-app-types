@@ -8,9 +8,9 @@
 - [@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型
 - [@uni-helper/uni-ui-types](https://github.com/uni-helper/uni-ui-types) 提供 `uni-ui` 组件类型
 
-基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Volar](https://github.com/johnsoncodehk/volar) 已经支持。
+基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 已经支持。
 
-安装 Volar 之后，建议启用 Volar 的 [接管模式 Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。如果不想启用 Take Over Mode，可以安装 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)。启用或安装后需要重启 VSCode。
+安装之后，建议启用 [接管模式 Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。如果不想启用接管模式，可以安装 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)。启用或安装后需要重启 VSCode。
 
 维护直到官方类型推出。
 
@@ -43,7 +43,7 @@ npm i -D @uni-helper/uni-app-types
 }
 ```
 
-更多关于 `experimentalRuntimeMode` 和 `nativeTags` 的信息请查看 [johnsoncodehk/volar#2165 (comment)](https://github.com/johnsoncodehk/volar/issues/2165#issuecomment-1334803492)。
+更多关于 `experimentalRuntimeMode` 和 `nativeTags` 的信息请查看 [vuejs/language-tools#2165 (comment)](https://github.com/vuejs/language-tools/issues/2165#issuecomment-1334803492)。
 
 - 重启编辑器 / IDE
 
