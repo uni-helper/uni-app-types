@@ -286,6 +286,10 @@ type _RegionPickerLevel = 'province' | 'city' | 'region' | 'sub-district';
 
 interface _RegionPickerOnChangeDetail {
   value: _RegionPickerValue;
+  /** 统计用区划代码 当 mode = region 时有效 (最低基础库: 1.4.0) */
+  code: [string, string, string];
+  /** 邮政编码 当 mode = region 时有效 (最低基础库: 1.4.0) */
+  postcode: string;
 }
 
 /** value 改变时触发 */
