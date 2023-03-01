@@ -4,11 +4,11 @@ import { AnyRecord } from '../Component';
 /** 组件的一些属性值集合 */
 interface _EventTarget<Dataset extends AnyRecord = AnyRecord> {
   /** 事件源组件的id */
-  id?: string;
+  id: string;
   /** 当前组件的类型 */
   tagName?: string;
-  /** 事件源组件上由 data- 开头的自定义属性组成的集合 */
-  dataset?: Dataset;
+  /** 事件源组件上由 `data-` 开头的自定义属性组成的集合 */
+  dataset: Dataset;
   /** 距离页面顶部的偏移量 */
   offsetTop: number;
   /** 距离页面左边的偏移量 */
@@ -16,22 +16,22 @@ interface _EventTarget<Dataset extends AnyRecord = AnyRecord> {
   [key: string]: any;
 }
 
-/** 基础事件 */
+/** 基础事件参数 */
 interface _BaseEvent<
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
 > {
   /** 事件类型 */
-  type?: string;
+  type: string;
   /** 事件生成时的时间戳 */
-  timeStamp?: number;
+  timeStamp: number;
   /** 事件冒泡路径上所有由 mark: 开头的自定义属性组成的集合 */
   mark?: Mark;
   /** 触发事件的源组件的一些属性值集合 */
-  target?: _EventTarget<TargetDataset>;
+  target: _EventTarget<TargetDataset>;
   /** 事件绑定的当前组件的一些属性值集合 */
-  currentTarget?: _EventTarget<CurrentTargetDataset>;
+  currentTarget: _EventTarget<CurrentTargetDataset>;
   [key: string]: any;
 }
 
@@ -43,32 +43,32 @@ interface _CustomEvent<
   TargetDataset extends AnyRecord = CurrentTargetDataset,
 > extends _BaseEvent<Mark, CurrentTargetDataset, TargetDataset> {
   /** 额外信息 */
-  detail?: Detail;
+  detail: Detail;
   [key: string]: any;
 }
 
 /** 当前停留在屏幕中的触摸点信息 */
 interface _TouchDetail {
   /** 标志符 */
-  identifier?: number;
+  identifier: number;
   /** 距离文档左上角的横向距离 */
-  pageX?: number;
+  pageX: number;
   /** 距离文档左上角的纵向距离 */
-  pageY?: number;
+  pageY: number;
   /** 距离页面可显示区域（屏幕除去导航条）左上角的横向距离 */
-  clientX?: number;
+  clientX: number;
   /** 距离页面可显示区域（屏幕除去导航条）左上角的纵向距离 */
-  clientY?: number;
+  clientY: number;
 }
 
 /** 当前停留在 canvas 中的触摸点信息 */
 interface _TouchCanvasDetail {
-  /** 标志符 */
-  identifier?: number;
-  /** 距离 canvas 左上角的横向距离 */
-  x?: number;
-  /** 距离 canvas 左上角的纵向距离 */
-  y?: number;
+  /** 触摸点的标识符 */
+  identifier: number;
+  /** 距离 Canvas 左上角的距离，Canvas 的左上角为原点 ，横向为X轴 */
+  x: number;
+  /** 距离 Canvas 左上角的距离，Canvas 的左上角为原点 纵向为Y轴 */
+  y: number;
 }
 
 /** 触摸事件 */
