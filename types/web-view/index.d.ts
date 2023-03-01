@@ -21,12 +21,12 @@ interface _WebViewOnMessageDetail {
 
 /** 网页向应用 postMessage 时，会在特定时机（后退、组件销毁、分享）触发并收到消息 */
 interface _WebViewOnMessage {
-  (event: CustomEvent<_WebViewOnMessageDetail>): void;
+  (event: CustomEvent<_WebViewOnMessageDetail>, ...params: any[]): void;
 }
 
 /** 网页向应用实时 postMessage */
 interface _WebViewOnOnPostMessage {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** Web 浏览器组件属性 */

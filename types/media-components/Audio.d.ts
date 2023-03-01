@@ -18,17 +18,17 @@ interface _AudioOnErrorDetail {
 
 /** 发生错误时触发 */
 interface _AudioOnError {
-  (event: CustomEvent<_AudioOnErrorDetail>): void;
+  (event: CustomEvent<_AudioOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 开始/继续播放时触发 */
 interface _AudioOnPlay {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 暂停播放时触发 */
 interface _AudioOnPause {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AudioOnTimeupdateDetail {
@@ -38,12 +38,12 @@ interface _AudioOnTimeupdateDetail {
 
 /** 播放进度改变时触发 */
 interface _AudioOnTimeupdate {
-  (event: CustomEvent<_AudioOnTimeupdateDetail>): void;
+  (event: CustomEvent<_AudioOnTimeupdateDetail>, ...params: any[]): void;
 }
 
 /** 播放到末尾时触发 */
 interface _AudioOnEnded {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 音频属性 */

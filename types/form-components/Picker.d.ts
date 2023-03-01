@@ -16,12 +16,12 @@ interface _SelectorPickerOnChangeDetail {
 
 /** value 改变时触发 */
 interface _SelectorPickerOnChange {
-  (event: CustomEvent<_SelectorPickerOnChangeDetail>): void;
+  (event: CustomEvent<_SelectorPickerOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 取消选择时触发 */
 interface _SelectorPickerOnCancel {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _SelectorPickerProps = Partial<{
@@ -80,7 +80,7 @@ interface _MultiSelectorPickerOnChangeDetail {
 
 /** value 改变时触发 */
 interface _MultiSelectorPickerOnChange {
-  (event: CustomEvent<_MultiSelectorPickerOnChangeDetail>): void;
+  (event: CustomEvent<_MultiSelectorPickerOnChangeDetail>, ...params: any[]): void;
 }
 
 interface _MultiSelectorPickerOnColumnchangeDetail {
@@ -90,12 +90,12 @@ interface _MultiSelectorPickerOnColumnchangeDetail {
 
 /** 某一列 value 改变时触发 */
 interface _MultiSelectorPickerOnColumnchange {
-  (event: CustomEvent<_MultiSelectorPickerOnColumnchangeDetail>): void;
+  (event: CustomEvent<_MultiSelectorPickerOnColumnchangeDetail>, ...params: any[]): void;
 }
 
 /** 取消选择时触发 */
 interface _MultiSelectorPickerOnCancel {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _MultiSelectorPickerProps = Partial<{
@@ -144,12 +144,12 @@ interface _TimePickerOnChangeDetail {
 
 /** value 改变时触发 */
 interface _TimePickerOnChange {
-  (event: CustomEvent<_TimePickerOnChangeDetail>): void;
+  (event: CustomEvent<_TimePickerOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 取消选择时触发 */
 interface _TimePickerOnCancel {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _TimePickerProps = Partial<{
@@ -211,12 +211,12 @@ interface _DatePickerOnChangeDetail {
 
 /** value 改变时触发 */
 interface _DatePickerOnChange {
-  (event: CustomEvent<_DatePickerOnChangeDetail>): void;
+  (event: CustomEvent<_DatePickerOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 取消选择时触发 */
 interface _DatePickerOnCancel {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _DatePickerProps = Partial<{
@@ -290,12 +290,12 @@ interface _RegionPickerOnChangeDetail {
 
 /** value 改变时触发 */
 interface _RegionPickerOnChange {
-  (event: CustomEvent<_RegionPickerOnChangeDetail>): void;
+  (event: CustomEvent<_RegionPickerOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 取消选择时触发 */
 interface _RegionPickerOnCancel {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _RegionPickerProps = Partial<{

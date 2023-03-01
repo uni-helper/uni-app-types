@@ -2,7 +2,7 @@ import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
 interface _AdInteractiveOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdInteractiveOnErrorDetail {
@@ -14,7 +14,7 @@ interface _AdInteractiveOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdInteractiveOnError {
-  (event: CustomEvent<_AdInteractiveOnErrorDetail>): void;
+  (event: CustomEvent<_AdInteractiveOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 互动广告属性 */

@@ -8,7 +8,7 @@ interface _CheckboxGroupOnChangeDetail {
 
 /** 选中项发生改变时触发 */
 interface _CheckboxGroupOnChange {
-  (event: CustomEvent<_CheckboxGroupOnChangeDetail>): void;
+  (event: CustomEvent<_CheckboxGroupOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 多项选择器属性 */

@@ -2,7 +2,7 @@ import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
 interface _AdFullscreenVideoOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdFullscreenVideoOnErrorDetail {
@@ -14,12 +14,12 @@ interface _AdFullscreenVideoOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdFullscreenVideoOnError {
-  (event: CustomEvent<_AdFullscreenVideoOnErrorDetail>): void;
+  (event: CustomEvent<_AdFullscreenVideoOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 广告关闭的回调 */
 interface _AdFullscreenVideoOnClose {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 全屏视频广告属性 */

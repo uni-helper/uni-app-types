@@ -37,7 +37,7 @@ interface _SwiperOnChangeDetail {
 
 /** current 改变时触发 */
 interface _SwiperOnChange {
-  (event: CustomEvent<_SwiperOnChangeDetail>): void;
+  (event: CustomEvent<_SwiperOnChangeDetail>, ...params: any[]): void;
 }
 
 interface _SwiperOnTransitionDetail {
@@ -47,7 +47,7 @@ interface _SwiperOnTransitionDetail {
 
 /** swiper-item 位置改变时触发 */
 interface _SwiperOnTransition {
-  (event: CustomEvent<_SwiperOnTransitionDetail>): void;
+  (event: CustomEvent<_SwiperOnTransitionDetail>, ...params: any[]): void;
 }
 
 interface _SwiperOnAnimationfinishDetail {
@@ -67,7 +67,7 @@ interface _SwiperOnAnimationfinishDetail {
 
 /** 动画结束时触发 */
 interface _SwiperOnAnimationfinish {
-  (event: CustomEvent<_SwiperOnAnimationfinishDetail>): void;
+  (event: CustomEvent<_SwiperOnAnimationfinishDetail>, ...params: any[]): void;
 }
 
 /** 滑块视图容器属性 */

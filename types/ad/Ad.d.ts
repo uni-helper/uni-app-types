@@ -3,7 +3,7 @@ import { BaseEvent, CustomEvent } from '../events';
 
 /** 广告加载成功的回调 */
 interface _AdOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdOnErrorDetail {
@@ -15,12 +15,12 @@ interface _AdOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdOnError {
-  (event: CustomEvent<_AdErrorDetail>): void;
+  (event: CustomEvent<_AdErrorDetail>, ...params: any[]): void;
 }
 
 /** 广告关闭的回调 */
 interface _AdOnClose {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 信息流广告属性 */

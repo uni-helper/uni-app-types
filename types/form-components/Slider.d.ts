@@ -10,7 +10,7 @@ interface _SliderOnChangeDetail {
 
 /** 完成一次拖动后触发 */
 interface _SliderOnChange {
-  (event: CustomEvent<_SliderOnChangeDetail>): void;
+  (event: CustomEvent<_SliderOnChangeDetail>, ...params: any[]): void;
 }
 
 interface _SliderOnChangingDetail {
@@ -19,7 +19,7 @@ interface _SliderOnChangingDetail {
 
 /** 拖动过程中触发 */
 interface _SliderOnChanging {
-  (event: CustomEvent<_SliderOnChangingDetail>): void;
+  (event: CustomEvent<_SliderOnChangingDetail>, ...params: any[]): void;
 }
 
 /** 滑动选择器属性 */

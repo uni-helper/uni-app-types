@@ -13,7 +13,7 @@ interface _SwitchOnChangeDetail {
 
 /** checked 改变时触发 */
 interface _SwitchOnChange {
-  (event: CustomEvent<_SwitchOnChangeDetail>): void;
+  (event: CustomEvent<_SwitchOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 开关选择器属性 */

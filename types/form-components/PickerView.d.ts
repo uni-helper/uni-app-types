@@ -12,17 +12,17 @@ interface _PickerViewOnChangeDetail {
 
 /** value 改变时触发 */
 interface _PickerViewOnChange {
-  (event: CustomEvent<_PickerViewOnChangeDetail>): void;
+  (event: CustomEvent<_PickerViewOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 滚动选择开始时触发 */
 interface _PickerViewOnPickstart {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 滚动选择结束时触发 */
 interface _PickerViewOnPickend {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 type _PickerViewProps = Partial<{

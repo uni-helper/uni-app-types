@@ -241,7 +241,7 @@ interface _LivePlayerOnStatechangeDetail {
 
 /** 播放状态变化时触发 */
 interface _LivePlayerOnStatechange {
-  (event: CustomEvent<_LivePlayerOnStatechangeDetail>): void;
+  (event: CustomEvent<_LivePlayerOnStatechangeDetail>, ...params: any[]): void;
 }
 
 interface _LivePlayerOnNetstatusDetail {
@@ -251,7 +251,7 @@ interface _LivePlayerOnNetstatusDetail {
 
 /** 网络状态变化时触发 */
 interface _LivePlayerOnNetstatus {
-  (event: CustomEvent<_LivePlayerOnNetstatusDetail>): void;
+  (event: CustomEvent<_LivePlayerOnNetstatusDetail>, ...params: any[]): void;
 }
 
 interface _LivePlayerOnFullscreenchangeDetail {
@@ -261,22 +261,22 @@ interface _LivePlayerOnFullscreenchangeDetail {
 
 /** 全屏变化时触发 */
 interface _LivePlayerOnFullscreenchange {
-  (event: CustomEvent<_LivePlayerOnFullscreenchangeDetail>): void;
+  (event: CustomEvent<_LivePlayerOnFullscreenchangeDetail>, ...params: any[]): void;
 }
 
 /** 播放音量变化时触发 */
 interface _LivePlayerOnAudiovolumenotify {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 播放器进入小窗时触发 */
 interface _LivePlayerOnEnterpictureinpicture {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 播放器退出小窗时触发 */
 interface _LivePlayerOnLeavepictureinpicture {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 实时音视频播放（直播拉流）属性 */

@@ -2,7 +2,7 @@ import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
 interface _AdInterstitialOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdInterstitialOnErrorDetail {
@@ -14,12 +14,12 @@ interface _AdInterstitialOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdInterstitialOnError {
-  (event: CustomEvent<_AdInterstitialOnErrorDetail>): void;
+  (event: CustomEvent<_AdInterstitialOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 广告关闭的回调 */
 interface _AdInterstitialOnClose {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 插屏广告属性 */

@@ -26,7 +26,7 @@ interface _TextareaOnFocusDetail {
 
 /** 聚焦时触发 */
 interface _TextareaOnFocus {
-  (event: CustomEvent<_TextareaOnFocusDetail>): void;
+  (event: CustomEvent<_TextareaOnFocusDetail>, ...params: any[]): void;
 }
 
 interface _TextareaOnBlurDetail {
@@ -47,7 +47,7 @@ interface _TextareaOnLinechangeDetail {
 
 /** 输入框行数变化时触发 */
 interface _TextareaOnLinechange {
-  (event: CustomEvent<_TextareaOnLinechangeDetail>): void;
+  (event: CustomEvent<_TextareaOnLinechangeDetail>, ...params: any[]): void;
 }
 
 interface _TextareaOnInputDetail {
@@ -66,7 +66,7 @@ interface _TextareaOnConfirmDetail {
 
 /** 点击完成按钮时触发 */
 interface _TextareaOnConfirm {
-  (event: CustomEvent<_TextareaOnConfirmDetail>): void;
+  (event: CustomEvent<_TextareaOnConfirmDetail>, ...params: any[]): void;
 }
 
 interface _TextareaOnKeyboardheightchangeDetail {
@@ -76,7 +76,7 @@ interface _TextareaOnKeyboardheightchangeDetail {
 
 /** 键盘高度变化时触发 */
 interface _TextareaOnKeyboardheightchange {
-  (event: CustomEvent<_TextareaOnKeyboardheightchangeDetail>): void;
+  (event: CustomEvent<_TextareaOnKeyboardheightchangeDetail>, ...params: any[]): void;
 }
 
 /** 多行输入框属性 */

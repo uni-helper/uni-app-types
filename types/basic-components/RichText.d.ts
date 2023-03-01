@@ -26,7 +26,7 @@ type _RichTextNodes = _RichTextNode[] | string;
 
 /** 拦截点击事件，支持 a 和 img 标签 */
 interface _RichTextOnItemclick {
-  (event: CustomEvent<{ node: _RichTextNode }>): void;
+  (event: CustomEvent<{ node: _RichTextNode }>, ...params: any[]): void;
 }
 
 /** 富文本属性 */

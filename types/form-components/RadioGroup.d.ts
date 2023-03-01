@@ -8,7 +8,7 @@ interface _RadioGroupOnChangeDetail {
 
 /** 选中项发生变化时触发 */
 interface _RadioGroupOnChange {
-  (event: CustomEvent<_RadioGroupOnChangeDetail>): void;
+  (event: CustomEvent<_RadioGroupOnChangeDetail>, ...params: any[]): void;
 }
 
 /** 单项选择器属性 */

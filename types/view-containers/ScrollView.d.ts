@@ -10,12 +10,12 @@ type _ScrollViewRefresherDefaultStyle = 'black' | 'white' | 'none';
 
 /** 滚动到顶部/左边时触发 */
 interface _ScrollViewOnScrolltoupper {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 滚动到底部/右边时触发 */
 interface _ScrollViewOnScrolltolower {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _ScrollViewOnScrollDetail {
@@ -29,27 +29,27 @@ interface _ScrollViewOnScrollDetail {
 
 /** 滚动时触发 */
 interface _ScrollViewOnScroll {
-  (event: CustomEvent<_ScrollViewOnScrollDetail>): void;
+  (event: CustomEvent<_ScrollViewOnScrollDetail>, ...params: any[]): void;
 }
 
 /** 自定义下拉刷新控件被下拉时触发 */
 interface _ScrollViewOnRefresherpulling {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 自定义下拉刷新被触发时触发 */
 interface _ScrollViewOnRefresherrefresh {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 自定义下拉刷新被复位时触发 */
 interface _ScrollViewOnRefresherrestore {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 自定义下拉刷新被中止时触发 */
 interface _ScrollViewOnRefresherabort {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 可滚动视图区域属性 */

@@ -50,7 +50,7 @@ type _ImageMode =
 
 /** 图片加载错误时触发 */
 interface _ImageOnError {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _ImageOnLoadDetail {
@@ -70,7 +70,7 @@ interface _ImageOnLoadDetail {
 
 /** 图片加载完毕时触发 */
 interface _ImageOnLoad {
-  (event: CustomEvent<_ImageOnLoadDetail>): void;
+  (event: CustomEvent<_ImageOnLoadDetail>, ...params: any[]): void;
 }
 
 /** 图片属性 */

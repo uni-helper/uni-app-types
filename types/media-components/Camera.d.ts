@@ -54,12 +54,12 @@ type _CameraFrameSize = 'small' | 'medium' | 'large';
 
 /** 摄像头在非正常终止时触发 */
 interface _CameraOnStop {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 用户不允许使用摄像头时触发 */
 interface _CameraOnError {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _CameraOnInitdoneDetail {
@@ -68,7 +68,7 @@ interface _CameraOnInitdoneDetail {
 
 /** 相机初始化完成时触发 */
 interface _CameraOnInitdone {
-  (event: CustomEvent<_CameraOnInitdoneDetail>): void;
+  (event: CustomEvent<_CameraOnInitdoneDetail>, ...params: any[]): void;
 }
 
 /**
@@ -77,7 +77,7 @@ interface _CameraOnInitdone {
  * mode="scanCode" 时有效
  */
 interface _CameraOnScancode {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 页面内嵌的区域相机组件属性 */

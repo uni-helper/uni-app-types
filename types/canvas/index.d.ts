@@ -26,7 +26,7 @@ interface _CanvasOnTouchcancel {
 
 /** 手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动 */
 interface _CanvasOnLongtap {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _CanvasOnErrorDetail {
@@ -36,7 +36,7 @@ interface _CanvasOnErrorDetail {
 
 /** 发生错误时触发 */
 interface _CanvasOnError {
-  (event: CustomEvent<_CanvasOnErrorDetail>): void;
+  (event: CustomEvent<_CanvasOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 画布属性 */

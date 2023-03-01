@@ -77,17 +77,17 @@ type _VideoPlayStrategy = 0 | 1 | 2;
 
 /** 开始/继续播放时触发 */
 interface _VideoOnPlay {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 暂停播放时触发 */
 interface _VideoOnPause {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 播放到末尾时触发 */
 interface _VideoOnEnded {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _VideoOnTimeupdateDetail {
@@ -101,7 +101,7 @@ interface _VideoOnTimeupdateDetail {
  * 250ms 一次
  */
 interface _VideoOnTimeupdate {
-  (event: CustomEvent<_VideoOnTimeupdateDetail>): void;
+  (event: CustomEvent<_VideoOnTimeupdateDetail>, ...params: any[]): void;
 }
 
 interface _VideoOnFullscreenchangeDetail {
@@ -111,17 +111,17 @@ interface _VideoOnFullscreenchangeDetail {
 
 /** 视频进入和退出全屏时触发 */
 interface _VideoOnFullscreenchange {
-  (event: CustomEvent<_VideoOnFullscreenchangeDetail>): void;
+  (event: CustomEvent<_VideoOnFullscreenchangeDetail>, ...params: any[]): void;
 }
 
 /** 视频缓冲时触发 */
 interface _VideoOnWaiting {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 视频播放出错时触发 */
 interface _VideoOnError {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _VideoOnProgressDetail {
@@ -130,27 +130,27 @@ interface _VideoOnProgressDetail {
 
 /** 加载进度变化时触发 */
 interface _VideoOnProgress {
-  (event: CustomEvent<_VideoOnProgressDetail>): void;
+  (event: CustomEvent<_VideoOnProgressDetail>, ...params: any[]): void;
 }
 
 /** 视频资源开始加载时触发 */
 interface _VideoOnLoadeddata {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 开始加载数据时触发 */
 interface _VideoOnLoadstart {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 拖动进度条结束时触发 */
 interface _VideoOnSeeked {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 拖动进度条时触发 */
 interface _VideoOnSeeking {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _VideoOnLoadedmetadataDetail {
@@ -161,7 +161,7 @@ interface _VideoOnLoadedmetadataDetail {
 
 /** 视频元数据加载完成时触发 */
 interface _VideoOnLoadedmetadata {
-  (event: CustomEvent<_VideoOnLoadedmetadataDetail>): void;
+  (event: CustomEvent<_VideoOnLoadedmetadataDetail>, ...params: any[]): void;
 }
 
 interface _VideoOnFullscreenclickDetail {
@@ -173,7 +173,7 @@ interface _VideoOnFullscreenclickDetail {
 
 /** 视频播放全屏播放点击时触发 */
 interface _VideoOnFullscreenclick {
-  (event: CustomEvent<_VideoOnFullscreenclickDetail>): void;
+  (event: CustomEvent<_VideoOnFullscreenclickDetail>, ...params: any[]): void;
 }
 
 interface _VideoOnControlstoggleDetail {
@@ -182,7 +182,7 @@ interface _VideoOnControlstoggleDetail {
 
 /** 切换 controls 显示隐藏时触发 */
 interface _VideoOnControlstoggle {
-  (event: CustomEvent<_VideoOnControlstoggleDetail>): void;
+  (event: CustomEvent<_VideoOnControlstoggleDetail>, ...params: any[]): void;
 }
 
 /** 视频播放组件属性 */

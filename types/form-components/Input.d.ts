@@ -89,7 +89,7 @@ interface _InputOnFocusDetail {
 
 /** 聚焦时触发 */
 interface _InputOnFocus {
-  (event: CustomEvent<_InputOnFocusDetail>): void;
+  (event: CustomEvent<_InputOnFocusDetail>, ...params: any[]): void;
 }
 
 interface _InputOnBlurDetail {
@@ -98,7 +98,7 @@ interface _InputOnBlurDetail {
 
 /** 失焦时触发 */
 interface _InputOnBlur {
-  (event: CustomEvent<_InputOnBlurDetail>): void;
+  (event: CustomEvent<_InputOnBlurDetail>, ...params: any[]): void;
 }
 
 interface _InputOnConfirmDetail {
@@ -107,7 +107,7 @@ interface _InputOnConfirmDetail {
 
 /** 点击完成按钮时触发 */
 interface _InputOnConfirm {
-  (event: CustomEvent<_InputOnConfirmDetail>): void;
+  (event: CustomEvent<_InputOnConfirmDetail>, ...params: any[]): void;
 }
 
 interface _InputOnKeyboardheightchangeDetail {
@@ -118,7 +118,7 @@ interface _InputOnKeyboardheightchangeDetail {
 
 /** 键盘高度变化时触发 */
 interface _InputOnKeyboardheightchange {
-  (event: CustomEvent<_InputOnKeyboardheightchangeDetail>): void;
+  (event: CustomEvent<_InputOnKeyboardheightchangeDetail>, ...params: any[]): void;
 }
 
 /** 输入框属性 */

@@ -40,7 +40,7 @@ interface _MovableViewOnChangeDetail {
 
 /** 拖动过程中触发 */
 interface _MovableViewOnChange {
-  (event: CustomEvent<_MovableViewOnChangeDetail>): void;
+  (event: CustomEvent<_MovableViewOnChangeDetail>, ...params: any[]): void;
 }
 
 interface _MovableViewOnScaleDetail {
@@ -56,7 +56,7 @@ interface _MovableViewOnScaleDetail {
 
 /** 缩放过程中触发 */
 interface _MovableViewOnScale {
-  (event: CustomEvent<_MovableViewOnScaleDetail>): void;
+  (event: CustomEvent<_MovableViewOnScaleDetail>, ...params: any[]): void;
 }
 
 /** 可移动的视图容器属性 */

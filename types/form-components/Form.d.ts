@@ -27,12 +27,12 @@ interface _FormOnSubmitDetail {
 
 /** 表单提交时触发 */
 interface _FormOnSubmit {
-  (event: CustomEvent<_FormOnSubmitDetail>): void;
+  (event: CustomEvent<_FormOnSubmitDetail>, ...params: any[]): void;
 }
 
 /** 表单重置时触发 */
 interface _FormOnReset {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 表单属性 */

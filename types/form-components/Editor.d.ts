@@ -3,7 +3,7 @@ import { BaseEvent, CustomEvent } from '../events';
 
 /** 编辑器初始化完成时触发 */
 interface _EditorOnReady {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _EditorOnFocusDetail {
@@ -14,7 +14,7 @@ interface _EditorOnFocusDetail {
 
 /** 编辑器聚焦时触发 */
 interface _EditorOnFocus {
-  (event: CustomEvent<_EditorOnFocusDetail>): void;
+  (event: CustomEvent<_EditorOnFocusDetail>, ...params: any[]): void;
 }
 
 interface _EditorOnBlurDetail {
@@ -25,7 +25,7 @@ interface _EditorOnBlurDetail {
 
 /** 编辑器失焦时触发 */
 interface _EditorOnBlur {
-  (event: CustomEvent<_EditorOnBlurDetail>): void;
+  (event: CustomEvent<_EditorOnBlurDetail>, ...params: any[]): void;
 }
 
 interface _EditorOnInputDetail {
@@ -36,12 +36,12 @@ interface _EditorOnInputDetail {
 
 /** 编辑器内容改变时触发 */
 interface _EditorOnInput {
-  (event: CustomEvent<_EditorOnInputDetail>): void;
+  (event: CustomEvent<_EditorOnInputDetail>, ...params: any[]): void;
 }
 
 /** 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式 */
 interface _EditorOnStatuschange {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 编辑器属性 */

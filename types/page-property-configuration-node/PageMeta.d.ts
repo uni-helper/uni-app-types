@@ -17,7 +17,7 @@ interface _PageMetaOnResizeDetail {
 
 /** 页面尺寸变化时触发 */
 interface _PageMetaOnResize {
-  (event: CustomEvent<_PageMetaOnResizeDetail>): void;
+  (event: CustomEvent<_PageMetaOnResizeDetail>, ...params: any[]): void;
 }
 
 interface _PageMetaOnScrollDetail {
@@ -26,12 +26,12 @@ interface _PageMetaOnScrollDetail {
 
 /** 页面滚动时触发 */
 interface _PageMetaOnScroll {
-  (event: CustomEvent<_PageMetaOnScrollDetail>): void;
+  (event: CustomEvent<_PageMetaOnScrollDetail>, ...params: any[]): void;
 }
 
 /** 通过改变 scroll-top 属性来使页面滚动，页面滚动结束后触发 */
 interface _PageMetaOnScrolldone {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 页面属性配置节点属性 */

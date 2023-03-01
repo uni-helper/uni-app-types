@@ -2,7 +2,7 @@ import { AnyRecord, Component } from '../Component';
 
 /** 广告加载成功的回调 */
 interface _AdDrawOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdDrawOnErrorDetail {
@@ -14,7 +14,7 @@ interface _AdDrawOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdDrawOnError {
-  (event: CustomEvent<_AdDrawOnErrorDetail>): void;
+  (event: CustomEvent<_AdDrawOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 沉浸视频流广告属性 */

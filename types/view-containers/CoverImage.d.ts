@@ -3,12 +3,12 @@ import { BaseEvent } from '../events';
 
 /** 图片加载成功时触发 */
 interface _CoverImageOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 图片加载失败时触发 */
 interface _CoverImageOnError {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 覆盖在原生组件之上的图片视图属性 */

@@ -378,7 +378,7 @@ interface _LivePusherOnStatechangeDetail {
 
 /** 播放状态变化时触发 */
 interface _LivePusherOnStatechange {
-  (event: CustomEvent<_LivePusherOnStatechangeDetail>): void;
+  (event: CustomEvent<_LivePusherOnStatechangeDetail>, ...params: any[]): void;
 }
 
 interface _LivePusherOnNetstatusDetail {
@@ -388,7 +388,7 @@ interface _LivePusherOnNetstatusDetail {
 
 /** 网络状态变化时触发 */
 interface _LivePusherOnNetstatus {
-  (event: CustomEvent<_LivePusherOnNetstatusDetail>): void;
+  (event: CustomEvent<_LivePusherOnNetstatusDetail>, ...params: any[]): void;
 }
 
 interface _LivePusherOnErrorDetail {
@@ -410,12 +410,12 @@ interface _LivePusherOnErrorDetail {
 
 /** 渲染错误时触发 */
 interface _LivePusherOnError {
-  (event: CustomEvent<_LivePusherOnErrorDetail>): void;
+  (event: CustomEvent<_LivePusherOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 背景音开始播放时触发 */
 interface _LivePusherOnBgmstart {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _LivePusherOnBgmprogressDetail {
@@ -425,12 +425,12 @@ interface _LivePusherOnBgmprogressDetail {
 
 /** 背景音进度变化时触发 */
 interface _LivePusherOnBgmprogress {
-  (event: CustomEvent<_LivePusherOnBgmprogressDetail>): void;
+  (event: CustomEvent<_LivePusherOnBgmprogressDetail>, ...params: any[]): void;
 }
 
 /** 背景音播放完成时触发 */
 interface _LivePusherOnBgmcomplete {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 实时音视频录制（直播推流）属性 */

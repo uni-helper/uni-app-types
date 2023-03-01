@@ -448,7 +448,7 @@ interface _MapOnMarkertapDetail {
 
 /** 点击标记点时触发 */
 interface _MapOnMarkertap {
-  (event: CustomEvent<_MapOnMarkertapDetail>): void;
+  (event: CustomEvent<_MapOnMarkertapDetail>, ...params: any[]): void;
 }
 
 interface _MapOnLabeltapDetail {
@@ -462,7 +462,7 @@ interface _MapOnLabeltapDetail {
 
 /** 点击 label 时触发 */
 interface _MapOnLabeltap {
-  (event: CustomEvent<_MapOnLabeltapDetail>): void;
+  (event: CustomEvent<_MapOnLabeltapDetail>, ...params: any[]): void;
 }
 
 interface _MapOnCallouttapDetail {
@@ -476,7 +476,7 @@ interface _MapOnCallouttapDetail {
 
 /** 点击标记点对应的气泡时触发 */
 interface _MapOnCallouttap {
-  (event: CustomEvent<_MapOnCallouttapDetail>): void;
+  (event: CustomEvent<_MapOnCallouttapDetail>, ...params: any[]): void;
 }
 
 interface _MapOnControltapDetail {
@@ -486,22 +486,22 @@ interface _MapOnControltapDetail {
 
 /** 点击控件时触发 */
 interface _MapOnControltap {
-  (event: CustomEvent<_MapOnControltapDetail>): void;
+  (event: CustomEvent<_MapOnControltapDetail>, ...params: any[]): void;
 }
 
 /** 视野发生变化时触发 */
 interface _MapOnRegionchange {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 点击地图时触发 */
 interface _MapOnTap {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 地图渲染更新完成时触发 */
 interface _MapOnUpdated {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _MapOnAnchorpointtapDetail {
@@ -521,7 +521,7 @@ interface _MapOnAnchorpointtapDetail {
 
 /** 点击定位标时触发 */
 interface _MapOnAnchorpointtap {
-  (event: CustomEvent<_MapOnAnchorpointtapDetail>): void;
+  (event: CustomEvent<_MapOnAnchorpointtapDetail>, ...params: any[]): void;
 }
 
 interface _MapOnPoitapDetail {
@@ -543,7 +543,7 @@ interface _MapOnPoitapDetail {
 
 /** 点击地图 poi 点时触发 */
 interface _MapOnPoitap {
-  (event: CustomEvent<_MapOnPoitapDetail>): void;
+  (event: CustomEvent<_MapOnPoitapDetail>, ...params: any[]): void;
 }
 
 /** 地图属性 */

@@ -2,7 +2,7 @@ import { Component } from '../Component';
 
 /** 广告加载成功的回调 */
 interface _AdContentPageOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdContentPageOnErrorDetail {
@@ -14,7 +14,7 @@ interface _AdContentPageOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdContentPageOnError {
-  (event: CustomEvent<_AdContentPageOnErrorDetail>): void;
+  (event: CustomEvent<_AdContentPageOnErrorDetail>, ...params: any[]): void;
 }
 
 interface _AdContentPageOnStartDetail {
@@ -40,7 +40,7 @@ interface _AdContentPageOnStartDetail {
 
 /** 广告开始播放时触发 */
 interface _AdContentPageOnStart {
-  (event: CustomEvent<_AdContentPageOnStartDetail>): void;
+  (event: CustomEvent<_AdContentPageOnStartDetail>, ...params: any[]): void;
 }
 
 interface _AdContentPageOnPauseDetail {
@@ -66,7 +66,7 @@ interface _AdContentPageOnPauseDetail {
 
 /** 广告暂停播放时触发 */
 interface _AdContentPageOnPause {
-  (event: CustomEvent<_AdContentPageOnPauseDetail>): void;
+  (event: CustomEvent<_AdContentPageOnPauseDetail>, ...params: any[]): void;
 }
 
 interface _AdContentPageOnResumeDetail {
@@ -92,7 +92,7 @@ interface _AdContentPageOnResumeDetail {
 
 /** 广告恢复播放时触发 */
 interface _AdContentPageOnResume {
-  (event: CustomEvent<_AdContentPageOnResumeDetail>): void;
+  (event: CustomEvent<_AdContentPageOnResumeDetail>, ...params: any[]): void;
 }
 
 interface _AdContentPageOnCompleteDetail {
@@ -118,7 +118,7 @@ interface _AdContentPageOnCompleteDetail {
 
 /** 广告完成播放时触发 */
 interface _AdContentPageOnComplete {
-  (event: CustomEvent<_AdContentPageOnCompleteDetail>): void;
+  (event: CustomEvent<_AdContentPageOnCompleteDetail>, ...params: any[]): void;
 }
 
 /** 短视频内容联盟广告属性 */

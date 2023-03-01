@@ -143,12 +143,12 @@ interface _ButtonOnGetphonenumberDetail {
  * open-type="getPhoneNumber" 时有效
  */
 interface _ButtonOnGetphonenumber {
-  (event: CustomEvent<_ButtonOnGetphonenumberDetail>): void;
+  (event: CustomEvent<_ButtonOnGetphonenumberDetail>, ...params: any[]): void;
 }
 
 /** 使用开放能力发生错误时回调 */
 interface _ButtonOnError {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _ButtonOnOpensettingDetail {
@@ -161,7 +161,7 @@ interface _ButtonOnOpensettingDetail {
  * open-type="openSetting" 时有效
  */
 interface _ButtonOnOpensetting {
-  (event: CustomEvent<_ButtonOnOpensettingDetail>): void;
+  (event: CustomEvent<_ButtonOnOpensettingDetail>, ...params: any[]): void;
 }
 
 /**
@@ -170,7 +170,7 @@ interface _ButtonOnOpensetting {
  * open-type="launchApp" 时有效
  */
 interface _ButtonOnLaunchapp {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -179,7 +179,7 @@ interface _ButtonOnLaunchapp {
  * open-type="chooseAvatar" 时有效
  */
 interface _ButtonOnChooseavatar {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -188,7 +188,7 @@ interface _ButtonOnChooseavatar {
  * open-type="addGroupApp" 时有效
  */
 interface _ButtonOnAddgroupapp {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -197,7 +197,7 @@ interface _ButtonOnAddgroupapp {
  * open-type="chooseAddress" 时有效
  */
 interface _ButtonOnChooseaddress {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -206,7 +206,7 @@ interface _ButtonOnChooseaddress {
  * open-type="chooseInvoiceTitle" 时有效
  */
 interface _ButtonOnChooseinvoicetitle {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -215,7 +215,7 @@ interface _ButtonOnChooseinvoicetitle {
  * open-type="subscribe" 时有效
  */
 interface _ButtonOnSubscribe {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /**
@@ -224,7 +224,7 @@ interface _ButtonOnSubscribe {
  * open-type="login" 时有效
  */
 interface _ButtonOnLogin {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 按钮属性 */

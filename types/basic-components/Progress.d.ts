@@ -12,7 +12,7 @@ type _ProgressActiveMode = 'backwards' | 'forwards';
 
 /** 动画完成时触发 */
 interface _ProgressOnActiveend {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 进度条属性 */

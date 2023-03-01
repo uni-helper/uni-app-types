@@ -9,7 +9,7 @@ interface _AdRewardedVideoUrlCallback {
 
 /** 广告加载成功的回调 */
 interface _AdRewardedVideoOnLoad {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 interface _AdRewardedVideoOnErrorDetail {
@@ -21,12 +21,12 @@ interface _AdRewardedVideoOnErrorDetail {
 
 /** 广告加载失败的回调 */
 interface _AdRewardedVideoOnError {
-  (event: CustomEvent<_AdRewardedVideoOnErrorDetail>): void;
+  (event: CustomEvent<_AdRewardedVideoOnErrorDetail>, ...params: any[]): void;
 }
 
 /** 广告关闭的回调 */
 interface _AdRewardedVideoOnClose {
-  (event: BaseEvent): void;
+  (event: BaseEvent, ...params: any[]): void;
 }
 
 /** 激励视频广告属性 */
