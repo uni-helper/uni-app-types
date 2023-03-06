@@ -34,6 +34,7 @@
     "lint:eslint": "eslint ./src --fix --cache --ignore-path=.gitginore",
     "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore",
     "lint:publint": "publint",
+    "prepublishOnly": "pnpm run build",
     "prepare": "is-ci || husky install",
     "release": "pnpm install && pnpm run lint && bumpp",
     "test": "vitest typecheck --run",
