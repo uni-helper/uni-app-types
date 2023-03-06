@@ -7,7 +7,7 @@
     "target": "ESNext",
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["./types/*"]
+      "@/*": ["./src/*"]
     },
     "types": ["@dcloudio/types", "node"]
   },
