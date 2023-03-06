@@ -31,7 +31,7 @@
     "check:types": "tsc --noEmit",
     "dev": "rollup -c --watch",
     "lint": "run-p lint:eslint lint:markdownlint lint:publint check:types test:coverage",
-    "lint:eslint": "eslint ./src --fix --cache --ignore-path=.gitginore",
+    "lint:eslint": "eslint ./src --fix --cache --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore",
     "lint:publint": "publint",
     "prepublishOnly": "pnpm run build",
