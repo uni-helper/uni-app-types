@@ -54,9 +54,8 @@ npm i -D @uni-helper/uni-app-types
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { ScrollViewUpperThreshold, ScrollViewOnScroll } from '@uni-helper/uni-app-types';
+import type { ScrollViewOnScroll } from '@uni-helper/uni-app-types';
 
-const upperThreshold = ref<ScrollViewUpperThreshold>(50);
 const onScroll: ScrollViewOnScroll = (event) => {
   ...
 };
@@ -73,7 +72,6 @@ const onScroll: ScrollViewOnScroll = (event) => {
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const upperThreshold = ref<UniHelper.ScrollViewUpperThreshold>(50);
 const onScroll: UniHelper.ScrollViewOnScroll = (event) => {
   ...
 };
@@ -84,7 +82,25 @@ const onScroll: UniHelper.ScrollViewOnScroll = (event) => {
 </template>
 ```
 
-请查看 [types](./types) 了解所有类型。
+如果你需要传入事件之外的参数，可以参考以下例子。参数顺序参考了 Vue 文档的示例（见 [在内联事件处理器中访问事件参数](https://cn.vuejs.org/guide/essentials/event-handling.html#accessing-event-argument-in-inline-handlers)）。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { ScrollViewOnScrollEvent } from '@uni-helper/uni-app-types';
+
+const onScroll = (text: string, event: ScrollViewOnScrollEvent) => {
+  ...
+};
+</script>
+
+<template>
+  <scroll-view @scroll="onScroll('ScrollViewA', $event)"></scroll-view>
+  <scroll-view @scroll="onScroll('ScrollViewB', $event)"></scroll-view>
+</template>
+```
+
+请查看 [src](./src) 了解所有类型。
 
 ## 致谢
 
