@@ -43,7 +43,7 @@ interface _CustomEvent<
   TargetDataset extends AnyRecord = CurrentTargetDataset,
 > extends _BaseEvent<Mark, CurrentTargetDataset, TargetDataset> {
   /** 额外信息 */
-  detail?: Detail;
+  detail: Detail;
   [key: string]: any;
 }
 
