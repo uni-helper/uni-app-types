@@ -305,6 +305,10 @@ type _RegionPickerLevel = 'province' | 'city' | 'region' | 'sub-district';
 
 interface _RegionPickerOnChangeDetail {
   value: _RegionPickerValue;
+  /** 统计用区划代码 */
+  code?: [string, string, string];
+  /** 邮政编码 */
+  postcode?: string;
 }
 
 type _RegionPickerOnChangeEvent = CustomEvent<_RegionPickerOnChangeDetail>;
