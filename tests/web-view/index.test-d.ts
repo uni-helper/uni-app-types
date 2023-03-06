@@ -2,8 +2,10 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   WebViewStyles,
   WebViewOnMessageDetail,
+  WebViewOnMessageEvent,
   WebViewOnMessage,
   WebViewOnOnPostMessage,
+  WebViewOnOnPostMessageEvent,
   WebViewProps,
   WebView,
   WebViewInstance,
@@ -16,10 +18,16 @@ describe('WebView', () => {
   expectTypeOf<WebViewOnMessageDetail>().toBeObject();
   expectTypeOf<WebViewOnMessageDetail>().toEqualTypeOf<UniHelper.WebViewOnMessageDetail>();
 
+  expectTypeOf<WebViewOnMessageEvent>().toBeObject();
+  expectTypeOf<WebViewOnMessageEvent>().toEqualTypeOf<UniHelper.WebViewOnMessageEvent>();
+
   expectTypeOf<WebViewOnMessage>().toBeFunction();
   expectTypeOf<WebViewOnMessage>().toEqualTypeOf<UniHelper.WebViewOnMessage>();
 
-  expectTypeOf<WebViewOnOnPostMessage>().toBeObject();
+  expectTypeOf<WebViewOnOnPostMessageEvent>().toBeObject();
+  expectTypeOf<WebViewOnOnPostMessageEvent>().toEqualTypeOf<UniHelper.WebViewOnOnPostMessageEvent>();
+
+  expectTypeOf<WebViewOnOnPostMessage>().toBeFunction();
   expectTypeOf<WebViewOnOnPostMessage>().toEqualTypeOf<UniHelper.WebViewOnOnPostMessage>();
 
   expectTypeOf<WebViewProps>().toBeObject();

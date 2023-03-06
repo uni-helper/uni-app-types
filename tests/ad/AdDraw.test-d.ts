@@ -1,7 +1,9 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
+  AdDrawOnLoadEvent,
   AdDrawOnLoad,
   AdDrawOnErrorDetail,
+  AdDrawOnErrorEvent,
   AdDrawOnError,
   AdDrawProps,
   AdDraw,
@@ -9,11 +11,17 @@ import type {
 } from '@/ad/AdDraw';
 
 describe('AdDraw', () => {
+  expectTypeOf<AdDrawOnLoadEvent>().toBeObject();
+  expectTypeOf<AdDrawOnLoadEvent>().toEqualTypeOf<UniHelper.AdDrawOnLoadEvent>();
+
   expectTypeOf<AdDrawOnLoad>().toBeFunction();
   expectTypeOf<AdDrawOnLoad>().toEqualTypeOf<UniHelper.AdDrawOnLoad>();
 
   expectTypeOf<AdDrawOnErrorDetail>().toBeObject();
   expectTypeOf<AdDrawOnErrorDetail>().toEqualTypeOf<UniHelper.AdDrawOnErrorDetail>();
+
+  expectTypeOf<AdDrawOnErrorEvent>().toBeObject();
+  expectTypeOf<AdDrawOnErrorEvent>().toEqualTypeOf<UniHelper.AdDrawOnErrorEvent>();
 
   expectTypeOf<AdDrawOnError>().toBeFunction();
   expectTypeOf<AdDrawOnError>().toEqualTypeOf<UniHelper.AdDrawOnError>();

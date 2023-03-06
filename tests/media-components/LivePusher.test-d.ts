@@ -11,14 +11,20 @@ import type {
   LivePusherInfo,
   LiverPusherErrCode,
   LivePusherOnStatechangeDetail,
+  LivePusherOnStatechangeEvent,
   LivePusherOnStatechange,
   LivePusherOnNetstatusDetail,
+  LivePusherOnNetstatusEvent,
   LivePusherOnNetstatus,
   LivePusherOnErrorDetail,
+  LivePusherOnErrorEvent,
   LivePusherOnError,
+  LivePusherOnBgmstartEvent,
   LivePusherOnBgmstart,
   LivePusherOnBgmprogressDetail,
+  LivePusherOnBgmprogressEvent,
   LivePusherOnBgmprogress,
+  LivePusherOnBgmcompleteEvent,
   LivePusherOnBgmcomplete,
   LivePusherProps,
   LivePusher,
@@ -59,11 +65,17 @@ describe('LivePusher', () => {
   expectTypeOf<LivePusherOnStatechangeDetail>().toBeObject();
   expectTypeOf<LivePusherOnStatechangeDetail>().toEqualTypeOf<UniHelper.LivePusherOnStatechangeDetail>();
 
+  expectTypeOf<LivePusherOnStatechangeEvent>().toBeObject();
+  expectTypeOf<LivePusherOnStatechangeEvent>().toEqualTypeOf<UniHelper.LivePusherOnStatechangeEvent>();
+
   expectTypeOf<LivePusherOnStatechange>().toBeFunction();
   expectTypeOf<LivePusherOnStatechange>().toEqualTypeOf<UniHelper.LivePusherOnStatechange>();
 
   expectTypeOf<LivePusherOnNetstatusDetail>().toBeObject();
   expectTypeOf<LivePusherOnNetstatusDetail>().toEqualTypeOf<UniHelper.LivePusherOnNetstatusDetail>();
+
+  expectTypeOf<LivePusherOnNetstatusEvent>().toBeObject();
+  expectTypeOf<LivePusherOnNetstatusEvent>().toEqualTypeOf<UniHelper.LivePusherOnNetstatusEvent>();
 
   expectTypeOf<LivePusherOnNetstatus>().toBeFunction();
   expectTypeOf<LivePusherOnNetstatus>().toEqualTypeOf<UniHelper.LivePusherOnNetstatus>();
@@ -71,8 +83,14 @@ describe('LivePusher', () => {
   expectTypeOf<LivePusherOnErrorDetail>().toBeObject();
   expectTypeOf<LivePusherOnErrorDetail>().toEqualTypeOf<UniHelper.LivePusherOnErrorDetail>();
 
+  expectTypeOf<LivePusherOnErrorEvent>().toBeObject();
+  expectTypeOf<LivePusherOnErrorEvent>().toEqualTypeOf<UniHelper.LivePusherOnErrorEvent>();
+
   expectTypeOf<LivePusherOnError>().toBeFunction();
   expectTypeOf<LivePusherOnError>().toEqualTypeOf<UniHelper.LivePusherOnError>();
+
+  expectTypeOf<LivePusherOnBgmstartEvent>().toBeObject();
+  expectTypeOf<LivePusherOnBgmstartEvent>().toEqualTypeOf<UniHelper.LivePusherOnBgmstartEvent>();
 
   expectTypeOf<LivePusherOnBgmstart>().toBeFunction();
   expectTypeOf<LivePusherOnBgmstart>().toEqualTypeOf<UniHelper.LivePusherOnBgmstart>();
@@ -80,8 +98,14 @@ describe('LivePusher', () => {
   expectTypeOf<LivePusherOnBgmprogressDetail>().toBeObject();
   expectTypeOf<LivePusherOnBgmprogressDetail>().toEqualTypeOf<UniHelper.LivePusherOnBgmprogressDetail>();
 
+  expectTypeOf<LivePusherOnBgmprogressEvent>().toBeObject();
+  expectTypeOf<LivePusherOnBgmprogressEvent>().toEqualTypeOf<UniHelper.LivePusherOnBgmprogressEvent>();
+
   expectTypeOf<LivePusherOnBgmprogress>().toBeFunction();
   expectTypeOf<LivePusherOnBgmprogress>().toEqualTypeOf<UniHelper.LivePusherOnBgmprogress>();
+
+  expectTypeOf<LivePusherOnBgmcompleteEvent>().toBeObject();
+  expectTypeOf<LivePusherOnBgmcompleteEvent>().toEqualTypeOf<UniHelper.LivePusherOnBgmcompleteEvent>();
 
   expectTypeOf<LivePusherOnBgmcomplete>().toBeFunction();
   expectTypeOf<LivePusherOnBgmcomplete>().toEqualTypeOf<UniHelper.LivePusherOnBgmcomplete>();

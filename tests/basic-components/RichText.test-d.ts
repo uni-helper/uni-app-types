@@ -5,6 +5,7 @@ import type {
   RichTextNodeNode,
   RichTextNode,
   RichTextNodes,
+  RichTextOnItemclickEvent,
   RichTextOnItemclick,
   RichTextProps,
   RichText,
@@ -24,7 +25,10 @@ describe('RichText', () => {
   expectTypeOf<RichTextNode>().toBeObject();
   expectTypeOf<RichTextNode>().toEqualTypeOf<UniHelper.RichTextNode>();
 
-  expectTypeOf<RichTextNodes>().toEqualTypeOf<UniHelper.RichTextNodes>;
+  expectTypeOf<RichTextNodes>().toEqualTypeOf<UniHelper.RichTextNodes>();
+
+  expectTypeOf<RichTextOnItemclickEvent>().toBeObject();
+  expectTypeOf<RichTextOnItemclickEvent>().toEqualTypeOf<UniHelper.RichTextOnItemclickEvent>();
 
   expectTypeOf<RichTextOnItemclick>().toBeFunction();
   expectTypeOf<RichTextOnItemclick>().toEqualTypeOf<UniHelper.RichTextOnItemclick>();

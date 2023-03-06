@@ -2,9 +2,12 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   PageMetaBackgroundTextStyle,
   PageMetaOnResizeDetail,
+  PageMetaOnResizeEvent,
   PageMetaOnResize,
   PageMetaOnScrollDetail,
+  PageMetaOnScrollEvent,
   PageMetaOnScroll,
+  PageMetaOnScrolldoneEvent,
   PageMetaOnScrolldone,
   PageMetaProps,
   PageMeta,
@@ -18,14 +21,23 @@ describe('PageMeta', () => {
   expectTypeOf<PageMetaOnResizeDetail>().toBeObject();
   expectTypeOf<PageMetaOnResizeDetail>().toEqualTypeOf<UniHelper.PageMetaOnResizeDetail>();
 
+  expectTypeOf<PageMetaOnResizeEvent>().toBeObject();
+  expectTypeOf<PageMetaOnResizeEvent>().toEqualTypeOf<UniHelper.PageMetaOnResizeEvent>();
+
   expectTypeOf<PageMetaOnResize>().toBeFunction();
   expectTypeOf<PageMetaOnResize>().toEqualTypeOf<UniHelper.PageMetaOnResize>();
 
   expectTypeOf<PageMetaOnScrollDetail>().toBeObject();
   expectTypeOf<PageMetaOnScrollDetail>().toEqualTypeOf<UniHelper.PageMetaOnScrollDetail>();
 
+  expectTypeOf<PageMetaOnScrollEvent>().toBeObject();
+  expectTypeOf<PageMetaOnScrollEvent>().toEqualTypeOf<UniHelper.PageMetaOnScrollEvent>();
+
   expectTypeOf<PageMetaOnScroll>().toBeFunction();
   expectTypeOf<PageMetaOnScroll>().toEqualTypeOf<UniHelper.PageMetaOnScroll>();
+
+  expectTypeOf<PageMetaOnScrolldoneEvent>().toBeObject();
+  expectTypeOf<PageMetaOnScrolldoneEvent>().toEqualTypeOf<UniHelper.PageMetaOnScrolldoneEvent>();
 
   expectTypeOf<PageMetaOnScrolldone>().toBeFunction();
   expectTypeOf<PageMetaOnScrolldone>().toEqualTypeOf<UniHelper.PageMetaOnScrolldone>();

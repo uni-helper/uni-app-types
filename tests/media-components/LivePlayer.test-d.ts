@@ -8,13 +8,19 @@ import type {
   LivePlayerCode,
   LivePlayerInfo,
   LivePlayerOnStatechangeDetail,
+  LivePlayerOnStatechangeEvent,
   LivePlayerOnStatechange,
   LivePlayerOnNetstatusDetail,
+  LivePlayerOnNetstatusEvent,
   LivePlayerOnNetstatus,
   LivePlayerOnFullscreenchangeDetail,
+  LivePlayerOnFullscreenchangeEvent,
   LivePlayerOnFullscreenchange,
+  LivePlayerOnAudiovolumenotifyEvent,
   LivePlayerOnAudiovolumenotify,
+  LivePlayerOnEnterpictureinpictureEvent,
   LivePlayerOnEnterpictureinpicture,
+  LivePlayerOnLeavepictureinpictureEvent,
   LivePlayerOnLeavepictureinpicture,
   LivePlayerProps,
   LivePlayer,
@@ -46,11 +52,17 @@ describe('LivePlayer', () => {
   expectTypeOf<LivePlayerOnStatechangeDetail>().toBeObject();
   expectTypeOf<LivePlayerOnStatechangeDetail>().toEqualTypeOf<UniHelper.LivePlayerOnStatechangeDetail>();
 
+  expectTypeOf<LivePlayerOnStatechangeEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnStatechangeEvent>().toEqualTypeOf<UniHelper.LivePlayerOnStatechangeEvent>();
+
   expectTypeOf<LivePlayerOnStatechange>().toBeFunction();
   expectTypeOf<LivePlayerOnStatechange>().toEqualTypeOf<UniHelper.LivePlayerOnStatechange>();
 
   expectTypeOf<LivePlayerOnNetstatusDetail>().toBeObject();
   expectTypeOf<LivePlayerOnNetstatusDetail>().toEqualTypeOf<UniHelper.LivePlayerOnNetstatusDetail>();
+
+  expectTypeOf<LivePlayerOnNetstatusEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnNetstatusEvent>().toEqualTypeOf<UniHelper.LivePlayerOnNetstatusEvent>();
 
   expectTypeOf<LivePlayerOnNetstatus>().toBeFunction();
   expectTypeOf<LivePlayerOnNetstatus>().toEqualTypeOf<UniHelper.LivePlayerOnNetstatus>();
@@ -58,14 +70,26 @@ describe('LivePlayer', () => {
   expectTypeOf<LivePlayerOnFullscreenchangeDetail>().toBeObject();
   expectTypeOf<LivePlayerOnFullscreenchangeDetail>().toEqualTypeOf<UniHelper.LivePlayerOnFullscreenchangeDetail>();
 
+  expectTypeOf<LivePlayerOnFullscreenchangeEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnFullscreenchangeEvent>().toEqualTypeOf<UniHelper.LivePlayerOnFullscreenchangeEvent>();
+
   expectTypeOf<LivePlayerOnFullscreenchange>().toBeFunction();
   expectTypeOf<LivePlayerOnFullscreenchange>().toEqualTypeOf<UniHelper.LivePlayerOnFullscreenchange>();
+
+  expectTypeOf<LivePlayerOnAudiovolumenotifyEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnAudiovolumenotifyEvent>().toEqualTypeOf<UniHelper.LivePlayerOnAudiovolumenotifyEvent>();
 
   expectTypeOf<LivePlayerOnAudiovolumenotify>().toBeFunction();
   expectTypeOf<LivePlayerOnAudiovolumenotify>().toEqualTypeOf<UniHelper.LivePlayerOnAudiovolumenotify>();
 
+  expectTypeOf<LivePlayerOnEnterpictureinpictureEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnEnterpictureinpictureEvent>().toEqualTypeOf<UniHelper.LivePlayerOnEnterpictureinpictureEvent>();
+
   expectTypeOf<LivePlayerOnEnterpictureinpicture>().toBeFunction();
   expectTypeOf<LivePlayerOnEnterpictureinpicture>().toEqualTypeOf<UniHelper.LivePlayerOnEnterpictureinpicture>();
+
+  expectTypeOf<LivePlayerOnLeavepictureinpictureEvent>().toBeObject();
+  expectTypeOf<LivePlayerOnLeavepictureinpictureEvent>().toEqualTypeOf<UniHelper.LivePlayerOnLeavepictureinpictureEvent>();
 
   expectTypeOf<LivePlayerOnLeavepictureinpicture>().toBeFunction();
   expectTypeOf<LivePlayerOnLeavepictureinpicture>().toEqualTypeOf<UniHelper.LivePlayerOnLeavepictureinpicture>();

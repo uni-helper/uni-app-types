@@ -1,7 +1,9 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
+  AdInteractiveOnLoadEvent,
   AdInteractiveOnLoad,
   AdInteractiveOnErrorDetail,
+  AdInteractiveOnErrorEvent,
   AdInteractiveOnError,
   AdInteractiveProps,
   AdInteractive,
@@ -9,11 +11,17 @@ import type {
 } from '@/ad/AdInteractive';
 
 describe('AdInteractive', () => {
+  expectTypeOf<AdInteractiveOnLoadEvent>().toBeObject();
+  expectTypeOf<AdInteractiveOnLoadEvent>().toEqualTypeOf<UniHelper.AdInteractiveOnLoadEvent>();
+
   expectTypeOf<AdInteractiveOnLoad>().toBeFunction();
   expectTypeOf<AdInteractiveOnLoad>().toEqualTypeOf<UniHelper.AdInteractiveOnLoad>();
 
   expectTypeOf<AdInteractiveOnErrorDetail>().toBeObject();
   expectTypeOf<AdInteractiveOnErrorDetail>().toEqualTypeOf<UniHelper.AdInteractiveOnErrorDetail>();
+
+  expectTypeOf<AdInteractiveOnErrorEvent>().toBeObject();
+  expectTypeOf<AdInteractiveOnErrorEvent>().toEqualTypeOf<UniHelper.AdInteractiveOnErrorEvent>();
 
   expectTypeOf<AdInteractiveOnError>().toBeFunction();
   expectTypeOf<AdInteractiveOnError>().toEqualTypeOf<UniHelper.AdInteractiveOnError>();

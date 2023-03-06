@@ -3,8 +3,11 @@ import type {
   PickerViewValueElement,
   PickerViewValue,
   PickerViewOnChangeDetail,
+  PickerViewOnChangeEvent,
   PickerViewOnChange,
+  PickerViewOnPickstartEvent,
   PickerViewOnPickstart,
+  PickerViewOnPickendEvent,
   PickerViewOnPickend,
   PickerViewProps,
   PickerView,
@@ -21,11 +24,20 @@ describe('PickerView', () => {
   expectTypeOf<PickerViewOnChangeDetail>().toBeObject();
   expectTypeOf<PickerViewOnChangeDetail>().toEqualTypeOf<UniHelper.PickerViewOnChangeDetail>();
 
+  expectTypeOf<PickerViewOnChangeEvent>().toBeObject();
+  expectTypeOf<PickerViewOnChangeEvent>().toEqualTypeOf<UniHelper.PickerViewOnChangeEvent>();
+
   expectTypeOf<PickerViewOnChange>().toBeFunction();
   expectTypeOf<PickerViewOnChange>().toEqualTypeOf<UniHelper.PickerViewOnChange>();
 
+  expectTypeOf<PickerViewOnPickstartEvent>().toBeObject();
+  expectTypeOf<PickerViewOnPickstartEvent>().toEqualTypeOf<UniHelper.PickerViewOnPickstartEvent>();
+
   expectTypeOf<PickerViewOnPickstart>().toBeFunction();
   expectTypeOf<PickerViewOnPickstart>().toEqualTypeOf<UniHelper.PickerViewOnPickstart>();
+
+  expectTypeOf<PickerViewOnPickendEvent>().toBeObject();
+  expectTypeOf<PickerViewOnPickendEvent>().toEqualTypeOf<UniHelper.PickerViewOnPickendEvent>();
 
   expectTypeOf<PickerViewOnPickend>().toBeFunction();
   expectTypeOf<PickerViewOnPickend>().toEqualTypeOf<UniHelper.PickerViewOnPickend>();

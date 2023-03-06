@@ -20,19 +20,28 @@ import type {
   MapControlId,
   MapControl,
   MapOnMarkertapDetail,
+  MapOnMarkertapEvent,
   MapOnMarkertap,
   MapOnLabeltapDetail,
+  MapOnLabeltapEvent,
   MapOnLabeltap,
   MapOnCallouttapDetail,
+  MapOnCallouttapEvent,
   MapOnCallouttap,
   MapOnControltapDetail,
+  MapOnControltapEvent,
   MapOnControltap,
+  MapOnRegionchangeEvent,
   MapOnRegionchange,
+  MapOnTapEvent,
   MapOnTap,
+  MapOnUpdatedEvent,
   MapOnUpdated,
   MapOnAnchorpointtapDetail,
+  MapOnAnchorpointtapEvent,
   MapOnAnchorpointtap,
   MapOnPoitapDetail,
+  MapOnPoitapEvent,
   MapOnPoitap,
   MapProps,
   Map,
@@ -100,11 +109,17 @@ describe('Map', () => {
   expectTypeOf<MapOnMarkertapDetail>().toBeObject();
   expectTypeOf<MapOnMarkertapDetail>().toEqualTypeOf<UniHelper.MapOnMarkertapDetail>();
 
+  expectTypeOf<MapOnMarkertapEvent>().toBeObject();
+  expectTypeOf<MapOnMarkertapEvent>().toEqualTypeOf<UniHelper.MapOnMarkertapEvent>();
+
   expectTypeOf<MapOnMarkertap>().toBeFunction();
   expectTypeOf<MapOnMarkertap>().toEqualTypeOf<UniHelper.MapOnMarkertap>();
 
   expectTypeOf<MapOnLabeltapDetail>().toBeObject();
   expectTypeOf<MapOnLabeltapDetail>().toEqualTypeOf<UniHelper.MapOnLabeltapDetail>();
+
+  expectTypeOf<MapOnLabeltapEvent>().toBeObject();
+  expectTypeOf<MapOnLabeltapEvent>().toEqualTypeOf<UniHelper.MapOnLabeltapEvent>();
 
   expectTypeOf<MapOnLabeltap>().toBeFunction();
   expectTypeOf<MapOnLabeltap>().toEqualTypeOf<UniHelper.MapOnLabeltap>();
@@ -112,20 +127,35 @@ describe('Map', () => {
   expectTypeOf<MapOnCallouttapDetail>().toBeObject();
   expectTypeOf<MapOnCallouttapDetail>().toEqualTypeOf<UniHelper.MapOnCallouttapDetail>();
 
+  expectTypeOf<MapOnCallouttapEvent>().toBeObject();
+  expectTypeOf<MapOnCallouttapEvent>().toEqualTypeOf<UniHelper.MapOnCallouttapEvent>();
+
   expectTypeOf<MapOnCallouttap>().toBeFunction();
   expectTypeOf<MapOnCallouttap>().toEqualTypeOf<UniHelper.MapOnCallouttap>();
 
   expectTypeOf<MapOnControltapDetail>().toBeObject();
   expectTypeOf<MapOnControltapDetail>().toEqualTypeOf<UniHelper.MapOnControltapDetail>();
 
+  expectTypeOf<MapOnControltapEvent>().toBeObject();
+  expectTypeOf<MapOnControltapEvent>().toEqualTypeOf<UniHelper.MapOnControltapEvent>();
+
   expectTypeOf<MapOnControltap>().toBeFunction();
   expectTypeOf<MapOnControltap>().toEqualTypeOf<UniHelper.MapOnControltap>();
+
+  expectTypeOf<MapOnRegionchangeEvent>().toBeObject();
+  expectTypeOf<MapOnRegionchangeEvent>().toEqualTypeOf<UniHelper.MapOnRegionchangeEvent>();
 
   expectTypeOf<MapOnRegionchange>().toBeFunction();
   expectTypeOf<MapOnRegionchange>().toEqualTypeOf<UniHelper.MapOnRegionchange>();
 
+  expectTypeOf<MapOnTapEvent>().toBeObject();
+  expectTypeOf<MapOnTapEvent>().toEqualTypeOf<UniHelper.MapOnTapEvent>();
+
   expectTypeOf<MapOnTap>().toBeFunction();
   expectTypeOf<MapOnTap>().toEqualTypeOf<UniHelper.MapOnTap>();
+
+  expectTypeOf<MapOnUpdatedEvent>().toBeObject();
+  expectTypeOf<MapOnUpdatedEvent>().toEqualTypeOf<UniHelper.MapOnUpdatedEvent>();
 
   expectTypeOf<MapOnUpdated>().toBeFunction();
   expectTypeOf<MapOnUpdated>().toEqualTypeOf<UniHelper.MapOnUpdated>();
@@ -133,11 +163,17 @@ describe('Map', () => {
   expectTypeOf<MapOnAnchorpointtapDetail>().toBeObject();
   expectTypeOf<MapOnAnchorpointtapDetail>().toEqualTypeOf<UniHelper.MapOnAnchorpointtapDetail>();
 
+  expectTypeOf<MapOnAnchorpointtapEvent>().toBeObject();
+  expectTypeOf<MapOnAnchorpointtapEvent>().toEqualTypeOf<UniHelper.MapOnAnchorpointtapEvent>();
+
   expectTypeOf<MapOnAnchorpointtap>().toBeFunction();
   expectTypeOf<MapOnAnchorpointtap>().toEqualTypeOf<UniHelper.MapOnAnchorpointtap>();
 
   expectTypeOf<MapOnPoitapDetail>().toBeObject();
   expectTypeOf<MapOnPoitapDetail>().toEqualTypeOf<UniHelper.MapOnPoitapDetail>();
+
+  expectTypeOf<MapOnPoitapEvent>().toBeObject();
+  expectTypeOf<MapOnPoitapEvent>().toEqualTypeOf<UniHelper.MapOnPoitapEvent>();
 
   expectTypeOf<MapOnPoitap>().toBeFunction();
   expectTypeOf<MapOnPoitap>().toEqualTypeOf<UniHelper.MapOnPoitap>();

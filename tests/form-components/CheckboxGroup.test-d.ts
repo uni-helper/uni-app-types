@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   CheckboxGroupOnChangeDetail,
+  CheckboxGroupOnChangeEvent,
   CheckboxGroupOnChange,
   CheckboxGroupProps,
   CheckboxGroup,
@@ -10,6 +11,9 @@ import type {
 describe('CheckboxGroup', () => {
   expectTypeOf<CheckboxGroupOnChangeDetail>().toBeObject();
   expectTypeOf<CheckboxGroupOnChangeDetail>().toEqualTypeOf<UniHelper.CheckboxGroupOnChangeDetail>();
+
+  expectTypeOf<CheckboxGroupOnChangeEvent>().toBeObject();
+  expectTypeOf<CheckboxGroupOnChangeEvent>().toEqualTypeOf<UniHelper.CheckboxGroupOnChangeEvent>();
 
   expectTypeOf<CheckboxGroupOnChange>().toBeFunction();
   expectTypeOf<CheckboxGroupOnChange>().toEqualTypeOf<UniHelper.CheckboxGroupOnChange>();

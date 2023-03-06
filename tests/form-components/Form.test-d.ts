@@ -2,7 +2,9 @@ import { describe, expectTypeOf } from 'vitest';
 import type {
   FormOnSubmitDetailValue,
   FormOnSubmitDetail,
+  FormOnSubmitEvent,
   FormOnSubmit,
+  FormOnResetEvent,
   FormOnReset,
   FormProps,
   Form,
@@ -16,8 +18,14 @@ describe('Form', () => {
   expectTypeOf<FormOnSubmitDetail>().toBeObject();
   expectTypeOf<FormOnSubmitDetail>().toEqualTypeOf<UniHelper.FormOnSubmitDetail>();
 
+  expectTypeOf<FormOnSubmitEvent>().toBeObject();
+  expectTypeOf<FormOnSubmitEvent>().toEqualTypeOf<UniHelper.FormOnSubmitEvent>();
+
   expectTypeOf<FormOnSubmit>().toBeFunction();
   expectTypeOf<FormOnSubmit>().toEqualTypeOf<UniHelper.FormOnSubmit>();
+
+  expectTypeOf<FormOnResetEvent>().toBeObject();
+  expectTypeOf<FormOnResetEvent>().toEqualTypeOf<UniHelper.FormOnResetEvent>();
 
   expectTypeOf<FormOnReset>().toBeFunction();
   expectTypeOf<FormOnReset>().toEqualTypeOf<UniHelper.FormOnReset>();

@@ -3,8 +3,10 @@ import type {
   MovableViewDirection,
   MovableViewSource,
   MovableViewOnChangeDetail,
+  MovableViewOnChangeEvent,
   MovableViewOnChange,
   MovableViewOnScaleDetail,
+  MovableViewOnScaleEvent,
   MovableViewOnScale,
   MovableViewProps,
   MovableView,
@@ -21,11 +23,17 @@ describe('MovableView', () => {
   expectTypeOf<MovableViewOnChangeDetail>().toBeObject();
   expectTypeOf<MovableViewOnChangeDetail>().toEqualTypeOf<UniHelper.MovableViewOnChangeDetail>();
 
+  expectTypeOf<MovableViewOnChangeEvent>().toBeObject();
+  expectTypeOf<MovableViewOnChangeEvent>().toEqualTypeOf<UniHelper.MovableViewOnChangeEvent>();
+
   expectTypeOf<MovableViewOnChange>().toBeFunction();
   expectTypeOf<MovableViewOnChange>().toEqualTypeOf<UniHelper.MovableViewOnChange>();
 
   expectTypeOf<MovableViewOnScaleDetail>().toBeObject();
   expectTypeOf<MovableViewOnScaleDetail>().toEqualTypeOf<UniHelper.MovableViewOnScaleDetail>();
+
+  expectTypeOf<MovableViewOnScaleEvent>().toBeObject();
+  expectTypeOf<MovableViewOnScaleEvent>().toEqualTypeOf<UniHelper.MovableViewOnScaleEvent>();
 
   expectTypeOf<MovableViewOnScale>().toBeFunction();
   expectTypeOf<MovableViewOnScale>().toEqualTypeOf<UniHelper.MovableViewOnScale>();

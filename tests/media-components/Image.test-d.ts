@@ -1,8 +1,10 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   ImageMode,
+  ImageOnErrorEvent,
   ImageOnError,
   ImageOnLoadDetail,
+  ImageOnLoadEvent,
   ImageOnLoad,
   ImageProps,
   Image,
@@ -13,11 +15,17 @@ describe('Image', () => {
   expectTypeOf<ImageMode>().toBeString();
   expectTypeOf<ImageMode>().toEqualTypeOf<UniHelper.ImageMode>();
 
+  expectTypeOf<ImageOnErrorEvent>().toBeObject();
+  expectTypeOf<ImageOnErrorEvent>().toEqualTypeOf<UniHelper.ImageOnErrorEvent>();
+
   expectTypeOf<ImageOnError>().toBeFunction();
   expectTypeOf<ImageOnError>().toEqualTypeOf<UniHelper.ImageOnError>();
 
   expectTypeOf<ImageOnLoadDetail>().toBeObject();
   expectTypeOf<ImageOnLoadDetail>().toEqualTypeOf<UniHelper.ImageOnLoadDetail>();
+
+  expectTypeOf<ImageOnLoadEvent>().toBeObject();
+  expectTypeOf<ImageOnLoadEvent>().toEqualTypeOf<UniHelper.ImageOnLoadEvent>();
 
   expectTypeOf<ImageOnLoad>().toBeFunction();
   expectTypeOf<ImageOnLoad>().toEqualTypeOf<UniHelper.ImageOnLoad>();

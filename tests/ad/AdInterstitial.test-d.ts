@@ -1,8 +1,11 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
+  AdInterstitialOnLoadEvent,
   AdInterstitialOnLoad,
   AdInterstitialOnErrorDetail,
+  AdInterstitialOnErrorEvent,
   AdInterstitialOnError,
+  AdInterstitialOnCloseEvent,
   AdInterstitialOnClose,
   AdInterstitialProps,
   AdInterstitial,
@@ -10,14 +13,23 @@ import type {
 } from '@/ad/AdInterstitial';
 
 describe('AdInterstitial', () => {
+  expectTypeOf<AdInterstitialOnLoadEvent>().toBeObject();
+  expectTypeOf<AdInterstitialOnLoadEvent>().toEqualTypeOf<UniHelper.AdInterstitialOnLoadEvent>();
+
   expectTypeOf<AdInterstitialOnLoad>().toBeFunction();
   expectTypeOf<AdInterstitialOnLoad>().toEqualTypeOf<UniHelper.AdInterstitialOnLoad>();
 
   expectTypeOf<AdInterstitialOnErrorDetail>().toBeObject();
   expectTypeOf<AdInterstitialOnErrorDetail>().toEqualTypeOf<UniHelper.AdInterstitialOnErrorDetail>();
 
+  expectTypeOf<AdInterstitialOnErrorEvent>().toBeObject();
+  expectTypeOf<AdInterstitialOnErrorEvent>().toEqualTypeOf<UniHelper.AdInterstitialOnErrorEvent>();
+
   expectTypeOf<AdInterstitialOnError>().toBeFunction();
   expectTypeOf<AdInterstitialOnError>().toEqualTypeOf<UniHelper.AdInterstitialOnError>();
+
+  expectTypeOf<AdInterstitialOnCloseEvent>().toBeObject();
+  expectTypeOf<AdInterstitialOnCloseEvent>().toEqualTypeOf<UniHelper.AdInterstitialOnCloseEvent>();
 
   expectTypeOf<AdInterstitialOnClose>().toBeFunction();
   expectTypeOf<AdInterstitialOnClose>().toEqualTypeOf<UniHelper.AdInterstitialOnClose>();

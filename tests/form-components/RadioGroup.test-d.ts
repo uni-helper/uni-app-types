@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   RadioGroupOnChangeDetail,
+  RadioGroupOnChangeEvent,
   RadioGroupOnChange,
   RadioGroupProps,
   RadioGroup,
@@ -10,6 +11,9 @@ import type {
 describe('RadioGroup', () => {
   expectTypeOf<RadioGroupOnChangeDetail>().toBeObject();
   expectTypeOf<RadioGroupOnChangeDetail>().toEqualTypeOf<UniHelper.RadioGroupOnChangeDetail>();
+
+  expectTypeOf<RadioGroupOnChangeEvent>().toBeObject();
+  expectTypeOf<RadioGroupOnChangeEvent>().toEqualTypeOf<UniHelper.RadioGroupOnChangeEvent>();
 
   expectTypeOf<RadioGroupOnChange>().toBeFunction();
   expectTypeOf<RadioGroupOnChange>().toEqualTypeOf<UniHelper.RadioGroupOnChange>();

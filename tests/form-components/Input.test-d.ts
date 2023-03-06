@@ -6,14 +6,19 @@ import type {
   InputConfirmType,
   InputInputMode,
   InputOnInputDetail,
+  InputOnInputEvent,
   InputOnInput,
   InputOnFocusDetail,
+  InputOnFocusEvent,
   InputOnFocus,
   InputOnBlurDetail,
+  InputOnBlurEvent,
   InputOnBlur,
   InputOnConfirmDetail,
+  InputOnConfirmEvent,
   InputOnConfirm,
   InputOnKeyboardheightchangeDetail,
+  InputOnKeyboardheightchangeEvent,
   InputOnKeyboardheightchange,
   InputProps,
   Input,
@@ -39,11 +44,17 @@ describe('Input', () => {
   expectTypeOf<InputOnInputDetail>().toBeObject();
   expectTypeOf<InputOnInputDetail>().toEqualTypeOf<UniHelper.InputOnInputDetail>();
 
+  expectTypeOf<InputOnInputEvent>().toBeObject();
+  expectTypeOf<InputOnInputEvent>().toEqualTypeOf<UniHelper.InputOnInputEvent>();
+
   expectTypeOf<InputOnInput>().toBeFunction();
   expectTypeOf<InputOnInput>().toEqualTypeOf<UniHelper.InputOnInput>();
 
   expectTypeOf<InputOnFocusDetail>().toBeObject();
   expectTypeOf<InputOnFocusDetail>().toEqualTypeOf<UniHelper.InputOnFocusDetail>();
+
+  expectTypeOf<InputOnFocusEvent>().toBeObject();
+  expectTypeOf<InputOnFocusEvent>().toEqualTypeOf<UniHelper.InputOnFocusEvent>();
 
   expectTypeOf<InputOnFocus>().toBeFunction();
   expectTypeOf<InputOnFocus>().toEqualTypeOf<UniHelper.InputOnFocus>();
@@ -51,17 +62,26 @@ describe('Input', () => {
   expectTypeOf<InputOnBlurDetail>().toBeObject();
   expectTypeOf<InputOnBlurDetail>().toEqualTypeOf<UniHelper.InputOnBlurDetail>();
 
+  expectTypeOf<InputOnBlurEvent>().toBeObject();
+  expectTypeOf<InputOnBlurEvent>().toEqualTypeOf<UniHelper.InputOnBlurEvent>();
+
   expectTypeOf<InputOnBlur>().toBeFunction();
   expectTypeOf<InputOnBlur>().toEqualTypeOf<UniHelper.InputOnBlur>();
 
   expectTypeOf<InputOnConfirmDetail>().toBeObject();
   expectTypeOf<InputOnConfirmDetail>().toEqualTypeOf<UniHelper.InputOnConfirmDetail>();
 
+  expectTypeOf<InputOnConfirmEvent>().toBeObject();
+  expectTypeOf<InputOnConfirmEvent>().toEqualTypeOf<UniHelper.InputOnConfirmEvent>();
+
   expectTypeOf<InputOnConfirm>().toBeFunction();
   expectTypeOf<InputOnConfirm>().toEqualTypeOf<UniHelper.InputOnConfirm>();
 
   expectTypeOf<InputOnKeyboardheightchangeDetail>().toBeObject();
   expectTypeOf<InputOnKeyboardheightchangeDetail>().toEqualTypeOf<UniHelper.InputOnKeyboardheightchangeDetail>();
+
+  expectTypeOf<InputOnKeyboardheightchangeEvent>().toBeObject();
+  expectTypeOf<InputOnKeyboardheightchangeEvent>().toEqualTypeOf<UniHelper.InputOnKeyboardheightchangeEvent>();
 
   expectTypeOf<InputOnKeyboardheightchange>().toBeFunction();
   expectTypeOf<InputOnKeyboardheightchange>().toEqualTypeOf<UniHelper.InputOnKeyboardheightchange>();

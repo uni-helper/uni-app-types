@@ -5,10 +5,14 @@ import type {
   CameraDevicePosition,
   CameraFlash,
   CameraFrameSize,
+  CameraOnStopEvent,
   CameraOnStop,
+  CameraOnErrorEvent,
   CameraOnError,
   CameraOnInitdoneDetail,
+  CameraOnInitdoneEvent,
   CameraOnInitdone,
+  CameraOnScancodeEvent,
   CameraOnScancode,
   CameraProps,
   Camera,
@@ -31,8 +35,14 @@ describe('Camera', () => {
   expectTypeOf<CameraFrameSize>().toBeString();
   expectTypeOf<CameraFrameSize>().toEqualTypeOf<UniHelper.CameraFrameSize>();
 
+  expectTypeOf<CameraOnStopEvent>().toBeObject();
+  expectTypeOf<CameraOnStopEvent>().toEqualTypeOf<UniHelper.CameraOnStopEvent>();
+
   expectTypeOf<CameraOnStop>().toBeFunction();
   expectTypeOf<CameraOnStop>().toEqualTypeOf<UniHelper.CameraOnStop>();
+
+  expectTypeOf<CameraOnErrorEvent>().toBeObject();
+  expectTypeOf<CameraOnErrorEvent>().toEqualTypeOf<UniHelper.CameraOnErrorEvent>();
 
   expectTypeOf<CameraOnError>().toBeFunction();
   expectTypeOf<CameraOnError>().toEqualTypeOf<UniHelper.CameraOnError>();
@@ -40,8 +50,14 @@ describe('Camera', () => {
   expectTypeOf<CameraOnInitdoneDetail>().toBeObject();
   expectTypeOf<CameraOnInitdoneDetail>().toEqualTypeOf<UniHelper.CameraOnInitdoneDetail>();
 
+  expectTypeOf<CameraOnInitdoneEvent>().toBeObject();
+  expectTypeOf<CameraOnInitdoneEvent>().toEqualTypeOf<UniHelper.CameraOnInitdoneEvent>();
+
   expectTypeOf<CameraOnInitdone>().toBeFunction();
   expectTypeOf<CameraOnInitdone>().toEqualTypeOf<UniHelper.CameraOnInitdone>();
+
+  expectTypeOf<CameraOnScancodeEvent>().toBeObject();
+  expectTypeOf<CameraOnScancodeEvent>().toEqualTypeOf<UniHelper.CameraOnScancodeEvent>();
 
   expectTypeOf<CameraOnScancode>().toBeFunction();
   expectTypeOf<CameraOnScancode>().toEqualTypeOf<UniHelper.CameraOnScancode>();

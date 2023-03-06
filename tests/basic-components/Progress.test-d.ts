@@ -1,6 +1,7 @@
 import { describe, expectTypeOf } from 'vitest';
 import type {
   ProgressActiveMode,
+  ProgressOnActiveendEvent,
   ProgressOnActiveend,
   ProgressProps,
   Progress,
@@ -10,6 +11,9 @@ import type {
 describe('Progress', () => {
   expectTypeOf<ProgressActiveMode>().toBeString();
   expectTypeOf<ProgressActiveMode>().toEqualTypeOf<UniHelper.ProgressActiveMode>();
+
+  expectTypeOf<ProgressOnActiveendEvent>().toBeObject();
+  expectTypeOf<ProgressOnActiveendEvent>().toEqualTypeOf<UniHelper.ProgressOnActiveendEvent>();
 
   expectTypeOf<ProgressOnActiveend>().toBeFunction();
   expectTypeOf<ProgressOnActiveend>().toEqualTypeOf<UniHelper.ProgressOnActiveend>();

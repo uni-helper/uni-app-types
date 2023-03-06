@@ -3,6 +3,7 @@ import type {
   SwitchChecked,
   SwitchType,
   SwitchOnChangeDetail,
+  SwitchOnChangeEvent,
   SwitchOnChange,
   SwitchProps,
   Switch,
@@ -18,6 +19,9 @@ describe('Switch', () => {
 
   expectTypeOf<SwitchOnChangeDetail>().toBeObject();
   expectTypeOf<SwitchOnChangeDetail>().toEqualTypeOf<UniHelper.SwitchOnChangeDetail>();
+
+  expectTypeOf<SwitchOnChangeEvent>().toBeObject();
+  expectTypeOf<SwitchOnChangeEvent>().toEqualTypeOf<UniHelper.SwitchOnChangeEvent>();
 
   expectTypeOf<SwitchOnChange>().toBeFunction();
   expectTypeOf<SwitchOnChange>().toEqualTypeOf<UniHelper.SwitchOnChange>();
