@@ -1,6 +1,6 @@
 # 改动日志
 
-## Unreleased
+## 0.5.0 (2023-03-06)
 
 - build: 现在使用 `rollup` 打包生成类型文件
 - fix: 修复部分文件没有导入 `BaseEvent` 和 `CustomEvent` 导致类型被推断为 `any` 的问题
