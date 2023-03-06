@@ -21,17 +21,19 @@
     "email": "wurui-dev@foxmail.com",
     "url": "https://modyqyw.github.io"
   },
-  "types": "index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.d.ts",
-    "types"
+    "dist"
   ],
   "scripts": {
+    "build": "rollup -c",
     "check:deps": "ncu --dep dev,optional,prod,packageManager",
     "check:types": "tsc --noEmit",
-    "lint": "run-p lint:eslint lint:markdownlint check:types test:coverage",
-    "lint:eslint": "eslint ./types --fix --cache",
+    "dev": "rollup -c --watch",
+    "lint": "run-p lint:eslint lint:markdownlint lint:publint check:types test:coverage",
+    "lint:eslint": "eslint ./src --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
+    "lint:publint": "publint",
     "prepare": "is-ci || husky install",
     "release": "pnpm install && pnpm run lint && bumpp",
     "test": "vitest typecheck --run",
@@ -46,6 +48,7 @@
     "@commitlint/config-conventional": "^17.4.3",
     "@commitlint/prompt": "^17.4.3",
     "@modyqyw/fabric": "^7.0.3",
+    "@modyqyw/utils": "^5.0.0",
     "@tsconfig/node18": "^1.0.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
@@ -61,6 +64,10 @@
     "markdownlint-cli": "^0.33.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
+    "publint": "^0.1.10",
+    "rollup": "^3.18.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^5.2.0",
     "typescript": "^4.9.5",
     "vitest": "^0.28.5"
   },
