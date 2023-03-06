@@ -1,5 +1,14 @@
 # 改动日志
 
+## Unreleased
+
+- build: 现在使用 `rollup` 打包生成类型文件
+- fix: 修复部分文件没有导入 `BaseEvent` 和 `CustomEvent` 导致类型被推断为 `any` 的问题
+- fix: 修复 `custom-tab-bar` 事件名称错误的问题 `onTabItemTap` -> `onOnTabItemTap`
+- feat: 增加 `RegionPickerOnChangeDetail` 下字段，感谢 [Megasu](https://github.com/Megasu) 的贡献
+- feat: 增加大量 `XxxEvent` 类型方便使用，感谢 [Megasu](https://github.com/Megasu) 的大量贡献
+- feat: 调整 `CustomEvent` 下的类型，现在 `CustomEvent` 下的 `detail` 不再是可选的，感谢 [Megasu](https://github.com/Megasu) 的大量贡献
+
 ## 0.4.0 (2023-02-09)
 
 - feat: 提供所有组件的实例类型
