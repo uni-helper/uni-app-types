@@ -36,7 +36,7 @@
     "lint:publint": "publint",
     "prepublishOnly": "pnpm run build",
     "prepare": "is-ci || husky install",
-    "release": "pnpm install && pnpm run lint && bumpp",
+    "release": "pnpm install && pnpm run build && pnpm run lint && bumpp",
     "test": "vitest typecheck --run",
     "test:coverage": "vitest typecheck --run --coverage"
   },
@@ -48,12 +48,12 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@commitlint/prompt": "^17.4.4",
-    "@modyqyw/fabric": "^7.3.2",
+    "@modyqyw/fabric": "^7.4.1",
     "@modyqyw/utils": "^5.0.0",
     "@tsconfig/node18": "^1.0.1",
     "@types/node": "^18.14.6",
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.54.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
     "@vitest/coverage-c8": "^0.29.2",
     "bumpp": "^9.0.0",
     "c8": "^7.13.0",
@@ -75,7 +75,7 @@
   "peerDependencies": {
     "typescript": "^4.8.0"
   },
-  "packageManager": "pnpm@7.29.0",
+  "packageManager": "pnpm@7.29.1",
   "engines": {
     "node": ">=14.18"
   },
