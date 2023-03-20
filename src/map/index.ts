@@ -685,7 +685,7 @@ type _MapProps = Partial<{
    *
    * 默认为 false
    */
-  enableBuilding: false;
+  enableBuilding: boolean;
   /**
    * 是否显示带有方向的当前定位点
    *
