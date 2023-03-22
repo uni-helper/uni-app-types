@@ -21,7 +21,8 @@ type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
 interface _TextareaOnFocusDetail {
   value: _TextareaValue;
-  height: number;
+  /** 键盘高度 */
+  height?: number;
 }
 
 type _TextareaOnFocusEvent = CustomEvent<_TextareaOnFocusDetail>;
@@ -33,7 +34,8 @@ interface _TextareaOnFocus {
 
 interface _TextareaOnBlurDetail {
   value: _TextareaValue;
-  height: number;
+  /** 光标位置 */
+  cursor?: number;
 }
 
 type _TextareaOnBlurEvent = CustomEvent<_TextareaOnBlurDetail>;
