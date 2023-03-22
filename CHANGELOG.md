@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.3 (2023-03-22)
+
+- fix: 修复 `TextareaOnFocusDetail` 参数
+
 ## 0.5.2 (2023-03-20)
 
 - fix: 修复 `MapProps` `enableBuilding` 类型，感谢 [Surlyyoung](https://github.com/Surlyyoung) 在 [#38](https://github.com/uni-helper/uni-app-types/pull/38) 的贡献
