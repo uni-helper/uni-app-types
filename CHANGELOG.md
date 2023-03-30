@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.4 (2023-03-30)
+
+- fix: 支持 `typescript@5`
+
 ## 0.5.3 (2023-03-22)
 
 - fix: 修复 `TextareaOnFocusDetail` 参数
