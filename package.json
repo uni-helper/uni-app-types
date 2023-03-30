@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "check:deps": "ncu --dep dev,optional,prod,packageManager",
+    "check:deps": "taze",
     "check:types": "tsc --noEmit",
     "dev": "rollup -c --watch",
     "lint": "run-p lint:eslint lint:markdownlint lint:publint check:types test:coverage",
@@ -45,38 +45,38 @@
     "vue3": "npm:vue@^3.2.47"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.4",
+    "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
-    "@commitlint/prompt": "^17.4.4",
-    "@modyqyw/fabric": "^7.4.1",
+    "@commitlint/prompt": "^17.5.0",
+    "@modyqyw/fabric": "^7.5.0",
     "@modyqyw/utils": "^5.0.0",
     "@tsconfig/node18": "^1.0.1",
-    "@types/node": "^18.15.5",
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "@vitest/coverage-c8": "^0.29.7",
-    "bumpp": "^9.0.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "@vitest/coverage-c8": "^0.29.8",
+    "bumpp": "^9.1.0",
     "c8": "^7.13.0",
     "commitizen": "^4.3.0",
-    "eslint": "^8.36.0",
+    "eslint": "^8.37.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.2.0",
     "markdownlint-cli": "^0.33.0",
-    "npm-check-updates": "^16.7.13",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.6",
+    "prettier": "^2.8.7",
     "publint": "^0.1.11",
-    "rollup": "^3.20.0",
+    "rollup": "^3.20.2",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.3.0",
+    "taze": "^0.9.1",
     "typescript": "^5.0.2",
-    "vitest": "^0.29.7"
+    "vitest": "^0.29.8"
   },
   "peerDependencies": {
-    "typescript": "^4.8.0"
+    "typescript": "^4.8.0 || ^5.0.0"
   },
-  "packageManager": "pnpm@7.30.0",
+  "packageManager": "pnpm@8.1.0",
   "engines": {
     "node": ">=14.18"
   },
