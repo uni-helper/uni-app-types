@@ -58,7 +58,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-alpha-3070620230227001",
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3070620230227001",
     "@uni-helper/uni-app-types": "workspace:*",
-    "typescript": "4.9.5",
+    "typescript": "5.0.4",
     "vite": "4.1.4"
   }
 }
