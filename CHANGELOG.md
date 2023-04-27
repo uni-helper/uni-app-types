@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.5 (2023-04-27)
+
+- fix: 支持 `Vue Language Features (Volar)` & `vue-tsc` 1.6.0
+
 ## 0.5.4 (2023-03-30)
 
 - fix: 支持 `typescript@5`
