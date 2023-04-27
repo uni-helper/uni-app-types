@@ -30,20 +30,53 @@ npm i -D @uni-helper/uni-app-types
 
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types` 且 `include` 包含了对应的 `vue` 文件
 
-```json
-{
-  "compilerOptions": {
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
-  },
-  "vueCompilerOptions": {
-    "experimentalRuntimeMode": "runtime-uni-app",
-    "nativeTags": ["block", "component", "template", "slot"]
-  },
-  "include": ["src/**/*.vue"]
-}
-```
+  <details>
+    <summary>1.6.0 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
 
-更多关于 `experimentalRuntimeMode` 和 `nativeTags` 的信息请查看 [vuejs/language-tools#2165 (comment)](https://github.com/vuejs/language-tools/issues/2165#issuecomment-1334803492)。
+  ```json
+  {
+    "compilerOptions": {
+      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+    },
+    "include": ["src/**/*.vue"]
+  }
+  ```
+
+  </details>
+
+  <details>
+    <summary>1.0.10 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> < 1.6.0</summary>
+
+  ```json
+  {
+    "compilerOptions": {
+      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+    },
+    "vueCompilerOptions": {
+      "nativeTags": ["block", "component", "template", "slot"]
+    },
+    "include": ["src/**/*.vue"]
+  }
+  ```
+
+  </details>
+
+  <details>
+    <summary>0.34.16 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> < 1.0.10</summary>
+
+  ```json
+  {
+    "compilerOptions": {
+      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+    },
+    "vueCompilerOptions": {
+      "experimentalRuntimeMode": "runtime-uni-app"
+    },
+    "include": ["src/**/*.vue"]
+  }
+  ```
+
+  </details>
 
 - 重启编辑器 / IDE
 
