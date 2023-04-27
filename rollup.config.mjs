@@ -1,11 +1,11 @@
 import { defineConfig } from 'rollup';
 import dts from 'rollup-plugin-dts';
 import del from 'rollup-plugin-delete';
-import { getPackageJson } from '@modyqyw/utils';
+import pkg from './package.json' assert { type: 'json' };
 
 const isDev = !!process.env.ROLLUP_WATCH;
 
-const packageJson = getPackageJson();
+const packageJson = pkg;
 const dependencies = packageJson.dependencies ?? {};
 const peerDependencies = packageJson.peerDependencies ?? {};
 const external = [...Object.keys(dependencies), ...Object.keys(peerDependencies)];
