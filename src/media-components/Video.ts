@@ -534,7 +534,28 @@ export {
   _VideoInstance as VideoInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 视频播放组件
+     *
+     * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+     */
+    Video: _Video;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 视频播放组件
+       *
+       * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+       */
+      Video: _Video;
+    }
+  }
   namespace UniHelper {
     /** 弹幕 */
     export interface VideoDanmu extends _VideoDanmu {}
@@ -657,16 +678,5 @@ declare global {
     export type Video = _Video;
     /** 视频播放组件实例 */
     export type VideoInstance = _VideoInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 视频播放组件
-     *
-     * 默认宽度 300px、高度 225px，可通过 css 设置宽高
-     */
-    Video: _Video;
   }
 }

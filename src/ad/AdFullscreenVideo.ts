@@ -72,7 +72,20 @@ export {
   _AdFullscreenVideoInstance as AdFullscreenVideoInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 全屏视频广告 */
+    AdFullscreenVideo: _AdFullscreenVideo;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 全屏视频广告 */
+      AdFullscreenVideo: _AdFullscreenVideo;
+    }
+  }
   namespace UniHelper {
     export type AdFullscreenVideoOnLoadEvent = _AdFullscreenVideoOnLoadEvent;
     /** 广告加载成功的回调 */
@@ -90,12 +103,5 @@ declare global {
     export type AdFullscreenVideo = _AdFullscreenVideo;
     /** 全屏视频广告实例 */
     export type AdFullscreenVideoInstance = _AdFullscreenVideoInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 全屏视频广告 */
-    AdFullscreenVideo: _AdFullscreenVideo;
   }
 }

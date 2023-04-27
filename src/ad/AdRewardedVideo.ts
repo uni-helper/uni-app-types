@@ -81,7 +81,20 @@ export {
   _AdRewardedVideoInstance as AdRewardedVideoInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 激励视频广告 */
+    AdRewardedVideo: _AdRewardedVideo;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 激励视频广告 */
+      AdRewardedVideo: _AdRewardedVideo;
+    }
+  }
   namespace UniHelper {
     /** 服务器回调透传数据 */
     export interface AdRewardedVideoUrlCallback extends _AdRewardedVideoUrlCallback {}
@@ -101,12 +114,5 @@ declare global {
     export type AdRewardedVideo = _AdRewardedVideo;
     /** 激励视频广告实例 */
     export type AdRewardedVideoInstance = _AdRewardedVideoInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 激励视频广告 */
-    AdRewardedVideo: _AdRewardedVideo;
   }
 }

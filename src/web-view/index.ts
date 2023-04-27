@@ -69,7 +69,20 @@ export {
   _WebViewInstance as WebViewInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** Web 浏览器组件，可承载网页 */
+    WebView: _WebView;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** Web 浏览器组件，可承载网页 */
+      WebView: _WebView;
+    }
+  }
   namespace UniHelper {
     /** 样式 */
     export interface WebViewStyles extends _WebViewStyles {}
@@ -86,12 +99,5 @@ declare global {
     export type WebView = _WebView;
     /** Web 浏览器组件实例 */
     export type WebViewInstance = _WebViewInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** Web 浏览器组件，可承载网页 */
-    WebView: _WebView;
   }
 }

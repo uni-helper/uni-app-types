@@ -104,7 +104,20 @@ export {
   _AdInstance as AdInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 信息流广告 */
+    Ad: _Ad;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 信息流广告 */
+      Ad: _Ad;
+    }
+  }
   namespace UniHelper {
     export type AdOnLoadEvent = _AdOnLoadEvent;
     /** 广告加载成功的回调 */
@@ -122,12 +135,5 @@ declare global {
     export type Ad = _Ad;
     /** 信息流广告实例 */
     export type AdInstance = _AdInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 信息流广告 */
-    Ad: _Ad;
   }
 }

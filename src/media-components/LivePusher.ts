@@ -687,7 +687,20 @@ export {
   _LivePusherInstance as LivePusherInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 实时音视频录制（直播推流） */
+    LivePusher: _LivePusher;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 实时音视频录制（直播推流） */
+      LivePusher: _LivePusher;
+    }
+  }
   namespace UniHelper {
     /**
      * 推流视频模式
@@ -872,12 +885,5 @@ declare global {
     export type LivePusher = _LivePusher;
     /** 实时音视频录制（直播推流）实例 */
     export type LivePusherInstance = _LivePusherInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 实时音视频录制（直播推流） */
-    LivePusher: _LivePusher;
   }
 }

@@ -385,7 +385,20 @@ export {
   _InputInstance as InputInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 输入框 */
+    Input: _Input;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 输入框 */
+      Input: _Input;
+    }
+  }
   namespace UniHelper {
     /** 输入框的内容 */
     export type InputValue = _InputValue;
@@ -475,12 +488,5 @@ declare global {
     export type Input = _Input;
     /** 输入框实例 */
     export type InputInstance = _InputInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 输入框 */
-    Input: _Input;
   }
 }

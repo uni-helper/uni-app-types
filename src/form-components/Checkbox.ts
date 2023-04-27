@@ -46,7 +46,20 @@ export {
   _CheckboxInstance as CheckboxInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 多选项目 */
+    Checkbox: _Checkbox;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 多选项目 */
+      Checkbox: _Checkbox;
+    }
+  }
   namespace UniHelper {
     /**
      * 标识
@@ -60,12 +73,5 @@ declare global {
     export type Checkbox = _Checkbox;
     /** 多选项目实例 */
     export type CheckboxInstance = _CheckboxInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 多选项目 */
-    Checkbox: _Checkbox;
   }
 }

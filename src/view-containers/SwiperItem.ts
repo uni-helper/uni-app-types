@@ -22,7 +22,28 @@ export {
   _SwiperItemInstance as SwiperItemInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * swiper 直接子组件，宽高自动设置为父组件的 100%
+     *
+     * 不能被子组件自动撑开
+     */
+    SwiperItem: _SwiperItem;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * swiper 直接子组件，宽高自动设置为父组件的 100%
+       *
+       * 不能被子组件自动撑开
+       */
+      SwiperItem: _SwiperItem;
+    }
+  }
   namespace UniHelper {
     /** swiper 直接子组件属性 */
     export type SwiperItemProps = _SwiperItemProps;
@@ -34,16 +55,5 @@ declare global {
     export type SwiperItem = _SwiperItem;
     /** swiper 直接子组件实例 */
     export type SwiperItemInstance = _SwiperItemInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * swiper 直接子组件，宽高自动设置为父组件的 100%
-     *
-     * 不能被子组件自动撑开
-     */
-    SwiperItem: _SwiperItem;
   }
 }

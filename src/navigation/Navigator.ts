@@ -231,7 +231,32 @@ export {
   _NavigatorInstance as NavigatorInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 页面跳转组件
+     *
+     * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
+     *
+     * 目标页面必须在 pages.json 中注册
+     */
+    Navigator: _Navigator;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 页面跳转组件
+       *
+       * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
+       *
+       * 目标页面必须在 pages.json 中注册
+       */
+      Navigator: _Navigator;
+    }
+  }
   namespace UniHelper {
     /**
      * 跳转方式
@@ -293,18 +318,5 @@ declare global {
     export type Navigator = _Navigator;
     /** 页面跳转组件实例 */
     export type NavigatorInstance = _NavigatorInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 页面跳转组件
-     *
-     * 该组件类似 HTML 中的 a 组件，但只能跳转本地页面
-     *
-     * 目标页面必须在 pages.json 中注册
-     */
-    Navigator: _Navigator;
   }
 }

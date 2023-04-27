@@ -117,7 +117,32 @@ export {
   _PageMetaInstance as PageMetaInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
+     *
+     * 可部分替代 pages.json
+     *
+     * 只能是页面内的第一个节点
+     */
+    PageMeta: _PageMeta;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
+       *
+       * 可部分替代 pages.json
+       *
+       * 只能是页面内的第一个节点
+       */
+      PageMeta: _PageMeta;
+    }
+  }
   namespace UniHelper {
     /**
      * 下拉背景字体、loading 图的样式
@@ -150,18 +175,5 @@ declare global {
     export type PageMeta = _PageMeta;
     /** 页面属性配置节点实例 */
     export type PageMetaInstance = _PageMetaInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
-     *
-     * 可部分替代 pages.json
-     *
-     * 只能是页面内的第一个节点
-     */
-    PageMeta: _PageMeta;
   }
 }

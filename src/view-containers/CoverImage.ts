@@ -53,7 +53,32 @@ export {
   _CoverImageInstance as CoverImageInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 覆盖在原生组件之上的图片视图
+     *
+     * 可覆盖的原生组件同 cover-view
+     *
+     * 支持嵌套在 cover-view 里
+     */
+    CoverImage: _CoverImage;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 覆盖在原生组件之上的图片视图
+       *
+       * 可覆盖的原生组件同 cover-view
+       *
+       * 支持嵌套在 cover-view 里
+       */
+      CoverImage: _CoverImage;
+    }
+  }
   namespace UniHelper {
     export type CoverImageOnLoadEvent = _CoverImageOnLoadEvent;
     /** 图片加载成功时触发 */
@@ -73,18 +98,5 @@ declare global {
     export type CoverImage = _CoverImage;
     /** 覆盖在原生组件之上的图片视图实例 */
     export type CoverImageInstance = _CoverImageInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 覆盖在原生组件之上的图片视图
-     *
-     * 可覆盖的原生组件同 cover-view
-     *
-     * 支持嵌套在 cover-view 里
-     */
-    CoverImage: _CoverImage;
   }
 }

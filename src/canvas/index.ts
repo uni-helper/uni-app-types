@@ -109,7 +109,20 @@ export {
   _CanvasInstance as CanvasInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 画布 */
+    Canvas: _Canvas;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 画布 */
+      Canvas: _Canvas;
+    }
+  }
   namespace UniHelper {
     /** 类型 */
     export type CanvasType = _CanvasType;
@@ -138,12 +151,5 @@ declare global {
     export type Canvas = _Canvas;
     /** 画布实例 */
     export type CanvasInstance = _CanvasInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 画布 */
-    Canvas: _Canvas;
   }
 }

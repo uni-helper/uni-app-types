@@ -132,7 +132,20 @@ export {
   _AudioInstance as AudioInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 音频 */
+    Audio: _Audio;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 音频 */
+      Audio: _Audio;
+    }
+  }
   namespace UniHelper {
     export interface AudioOnErrorDetail extends _AudioOnErrorDetail {}
     export type AudioOnErrorEvent = _AudioOnErrorEvent;
@@ -157,12 +170,5 @@ declare global {
     export type Audio = _Audio;
     /** 音频实例 */
     export type AudioInstance = _AudioInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 音频 */
-    Audio: _Audio;
   }
 }

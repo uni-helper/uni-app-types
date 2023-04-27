@@ -34,7 +34,20 @@ export {
   _CheckboxGroupInstance as CheckboxGroupInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 多项选择器，内部由多个 checkbox 组成 */
+    CheckboxGroup: _CheckboxGroup;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 多项选择器，内部由多个 checkbox 组成 */
+      CheckboxGroup: _CheckboxGroup;
+    }
+  }
   namespace UniHelper {
     export interface CheckboxGroupOnChangeDetail extends _CheckboxGroupOnChangeDetail {}
     export type CheckboxGroupOnChangeEvent = _CheckboxGroupOnChangeEvent;
@@ -46,12 +59,5 @@ declare global {
     export type CheckboxGroup = _CheckboxGroup;
     /** 多项选择器实例 */
     export type CheckboxGroupInstance = _CheckboxGroupInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 多项选择器，内部由多个 checkbox 组成 */
-    CheckboxGroup: _CheckboxGroup;
   }
 }

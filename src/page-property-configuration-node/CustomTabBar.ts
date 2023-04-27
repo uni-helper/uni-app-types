@@ -66,7 +66,20 @@ export {
   _CustomTabBarInstance as CustomTabBarInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 自定义 tabBar 组件 */
+    CustomTabBar: _CustomTabBar;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 自定义 tabBar 组件 */
+      CustomTabBar: _CustomTabBar;
+    }
+  }
   namespace UniHelper {
     /**
      * 选项的排列方向
@@ -85,12 +98,5 @@ declare global {
     export type CustomTabBar = _CustomTabBar;
     /** 自定义 tabBar 组件实例 */
     export type CustomTabBarInstance = _CustomTabBarInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 自定义 tabBar 组件 */
-    CustomTabBar: _CustomTabBar;
   }
 }

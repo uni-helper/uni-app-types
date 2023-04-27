@@ -237,7 +237,32 @@ export {
   _SwiperInstance as SwiperInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
+     *
+     * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
+     *
+     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     */
+    Swiper: _Swiper;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
+       *
+       * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
+       *
+       * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+       */
+      Swiper: _Swiper;
+    }
+  }
   namespace UniHelper {
     /**
      * 导致变更的原因
@@ -275,18 +300,5 @@ declare global {
     export type Swiper = _Swiper;
     /** 滑块视图容器实例 */
     export type SwiperInstance = _SwiperInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 滑块视图容器，一般用于左右滑动或上下滑动，比如 banner 轮播图
-     *
-     * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
-     *
-     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
-     */
-    Swiper: _Swiper;
   }
 }

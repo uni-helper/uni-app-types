@@ -171,7 +171,20 @@ export {
   _ImageInstance as ImageInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 图片 */
+    Image: _Image;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 图片 */
+      Image: _Image;
+    }
+  }
   namespace UniHelper {
     /**
      * 图片裁剪、缩放的模式
@@ -218,12 +231,5 @@ declare global {
     export type Image = _Image;
     /** 图片实例 */
     export type ImageInstance = _ImageInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 图片 */
-    Image: _Image;
   }
 }

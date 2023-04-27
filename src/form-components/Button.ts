@@ -555,7 +555,20 @@ export {
   _ButtonInstance as ButtonInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 按钮 */
+    Button: _Button;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 按钮 */
+      Button: _Button;
+    }
+  }
   namespace UniHelper {
     /**
      * 按钮的大小
@@ -726,12 +739,5 @@ declare global {
     export type Button = _Button;
     /** 按钮实例 */
     export type ButtonInstance = _ButtonInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 按钮 */
-    Button: _Button;
   }
 }

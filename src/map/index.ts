@@ -775,7 +775,20 @@ export {
   _MapInstance as MapInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 地图组件，用于展示地图 */
+    Map: _Map;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 地图组件，用于展示地图 */
+      Map: _Map;
+    }
+  }
   namespace UniHelper {
     /** 显示方式 */
     export type MapDisplay = _MapDisplay;
@@ -898,12 +911,5 @@ declare global {
     export type Map = _Map;
     /** 地图组件实例 */
     export type MapInstance = _MapInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 地图组件，用于展示地图 */
-    Map: _Map;
   }
 }

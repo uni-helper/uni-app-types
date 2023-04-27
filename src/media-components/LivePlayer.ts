@@ -421,7 +421,20 @@ export {
   _LivePlayerInstance as LivePlayerInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 实时音视频播放（直播拉流） */
+    LivePlayer: _LivePlayer;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 实时音视频播放（直播拉流） */
+      LivePlayer: _LivePlayer;
+    }
+  }
   namespace UniHelper {
     /**
      * 实时模式
@@ -545,12 +558,5 @@ declare global {
     export type LivePlayer = _LivePlayer;
     /** 实时音视频播放（直播拉流）实例 */
     export type LivePlayerInstance = _LivePlayerInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 实时音视频播放（直播拉流） */
-    LivePlayer: _LivePlayer;
   }
 }

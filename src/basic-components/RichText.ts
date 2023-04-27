@@ -86,7 +86,20 @@ export {
   _RichTextInstance as RichTextInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 富文本 */
+    RichText: _RichText;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 富文本 */
+      RichText: _RichText;
+    }
+  }
   namespace UniHelper {
     /** 显示连续空格 */
     export type RichTextSpace = _RichTextSpace;
@@ -107,12 +120,5 @@ declare global {
     export type RichText = _RichText;
     /** 富文本实例 */
     export type RichTextInstance = _RichTextInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 富文本 */
-    RichText: _RichText;
   }
 }

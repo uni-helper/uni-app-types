@@ -24,7 +24,20 @@ type _IconInstance = InstanceType<_Icon>;
 
 export { _IconProps as IconProps, _Icon as Icon, _IconInstance as IconInstance };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 图标 */
+    Icon: _Icon;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 图标 */
+      Icon: _Icon;
+    }
+  }
   namespace UniHelper {
     /** 图标属性 */
     export type IconProps = _IconProps;
@@ -32,12 +45,5 @@ declare global {
     export type Icon = _Icon;
     /** 图标实例 */
     export type IconInstance = _IconInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 图标 */
-    Icon: _Icon;
   }
 }

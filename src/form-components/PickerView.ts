@@ -83,7 +83,20 @@ export {
   _PickerViewInstance as PickerViewInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 嵌入页面的滚动选择器，比 picker 更灵活 */
+    PickerView: _PickerView;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 嵌入页面的滚动选择器，比 picker 更灵活 */
+      PickerView: _PickerView;
+    }
+  }
   namespace UniHelper {
     export type PickerViewValueElement = _PickerViewValueElement;
     /** 依次表示 picker-view 内 picker-view-column 选择的下标 */
@@ -103,12 +116,5 @@ declare global {
     export type PickerView = _PickerView;
     /** 嵌入页面的滚动选择器实例 */
     export type PickerViewInstance = _PickerViewInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 嵌入页面的滚动选择器，比 picker 更灵活 */
-    PickerView: _PickerView;
   }
 }

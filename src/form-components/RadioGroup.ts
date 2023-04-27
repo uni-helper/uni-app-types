@@ -38,7 +38,28 @@ export {
   _RadioGroupInstance as RadioGroupInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 单项选择器，内部由多个 radio 组成
+     *
+     * 通过把多个 radio 包裹在一个 radio-group 下，实现这些 radio 的单选
+     */
+    RadioGroup: _RadioGroup;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 单项选择器，内部由多个 radio 组成
+       *
+       * 通过把多个 radio 包裹在一个 radio-group 下，实现这些 radio 的单选
+       */
+      RadioGroup: _RadioGroup;
+    }
+  }
   namespace UniHelper {
     export interface RadioGroupOnChangeDetail extends _RadioGroupOnChangeDetail {}
     export type RadioGroupOnChangeEvent = _RadioGroupOnChangeEvent;
@@ -54,16 +75,5 @@ declare global {
     export type RadioGroup = _RadioGroup;
     /** 单项选择器实例 */
     export type RadioGroupInstance = _RadioGroupInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 单项选择器，内部由多个 radio 组成
-     *
-     * 通过把多个 radio 包裹在一个 radio-group 下，实现这些 radio 的单选
-     */
-    RadioGroup: _RadioGroup;
   }
 }

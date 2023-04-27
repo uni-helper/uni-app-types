@@ -108,7 +108,20 @@ export {
   _ProgressInstance as ProgressInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 进度条 */
+    Progress: _Progress;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 进度条 */
+      Progress: _Progress;
+    }
+  }
   namespace UniHelper {
     /**
      * 动画播放方式
@@ -127,12 +140,5 @@ declare global {
     export type Progress = _Progress;
     /** 进度条实例 */
     export type ProgressInstance = _ProgressInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 进度条 */
-    Progress: _Progress;
   }
 }
