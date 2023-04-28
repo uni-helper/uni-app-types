@@ -385,18 +385,11 @@ export {
   _InputInstance as InputInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 输入框 */
-    Input: _Input;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 输入框 */
-      Input: _Input;
+      input: _Input;
     }
   }
   namespace UniHelper {

@@ -171,18 +171,11 @@ export {
   _ImageInstance as ImageInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 图片 */
-    Image: _Image;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 图片 */
-      Image: _Image;
+      image: _Image;
     }
   }
   namespace UniHelper {

@@ -89,17 +89,6 @@ export {
   _FormInstance as FormInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 表单
-     *
-     * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
-     */
-    Form: _Form;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -108,7 +97,7 @@ declare global {
        *
        * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
        */
-      Form: _Form;
+      form: _Form;
     }
   }
   namespace UniHelper {

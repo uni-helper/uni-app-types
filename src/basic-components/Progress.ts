@@ -108,18 +108,11 @@ export {
   _ProgressInstance as ProgressInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 进度条 */
-    Progress: _Progress;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 进度条 */
-      Progress: _Progress;
+      progress: _Progress;
     }
   }
   namespace UniHelper {

@@ -62,17 +62,6 @@ export {
   _TextInstance as TextInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 文本组件
-     *
-     * 用于包裹文本内容
-     */
-    Text: _Text;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -81,7 +70,7 @@ declare global {
        *
        * 用于包裹文本内容
        */
-      Text: _Text;
+      text: _Text;
     }
   }
   namespace UniHelper {

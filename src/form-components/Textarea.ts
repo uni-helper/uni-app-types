@@ -275,18 +275,11 @@ export {
   _TextareaInstance as TextareaInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 多行输入框 */
-    Textarea: _Textarea;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 多行输入框 */
-      Textarea: _Textarea;
+      textarea: _Textarea;
     }
   }
   namespace UniHelper {

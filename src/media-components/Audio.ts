@@ -132,18 +132,11 @@ export {
   _AudioInstance as AudioInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 音频 */
-    Audio: _Audio;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 音频 */
-      Audio: _Audio;
+      audio: _Audio;
     }
   }
   namespace UniHelper {

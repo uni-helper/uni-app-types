@@ -59,18 +59,11 @@ export {
   _SwitchInstance as SwitchInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 开关选择器 */
-    Switch: _Switch;
-  }
-}
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       /** 开关选择器 */
-      Switch: _Switch;
+      switch: _Switch;
     }
   }
   namespace UniHelper {
