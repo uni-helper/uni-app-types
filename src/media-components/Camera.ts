@@ -194,12 +194,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 页面内嵌的区域相机组件 */
-      Camera: _Camera;
-    }
-  }
   namespace UniHelper {
     /**
      * 应用模式，不支持动态修改

@@ -131,18 +131,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 页面属性配置节点，用于指定页面的一些属性、监听页面事件
-       *
-       * 可部分替代 pages.json
-       *
-       * 只能是页面内的第一个节点
-       */
-      PageMeta: _PageMeta;
-    }
-  }
   namespace UniHelper {
     /**
      * 下拉背景字体、loading 图的样式

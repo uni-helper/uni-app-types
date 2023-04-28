@@ -125,12 +125,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 滑动选择器 */
-      Slider: _Slider;
-    }
-  }
   namespace UniHelper {
     /** 取值 */
     export type SliderValue = _SliderValue;

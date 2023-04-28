@@ -199,16 +199,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
-       *
-       * movable-area 直接子组件
-       */
-      MovableView: _MovableView;
-    }
-  }
   namespace UniHelper {
     /** movable-view 的移动方向 */
     export type MovableViewDirection = _MovableViewDirection;

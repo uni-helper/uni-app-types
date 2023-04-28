@@ -54,12 +54,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 多选项目 */
-      Checkbox: _Checkbox;
-    }
-  }
   namespace UniHelper {
     /**
      * 标识

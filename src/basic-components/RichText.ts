@@ -94,12 +94,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 富文本 */
-      RichText: _RichText;
-    }
-  }
   namespace UniHelper {
     /** 显示连续空格 */
     export type RichTextSpace = _RichTextSpace;

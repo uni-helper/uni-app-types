@@ -20,11 +20,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      PickerViewColumn: _PickerViewColumn;
-    }
-  }
   namespace UniHelper {
     export type PickerViewColumnProps = _PickerViewColumnProps;
     export type PickerViewColumn = _PickerViewColumn;

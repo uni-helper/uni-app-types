@@ -429,12 +429,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 实时音视频播放（直播拉流） */
-      LivePlayer: _LivePlayer;
-    }
-  }
   namespace UniHelper {
     /**
      * 实时模式

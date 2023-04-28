@@ -695,12 +695,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 实时音视频录制（直播推流） */
-      LivePusher: _LivePusher;
-    }
-  }
   namespace UniHelper {
     /**
      * 推流视频模式

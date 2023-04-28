@@ -208,16 +208,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 页面导航条配置节点，用于指定导航栏的一些属性
-       *
-       * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
-       */
-      NavigationBar: _NavigationBar;
-    }
-  }
   namespace UniHelper {
     /**
      * 副标题文字超出显示区域时处理方式

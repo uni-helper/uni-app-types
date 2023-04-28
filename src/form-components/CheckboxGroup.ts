@@ -42,12 +42,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 多项选择器，内部由多个 checkbox 组成 */
-      CheckboxGroup: _CheckboxGroup;
-    }
-  }
   namespace UniHelper {
     export interface CheckboxGroupOnChangeDetail extends _CheckboxGroupOnChangeDetail {}
     export type CheckboxGroupOnChangeEvent = _CheckboxGroupOnChangeEvent;

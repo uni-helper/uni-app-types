@@ -74,12 +74,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 自定义 tabBar 组件 */
-      CustomTabBar: _CustomTabBar;
-    }
-  }
   namespace UniHelper {
     /**
      * 选项的排列方向

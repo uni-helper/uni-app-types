@@ -89,12 +89,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 激励视频广告 */
-      AdRewardedVideo: _AdRewardedVideo;
-    }
-  }
   namespace UniHelper {
     /** 服务器回调透传数据 */
     export interface AdRewardedVideoUrlCallback extends _AdRewardedVideoUrlCallback {}

@@ -54,12 +54,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 单选项目 */
-      Radio: _Radio;
-    }
-  }
   namespace UniHelper {
     /**
      * 标识

@@ -80,12 +80,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 插屏广告 */
-      AdInterstitial: _AdInterstitial;
-    }
-  }
   namespace UniHelper {
     export type AdInterstitialOnLoadEvent = _AdInterstitialOnLoadEvent;
     /** 广告加载成功的回调 */

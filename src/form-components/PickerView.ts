@@ -91,12 +91,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 嵌入页面的滚动选择器，比 picker 更灵活 */
-      PickerView: _PickerView;
-    }
-  }
   namespace UniHelper {
     export type PickerViewValueElement = _PickerViewValueElement;
     /** 依次表示 picker-view 内 picker-view-column 选择的下标 */

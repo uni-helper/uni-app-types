@@ -59,12 +59,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 沉浸视频流广告 */
-      AdDraw: _AdDraw;
-    }
-  }
   namespace UniHelper {
     export type AdDrawOnLoadEvent = _AdDrawOnLoadEvent;
     /** 广告加载成功的回调 */

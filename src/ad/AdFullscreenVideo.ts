@@ -80,12 +80,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 全屏视频广告 */
-      AdFullscreenVideo: _AdFullscreenVideo;
-    }
-  }
   namespace UniHelper {
     export type AdFullscreenVideoOnLoadEvent = _AdFullscreenVideoOnLoadEvent;
     /** 广告加载成功的回调 */

@@ -189,12 +189,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 短视频内容联盟广告 */
-      AdContentPage: _AdContentPage;
-    }
-  }
   namespace UniHelper {
     export type AdContentPageOnLoadEvent = _AdContentPageOnLoadEvent;
     /** 广告加载成功的回调 */

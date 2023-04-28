@@ -77,12 +77,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** Web 浏览器组件，可承载网页 */
-      WebView: _WebView;
-    }
-  }
   namespace UniHelper {
     /** 样式 */
     export interface WebViewStyles extends _WebViewStyles {}

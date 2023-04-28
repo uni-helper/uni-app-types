@@ -32,12 +32,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 图标 */
-      Icon: _Icon;
-    }
-  }
   namespace UniHelper {
     /** 图标属性 */
     export type IconProps = _IconProps;
