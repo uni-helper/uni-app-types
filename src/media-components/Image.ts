@@ -171,7 +171,15 @@ export {
   _ImageInstance as ImageInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 图片 */
+    Image: _Image;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 图片 */

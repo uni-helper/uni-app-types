@@ -534,7 +534,19 @@ export {
   _VideoInstance as VideoInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 视频播放组件
+     *
+     * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+     */
+    Video: _Video;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /**

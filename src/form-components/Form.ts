@@ -89,7 +89,19 @@ export {
   _FormInstance as FormInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 表单
+     *
+     * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
+     */
+    Form: _Form;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /**

@@ -59,7 +59,15 @@ export {
   _SwitchInstance as SwitchInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 开关选择器 */
+    Switch: _Switch;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 开关选择器 */

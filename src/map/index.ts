@@ -775,7 +775,15 @@ export {
   _MapInstance as MapInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 地图组件，用于展示地图 */
+    Map: _Map;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 地图组件，用于展示地图 */

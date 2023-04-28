@@ -132,7 +132,15 @@ export {
   _AudioInstance as AudioInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 音频 */
+    Audio: _Audio;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 音频 */

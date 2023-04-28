@@ -385,7 +385,15 @@ export {
   _InputInstance as InputInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 输入框 */
+    Input: _Input;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 输入框 */

@@ -48,7 +48,21 @@ type _ViewInstance = InstanceType<_View>;
 
 export { _ViewProps as ViewProps, _View as View, _ViewInstance as ViewInstance };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 视图容器，和 div 类似，用于包裹各种元素内容
+     *
+     * 包裹文字建议使用 text
+     *
+     * 如果使用 div，会编译成 view
+     */
+    View: _View;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /**

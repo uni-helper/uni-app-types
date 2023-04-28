@@ -555,7 +555,15 @@ export {
   _ButtonInstance as ButtonInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 按钮 */
+    Button: _Button;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 按钮 */

@@ -62,7 +62,19 @@ export {
   _TextInstance as TextInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 文本组件
+     *
+     * 用于包裹文本内容
+     */
+    Text: _Text;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /**

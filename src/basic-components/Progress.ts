@@ -108,7 +108,15 @@ export {
   _ProgressInstance as ProgressInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 进度条 */
+    Progress: _Progress;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 进度条 */

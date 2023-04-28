@@ -275,7 +275,15 @@ export {
   _TextareaInstance as TextareaInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 多行输入框 */
+    Textarea: _Textarea;
+  }
+}
+
 declare global {
+  // 和 HTML 标签冲突，需要覆盖类型
   namespace JSX {
     interface IntrinsicElements {
       /** 多行输入框 */
