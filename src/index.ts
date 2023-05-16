@@ -1,4 +1,4 @@
-export * from './Component';
+export * from './component';
 export * from './events';
 export * from './view-containers';
 export * from './basic-components';

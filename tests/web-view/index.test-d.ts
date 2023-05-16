@@ -9,7 +9,7 @@ import type {
   WebViewProps,
   WebView,
   WebViewInstance,
-} from '@/web-view';
+} from '@/index';
 
 describe('WebView', () => {
   expectTypeOf<WebViewStyles>().toBeObject();

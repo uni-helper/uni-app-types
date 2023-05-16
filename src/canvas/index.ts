@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component } from '../component';
 import { BaseEvent, TouchCanvasEvent } from '../events';
 
 /** 类型 */

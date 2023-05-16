@@ -46,7 +46,7 @@ import type {
   MapProps,
   Map,
   MapInstance,
-} from '@/map';
+} from '@/index';
 
 describe('Map', () => {
   expectTypeOf<MapDisplay>().toBeString();

@@ -8,7 +8,7 @@ import type {
   BaseTouchEvent,
   TouchEvent,
   TouchCanvasEvent,
-} from '@/events';
+} from '@/index';
 
 describe('Events', () => {
   expectTypeOf<EventTarget>().toBeObject();

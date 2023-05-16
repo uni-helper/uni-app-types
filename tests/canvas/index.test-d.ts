@@ -17,7 +17,7 @@ import type {
   CanvasProps,
   Canvas,
   CanvasInstance,
-} from '@/canvas';
+} from '@/index';
 
 describe('Canvas', () => {
   expectTypeOf<CanvasType>().toBeString();

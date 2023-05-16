@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component } from '../component';
 import { BaseEvent, CustomEvent } from '../events';
 
 /** 样式 */
