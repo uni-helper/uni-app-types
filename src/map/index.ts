@@ -775,21 +775,7 @@ export {
   _MapInstance as MapInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 地图组件，用于展示地图 */
-    Map: _Map;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 地图组件，用于展示地图 */
-      map: _Map;
-    }
-  }
   namespace UniHelper {
     /** 显示方式 */
     export type MapDisplay = _MapDisplay;
@@ -912,5 +898,33 @@ declare global {
     export type Map = _Map;
     /** 地图组件实例 */
     export type MapInstance = _MapInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 地图组件，用于展示地图 */
+    Map: _Map;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 地图组件，用于展示地图 */
+      map: _Map;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 地图组件，用于展示地图 */
+      map: _Map;
+    }
   }
 }

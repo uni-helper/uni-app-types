@@ -435,13 +435,6 @@ export {
   _PickerInstance as PickerInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 从底部弹起的滚动选择器，通过 mode 来区分 */
-    Picker: _Picker;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /** 需要展示的内容 */
@@ -545,5 +538,12 @@ declare global {
     export type Picker = _Picker;
     /** 从底部弹起的滚动选择器实例 */
     export type PickerInstance = _PickerInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 从底部弹起的滚动选择器，通过 mode 来区分 */
+    Picker: _Picker;
   }
 }

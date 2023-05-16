@@ -109,21 +109,7 @@ export {
   _CanvasInstance as CanvasInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 画布 */
-    Canvas: _Canvas;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 画布 */
-      canvas: _Canvas;
-    }
-  }
   namespace UniHelper {
     /** 类型 */
     export type CanvasType = _CanvasType;
@@ -152,5 +138,33 @@ declare global {
     export type Canvas = _Canvas;
     /** 画布实例 */
     export type CanvasInstance = _CanvasInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 画布 */
+    Canvas: _Canvas;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 画布 */
+      canvas: _Canvas;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 画布 */
+      canvas: _Canvas;
+    }
   }
 }

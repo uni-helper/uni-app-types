@@ -534,29 +534,7 @@ export {
   _VideoInstance as VideoInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 视频播放组件
-     *
-     * 默认宽度 300px、高度 225px，可通过 css 设置宽高
-     */
-    Video: _Video;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 视频播放组件
-       *
-       * 默认宽度 300px、高度 225px，可通过 css 设置宽高
-       */
-      video: _Video;
-    }
-  }
   namespace UniHelper {
     /** 弹幕 */
     export interface VideoDanmu extends _VideoDanmu {}
@@ -679,5 +657,45 @@ declare global {
     export type Video = _Video;
     /** 视频播放组件实例 */
     export type VideoInstance = _VideoInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 视频播放组件
+     *
+     * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+     */
+    Video: _Video;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 视频播放组件
+       *
+       * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+       */
+      video: _Video;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 视频播放组件
+       *
+       * 默认宽度 300px、高度 225px，可通过 css 设置宽高
+       */
+      video: _Video;
+    }
   }
 }

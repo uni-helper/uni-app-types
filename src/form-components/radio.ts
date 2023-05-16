@@ -46,13 +46,6 @@ export {
   _RadioInstance as RadioInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 单选项目 */
-    Radio: _Radio;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /**
@@ -67,5 +60,12 @@ declare global {
     export type Radio = _Radio;
     /** 单选项目实例 */
     export type RadioInstance = _RadioInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 单选项目 */
+    Radio: _Radio;
   }
 }

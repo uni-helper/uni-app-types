@@ -89,29 +89,7 @@ export {
   _FormInstance as FormInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 表单
-     *
-     * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
-     */
-    Form: _Form;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 表单
-       *
-       * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
-       */
-      form: _Form;
-    }
-  }
   namespace UniHelper {
     /** 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对 */
     export interface FormOnSubmitDetailValue extends _FormOnSubmitDetailValue {}
@@ -132,5 +110,45 @@ declare global {
     export type Form = _Form;
     /** 表单实例 */
     export type FormInstance = _FormInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 表单
+     *
+     * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
+     */
+    Form: _Form;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 表单
+       *
+       * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
+       */
+      form: _Form;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 表单
+       *
+       * 将组件内的用户输入的 switch、input、checkbox、slider、radio、picker 提交
+       */
+      form: _Form;
+    }
   }
 }

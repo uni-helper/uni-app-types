@@ -62,29 +62,7 @@ export {
   _TextInstance as TextInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 文本组件
-     *
-     * 用于包裹文本内容
-     */
-    Text: _Text;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 文本组件
-       *
-       * 用于包裹文本内容
-       */
-      text: _Text;
-    }
-  }
   namespace UniHelper {
     /**
      * 显示连续空格
@@ -106,5 +84,45 @@ declare global {
     export type Text = _Text;
     /** 文本组件实例 */
     export type TextInstance = _TextInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 文本组件
+     *
+     * 用于包裹文本内容
+     */
+    Text: _Text;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 文本组件
+       *
+       * 用于包裹文本内容
+       */
+      text: _Text;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * 文本组件
+       *
+       * 用于包裹文本内容
+       */
+      text: _Text;
+    }
   }
 }

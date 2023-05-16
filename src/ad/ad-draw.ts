@@ -51,13 +51,6 @@ export {
   _AdDrawInstance as AdDrawInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 沉浸视频流广告 */
-    AdDraw: _AdDraw;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type AdDrawOnLoadEvent = _AdDrawOnLoadEvent;
@@ -73,5 +66,12 @@ declare global {
     export type AdDraw = _AdDraw;
     /** 沉浸视频流广告实例 */
     export type AdDrawInstance = _AdDrawInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 沉浸视频流广告 */
+    AdDraw: _AdDraw;
   }
 }

@@ -132,21 +132,7 @@ export {
   _AudioInstance as AudioInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 音频 */
-    Audio: _Audio;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 音频 */
-      audio: _Audio;
-    }
-  }
   namespace UniHelper {
     export interface AudioOnErrorDetail extends _AudioOnErrorDetail {}
     export type AudioOnErrorEvent = _AudioOnErrorEvent;
@@ -171,5 +157,33 @@ declare global {
     export type Audio = _Audio;
     /** 音频实例 */
     export type AudioInstance = _AudioInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 音频 */
+    Audio: _Audio;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 音频 */
+      audio: _Audio;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 音频 */
+      audio: _Audio;
+    }
   }
 }

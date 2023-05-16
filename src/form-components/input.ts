@@ -385,21 +385,7 @@ export {
   _InputInstance as InputInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 输入框 */
-    Input: _Input;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 输入框 */
-      input: _Input;
-    }
-  }
   namespace UniHelper {
     /** 输入框的内容 */
     export type InputValue = _InputValue;
@@ -489,5 +475,33 @@ declare global {
     export type Input = _Input;
     /** 输入框实例 */
     export type InputInstance = _InputInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 输入框 */
+    Input: _Input;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 输入框 */
+      input: _Input;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 输入框 */
+      input: _Input;
+    }
   }
 }

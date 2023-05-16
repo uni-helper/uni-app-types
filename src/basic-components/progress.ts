@@ -108,21 +108,7 @@ export {
   _ProgressInstance as ProgressInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 进度条 */
-    Progress: _Progress;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 进度条 */
-      progress: _Progress;
-    }
-  }
   namespace UniHelper {
     /**
      * 动画播放方式
@@ -141,5 +127,33 @@ declare global {
     export type Progress = _Progress;
     /** 进度条实例 */
     export type ProgressInstance = _ProgressInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 进度条 */
+    Progress: _Progress;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 进度条 */
+      progress: _Progress;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 进度条 */
+      progress: _Progress;
+    }
   }
 }

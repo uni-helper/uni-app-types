@@ -72,13 +72,6 @@ export {
   _AdInterstitialInstance as AdInterstitialInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 插屏广告 */
-    AdInterstitial: _AdInterstitial;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type AdInterstitialOnLoadEvent = _AdInterstitialOnLoadEvent;
@@ -97,5 +90,12 @@ declare global {
     export type AdInterstitial = _AdInterstitial;
     /** 插屏广告实例 */
     export type AdInterstitialInstance = _AdInterstitialInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 插屏广告 */
+    AdInterstitial: _AdInterstitial;
   }
 }

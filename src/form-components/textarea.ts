@@ -275,21 +275,7 @@ export {
   _TextareaInstance as TextareaInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 多行输入框 */
-    Textarea: _Textarea;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 多行输入框 */
-      textarea: _Textarea;
-    }
-  }
   namespace UniHelper {
     /** 输入框内容 */
     export type TextareaValue = _TextareaValue;
@@ -338,5 +324,33 @@ declare global {
     export type Textarea = _Textarea;
     /** 多行输入框实例 */
     export type TextareaInstance = _TextareaInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 多行输入框 */
+    Textarea: _Textarea;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 多行输入框 */
+      textarea: _Textarea;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 多行输入框 */
+      textarea: _Textarea;
+    }
   }
 }

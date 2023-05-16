@@ -13,16 +13,16 @@ export {
   _PickerViewColumnInstance as PickerViewColumnInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    PickerViewColumn: _PickerViewColumn;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type PickerViewColumnProps = _PickerViewColumnProps;
     export type PickerViewColumn = _PickerViewColumn;
     export type PickerViewColumnInstance = _PickerViewColumnInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    PickerViewColumn: _PickerViewColumn;
   }
 }

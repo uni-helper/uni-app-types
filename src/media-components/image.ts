@@ -171,21 +171,7 @@ export {
   _ImageInstance as ImageInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 图片 */
-    Image: _Image;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 图片 */
-      image: _Image;
-    }
-  }
   namespace UniHelper {
     /**
      * 图片裁剪、缩放的模式
@@ -232,5 +218,33 @@ declare global {
     export type Image = _Image;
     /** 图片实例 */
     export type ImageInstance = _ImageInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 图片 */
+    Image: _Image;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 图片 */
+      image: _Image;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 图片 */
+      image: _Image;
+    }
   }
 }

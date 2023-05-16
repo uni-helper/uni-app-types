@@ -117,13 +117,6 @@ export {
   _SliderInstance as SliderInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 滑动选择器 */
-    Slider: _Slider;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /** 取值 */
@@ -142,5 +135,12 @@ declare global {
     export type Slider = _Slider;
     /** 滑动选择器实例 */
     export type SliderInstance = _SliderInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 滑动选择器 */
+    Slider: _Slider;
   }
 }

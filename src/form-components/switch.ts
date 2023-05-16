@@ -59,21 +59,7 @@ export {
   _SwitchInstance as SwitchInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 开关选择器 */
-    Switch: _Switch;
-  }
-}
-
 declare global {
-  // 和 HTML 标签冲突，需要覆盖类型
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 开关选择器 */
-      switch: _Switch;
-    }
-  }
   namespace UniHelper {
     /** 是否选中 */
     export type SwitchChecked = _SwitchChecked;
@@ -89,5 +75,33 @@ declare global {
     export type Switch = _Switch;
     /** 开关选择器实例 */
     export type SwitchInstance = _SwitchInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 开关选择器 */
+    Switch: _Switch;
+  }
+}
+
+// 3.0 <= Vue <= 3.2
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 开关选择器 */
+      switch: _Switch;
+    }
+  }
+}
+
+// 3.3 <= Vue
+// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+declare module 'vue3/jsx-runtime' {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 开关选择器 */
+      switch: _Switch;
+    }
   }
 }

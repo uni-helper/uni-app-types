@@ -127,21 +127,6 @@ export {
   _EditorInstance as EditorInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 富文本编辑器，可以对图片、文字进行编辑和混排
-     *
-     * 编辑器导出内容支持带标签的 html 和纯文本的 text，编辑器内部采用 delta 格式进行存储
-     *
-     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta 进行插入
-     *
-     * 图片控件仅初始化时设置有效
-     */
-    Editor: _Editor;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type EditorOnReadyEvent = _EditorOnReadyEvent;
@@ -176,5 +161,20 @@ declare global {
     export type Editor = _Editor;
     /** 富文本编辑器实例 */
     export type EditorInstance = _EditorInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 富文本编辑器，可以对图片、文字进行编辑和混排
+     *
+     * 编辑器导出内容支持带标签的 html 和纯文本的 text，编辑器内部采用 delta 格式进行存储
+     *
+     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta 进行插入
+     *
+     * 图片控件仅初始化时设置有效
+     */
+    Editor: _Editor;
   }
 }

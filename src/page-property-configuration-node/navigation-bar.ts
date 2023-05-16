@@ -196,17 +196,6 @@ export {
   _NavigationBarInstance as NavigationBarInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 页面导航条配置节点，用于指定导航栏的一些属性
-     *
-     * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
-     */
-    NavigationBar: _NavigationBar;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /**
@@ -267,5 +256,16 @@ declare global {
     export type NavigationBar = _NavigationBar;
     /** 页面导航条配置节点实例 */
     export type NavigationBarInstance = _NavigationBarInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * 页面导航条配置节点，用于指定导航栏的一些属性
+     *
+     * 只能是 page-meta 组件内的第一个节点，需要配合 page-meta 一同使用
+     */
+    NavigationBar: _NavigationBar;
   }
 }

@@ -186,13 +186,6 @@ export {
   _CameraInstance as CameraInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 页面内嵌的区域相机组件 */
-    Camera: _Camera;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /**
@@ -264,5 +257,12 @@ declare global {
     export type Camera = _Camera;
     /** 页面内嵌的区域相机组件实例 */
     export type CameraInstance = _CameraInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 页面内嵌的区域相机组件 */
+    Camera: _Camera;
   }
 }

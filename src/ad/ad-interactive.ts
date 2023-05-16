@@ -51,13 +51,6 @@ export {
   _AdInteractiveInstance as AdInteractiveInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 互动广告 */
-    AdInteractive: _AdInteractive;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type AdInteractiveOnLoadEvent = _AdInteractiveOnLoadEvent;
@@ -73,5 +66,12 @@ declare global {
     export type AdInteractive = _AdInteractive;
     /** 互动广告实例 */
     export type AdInteractiveInstance = _AdInteractiveInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 互动广告 */
+    AdInteractive: _AdInteractive;
   }
 }

@@ -76,19 +76,6 @@ export {
   _MatchMediaInstance as MatchMediaInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * media query 匹配检测节点
-     *
-     * 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
-     *
-     * 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
-     */
-    MatchMedia: _MatchMedia;
-  }
-}
-
 declare global {
   namespace UniHelper {
     /**
@@ -111,5 +98,18 @@ declare global {
     export type MatchMedia = _MatchMedia;
     /** media query 匹配检测节点 */
     export type MatchMediaInstance = _MatchMediaInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * media query 匹配检测节点
+     *
+     * 类似于网页开发中使用媒体查询来适配大屏小屏，这是一个可适配不同屏幕的基本视图组件
+     *
+     * 可以指定一组 media query 媒体查询规则，满足查询条件时，这个组件才会被展示
+     */
+    MatchMedia: _MatchMedia;
   }
 }

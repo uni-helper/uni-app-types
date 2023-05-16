@@ -181,13 +181,6 @@ export {
   _AdContentPageInstance as AdContentPageInstance,
 };
 
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 短视频内容联盟广告 */
-    AdContentPage: _AdContentPage;
-  }
-}
-
 declare global {
   namespace UniHelper {
     export type AdContentPageOnLoadEvent = _AdContentPageOnLoadEvent;
@@ -219,5 +212,12 @@ declare global {
     export type AdContentPage = _AdContentPage;
     /** 短视频内容联盟广告实例 */
     export type AdContentPageInstance = _AdContentPageInstance;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 短视频内容联盟广告 */
+    AdContentPage: _AdContentPage;
   }
 }
