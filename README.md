@@ -22,7 +22,7 @@
 
 ### 配置
 
-- 安装依赖
+- 安装依赖，`uni-app` 和 `pnpm` 结合使用存在问题，不建议使用 `pnpm` 安装依赖
 
 ```shell
 npm i -D @uni-helper/uni-app-types
