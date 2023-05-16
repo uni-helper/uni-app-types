@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.8-0 (2023-05-16)
+
+- fix: 支持 `vue` 3.3
+
 ## 0.5.7 (2023-04-28)
 
 - fix: 支持 `Vue Language Features (Volar)` & `vue-tsc` 1.6.0
