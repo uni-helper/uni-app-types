@@ -6,18 +6,16 @@ import {
   ComponentOptionsMixin,
   EmitsOptions,
   ExtractPropTypes,
-  ExtractDefaultPropTypes,
   VNodeProps,
   AllowedComponentProps,
   ComponentCustomProps,
-  SlotsType,
 } from 'vue3';
 
 type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
 type _AnyRecord = Record<string, any>;
 
-type _Component<P extends _AnyRecord = _AnyRecord, S extends SlotsType = {}> = DefineComponent<
+type _Component<P extends _AnyRecord = _AnyRecord> = DefineComponent<
   {},
   {},
   {},
@@ -28,9 +26,7 @@ type _Component<P extends _AnyRecord = _AnyRecord, S extends SlotsType = {}> = D
   EmitsOptions,
   string,
   PublicProps,
-  Readonly<ExtractPropTypes<P>>,
-  ExtractDefaultPropTypes<{}>,
-  S
+  Readonly<ExtractPropTypes<P>>
 >;
 
 export { _AnyRecord as AnyRecord, _Component as Component };
