@@ -141,6 +141,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 画布 */
@@ -159,7 +160,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-expect-error error TS2664: Invalid module name in augmentation, module 'vue3/jsx-runtime' cannot be found.
+// @ts-ignore
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

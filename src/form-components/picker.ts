@@ -541,6 +541,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 从底部弹起的滚动选择器，通过 mode 来区分 */

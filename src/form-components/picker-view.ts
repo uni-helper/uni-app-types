@@ -106,6 +106,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 嵌入页面的滚动选择器，比 picker 更灵活 */

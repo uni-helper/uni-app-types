@@ -69,6 +69,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 沉浸视频流广告 */

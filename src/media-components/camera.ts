@@ -260,6 +260,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 页面内嵌的区域相机组件 */

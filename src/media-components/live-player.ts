@@ -548,6 +548,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 实时音视频播放（直播拉流） */

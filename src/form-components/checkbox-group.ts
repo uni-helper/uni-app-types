@@ -49,6 +49,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 多项选择器，内部由多个 checkbox 组成 */

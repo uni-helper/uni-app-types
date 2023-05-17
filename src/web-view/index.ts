@@ -89,6 +89,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** Web 浏览器组件，可承载网页 */
