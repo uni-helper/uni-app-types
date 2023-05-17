@@ -202,7 +202,7 @@ importers:
         specifier: 2.0.2-3071120230427001
         version: 2.0.2-3071120230427001
       '@uni-helper/uni-app-types':
-        specifier: workspace:0.5.8-0
+        specifier: workspace:*
         version: link:../..
       '@vue/cli-plugin-babel':
         specifier: 5.0.8
