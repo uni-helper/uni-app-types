@@ -40,7 +40,9 @@
 
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types` 且 `include` 包含了对应的 `vue` 文件
 
-  <details>
+- 在 `tsconfig.json` 中配置 `vueCompilerOptions`，确保 `vueCompilerOptions` 中配置有 `nativeTags`.
+
+  <details open>
     <summary>1.6.0 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
 
   ```json
@@ -48,7 +50,10 @@
     "compilerOptions": {
       "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
     },
-    "include": ["src/**/*.vue"]
+    "include": ["src/**/*.vue"],
+    "vueCompilerOptions": {
+      "nativeTags": ["block", "component", "template", "slot"]
+    }
   }
   ```
 
