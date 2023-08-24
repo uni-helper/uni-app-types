@@ -27,6 +27,8 @@ import type {
   ButtonOnSubscribe,
   ButtonOnLoginEvent,
   ButtonOnLogin,
+  ButtonOnAgreeprivacyauthorizationEvent,
+  ButtonOnAgreeprivacyauthorization,
   ButtonProps,
   Button,
   ButtonInstance,
@@ -113,6 +115,12 @@ describe('Button', () => {
 
   expectTypeOf<ButtonOnLogin>().toBeFunction();
   expectTypeOf<ButtonOnLogin>().toEqualTypeOf<UniHelper.ButtonOnLogin>();
+
+  expectTypeOf<ButtonOnAgreeprivacyauthorizationEvent>().toBeObject();
+  expectTypeOf<ButtonOnAgreeprivacyauthorizationEvent>().toEqualTypeOf<UniHelper.ButtonOnAgreeprivacyauthorizationEvent>();
+
+  expectTypeOf<ButtonOnAgreeprivacyauthorization>().toBeFunction();
+  expectTypeOf<ButtonOnAgreeprivacyauthorization>().toEqualTypeOf<UniHelper.ButtonOnAgreeprivacyauthorization>();
 
   expectTypeOf<ButtonProps>().toBeObject();
   expectTypeOf<ButtonProps>().toEqualTypeOf<UniHelper.ButtonProps>();

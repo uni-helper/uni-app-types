@@ -84,6 +84,8 @@ type _ButtonFormType = 'submit' | 'reset';
  * watchLater 触发用户稍后再看
  *
  * openProfile 触发打开用户主页
+ *
+ * agreePrivacyAuthorization 用户同意隐私协议按钮
  */
 type _ButtonOpenType =
   | 'feedback'
@@ -111,7 +113,8 @@ type _ButtonOpenType =
   | 'subscribe'
   | 'favorite'
   | 'watchLater'
-  | 'openProfile';
+  | 'openProfile'
+  | 'agreePrivacyAuthorization';
 
 /**
  * 返回用户信息的语言
@@ -245,6 +248,17 @@ type _ButtonOnLoginEvent = BaseEvent;
  */
 interface _ButtonOnLogin {
   (event: _ButtonOnLoginEvent): void;
+}
+
+type _ButtonOnAgreeprivacyauthorizationEvent = BaseEvent;
+
+/**
+ * 用户同意隐私协议按钮回调
+ *
+ * open-type="agreePrivacyAuthorization" 时有效
+ */
+interface _ButtonOnAgreeprivacyauthorization {
+  (event: _ButtonOnAgreeprivacyauthorizationEvent): void;
 }
 
 /** 按钮属性 */
@@ -514,6 +528,12 @@ type _ButtonProps = Partial<{
    * open-type="login" 时有效
    */
   onLogin: _ButtonOnLogin;
+  /**
+   * 用户同意隐私协议回调
+   *
+   * open-type="agreePrivacyAuthorization" 时有效
+   */
+  onAgreeprivacyauthorization: _ButtonOnAgreeprivacyauthorization;
 }>;
 
 /** 按钮 */
@@ -550,6 +570,8 @@ export {
   _ButtonOnSubscribe as ButtonOnSubscribe,
   _ButtonOnLoginEvent as ButtonOnLoginEvent,
   _ButtonOnLogin as ButtonOnLogin,
+  _ButtonOnAgreeprivacyauthorizationEvent as ButtonOnAgreeprivacyauthorizationEvent,
+  _ButtonOnAgreeprivacyauthorization as ButtonOnAgreeprivacyauthorization,
   _ButtonProps as ButtonProps,
   _Button as Button,
   _ButtonInstance as ButtonInstance,
@@ -640,6 +662,8 @@ declare global {
      * watchLater 触发用户稍后再看
      *
      * openProfile 触发打开用户主页
+     *
+     * agreePrivacyAuthorization 用户同意隐私协议
      */
     export type ButtonOpenType = _ButtonOpenType;
     /**
@@ -720,6 +744,13 @@ declare global {
      * open-type="login" 时有效
      */
     export interface ButtonOnLogin extends _ButtonOnLogin {}
+    export type ButtonOnAgreeprivacyauthorizationEvent = _ButtonOnAgreeprivacyauthorizationEvent;
+    /**
+     * 用户同意隐私协议回调
+     *
+     * open-type="agreePrivacyAuthorization" 时有效
+     */
+    export interface ButtonOnAgreeprivacyauthorization extends _ButtonOnAgreeprivacyauthorization {}
     /** 按钮属性 */
     export type ButtonProps = _ButtonProps;
     /** 按钮 */
