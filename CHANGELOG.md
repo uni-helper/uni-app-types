@@ -1,8 +1,8 @@
 # 改动日志
 
-## 0.5.8-0 (2023-05-16)
+## 0.5.9 (2023-05-16)
 
-- fix: 支持 `vue` 3.3
+- fix: 补充 button open-type 和事件 <span style="color: transparent">微信你坏事做绝 👎</span>
 
 ## 0.5.7 (2023-04-28)
 
