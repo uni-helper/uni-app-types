@@ -213,7 +213,7 @@ interface _MapMarker {
    *
    * 点击时显示，callout 存在时将被忽略
    */
-  title: string;
+  title?: string;
   /**
    * 图标路径
    *
@@ -227,7 +227,7 @@ interface _MapMarker {
    *
    * 默认为 0
    */
-  rotate: number;
+  rotate?: number;
   /**
    * 透明度
    *
@@ -235,35 +235,37 @@ interface _MapMarker {
    *
    * 默认为 1
    */
-  alpha: number;
+  alpha?: number;
   /**
    * 图标宽度
    *
    * 默认为实际宽度
    */
-  width: number;
+  width?: number;
   /**
    * 图标高度
    *
    * 默认为实际高度
    */
-  height: number;
+  height?: number;
   /** 自定义标记点上方的气泡窗口 */
-  callout: _MapCallout;
+  callout?: _MapCallout;
   /** 为标记点旁边增加标签 */
-  label: _MapLabel;
+  label?: _MapLabel;
   /**
    * 经纬度在标注图标的锚点
    *
    * 默认为 { x: 0.5, y: 1 } 底边中点
    */
-  anchor: _MapAnchor;
+  anchor?: _MapAnchor;
   /** 自定义点聚合簇效果时使用 */
-  clusterId: number;
+  clusterId?: number;
   /** 自定义气泡窗口 */
-  customCallout: _MapCustomCallout;
+  customCallout?: _MapCustomCallout;
   /** 无障碍访问，（属性）元素的额外描述 */
-  ariaLabel: string;
+  ariaLabel?: string;
+  /** 是否参与点聚合， 如果指定点聚合 此选项值必须设置为true,才会生效 */
+  joinCluster?: boolean;
 }
 
 /** 路线 */
@@ -275,21 +277,21 @@ interface _MapPolyline {
    *
    * colorList 不存在时有效
    */
-  color: string;
+  color?: string;
   /** 线的宽度 */
-  width: number;
+  width?: number;
   /**
    * 是否虚线
    *
    * 默认为 false
    */
-  dottedLine: boolean;
+  dottedLine?: boolean;
   /**
    * 是否带箭头
    *
    * 默认为 false
    */
-  arrowLine: boolean;
+  arrowLine?: boolean;
   /**
    * 箭头图标路径
    *
@@ -297,17 +299,17 @@ interface _MapPolyline {
    *
    * arrowLine 为 true 时有效
    */
-  arrowIconPath: string;
+  arrowIconPath?: string;
   /** 线的边框颜色 */
-  borderColor: string;
+  borderColor?: string;
   /** 线的宽度 */
-  borderWidth: number;
+  borderWidth?: number;
   /**
    * 彩虹线
    *
    * 存在时忽略 color
    */
-  colorList: string[];
+  colorList?: string[];
   /**
    * 压盖关系
    *
@@ -317,7 +319,7 @@ interface _MapPolyline {
    *
    * aboveroads 显示在道路之上楼块之下
    */
-  level: _MapLevel;
+  level?: _MapLevel;
 }
 
 /** 多边形 */
@@ -325,13 +327,13 @@ interface _MapPolygon {
   /** 经纬度点数组 */
   points: _MapPoint[];
   /** 描边宽度 */
-  strokeWidth: number;
+  strokeWidth?: number;
   /** 十六进制描边颜色 */
-  strokeColor: string;
+  strokeColor?: string;
   /** 十六进制填充颜色 */
-  fillColor: string;
+  fillColor?: string;
   /** z 轴数值 */
-  zIndex: number;
+  zIndex?: number;
   /**
    * 压盖关系
    *
@@ -341,7 +343,7 @@ interface _MapPolygon {
    *
    * aboveroads 显示在道路之上楼块之下
    */
-  level: _MapLevel;
+  level?: _MapLevel;
 }
 
 /** 圆 */
@@ -359,13 +361,13 @@ interface _MapCircle {
    */
   longitude: _MapLongitude;
   /** 十六进制描边颜色 */
-  color: string;
+  color?: string;
   /** 十六进制填充颜色 */
-  fillColor: string;
+  fillColor?: string;
   /** 半径 */
   radius: number;
   /** 描边宽度 */
-  strokeWidth: number;
+  strokeWidth?: number;
   /**
    * 压盖关系
    *
@@ -375,7 +377,7 @@ interface _MapCircle {
    *
    * aboveroads 显示在道路之上楼块之下
    */
-  level: _MapLevel;
+  level?: _MapLevel;
 }
 
 /** 控件在地图的位置 */
@@ -385,25 +387,25 @@ interface _MapPosition {
    *
    * 默认为 0
    */
-  left: number;
+  left?: number;
   /**
    * 距离地图的上边界多远
    *
    * 默认为 0
    */
-  top: number;
+  top?: number;
   /**
    * 控件宽度
    *
    * 默认为控件宽度
    */
-  width: number;
+  width?: number;
   /**
    * 控件高度
    *
    * 默认为图片高度
    */
-  height: number;
+  height?: number;
 }
 
 /**
@@ -420,7 +422,7 @@ interface _MapControl {
    *
    * 在控件点击事件回调中会返回
    */
-  id: _MapControlId;
+  id?: _MapControlId;
   /** 控件在地图的位置 */
   position: _MapPosition;
   /**
@@ -434,7 +436,7 @@ interface _MapControl {
    *
    * 默认不可点击
    */
-  clickable: boolean;
+  clickable?: boolean;
 }
 
 interface _MapOnMarkertapDetail {
