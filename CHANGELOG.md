@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.10 (2023-09-14)
+
+- fix: 修复 `Map` 相关类型，感谢 [ZXheart](https://github.com/ZXheart) 在 [#51](https://github.com/uni-helper/uni-app-types/pull/51) 的贡献
+
 ## 0.5.9 (2023-05-16)
 
 - fix: 补充 button open-type 和事件 <span style="color: transparent">微信你坏事做绝 👎</span>
