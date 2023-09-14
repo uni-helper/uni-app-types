@@ -264,7 +264,11 @@ interface _MapMarker {
   customCallout?: _MapCustomCallout;
   /** 无障碍访问，（属性）元素的额外描述 */
   ariaLabel?: string;
-  /** 是否参与点聚合， 如果指定点聚合 此选项值必须设置为true,才会生效 */
+  /**
+   * 是否参与点聚合
+   *
+   * 如果指定点聚合，此选项值必须设置为 true 才会生效
+   */
   joinCluster?: boolean;
 }
 
