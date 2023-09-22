@@ -13,6 +13,10 @@ interface _WebViewStyles {
    * 默认为 { color: '#00ff00' }
    */
   progress: boolean | { color: string };
+  /** 组件宽度 */
+  width: string;
+  /** 组件高度 */
+  height: string;
 }
 
 interface _WebViewOnMessageDetail {
