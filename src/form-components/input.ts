@@ -477,32 +477,3 @@ declare global {
     export type InputInstance = _InputInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 输入框 */
-    Input: _Input;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 输入框 */
-      input: _Input;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 输入框 */
-      input: _Input;
-    }
-  }
-}

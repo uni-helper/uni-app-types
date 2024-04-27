@@ -326,32 +326,3 @@ declare global {
     export type TextareaInstance = _TextareaInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 多行输入框 */
-    Textarea: _Textarea;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 多行输入框 */
-      textarea: _Textarea;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 多行输入框 */
-      textarea: _Textarea;
-    }
-  }
-}

@@ -1,4 +1,5 @@
-import { Component } from '../component';
+import type { Component } from '../component';
+import type { PropsWithKebabKeys } from '../utils';
 
 /** 视图容器属性 */
 type _ViewProps = Partial<{
@@ -62,52 +63,5 @@ declare global {
     export type View = _View;
     /** 视图容器实例 */
     export type ViewInstance = _ViewInstance;
-  }
-}
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /**
-     * 视图容器，和 div 类似，用于包裹各种元素内容
-     *
-     * 包裹文字建议使用 text
-     *
-     * 如果使用 div，会编译成 view
-     */
-    View: _View;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 视图容器，和 div 类似，用于包裹各种元素内容
-       *
-       * 包裹文字建议使用 text
-       *
-       * 如果使用 div，会编译成 view
-       */
-      view: _View;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /**
-       * 视图容器，和 div 类似，用于包裹各种元素内容
-       *
-       * 包裹文字建议使用 text
-       *
-       * 如果使用 div，会编译成 view
-       */
-      view: _View;
-    }
   }
 }

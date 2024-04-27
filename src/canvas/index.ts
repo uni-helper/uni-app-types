@@ -140,32 +140,3 @@ declare global {
     export type CanvasInstance = _CanvasInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 画布 */
-    Canvas: _Canvas;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 画布 */
-      canvas: _Canvas;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 画布 */
-      canvas: _Canvas;
-    }
-  }
-}

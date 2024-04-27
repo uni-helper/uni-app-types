@@ -159,32 +159,3 @@ declare global {
     export type AudioInstance = _AudioInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 音频 */
-    Audio: _Audio;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 音频 */
-      audio: _Audio;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 音频 */
-      audio: _Audio;
-    }
-  }
-}

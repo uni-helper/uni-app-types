@@ -759,32 +759,3 @@ declare global {
     export type ButtonInstance = _ButtonInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 按钮 */
-    Button: _Button;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 按钮 */
-      button: _Button;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 按钮 */
-      button: _Button;
-    }
-  }
-}

@@ -129,32 +129,3 @@ declare global {
     export type ProgressInstance = _ProgressInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 进度条 */
-    Progress: _Progress;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 进度条 */
-      progress: _Progress;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 进度条 */
-      progress: _Progress;
-    }
-  }
-}

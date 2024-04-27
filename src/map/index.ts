@@ -906,32 +906,3 @@ declare global {
     export type MapInstance = _MapInstance;
   }
 }
-
-// @ts-ignore
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 地图组件，用于展示地图 */
-    Map: _Map;
-  }
-}
-
-// 3.0 <= Vue <= 3.2
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 地图组件，用于展示地图 */
-      map: _Map;
-    }
-  }
-}
-
-// 3.3 <= Vue
-// @ts-ignore
-declare module 'vue3/jsx-runtime' {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 地图组件，用于展示地图 */
-      map: _Map;
-    }
-  }
-}
