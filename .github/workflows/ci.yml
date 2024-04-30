@@ -36,7 +36,7 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: corepack enable
       - run: pnpm install
-      - run: pnpm run check:types
+      - run: pnpm run typecheck
 
   test:
     runs-on: ubuntu-latest
