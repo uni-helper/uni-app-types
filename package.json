@@ -66,8 +66,8 @@
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
     "release": "pnpm install && pnpm run build && pnpm run lint && pnpm run typecheck && pnpm run test && bumpp",
-    "test": "vitest typecheck --run",
-    "test:coverage": "vitest typecheck --run --coverage",
+    "test": "vitest --typecheck --run",
+    "test:coverage": "vitest --typecheck --run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
