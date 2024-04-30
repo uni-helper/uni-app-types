@@ -1,10 +1,10 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 设置自定义下拉刷新默认样式
  *
- * none 不使用默认样式
+ * None 不使用默认样式
  */
 type _ScrollViewRefresherDefaultStyle = 'black' | 'white' | 'none';
 
@@ -151,7 +151,7 @@ type _ScrollViewProps = Partial<{
   /**
    * 设置自定义下拉刷新默认样式
    *
-   * none 不使用默认样式
+   * None 不使用默认样式
    *
    * 默认为 black
    */
@@ -165,9 +165,9 @@ type _ScrollViewProps = Partial<{
   /**
    * 设置当前下拉刷新状态
    *
-   * true 下拉刷新已经被触发
+   * True 下拉刷新已经被触发
    *
-   * false 下拉刷新未被触发
+   * False 下拉刷新未被触发
    *
    * 默认为 false
    */
@@ -213,8 +213,8 @@ type _ScrollViewProps = Partial<{
  *
  * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
  *
- * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的
- * transparent 透明渐变
+ * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json
+ * 配置的下拉刷新、页面触底onReachBottomDistance、titleNView 的 transparent 透明渐变
  */
 type _ScrollView = Component<_ScrollViewProps>;
 
@@ -248,31 +248,45 @@ declare global {
     /**
      * 设置自定义下拉刷新默认样式
      *
-     * none 不使用默认样式
+     * None 不使用默认样式
      */
-    export type ScrollViewRefresherDefaultStyle = _ScrollViewRefresherDefaultStyle;
-    export type ScrollViewOnScrolltoupperEvent = _ScrollViewOnScrolltoupperEvent;
+    export type ScrollViewRefresherDefaultStyle =
+      _ScrollViewRefresherDefaultStyle;
+    export type ScrollViewOnScrolltoupperEvent =
+      _ScrollViewOnScrolltoupperEvent;
     /** 滚动到顶部/左边时触发 */
-    export interface ScrollViewOnScrolltoupper extends _ScrollViewOnScrolltoupper {}
-    export type ScrollViewOnScrolltolowerEvent = _ScrollViewOnScrolltolowerEvent;
+    export interface ScrollViewOnScrolltoupper
+      extends _ScrollViewOnScrolltoupper {}
+    export type ScrollViewOnScrolltolowerEvent =
+      _ScrollViewOnScrolltolowerEvent;
     /** 滚动到底部/右边时触发 */
-    export interface ScrollViewOnScrolltolower extends _ScrollViewOnScrolltolower {}
-    export interface ScrollViewOnScrollDetail extends _ScrollViewOnScrollDetail {}
+    export interface ScrollViewOnScrolltolower
+      extends _ScrollViewOnScrolltolower {}
+    export interface ScrollViewOnScrollDetail
+      extends _ScrollViewOnScrollDetail {}
     export type ScrollViewOnScrollEvent = _ScrollViewOnScrollEvent;
     /** 滚动时触发 */
     export interface ScrollViewOnScroll extends _ScrollViewOnScroll {}
-    export type ScrollViewOnRefresherpullingEvent = _ScrollViewOnRefresherpullingEvent;
+    export type ScrollViewOnRefresherpullingEvent =
+      _ScrollViewOnRefresherpullingEvent;
     /** 自定义下拉刷新控件被下拉时触发 */
-    export interface ScrollViewOnRefresherpulling extends _ScrollViewOnRefresherpulling {}
-    export type ScrollViewOnRefresherrefreshEvent = _ScrollViewOnRefresherrefreshEvent;
+    export interface ScrollViewOnRefresherpulling
+      extends _ScrollViewOnRefresherpulling {}
+    export type ScrollViewOnRefresherrefreshEvent =
+      _ScrollViewOnRefresherrefreshEvent;
     /** 自定义下拉刷新被触发时触发 */
-    export interface ScrollViewOnRefresherrefresh extends _ScrollViewOnRefresherrefresh {}
-    export type ScrollViewOnRefresherrestoreEvent = _ScrollViewOnRefresherrestoreEvent;
+    export interface ScrollViewOnRefresherrefresh
+      extends _ScrollViewOnRefresherrefresh {}
+    export type ScrollViewOnRefresherrestoreEvent =
+      _ScrollViewOnRefresherrestoreEvent;
     /** 自定义下拉刷新被复位时触发 */
-    export interface ScrollViewOnRefresherrestore extends _ScrollViewOnRefresherrestore {}
-    export type ScrollViewOnRefresherabortEvent = _ScrollViewOnRefresherabortEvent;
+    export interface ScrollViewOnRefresherrestore
+      extends _ScrollViewOnRefresherrestore {}
+    export type ScrollViewOnRefresherabortEvent =
+      _ScrollViewOnRefresherabortEvent;
     /** 自定义下拉刷新被中止时触发 */
-    export interface ScrollViewOnRefresherabort extends _ScrollViewOnRefresherabort {}
+    export interface ScrollViewOnRefresherabort
+      extends _ScrollViewOnRefresherabort {}
     /** 可滚动视图区域属性 */
     export type ScrollViewProps = _ScrollViewProps;
     /**
@@ -284,8 +298,8 @@ declare global {
      *
      * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
      *
-     * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底 onReachBottomDistance、titleNView 的
-     * transparent 透明渐变
+     * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底
+     * onReachBottomDistance、titleNView 的 transparent 透明渐变
      */
     export type ScrollView = _ScrollView;
     /** 可滚动视图区域实例 */
@@ -293,7 +307,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -305,8 +319,8 @@ declare module '@vue/runtime-core' {
      *
      * 横向滚动时，需要给 scroll-view 添加 white-space: nowrap; 样式
      *
-     * scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底 onReachBottomDistance、titleNView 的
-     * transparent 透明渐变
+     * Scroll-view 是区域滚动，不会触发页面滚动，无法触发 pages.json 配置的下拉刷新、页面触底
+     * onReachBottomDistance、titleNView 的 transparent 透明渐变
      */
     ScrollView: _ScrollView;
   }

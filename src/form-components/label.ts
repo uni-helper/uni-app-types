@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /** 表单标签属性 */
 type _LabelProps = Partial<{
@@ -13,14 +13,18 @@ type _LabelProps = Partial<{
  *
  * 使用 for 属性找到对应的 id，或者将控件放在该标签下，当点击时，就会触发对应的控件
  *
- * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
+ * For 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
  */
 type _Label = Component<_LabelProps>;
 
 /** 表单标签实例 */
 type _LabelInstance = InstanceType<_Label>;
 
-export { _LabelProps as LabelProps, _Label as Label, _LabelInstance as LabelInstance };
+export {
+  _LabelProps as LabelProps,
+  _Label as Label,
+  _LabelInstance as LabelInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -33,7 +37,7 @@ declare global {
      *
      * 使用 for 属性找到对应的 id，或者将控件放在该标签下，当点击时，就会触发对应的控件
      *
-     * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
+     * For 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
      */
     export type Label = _Label;
     /** 表单标签实例 */
@@ -41,7 +45,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -51,7 +55,7 @@ declare module '@vue/runtime-core' {
      *
      * 使用 for 属性找到对应的 id，或者将控件放在该标签下，当点击时，就会触发对应的控件
      *
-     * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
+     * For 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
      */
     Label: _Label;
   }
@@ -68,7 +72,7 @@ declare global {
        *
        * 使用 for 属性找到对应的 id，或者将控件放在该标签下，当点击时，就会触发对应的控件
        *
-       * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
+       * For 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
        */
       label: _Label;
     }
@@ -76,7 +80,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {
@@ -87,7 +91,7 @@ declare module 'vue3/jsx-runtime' {
        *
        * 使用 for 属性找到对应的 id，或者将控件放在该标签下，当点击时，就会触发对应的控件
        *
-       * for 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
+       * For 优先级高于内部控件，内部有多个控件的时候默认触发第一个控件
        */
       label: _Label;
     }

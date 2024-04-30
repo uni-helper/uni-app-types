@@ -1,5 +1,5 @@
-import { Component, AnyRecord } from '../component';
-import { CustomEvent } from '../events';
+import type { Component, AnyRecord } from '../component';
+import type { CustomEvent } from '../events';
 
 /** 显示连续空格 */
 type _RichTextSpace = 'ensp' | 'emsp' | 'nbsp';
@@ -110,7 +110,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 富文本 */

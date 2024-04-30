@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 实时模式
@@ -13,27 +13,27 @@ type _LivePlayerMode = 'live' | 'RTC';
 /**
  * 画面方向
  *
- * vertical 纵向
+ * Vertical 纵向
  *
- * horizontal 横向
+ * Horizontal 横向
  */
 type _LivePlayerOrientation = 'vertical' | 'horizontal';
 
 /**
  * 填充模式
  *
- * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+ * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
  *
- * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+ * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
  */
 type _LivePlayerObjectFit = 'contain' | 'fillCrop';
 
 /**
  * 声音输出方式
  *
- * speaker 扬声器
+ * Speaker 扬声器
  *
- * ear 听筒
+ * Ear 听筒
  *
  * 默认为 speaker
  */
@@ -42,9 +42,9 @@ type _LivePlayerSoundMode = 'speaker' | 'ear';
 /**
  * 设置小窗模式
  *
- * push 路由 push 时触发小窗
+ * Push 路由 push 时触发小窗
  *
- * pop 路由 pop 时触发小窗
+ * Pop 路由 pop 时触发小窗
  */
 type _LivePlayerPictureInPictureMode = 'push' | 'pop';
 
@@ -239,7 +239,8 @@ interface _LivePlayerOnStatechangeDetail {
   code: _LivePlayerCode;
 }
 
-type _LivePlayerOnStatechangeEvent = CustomEvent<_LivePlayerOnStatechangeDetail>;
+type _LivePlayerOnStatechangeEvent =
+  CustomEvent<_LivePlayerOnStatechangeDetail>;
 
 /** 播放状态变化时触发 */
 interface _LivePlayerOnStatechange {
@@ -263,7 +264,8 @@ interface _LivePlayerOnFullscreenchangeDetail {
   fullScreen: boolean;
 }
 
-type _LivePlayerOnFullscreenchangeEvent = CustomEvent<_LivePlayerOnFullscreenchangeDetail>;
+type _LivePlayerOnFullscreenchangeEvent =
+  CustomEvent<_LivePlayerOnFullscreenchangeDetail>;
 
 /** 全屏变化时触发 */
 interface _LivePlayerOnFullscreenchange {
@@ -322,9 +324,9 @@ type _LivePlayerProps = Partial<{
   /**
    * 画面方向
    *
-   * vertical 纵向
+   * Vertical 纵向
    *
-   * horizontal 横向
+   * Horizontal 横向
    *
    * 默认为 vertical
    */
@@ -332,9 +334,9 @@ type _LivePlayerProps = Partial<{
   /**
    * 填充模式
    *
-   * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+   * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
    *
-   * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+   * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
    *
    * 默认为 contain
    */
@@ -348,9 +350,9 @@ type _LivePlayerProps = Partial<{
   /**
    * 声音输出方式
    *
-   * speaker 扬声器
+   * Speaker 扬声器
    *
-   * ear 听筒
+   * Ear 听筒
    *
    * 默认为 speaker
    */
@@ -372,7 +374,9 @@ type _LivePlayerProps = Partial<{
    */
   maxCache: number;
   /** 设置小窗模式，空字符串或通过数组形式设置多种模式 */
-  pictureInPictureMode: _LivePlayerPictureInPictureMode | _LivePlayerPictureInPictureMode[];
+  pictureInPictureMode:
+    | _LivePlayerPictureInPictureMode
+    | _LivePlayerPictureInPictureMode[];
   /** 播放状态变化时触发 */
   onStatechange: _LivePlayerOnStatechange;
   /** 网络状态变化时触发 */
@@ -434,25 +438,25 @@ declare global {
     /**
      * 画面方向
      *
-     * vertical 纵向
+     * Vertical 纵向
      *
-     * horizontal 横向
+     * Horizontal 横向
      */
     export type LivePlayerOrientation = _LivePlayerOrientation;
     /**
      * 填充模式
      *
-     * contain 图像长边填满屏幕，短边区域会被填充⿊⾊
+     * Contain 图像长边填满屏幕，短边区域会被填充⿊⾊
      *
-     * fillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
+     * FillCrop 图像铺满屏幕，超出显示区域的部分将被截掉
      */
     export type LivePlayerObjectFit = _LivePlayerObjectFit;
     /**
      * 声音输出方式
      *
-     * speaker 扬声器
+     * Speaker 扬声器
      *
-     * ear 听筒
+     * Ear 听筒
      *
      * 默认为 speaker
      */
@@ -460,11 +464,12 @@ declare global {
     /**
      * 设置小窗模式
      *
-     * push 路由 push 时触发小窗
+     * Push 路由 push 时触发小窗
      *
-     * pop 路由 pop 时触发小窗
+     * Pop 路由 pop 时触发小窗
      */
-    export type LivePlayerPictureInPictureMode = _LivePlayerPictureInPictureMode;
+    export type LivePlayerPictureInPictureMode =
+      _LivePlayerPictureInPictureMode;
     /**
      * 状态码
      *
@@ -517,28 +522,38 @@ declare global {
     export type LivePlayerCode = _LivePlayerCode;
     /** 网络状态 */
     export interface LivePlayerInfo extends _LivePlayerInfo {}
-    export interface LivePlayerOnStatechangeDetail extends _LivePlayerOnStatechangeDetail {}
+    export interface LivePlayerOnStatechangeDetail
+      extends _LivePlayerOnStatechangeDetail {}
     export type LivePlayerOnStatechangeEvent = _LivePlayerOnStatechangeEvent;
     /** 播放状态变化时触发 */
     export interface LivePlayerOnStatechange extends _LivePlayerOnStatechange {}
-    export interface LivePlayerOnNetstatusDetail extends _LivePlayerOnNetstatusDetail {}
+    export interface LivePlayerOnNetstatusDetail
+      extends _LivePlayerOnNetstatusDetail {}
     export type LivePlayerOnNetstatusEvent = _LivePlayerOnNetstatusEvent;
     /** 网络状态变化时触发 */
     export interface LivePlayerOnNetstatus extends _LivePlayerOnNetstatus {}
     export interface LivePlayerOnFullscreenchangeDetail
       extends _LivePlayerOnFullscreenchangeDetail {}
-    export type LivePlayerOnFullscreenchangeEvent = _LivePlayerOnFullscreenchangeEvent;
+    export type LivePlayerOnFullscreenchangeEvent =
+      _LivePlayerOnFullscreenchangeEvent;
     /** 全屏变化时触发 */
-    export interface LivePlayerOnFullscreenchange extends _LivePlayerOnFullscreenchange {}
-    export type LivePlayerOnAudiovolumenotifyEvent = _LivePlayerOnAudiovolumenotifyEvent;
+    export interface LivePlayerOnFullscreenchange
+      extends _LivePlayerOnFullscreenchange {}
+    export type LivePlayerOnAudiovolumenotifyEvent =
+      _LivePlayerOnAudiovolumenotifyEvent;
     /** 播放音量变化时触发 */
-    export interface LivePlayerOnAudiovolumenotify extends _LivePlayerOnAudiovolumenotify {}
-    export type LivePlayerOnEnterpictureinpictureEvent = _LivePlayerOnEnterpictureinpictureEvent;
+    export interface LivePlayerOnAudiovolumenotify
+      extends _LivePlayerOnAudiovolumenotify {}
+    export type LivePlayerOnEnterpictureinpictureEvent =
+      _LivePlayerOnEnterpictureinpictureEvent;
     /** 播放器进入小窗时触发 */
-    export interface LivePlayerOnEnterpictureinpicture extends _LivePlayerOnEnterpictureinpicture {}
-    export type LivePlayerOnLeavepictureinpictureEvent = _LivePlayerOnLeavepictureinpictureEvent;
+    export interface LivePlayerOnEnterpictureinpicture
+      extends _LivePlayerOnEnterpictureinpicture {}
+    export type LivePlayerOnLeavepictureinpictureEvent =
+      _LivePlayerOnLeavepictureinpictureEvent;
     /** 播放器退出小窗时触发 */
-    export interface LivePlayerOnLeavepictureinpicture extends _LivePlayerOnLeavepictureinpicture {}
+    export interface LivePlayerOnLeavepictureinpicture
+      extends _LivePlayerOnLeavepictureinpicture {}
     /** 实时音视频播放（直播拉流）属性 */
     export type LivePlayerProps = _LivePlayerProps;
     /** 实时音视频播放（直播拉流） */
@@ -548,7 +563,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 实时音视频播放（直播拉流） */

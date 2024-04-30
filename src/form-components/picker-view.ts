@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _PickerViewValueElement = number;
 
@@ -12,7 +12,7 @@ interface _PickerViewOnChangeDetail {
 
 type _PickerViewOnChangeEvent = CustomEvent<_PickerViewOnChangeDetail>;
 
-/** value 改变时触发 */
+/** Value 改变时触发 */
 interface _PickerViewOnChange {
   (event: _PickerViewOnChangeEvent): void;
 }
@@ -54,7 +54,7 @@ type _PickerViewProps = Partial<{
    * 默认为 false
    */
   immediateChange: boolean;
-  /** value 改变时触发 */
+  /** Value 改变时触发 */
   onChange: _PickerViewOnChange;
   /** 滚动选择开始时触发 */
   onPickstart: _PickerViewOnPickstart;
@@ -88,9 +88,10 @@ declare global {
     export type PickerViewValueElement = _PickerViewValueElement;
     /** 依次表示 picker-view 内 picker-view-column 选择的下标 */
     export type PickerViewValue = _PickerViewValue;
-    export interface PickerViewOnChangeDetail extends _PickerViewOnChangeDetail {}
+    export interface PickerViewOnChangeDetail
+      extends _PickerViewOnChangeDetail {}
     export type PickerViewOnChangeEvent = _PickerViewOnChangeEvent;
-    /** value 改变时触发 */
+    /** Value 改变时触发 */
     export interface PickerViewOnChange extends _PickerViewOnChange {}
     export type PickerViewOnPickstartEvent = _PickerViewOnPickstartEvent;
     /** 滚动选择开始时触发 */
@@ -106,7 +107,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 嵌入页面的滚动选择器，比 picker 更灵活 */

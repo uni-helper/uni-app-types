@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
 
 /** 是否选中 */
 type _SwitchChecked = boolean;
@@ -13,7 +13,7 @@ interface _SwitchOnChangeDetail {
 
 type _SwitchOnChangeEvent = CustomEvent<_SwitchOnChangeDetail>;
 
-/** checked 改变时触发 */
+/** Checked 改变时触发 */
 interface _SwitchOnChange {
   (event: _SwitchOnChangeEvent): void;
 }
@@ -38,7 +38,7 @@ type _SwitchProps = Partial<{
   type: _SwitchType;
   /** 颜色 */
   color: string;
-  /** checked 改变时触发 */
+  /** Checked 改变时触发 */
   onChange: _SwitchOnChange;
 }>;
 
@@ -67,7 +67,7 @@ declare global {
     export type SwitchType = _SwitchType;
     export interface SwitchOnChangeDetail extends _SwitchOnChangeDetail {}
     export type SwitchOnChangeEvent = _SwitchOnChangeEvent;
-    /** checked 改变时触发 */
+    /** Checked 改变时触发 */
     export interface SwitchOnChange extends _SwitchOnChange {}
     /** 开关选择器属性 */
     export type SwitchProps = _SwitchProps;
@@ -78,7 +78,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 开关选择器 */
@@ -97,7 +97,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

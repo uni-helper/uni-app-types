@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /** 显示方式 */
 type _MapDisplay = 'BYCLICK' | 'ALWAYS';
@@ -7,11 +7,11 @@ type _MapDisplay = 'BYCLICK' | 'ALWAYS';
 /**
  * 文本对齐方式
  *
- * left 左对齐
+ * Left 左对齐
  *
- * right 右对齐
+ * Right 右对齐
  *
- * center 居中对齐
+ * Center 居中对齐
  */
 type _MapTextAlign = 'left' | 'right' | 'center';
 
@@ -38,11 +38,11 @@ interface _MapCallout {
   /**
    * 文本对齐方式
    *
-   * left 左对齐
+   * Left 左对齐
    *
-   * right 右对齐
+   * Right 右对齐
    *
-   * center 居中对齐
+   * Center 居中对齐
    */
   textAlign: _MapTextAlign;
 }
@@ -88,11 +88,11 @@ interface _MapLabel {
   /**
    * 文本对齐方式
    *
-   * left 左对齐
+   * Left 左对齐
    *
-   * right 右对齐
+   * Right 右对齐
    *
-   * center 居中对齐
+   * Center 居中对齐
    */
   textAlign: _MapTextAlign;
   /** 自定义气泡 */
@@ -156,11 +156,11 @@ interface _MapPoint {
 /**
  * 压盖关系
  *
- * abovelabels 显示在所有 POI 之上
+ * Abovelabels 显示在所有 POI 之上
  *
- * abovebuildings 显示在楼块之上 POI 之下
+ * Abovebuildings 显示在楼块之上 POI 之下
  *
- * aboveroads 显示在道路之上楼块之下
+ * Aboveroads 显示在道路之上楼块之下
  */
 type _MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
 
@@ -171,16 +171,16 @@ type _MapLevel = 'abovelabels' | 'abovebuildings' | 'aboveroads';
  *
  * 仅 Android 支持
  *
- * normal 正常
+ * Normal 正常
  *
- * satellite 卫星图
+ * Satellite 卫星图
  */
 type _MapTheme = 'normal' | 'satellite';
 
 /**
  * 标记点 ID
  *
- * marker 点击事件回调中会返回
+ * Marker 点击事件回调中会返回
  *
  * 最大限制 9 位数
  */
@@ -191,7 +191,7 @@ interface _MapMarker {
   /**
    * 标记点 ID
    *
-   * marker 点击事件回调中会返回
+   * Marker 点击事件回调中会返回
    *
    * 最大限制 9 位数
    */
@@ -279,7 +279,7 @@ interface _MapPolyline {
   /**
    * 十六进制颜色
    *
-   * colorList 不存在时有效
+   * ColorList 不存在时有效
    */
   color?: string;
   /** 线的宽度 */
@@ -301,7 +301,7 @@ interface _MapPolyline {
    *
    * 项目目录下的图片路径，支持相对路径和临时路径
    *
-   * arrowLine 为 true 时有效
+   * ArrowLine 为 true 时有效
    */
   arrowIconPath?: string;
   /** 线的边框颜色 */
@@ -317,11 +317,11 @@ interface _MapPolyline {
   /**
    * 压盖关系
    *
-   * abovelabels 显示在所有 POI 之上
+   * Abovelabels 显示在所有 POI 之上
    *
-   * abovebuildings 显示在楼块之上 POI 之下
+   * Abovebuildings 显示在楼块之上 POI 之下
    *
-   * aboveroads 显示在道路之上楼块之下
+   * Aboveroads 显示在道路之上楼块之下
    */
   level?: _MapLevel;
 }
@@ -336,16 +336,16 @@ interface _MapPolygon {
   strokeColor?: string;
   /** 十六进制填充颜色 */
   fillColor?: string;
-  /** z 轴数值 */
+  /** Z 轴数值 */
   zIndex?: number;
   /**
    * 压盖关系
    *
-   * abovelabels 显示在所有 POI 之上
+   * Abovelabels 显示在所有 POI 之上
    *
-   * abovebuildings 显示在楼块之上 POI 之下
+   * Abovebuildings 显示在楼块之上 POI 之下
    *
-   * aboveroads 显示在道路之上楼块之下
+   * Aboveroads 显示在道路之上楼块之下
    */
   level?: _MapLevel;
 }
@@ -375,11 +375,11 @@ interface _MapCircle {
   /**
    * 压盖关系
    *
-   * abovelabels 显示在所有 POI 之上
+   * Abovelabels 显示在所有 POI 之上
    *
-   * abovebuildings 显示在楼块之上 POI 之下
+   * Abovebuildings 显示在楼块之上 POI 之下
    *
-   * aboveroads 显示在道路之上楼块之下
+   * Aboveroads 显示在道路之上楼块之下
    */
   level?: _MapLevel;
 }
@@ -597,9 +597,9 @@ type _MapProps = Partial<{
    *
    * 仅 Android 支持
    *
-   * normal 正常
+   * Normal 正常
    *
-   * satellite 卫星图
+   * Satellite 卫星图
    *
    * 默认为 normal
    */
@@ -788,11 +788,11 @@ declare global {
     /**
      * 文本对齐方式
      *
-     * left 左对齐
+     * Left 左对齐
      *
-     * right 右对齐
+     * Right 右对齐
      *
-     * center 居中对齐
+     * Center 居中对齐
      */
     export type MapTextAlign = _MapTextAlign;
     /** 气泡 */
@@ -820,11 +820,11 @@ declare global {
     /**
      * 压盖关系
      *
-     * abovelabels 显示在所有 POI 之上
+     * Abovelabels 显示在所有 POI 之上
      *
-     * abovebuildings 显示在楼块之上 POI 之下
+     * Abovebuildings 显示在楼块之上 POI 之下
      *
-     * aboveroads 显示在道路之上楼块之下
+     * Aboveroads 显示在道路之上楼块之下
      */
     export type MapLevel = _MapLevel;
     /**
@@ -834,15 +834,15 @@ declare global {
      *
      * 仅 Android 支持
      *
-     * normal 正常
+     * Normal 正常
      *
-     * satellite 卫星图
+     * Satellite 卫星图
      */
     export type MapTheme = _MapTheme;
     /**
      * 标记点 ID
      *
-     * marker 点击事件回调中会返回
+     * Marker 点击事件回调中会返回
      *
      * 最大限制 9 位数
      */
@@ -890,7 +890,8 @@ declare global {
     export type MapOnUpdatedEvent = _MapOnUpdatedEvent;
     /** 地图渲染更新完成时触发 */
     export interface MapOnUpdated extends _MapOnUpdated {}
-    export interface MapOnAnchorpointtapDetail extends _MapOnAnchorpointtapDetail {}
+    export interface MapOnAnchorpointtapDetail
+      extends _MapOnAnchorpointtapDetail {}
     export type MapOnAnchorpointtapEvent = _MapOnAnchorpointtapEvent;
     /** 点击定位标时触发 */
     export interface MapOnAnchorpointtap extends _MapOnAnchorpointtap {}
@@ -907,7 +908,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 地图组件，用于展示地图 */
@@ -926,7 +927,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

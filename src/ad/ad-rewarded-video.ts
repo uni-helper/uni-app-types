@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /** 服务器回调透传数据 */
 interface _AdRewardedVideoUrlCallback {
@@ -84,11 +84,13 @@ export {
 declare global {
   namespace UniHelper {
     /** 服务器回调透传数据 */
-    export interface AdRewardedVideoUrlCallback extends _AdRewardedVideoUrlCallback {}
+    export interface AdRewardedVideoUrlCallback
+      extends _AdRewardedVideoUrlCallback {}
     export type AdRewardedVideoOnLoadEvent = _AdRewardedVideoOnLoadEvent;
     /** 广告加载成功的回调 */
     export interface AdRewardedVideoOnLoad extends _AdRewardedVideoOnLoad {}
-    export interface AdRewardedVideoOnErrorDetail extends _AdRewardedVideoOnErrorDetail {}
+    export interface AdRewardedVideoOnErrorDetail
+      extends _AdRewardedVideoOnErrorDetail {}
     export type AdRewardedVideoOnErrorEvent = _AdRewardedVideoOnErrorEvent;
     /** 广告加载失败的回调 */
     export interface AdRewardedVideoOnError extends _AdRewardedVideoOnError {}
@@ -104,7 +106,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 激励视频广告 */

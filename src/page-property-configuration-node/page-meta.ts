@@ -1,12 +1,12 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 下拉背景字体、loading 图的样式
  *
- * dark 暗色
+ * Dark 暗色
  *
- * light 亮色
+ * Light 亮色
  */
 type _PageMetaBackgroundTextStyle = 'dark' | 'light';
 
@@ -45,9 +45,9 @@ type _PageMetaProps = Partial<{
   /**
    * 下拉背景字体、loading 图的样式
    *
-   * dark 暗色
+   * Dark 暗色
    *
-   * light 亮色
+   * Light 亮色
    */
   backgroundTextStyle: _PageMetaBackgroundTextStyle;
   /** 窗口的背景色 */
@@ -122,9 +122,9 @@ declare global {
     /**
      * 下拉背景字体、loading 图的样式
      *
-     * dark 暗色
+     * Dark 暗色
      *
-     * light 亮色
+     * Light 亮色
      */
     export type PageMetaBackgroundTextStyle = _PageMetaBackgroundTextStyle;
     export interface PageMetaOnResizeDetail extends _PageMetaOnResizeDetail {}
@@ -153,7 +153,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

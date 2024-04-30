@@ -1,54 +1,54 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 应用模式，不支持动态修改
  *
- * normal 普通
+ * Normal 普通
  *
- * scanCode 扫码
+ * ScanCode 扫码
  */
 type _CameraMode = 'normal' | 'scanCode';
 
 /**
  * 分辨率，不支持动态修改
  *
- * low 低
+ * Low 低
  *
- * medium 中等
+ * Medium 中等
  *
- * high 高
+ * High 高
  */
 type _CameraResolution = 'low' | 'medium' | 'high';
 
 /**
  * 摄像头朝向
  *
- * front 前置摄像头
+ * Front 前置摄像头
  *
- * back 后置摄像头
+ * Back 后置摄像头
  */
 type _CameraDevicePosition = 'front' | 'back';
 
 /**
  * 闪光灯
  *
- * auto 自动
+ * Auto 自动
  *
- * on 打开
+ * On 打开
  *
- * off 关闭
+ * Off 关闭
  */
 type _CameraFlash = 'auto' | 'on' | 'off';
 
 /**
  * 期望的相机帧数据尺寸
  *
- * small 小
+ * Small 小
  *
- * medium 中
+ * Medium 中
  *
- * large 大
+ * Large 大
  */
 type _CameraFrameSize = 'small' | 'medium' | 'large';
 
@@ -82,7 +82,7 @@ type _CameraOnScancodeEvent = BaseEvent;
 /**
  * 扫码识别成功时触发
  *
- * mode="scanCode" 时有效
+ * Mode="scanCode" 时有效
  */
 interface _CameraOnScancode {
   (event: _CameraOnScancodeEvent): void;
@@ -93,9 +93,9 @@ type _CameraProps = Partial<{
   /**
    * 应用模式，不支持动态修改
    *
-   * normal 普通
+   * Normal 普通
    *
-   * scanCode 扫码
+   * ScanCode 扫码
    *
    * 默认为 normal
    */
@@ -103,11 +103,11 @@ type _CameraProps = Partial<{
   /**
    * 分辨率，不支持动态修改
    *
-   * low 低
+   * Low 低
    *
-   * medium 中等
+   * Medium 中等
    *
-   * high 高
+   * High 高
    *
    * 默认为 medium
    */
@@ -115,9 +115,9 @@ type _CameraProps = Partial<{
   /**
    * 摄像头朝向
    *
-   * front 前置摄像头
+   * Front 前置摄像头
    *
-   * back 后置摄像头
+   * Back 后置摄像头
    *
    * 默认为 back
    */
@@ -125,11 +125,11 @@ type _CameraProps = Partial<{
   /**
    * 闪光灯
    *
-   * auto 自动
+   * Auto 自动
    *
-   * on 打开
+   * On 打开
    *
-   * off 关闭
+   * Off 关闭
    *
    * 默认为 auto
    */
@@ -137,11 +137,11 @@ type _CameraProps = Partial<{
   /**
    * 期望的相机帧数据尺寸
    *
-   * small 小
+   * Small 小
    *
-   * medium 中
+   * Medium 中
    *
-   * large 大
+   * Large 大
    *
    * 默认为 medium
    */
@@ -155,7 +155,7 @@ type _CameraProps = Partial<{
   /**
    * 扫码识别成功时触发
    *
-   * mode="scanCode" 时有效
+   * Mode="scanCode" 时有效
    */
   onScancode: _CameraOnScancode;
 }>;
@@ -191,47 +191,47 @@ declare global {
     /**
      * 应用模式，不支持动态修改
      *
-     * normal 普通
+     * Normal 普通
      *
-     * scanCode 扫码
+     * ScanCode 扫码
      */
     export type CameraMode = _CameraMode;
     /**
      * 分辨率，不支持动态修改
      *
-     * low 低
+     * Low 低
      *
-     * medium 中等
+     * Medium 中等
      *
-     * high 高
+     * High 高
      */
     export type CameraResolution = _CameraResolution;
     /**
      * 摄像头朝向
      *
-     * front 前置摄像头
+     * Front 前置摄像头
      *
-     * back 后置摄像头
+     * Back 后置摄像头
      */
     export type CameraDevicePosition = _CameraDevicePosition;
     /**
      * 闪光灯
      *
-     * auto 自动
+     * Auto 自动
      *
-     * on 打开
+     * On 打开
      *
-     * off 关闭
+     * Off 关闭
      */
     export type CameraFlash = _CameraFlash;
     /**
      * 期望的相机帧数据尺寸
      *
-     * small 小
+     * Small 小
      *
-     * medium 中
+     * Medium 中
      *
-     * large 大
+     * Large 大
      */
     export type CameraFrameSize = _CameraFrameSize;
     export type CameraOnStopEvent = _CameraOnStopEvent;
@@ -248,7 +248,7 @@ declare global {
     /**
      * 扫码识别成功时触发
      *
-     * mode="scanCode" 时有效
+     * Mode="scanCode" 时有效
      */
     export interface CameraOnScancode extends _CameraOnScancode {}
     /** 页面内嵌的区域相机组件属性 */
@@ -260,7 +260,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 页面内嵌的区域相机组件 */

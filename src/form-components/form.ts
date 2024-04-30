@@ -1,11 +1,11 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
-import { CheckboxValue } from './checkbox';
-import { InputValue } from './input';
-import { PickerValue } from './picker';
-import { RadioValue } from './radio';
-import { SliderValue } from './slider';
-import { SwitchChecked } from './switch';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
+import type { CheckboxValue } from './checkbox';
+import type { InputValue } from './input';
+import type { PickerValue } from './picker';
+import type { RadioValue } from './radio';
+import type { SliderValue } from './slider';
+import type { SwitchChecked } from './switch';
 
 /** 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对 */
 interface _FormOnSubmitDetailValue {
@@ -21,7 +21,7 @@ interface _FormOnSubmitDetailValue {
 interface _FormOnSubmitDetail {
   /** 表单内 switch、input、checkbox、slider、radio、picker 对应的键值对 */
   value: _FormOnSubmitDetailValue;
-  /** report-submit 为 true 时返回，用于发送模板消息 */
+  /** Report-submit 为 true 时返回，用于发送模板消息 */
   formId?: string;
 }
 
@@ -113,7 +113,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -140,7 +140,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _AdFullscreenVideoOnLoadEvent = BaseEvent;
 
@@ -15,7 +15,8 @@ interface _AdFullscreenVideoOnErrorDetail {
   errMsg: string;
 }
 
-type _AdFullscreenVideoOnErrorEvent = CustomEvent<_AdFullscreenVideoOnErrorDetail>;
+type _AdFullscreenVideoOnErrorEvent =
+  CustomEvent<_AdFullscreenVideoOnErrorDetail>;
 
 /** 广告加载失败的回调 */
 interface _AdFullscreenVideoOnError {
@@ -77,13 +78,16 @@ declare global {
     export type AdFullscreenVideoOnLoadEvent = _AdFullscreenVideoOnLoadEvent;
     /** 广告加载成功的回调 */
     export interface AdFullscreenVideoOnLoad extends _AdFullscreenVideoOnLoad {}
-    export interface AdFullscreenVideoOnErrorDetail extends _AdFullscreenVideoOnErrorDetail {}
+    export interface AdFullscreenVideoOnErrorDetail
+      extends _AdFullscreenVideoOnErrorDetail {}
     export type AdFullscreenVideoOnErrorEvent = _AdFullscreenVideoOnErrorEvent;
     /** 广告加载失败的回调 */
-    export interface AdFullscreenVideoOnError extends _AdFullscreenVideoOnError {}
+    export interface AdFullscreenVideoOnError
+      extends _AdFullscreenVideoOnError {}
     export type AdFullscreenVideoOnCloseEvent = _AdFullscreenVideoOnCloseEvent;
     /** 广告关闭的回调 */
-    export interface AdFullscreenVideoOnClose extends _AdFullscreenVideoOnClose {}
+    export interface AdFullscreenVideoOnClose
+      extends _AdFullscreenVideoOnClose {}
     /** 全屏视频广告属性 */
     export type AdFullscreenVideoProps = _AdFullscreenVideoProps;
     /** 全屏视频广告 */
@@ -93,7 +97,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 全屏视频广告 */

@@ -1,11 +1,11 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /**
  * 选项的排列方向
  *
- * vertical 纵向
+ * Vertical 纵向
  *
- * horizontal 横向
+ * Horizontal 横向
  */
 type _CustomTabBarDirection = 'vertical' | 'horizontal';
 
@@ -28,9 +28,9 @@ type _CustomTabBarProps = Partial<{
   /**
    * 选项的排列方向
    *
-   * vertical 纵向
+   * Vertical 纵向
    *
-   * horizontal 横向
+   * Horizontal 横向
    *
    * 默认为 horizontal
    */
@@ -71,14 +71,16 @@ declare global {
     /**
      * 选项的排列方向
      *
-     * vertical 纵向
+     * Vertical 纵向
      *
-     * horizontal 横向
+     * Horizontal 横向
      */
     export type CustomTabBarDirection = _CustomTabBarDirection;
-    export interface CustomTabBarOnOnTabItemTapDetail extends _CustomTabBarOnOnTabItemTapDetail {}
+    export interface CustomTabBarOnOnTabItemTapDetail
+      extends _CustomTabBarOnOnTabItemTapDetail {}
     /** 点击事件 */
-    export interface CustomTabBarOnOnTabItemTap extends _CustomTabBarOnOnTabItemTap {}
+    export interface CustomTabBarOnOnTabItemTap
+      extends _CustomTabBarOnOnTabItemTap {}
     /** 自定义 tabBar 组件属性 */
     export type CustomTabBarProps = _CustomTabBarProps;
     /** 自定义 tabBar 组件 */
@@ -88,7 +90,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 自定义 tabBar 组件 */

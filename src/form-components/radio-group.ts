@@ -1,6 +1,6 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
-import { RadioValue } from './radio';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
+import type { RadioValue } from './radio';
 
 interface _RadioGroupOnChangeDetail {
   value: RadioValue;
@@ -40,7 +40,8 @@ export {
 
 declare global {
   namespace UniHelper {
-    export interface RadioGroupOnChangeDetail extends _RadioGroupOnChangeDetail {}
+    export interface RadioGroupOnChangeDetail
+      extends _RadioGroupOnChangeDetail {}
     export type RadioGroupOnChangeEvent = _RadioGroupOnChangeEvent;
     /** 选中项发生变化时触发 */
     export interface RadioGroupOnChange extends _RadioGroupOnChange {}
@@ -57,7 +58,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

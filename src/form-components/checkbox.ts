@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /**
  * 标识
@@ -63,7 +63,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 多选项目 */

@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /** 视图容器属性 */
 type _ViewProps = Partial<{
@@ -46,7 +46,11 @@ type _View = Component<_ViewProps>;
 /** 视图容器实例 */
 type _ViewInstance = InstanceType<_View>;
 
-export { _ViewProps as ViewProps, _View as View, _ViewInstance as ViewInstance };
+export {
+  _ViewProps as ViewProps,
+  _View as View,
+  _ViewInstance as ViewInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -65,7 +69,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -96,7 +100,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

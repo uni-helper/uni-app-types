@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, TouchCanvasEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, TouchCanvasEvent } from '../events';
 
 /** 类型 */
 type _CanvasType = '2d' | 'webgl';
@@ -141,7 +141,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 画布 */
@@ -160,7 +160,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

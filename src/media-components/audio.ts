@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 interface _AudioOnErrorDetail {
   /**
@@ -58,7 +58,7 @@ interface _AudioOnEnded {
 
 /** 音频属性 */
 type _AudioProps = Partial<{
-  /** audio 组件的唯一标识符 */
+  /** Audio 组件的唯一标识符 */
   id: string;
   /** 要播放音频的资源地址 */
   src: string;
@@ -160,7 +160,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 音频 */
@@ -179,7 +179,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
 
 /** 输入框内容 */
 type _TextareaValue = string;
@@ -7,15 +7,15 @@ type _TextareaValue = string;
 /**
  * 设置键盘右下角按钮的文字
  *
- * send 发送
+ * Send 发送
  *
- * search 搜索
+ * Search 搜索
  *
- * next 下一个
+ * Next 下一个
  *
- * go 前往
+ * Go 前往
  *
- * done 完成
+ * Done 完成
  */
 type _TextareaConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 
@@ -86,7 +86,8 @@ interface _TextareaOnKeyboardheightchangeDetail {
   duration: number;
 }
 
-type _TextareaOnKeyboardheightchangeEvent = CustomEvent<_TextareaOnKeyboardheightchangeDetail>;
+type _TextareaOnKeyboardheightchangeEvent =
+  CustomEvent<_TextareaOnKeyboardheightchangeDetail>;
 
 /** 键盘高度变化时触发 */
 interface _TextareaOnKeyboardheightchange {
@@ -160,15 +161,15 @@ type _TextareaProps = Partial<{
   /**
    * 设置键盘右下角按钮的文字
    *
-   * send 发送
+   * Send 发送
    *
-   * search 搜索
+   * Search 搜索
    *
-   * next 下一个
+   * Next 下一个
    *
-   * go 前往
+   * Go 前往
    *
-   * done 完成
+   * Done 完成
    *
    * 默认为 done
    */
@@ -224,7 +225,8 @@ type _TextareaProps = Partial<{
   /**
    * 是否忽略组件内对文本合成系统事件的处理
    *
-   * 为 false 时将触发 compositionstart、compositionend、compositionupdate 事件，且在文本合成期间会触发 input 事件
+   * 为 false 时将触发 compositionstart、compositionend、compositionupdate
+   * 事件，且在文本合成期间会触发 input 事件
    *
    * 默认为 true
    */
@@ -282,15 +284,15 @@ declare global {
     /**
      * 设置键盘右下角按钮的文字
      *
-     * send 发送
+     * Send 发送
      *
-     * search 搜索
+     * Search 搜索
      *
-     * next 下一个
+     * Next 下一个
      *
-     * go 前往
+     * Go 前往
      *
-     * done 完成
+     * Done 完成
      */
     export type TextareaConfirmType = _TextareaConfirmType;
     export interface TextareaOnFocusDetail extends _TextareaOnFocusDetail {}
@@ -301,7 +303,8 @@ declare global {
     export type TextareaOnBlurEvent = _TextareaOnBlurEvent;
     /** 失焦时触发 */
     export interface TextareaOnBlur extends _TextareaOnBlur {}
-    export interface TextareaOnLinechangeDetail extends _TextareaOnLinechangeDetail {}
+    export interface TextareaOnLinechangeDetail
+      extends _TextareaOnLinechangeDetail {}
     export type TextareaOnLinechangeEvent = _TextareaOnLinechangeEvent;
     /** 输入框行数变化时触发 */
     export interface TextareaOnLinechange extends _TextareaOnLinechange {}
@@ -315,9 +318,11 @@ declare global {
     export interface TextareaOnConfirm extends _TextareaOnConfirm {}
     export interface TextareaOnKeyboardheightchangeDetail
       extends _TextareaOnKeyboardheightchangeDetail {}
-    export type TextareaOnKeyboardheightchangeEvent = _TextareaOnKeyboardheightchangeEvent;
+    export type TextareaOnKeyboardheightchangeEvent =
+      _TextareaOnKeyboardheightchangeEvent;
     /** 键盘高度变化时触发 */
-    export interface TextareaOnKeyboardheightchange extends _TextareaOnKeyboardheightchange {}
+    export interface TextareaOnKeyboardheightchange
+      extends _TextareaOnKeyboardheightchange {}
     /** 多行输入框属性 */
     export type TextareaProps = _TextareaProps;
     /** 多行输入框 */
@@ -327,7 +332,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 多行输入框 */
@@ -346,7 +351,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

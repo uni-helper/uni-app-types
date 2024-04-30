@@ -1,91 +1,94 @@
-import { Component, AnyRecord } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component, AnyRecord } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 按钮的大小
  *
- * default 默认
+ * Default 默认
  *
- * mini 小
+ * Mini 小
  */
 type _ButtonSize = 'default' | 'mini';
 
 /**
  * 按钮的样式类型，如想在多端统一颜色，请用 default 然后自行写样式
  *
- * primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ 小程序为浅蓝色
+ * Primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ
+ * 小程序为浅蓝色
  *
- * default 白色
+ * Default 白色
  *
- * warn 红色
+ * Warn 红色
  */
 type _ButtonType = 'primary' | 'default' | 'warn';
 
 /**
  * 用于 form 组件，点击分别会触发 form 组件的 submit / reset 事件
  *
- * submit 点击会触发 form 的 submit 事件
+ * Submit 点击会触发 form 的 submit 事件
  *
- * reset 点击会触发 form 的 reset 事件
+ * Reset 点击会触发 form 的 reset 事件
  */
 type _ButtonFormType = 'submit' | 'reset';
 
 /**
  * 开放能力
  *
- * feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
+ * Feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
  *
- * share 触发用户转发
+ * Share 触发用户转发
  *
- * getUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
+ * GetUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
  *
- * contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
+ * Contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
  *
- * getPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
+ * GetPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
  *
- * launchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
+ * LaunchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
  *
- * openSetting 打开授权设置页
+ * OpenSetting 打开授权设置页
  *
- * chooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
+ * ChooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
  *
- * getAuthorize 支持小程序授权
+ * GetAuthorize 支持小程序授权
  *
- * lifestyle 关注生活号
+ * Lifestyle 关注生活号
  *
- * contactShare 分享到通讯录好友
+ * ContactShare 分享到通讯录好友
  *
- * openGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 manifest.json 中必须配置 groupIdList
+ * OpenGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 manifest.json
+ * 中必须配置 groupIdList
  *
- * openGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
+ * OpenGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
  *
- * openPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 manifest.json 中必须配置 publicIdList
+ * OpenPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 manifest.json
+ * 中必须配置 publicIdList
  *
- * shareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
+ * ShareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
  *
- * addFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
+ * AddFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
  *
- * addColorSign 添加彩签，点击后添加状态有用户提示，无回调
+ * AddColorSign 添加彩签，点击后添加状态有用户提示，无回调
  *
- * addGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
+ * AddGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
  *
- * addToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
+ * AddToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
  *
- * chooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
+ * ChooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
  *
- * chooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
+ * ChooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
  *
- * login 登录，可以从 `@login` 回调中确认是否登录成功
+ * Login 登录，可以从 `@login` 回调中确认是否登录成功
  *
- * subscribe 订阅类模板消息，需要用户授权才可发送
+ * Subscribe 订阅类模板消息，需要用户授权才可发送
  *
- * favorite 触发用户收藏
+ * Favorite 触发用户收藏
  *
- * watchLater 触发用户稍后再看
+ * WatchLater 触发用户稍后再看
  *
- * openProfile 触发打开用户主页
+ * OpenProfile 触发打开用户主页
  *
- * agreePrivacyAuthorization 用户同意隐私协议按钮
+ * AgreePrivacyAuthorization 用户同意隐私协议按钮
  */
 type _ButtonOpenType =
   | 'feedback'
@@ -119,11 +122,11 @@ type _ButtonOpenType =
 /**
  * 返回用户信息的语言
  *
- * zh_CN 简体中文
+ * Zh_CN 简体中文
  *
- * zh_TW 繁体中文
+ * Zh_TW 繁体中文
  *
- * en 英文
+ * En 英文
  */
 type _ButtonLang = 'zh_CN' | 'zh_TW' | 'en';
 
@@ -145,7 +148,7 @@ type _ButtonOnGetphonenumberEvent = CustomEvent<_ButtonOnGetphonenumberDetail>;
 /**
  * 获取用户手机号时回调
  *
- * open-type="getPhoneNumber" 时有效
+ * Open-type="getPhoneNumber" 时有效
  */
 interface _ButtonOnGetphonenumber {
   (event: _ButtonOnGetphonenumberEvent): void;
@@ -167,7 +170,7 @@ type _ButtonOnOpensettingEvent = CustomEvent<_ButtonOnOpensettingDetail>;
 /**
  * 在打开授权设置页并关闭后回调
  *
- * open-type="openSetting" 时有效
+ * Open-type="openSetting" 时有效
  */
 interface _ButtonOnOpensetting {
   (event: _ButtonOnOpensettingEvent): void;
@@ -178,7 +181,7 @@ type _ButtonOnLaunchappEvent = BaseEvent;
 /**
  * 从小程序成功打开 APP 回调
  *
- * open-type="launchApp" 时有效
+ * Open-type="launchApp" 时有效
  */
 interface _ButtonOnLaunchapp {
   (event: _ButtonOnLaunchappEvent): void;
@@ -189,7 +192,7 @@ type _ButtonOnChooseavatarEvent = BaseEvent;
 /**
  * 获取用户头像回调
  *
- * open-type="chooseAvatar" 时有效
+ * Open-type="chooseAvatar" 时有效
  */
 interface _ButtonOnChooseavatar {
   (event: _ButtonOnChooseavatarEvent): void;
@@ -200,7 +203,7 @@ type _ButtonOnAddgroupappEvent = BaseEvent;
 /**
  * 添加群应用回调
  *
- * open-type="addGroupApp" 时有效
+ * Open-type="addGroupApp" 时有效
  */
 interface _ButtonOnAddgroupapp {
   (event: _ButtonOnAddgroupappEvent): void;
@@ -211,7 +214,7 @@ type _ButtonOnChooseaddressEvent = BaseEvent;
 /**
  * 用户编辑并选择收货地址回调
  *
- * open-type="chooseAddress" 时有效
+ * Open-type="chooseAddress" 时有效
  */
 interface _ButtonOnChooseaddress {
   (event: _ButtonOnChooseaddressEvent): void;
@@ -222,7 +225,7 @@ type _ButtonOnChooseinvoicetitleEvent = BaseEvent;
 /**
  * 用户选择发票抬头回调
  *
- * open-type="chooseInvoiceTitle" 时有效
+ * Open-type="chooseInvoiceTitle" 时有效
  */
 interface _ButtonOnChooseinvoicetitle {
   (event: _ButtonOnChooseinvoicetitleEvent): void;
@@ -233,7 +236,7 @@ type _ButtonOnSubscribeEvent = BaseEvent;
 /**
  * 订阅消息授权回调
  *
- * open-type="subscribe" 时有效
+ * Open-type="subscribe" 时有效
  */
 interface _ButtonOnSubscribe {
   (event: _ButtonOnSubscribeEvent): void;
@@ -244,7 +247,7 @@ type _ButtonOnLoginEvent = BaseEvent;
 /**
  * 登录回调
  *
- * open-type="login" 时有效
+ * Open-type="login" 时有效
  */
 interface _ButtonOnLogin {
   (event: _ButtonOnLoginEvent): void;
@@ -255,7 +258,7 @@ type _ButtonOnAgreeprivacyauthorizationEvent = BaseEvent;
 /**
  * 用户同意隐私协议按钮回调
  *
- * open-type="agreePrivacyAuthorization" 时有效
+ * Open-type="agreePrivacyAuthorization" 时有效
  */
 interface _ButtonOnAgreeprivacyauthorization {
   (event: _ButtonOnAgreeprivacyauthorizationEvent): void;
@@ -266,9 +269,9 @@ type _ButtonProps = Partial<{
   /**
    * 按钮的大小
    *
-   * default 默认
+   * Default 默认
    *
-   * mini 小
+   * Mini 小
    *
    * 默认为 default
    */
@@ -276,11 +279,12 @@ type _ButtonProps = Partial<{
   /**
    * 按钮的样式类型
    *
-   * primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ 小程序为浅蓝色
+   * Primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ
+   * 小程序为浅蓝色
    *
-   * default 白色
+   * Default 白色
    *
-   * warn 红色
+   * Warn 红色
    *
    * 默认为 default
    */
@@ -302,9 +306,9 @@ type _ButtonProps = Partial<{
   /**
    * 用于 form 组件，点击分别会触发 form 组件的 submit / reset 事件
    *
-   * submit 点击会触发 form 的 submit 事件
+   * Submit 点击会触发 form 的 submit 事件
    *
-   * reset 点击会触发 form 的 reset 事件
+   * Reset 点击会触发 form 的 reset 事件
    *
    * 没有默认值
    */
@@ -312,58 +316,59 @@ type _ButtonProps = Partial<{
   /**
    * 开放能力
    *
-   * feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
+   * Feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
    *
-   * share 触发用户转发
+   * Share 触发用户转发
    *
-   * getUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
+   * GetUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
    *
-   * contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
+   * Contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
    *
-   * getPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
+   * GetPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
    *
-   * launchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
+   * LaunchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
    *
-   * openSetting 打开授权设置页
+   * OpenSetting 打开授权设置页
    *
-   * chooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
+   * ChooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
    *
-   * getAuthorize 支持小程序授权
+   * GetAuthorize 支持小程序授权
    *
-   * lifestyle 关注生活号
+   * Lifestyle 关注生活号
    *
-   * contactShare 分享到通讯录好友
+   * ContactShare 分享到通讯录好友
    *
-   * openGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 manifest.json 中必须配置 groupIdList
+   * OpenGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时
+   * manifest.json 中必须配置 groupIdList
    *
-   * openGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
+   * OpenGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
    *
-   * openPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 manifest.json 中必须配置
-   * publicIdList
+   * OpenPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时
+   * manifest.json 中必须配置 publicIdList
    *
-   * shareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
+   * ShareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
    *
-   * addFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
+   * AddFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
    *
-   * addColorSign 添加彩签，点击后添加状态有用户提示，无回调
+   * AddColorSign 添加彩签，点击后添加状态有用户提示，无回调
    *
-   * addGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
+   * AddGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
    *
-   * addToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
+   * AddToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
    *
-   * chooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
+   * ChooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
    *
-   * chooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
+   * ChooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
    *
-   * login 登录，可以从 `@login` 回调中确认是否登录成功
+   * Login 登录，可以从 `@login` 回调中确认是否登录成功
    *
-   * subscribe 订阅类模板消息，需要用户授权才可发送
+   * Subscribe 订阅类模板消息，需要用户授权才可发送
    *
-   * favorite 触发用户收藏
+   * Favorite 触发用户收藏
    *
-   * watchLater 触发用户稍后再看
+   * WatchLater 触发用户稍后再看
    *
-   * openProfile 触发打开用户主页
+   * OpenProfile 触发打开用户主页
    */
   openType: _ButtonOpenType;
   /**
@@ -393,7 +398,7 @@ type _ButtonProps = Partial<{
   /**
    * 打开 APP 时，向 APP 传递的参数
    *
-   * open-type="launchApp" 时有效
+   * Open-type="launchApp" 时有效
    */
   appParameter: string;
   /**
@@ -405,11 +410,11 @@ type _ButtonProps = Partial<{
   /**
    * 返回用户信息的语言
    *
-   * zh_CN 简体中文
+   * Zh_CN 简体中文
    *
-   * zh_TW 繁体中文
+   * Zh_TW 繁体中文
    *
-   * en 英文
+   * En 英文
    *
    * 默认为 en
    */
@@ -417,13 +422,13 @@ type _ButtonProps = Partial<{
   /**
    * 会话来源
    *
-   * open-type="contact" 时有效
+   * Open-type="contact" 时有效
    */
   sessionFrom: string;
   /**
    * 会话内消息卡片标题
    *
-   * open-type="contact" 时有效
+   * Open-type="contact" 时有效
    *
    * 默认为当前标题
    */
@@ -431,7 +436,7 @@ type _ButtonProps = Partial<{
   /**
    * 会话内消息卡片点击跳转小程序路径
    *
-   * open-type="contact" 时有效
+   * Open-type="contact" 时有效
    *
    * 默认为当前分享路径
    */
@@ -439,7 +444,7 @@ type _ButtonProps = Partial<{
   /**
    * 会话内消息卡片图片
    *
-   * open-type="contact" 时有效
+   * Open-type="contact" 时有效
    *
    * 默认为截图
    */
@@ -449,7 +454,7 @@ type _ButtonProps = Partial<{
    *
    * 设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，用户点击后可以快速发送小程序消息
    *
-   * open-type="contact" 时有效
+   * Open-type="contact" 时有效
    *
    * 默认为 false
    */
@@ -457,25 +462,25 @@ type _ButtonProps = Partial<{
   /**
    * 打开群资料卡时，传递的群号
    *
-   * open-type="openGroupProfile" 时有效
+   * Open-type="openGroupProfile" 时有效
    */
   groupId: string;
   /**
    * 打开频道页面时，传递的频道号
    *
-   * open-type="openGuildProfile" 时有效
+   * Open-type="openGuildProfile" 时有效
    */
   guildId: string;
   /**
    * 打开公众号资料卡时，传递的号码
    *
-   * open-type="openPublicProfile" 时有效
+   * Open-type="openPublicProfile" 时有效
    */
   publicId: string;
   /**
    * 获取用户手机号时回调
    *
-   * open-type="getPhoneNumber" 时有效
+   * Open-type="getPhoneNumber" 时有效
    */
   onGetphonenumber: _ButtonOnGetphonenumber;
   /** 使用开放能力发生错误时回调 */
@@ -483,55 +488,55 @@ type _ButtonProps = Partial<{
   /**
    * 在打开授权设置页并关闭后回调
    *
-   * open-type="openSetting" 时有效
+   * Open-type="openSetting" 时有效
    */
   onOpensetting: _ButtonOnOpensetting;
   /**
    * 从小程序成功打开 APP 回调
    *
-   * open-type="launchApp" 时有效
+   * Open-type="launchApp" 时有效
    */
   onLaunchapp: _ButtonOnLaunchapp;
   /**
    * 获取用户头像回调
    *
-   * open-type="chooseAvatar" 时有效
+   * Open-type="chooseAvatar" 时有效
    */
   onChooseavatar: _ButtonOnChooseavatar;
   /**
    * 添加群应用回调
    *
-   * open-type="addGroupApp" 时有效
+   * Open-type="addGroupApp" 时有效
    */
   onAddgroupapp: _ButtonOnAddgroupapp;
   /**
    * 用户编辑并选择收货地址回调
    *
-   * open-type="chooseAddress" 时有效
+   * Open-type="chooseAddress" 时有效
    */
   onChooseaddress: _ButtonOnChooseaddress;
   /**
    * 用户选择发票抬头回调
    *
-   * open-type="chooseInvoiceTitle" 时有效
+   * Open-type="chooseInvoiceTitle" 时有效
    */
   onChooseinvoicetitle: _ButtonOnChooseinvoicetitle;
   /**
    * 订阅消息授权回调
    *
-   * open-type="subscribe" 时有效
+   * Open-type="subscribe" 时有效
    */
   onSubscribe: _ButtonOnSubscribe;
   /**
    * 登录回调
    *
-   * open-type="login" 时有效
+   * Open-type="login" 时有效
    */
   onLogin: _ButtonOnLogin;
   /**
    * 用户同意隐私协议回调
    *
-   * open-type="agreePrivacyAuthorization" 时有效
+   * Open-type="agreePrivacyAuthorization" 时有效
    */
   onAgreeprivacyauthorization: _ButtonOnAgreeprivacyauthorization;
 }>;
@@ -582,175 +587,182 @@ declare global {
     /**
      * 按钮的大小
      *
-     * default 默认
+     * Default 默认
      *
-     * mini 小
+     * Mini 小
      */
     export type ButtonSize = _ButtonSize;
     /**
      * 按钮的样式类型，如想在多端统一颜色，请用 default 然后自行写样式
      *
-     * primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ 小程序为浅蓝色
+     * Primary 微信小程序、360 小程序为绿色，APP、H5、百度小程序、支付宝小程序、飞书小程序、快应用为蓝色，字节跳动小程序为红色，QQ
+     * 小程序为浅蓝色
      *
-     * default 白色
+     * Default 白色
      *
-     * warn 红色
+     * Warn 红色
      */
     export type ButtonType = _ButtonType;
     /**
      * 用于 form 组件，点击分别会触发 form 组件的 submit / reset 事件
      *
-     * submit 点击会触发 form 的 submit 事件
+     * Submit 点击会触发 form 的 submit 事件
      *
-     * reset 点击会触发 form 的 reset 事件
+     * Reset 点击会触发 form 的 reset 事件
      */
     export type ButtonFormType = _ButtonFormType;
 
     /**
      * 开放能力
      *
-     * feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
+     * Feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志
      *
-     * share 触发用户转发
+     * Share 触发用户转发
      *
-     * getUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
+     * GetUserInfo 获取用户信息，可以从 `@getuserinfo` 回调中获取到用户信息
      *
-     * contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
+     * Contact 打开客服会话，如果用户在会话中点击消息卡片后返回应用，可以从 `@contact` 回调中获得具体信息
      *
-     * getPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
+     * GetPhoneNumber 获取用户手机号，可以从 `@getphonenumber` 回调中获取到用户信息
      *
-     * launchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
+     * LaunchApp 小程序中打开APP，可以通过 `app-parameter` 属性设定向 APP 传的参数
      *
-     * openSetting 打开授权设置页
+     * OpenSetting 打开授权设置页
      *
-     * chooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
+     * ChooseAvatar 获取用户头像，可以从 `@chooseavatar` 回调中获取到头像信息
      *
-     * getAuthorize 支持小程序授权
+     * GetAuthorize 支持小程序授权
      *
-     * lifestyle 关注生活号
+     * Lifestyle 关注生活号
      *
-     * contactShare 分享到通讯录好友
+     * ContactShare 分享到通讯录好友
      *
-     * openGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 manifest.json 中必须配置
-     * groupIdList
+     * OpenGroupProfile 呼起 QQ 群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时
+     * manifest.json 中必须配置 groupIdList
      *
-     * openGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
+     * OpenGuildProfile 呼起频道页面，可以通过 guild-id 属性设定需要打开的频道 ID
      *
-     * openPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 manifest.json 中必须配置
-     * publicIdList
+     * OpenPublicProfile 打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时
+     * manifest.json 中必须配置 publicIdList
      *
-     * shareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
+     * ShareMessageToFriend 在自定义开放数据域组件中，向指定好友发起分享
      *
-     * addFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
+     * AddFriend 添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功用户授权
      *
-     * addColorSign 添加彩签，点击后添加状态有用户提示，无回调
+     * AddColorSign 添加彩签，点击后添加状态有用户提示，无回调
      *
-     * addGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
+     * AddGroupApp 添加群应用（只有管理员或群主有权操作），添加后给 button 绑定 `@addgroupapp` 事件接收回调数据
      *
-     * addToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
+     * AddToFavorites 收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法
      *
-     * chooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
+     * ChooseAddress 选择用户收货地址，可以从 `@chooseaddress` 回调中获取到用户选择的地址信息
      *
-     * chooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
+     * ChooseInvoiceTitle 选择用户发票抬头，可以从 `@chooseinvoicetitle` 回调中获取到用户选择发票抬头信息
      *
-     * login 登录，可以从 `@login` 回调中确认是否登录成功
+     * Login 登录，可以从 `@login` 回调中确认是否登录成功
      *
-     * subscribe 订阅类模板消息，需要用户授权才可发送
+     * Subscribe 订阅类模板消息，需要用户授权才可发送
      *
-     * favorite 触发用户收藏
+     * Favorite 触发用户收藏
      *
-     * watchLater 触发用户稍后再看
+     * WatchLater 触发用户稍后再看
      *
-     * openProfile 触发打开用户主页
+     * OpenProfile 触发打开用户主页
      *
-     * agreePrivacyAuthorization 用户同意隐私协议
+     * AgreePrivacyAuthorization 用户同意隐私协议
      */
     export type ButtonOpenType = _ButtonOpenType;
     /**
      * 返回用户信息的语言
      *
-     * zh_CN 简体中文
+     * Zh_CN 简体中文
      *
-     * zh_TW 繁体中文
+     * Zh_TW 繁体中文
      *
-     * en 英文
+     * En 英文
      */
     export type ButtonLang = _ButtonLang;
-    export interface ButtonOnGetphonenumberDetail extends _ButtonOnGetphonenumberDetail {}
+    export interface ButtonOnGetphonenumberDetail
+      extends _ButtonOnGetphonenumberDetail {}
     export type ButtonOnGetphonenumberEvent = _ButtonOnGetphonenumberEvent;
     /**
      * 获取用户手机号时回调
      *
-     * open-type="getPhoneNumber" 时有效
+     * Open-type="getPhoneNumber" 时有效
      */
     export interface ButtonOnGetphonenumber extends _ButtonOnGetphonenumber {}
     export type ButtonOnErrorEvent = _ButtonOnErrorEvent;
     /** 使用开放能力发生错误时回调 */
     export interface ButtonOnError extends _ButtonOnError {}
-    export interface ButtonOnOpensettingDetail extends _ButtonOnOpensettingDetail {}
+    export interface ButtonOnOpensettingDetail
+      extends _ButtonOnOpensettingDetail {}
     export type ButtonOnOpensettingEvent = _ButtonOnOpensettingEvent;
     /**
      * 在打开授权设置页并关闭后回调
      *
-     * open-type="openSetting" 时有效
+     * Open-type="openSetting" 时有效
      */
     export interface ButtonOnOpensetting extends _ButtonOnOpensetting {}
     export type ButtonOnLaunchappEvent = _ButtonOnLaunchappEvent;
     /**
      * 从小程序成功打开 APP 回调
      *
-     * open-type="launchApp" 时有效
+     * Open-type="launchApp" 时有效
      */
     export interface ButtonOnLaunchapp extends _ButtonOnLaunchapp {}
     export type ButtonOnChooseavatarEvent = _ButtonOnChooseavatarEvent;
     /**
      * 获取用户头像回调
      *
-     * open-type="chooseAvatar" 时有效
+     * Open-type="chooseAvatar" 时有效
      */
     export interface ButtonOnChooseavatar extends _ButtonOnChooseavatar {}
     export type ButtonOnAddgroupappEvent = _ButtonOnAddgroupappEvent;
     /**
      * 添加群应用回调
      *
-     * open-type="addGroupApp" 时有效
+     * Open-type="addGroupApp" 时有效
      */
     export interface ButtonOnAddgroupapp extends _ButtonOnAddgroupapp {}
     export type ButtonOnChooseaddressEvent = _ButtonOnChooseaddressEvent;
     /**
      * 用户编辑并选择收货地址回调
      *
-     * open-type="chooseAddress" 时有效
+     * Open-type="chooseAddress" 时有效
      */
     export interface ButtonOnChooseaddress extends _ButtonOnChooseaddress {}
-    export type ButtonOnChooseinvoicetitleEvent = _ButtonOnChooseinvoicetitleEvent;
+    export type ButtonOnChooseinvoicetitleEvent =
+      _ButtonOnChooseinvoicetitleEvent;
     /**
      * 用户选择发票抬头回调
      *
-     * open-type="chooseInvoiceTitle" 时有效
+     * Open-type="chooseInvoiceTitle" 时有效
      */
-    export interface ButtonOnChooseinvoicetitle extends _ButtonOnChooseinvoicetitle {}
+    export interface ButtonOnChooseinvoicetitle
+      extends _ButtonOnChooseinvoicetitle {}
     export type ButtonOnSubscribeEvent = _ButtonOnSubscribeEvent;
     /**
      * 订阅消息授权回调
      *
-     * open-type="subscribe" 时有效
+     * Open-type="subscribe" 时有效
      */
     export interface ButtonOnSubscribe extends _ButtonOnSubscribe {}
     export type ButtonOnLoginEvent = _ButtonOnLoginEvent;
     /**
      * 登录回调
      *
-     * open-type="login" 时有效
+     * Open-type="login" 时有效
      */
     export interface ButtonOnLogin extends _ButtonOnLogin {}
-    export type ButtonOnAgreeprivacyauthorizationEvent = _ButtonOnAgreeprivacyauthorizationEvent;
+    export type ButtonOnAgreeprivacyauthorizationEvent =
+      _ButtonOnAgreeprivacyauthorizationEvent;
     /**
      * 用户同意隐私协议回调
      *
-     * open-type="agreePrivacyAuthorization" 时有效
+     * Open-type="agreePrivacyAuthorization" 时有效
      */
-    export interface ButtonOnAgreeprivacyauthorization extends _ButtonOnAgreeprivacyauthorization {}
+    export interface ButtonOnAgreeprivacyauthorization
+      extends _ButtonOnAgreeprivacyauthorization {}
     /** 按钮属性 */
     export type ButtonProps = _ButtonProps;
     /** 按钮 */
@@ -760,7 +772,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 按钮 */
@@ -779,7 +791,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

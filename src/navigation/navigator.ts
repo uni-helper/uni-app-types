@@ -1,19 +1,19 @@
-import { Component, AnyRecord } from '../component';
+import type { Component, AnyRecord } from '../component';
 
 /**
  * 跳转方式
  *
- * navigate 对应 navigateTo
+ * Navigate 对应 navigateTo
  *
- * redirect 对应 redirectTo
+ * Redirect 对应 redirectTo
  *
- * switchTab 对应 switchTab
+ * SwitchTab 对应 switchTab
  *
- * reLaunch 对应 reLaunch
+ * ReLaunch 对应 reLaunch
  *
- * navigateBack 对应 navigateBack
+ * NavigateBack 对应 navigateBack
  *
- * exit 退出小程序，target="miniProgram"时生效
+ * Exit 退出小程序，target="miniProgram"时生效
  */
 type _NavigatorOpenType =
   | 'navigate'
@@ -26,7 +26,7 @@ type _NavigatorOpenType =
 /**
  * 窗口的显示/关闭的动画类型
  *
- * open-type="navigateTo" 或 open-type="navigateBack" 时有效
+ * Open-type="navigateTo" 或 open-type="navigateBack" 时有效
  *
  * 默认为 pop-in 显示、pop-out 关闭
  */
@@ -52,9 +52,9 @@ type _NavigatorAnimationType =
 /**
  * 在哪个目标上发生跳转
  *
- * self 当前小程序
+ * Self 当前小程序
  *
- * miniProgram 其它小程序
+ * MiniProgram 其它小程序
  */
 type _NavigatorTarget = 'self' | 'miniProgram';
 
@@ -63,13 +63,13 @@ type _NavigatorTarget = 'self' | 'miniProgram';
  *
  * 如果当前小程序是正式版，则打开的小程序必定是正式版
  *
- * develop 开发版
+ * Develop 开发版
  *
- * trial 体验版
+ * Trial 体验版
  *
- * release 正式版
+ * Release 正式版
  *
- * target="miniProgram" 时有效
+ * Target="miniProgram" 时有效
  *
  * 默认为 release
  */
@@ -88,17 +88,17 @@ type _NavigatorProps = Partial<{
   /**
    * 跳转方式
    *
-   * navigate 对应 navigateTo
+   * Navigate 对应 navigateTo
    *
-   * redirect 对应 redirectTo
+   * Redirect 对应 redirectTo
    *
-   * switchTab 对应 switchTab
+   * SwitchTab 对应 switchTab
    *
-   * reLaunch 对应 reLaunch
+   * ReLaunch 对应 reLaunch
    *
-   * navigateBack 对应 navigateBack
+   * NavigateBack 对应 navigateBack
    *
-   * exit 退出小程序，target="miniProgram"时生效
+   * Exit 退出小程序，target="miniProgram"时生效
    *
    * 默认为 navigate
    */
@@ -106,7 +106,7 @@ type _NavigatorProps = Partial<{
   /**
    * 回退的层数
    *
-   * open-type="navigateBack" 时有效
+   * Open-type="navigateBack" 时有效
    *
    * 默认为 1
    */
@@ -114,7 +114,7 @@ type _NavigatorProps = Partial<{
   /**
    * 窗口的显示/关闭的动画类型
    *
-   * open-type="navigateTo" 或 open-type="navigateBack" 时有效
+   * Open-type="navigateTo" 或 open-type="navigateBack" 时有效
    *
    * 默认为 pop-in 显示、pop-out 关闭
    */
@@ -122,7 +122,7 @@ type _NavigatorProps = Partial<{
   /**
    * 窗口的显示/关闭动画的持续时间
    *
-   * open-type="navigateTo" 或 open-type="navigateBack" 时有效
+   * Open-type="navigateTo" 或 open-type="navigateBack" 时有效
    *
    * 默认为 300
    */
@@ -130,7 +130,7 @@ type _NavigatorProps = Partial<{
   /**
    * 指定点击时的样式类
    *
-   * hover-class="none" 时，没有点击态效果
+   * Hover-class="none" 时，没有点击态效果
    *
    * 默认为 navigator-hover
    */
@@ -160,9 +160,9 @@ type _NavigatorProps = Partial<{
   /**
    * 在哪个目标上发生跳转
    *
-   * self 当前小程序
+   * Self 当前小程序
    *
-   * miniProgram 其它小程序
+   * MiniProgram 其它小程序
    *
    * 默认为 self
    */
@@ -170,19 +170,19 @@ type _NavigatorProps = Partial<{
   /**
    * 要打开的小程序 appId
    *
-   * target="miniProgram" 时有效
+   * Target="miniProgram" 时有效
    */
   appId: string;
   /**
    * 打开的页面路径，如果为空则打开首页
    *
-   * target="miniProgram" 时有效
+   * Target="miniProgram" 时有效
    */
   path: string;
   /**
    * 需要传递给目标应用的数据
    *
-   * target="miniProgram" 时有效
+   * Target="miniProgram" 时有效
    */
   extraData: AnyRecord;
   /**
@@ -190,13 +190,13 @@ type _NavigatorProps = Partial<{
    *
    * 如果当前小程序是正式版，则打开的小程序必定是正式版
    *
-   * develop 开发版
+   * Develop 开发版
    *
-   * trial 体验版
+   * Trial 体验版
    *
-   * release 正式版
+   * Release 正式版
    *
-   * target="miniProgram" 时有效
+   * Target="miniProgram" 时有效
    *
    * 默认为 release
    */
@@ -204,7 +204,7 @@ type _NavigatorProps = Partial<{
   /**
    * 当传递该参数后，可以不传 app-id 和 path
    *
-   * target="miniProgram" 时有效
+   * Target="miniProgram" 时有效
    */
   shortLink: string;
 }>;
@@ -236,23 +236,23 @@ declare global {
     /**
      * 跳转方式
      *
-     * navigate 对应 navigateTo
+     * Navigate 对应 navigateTo
      *
-     * redirect 对应 redirectTo
+     * Redirect 对应 redirectTo
      *
-     * switchTab 对应 switchTab
+     * SwitchTab 对应 switchTab
      *
-     * reLaunch 对应 reLaunch
+     * ReLaunch 对应 reLaunch
      *
-     * navigateBack 对应 navigateBack
+     * NavigateBack 对应 navigateBack
      *
-     * exit 退出小程序，target="miniProgram"时生效
+     * Exit 退出小程序，target="miniProgram"时生效
      */
     export type NavigatorOpenType = _NavigatorOpenType;
     /**
      * 窗口的显示/关闭的动画类型
      *
-     * open-type="navigateTo" 或 open-type="navigateBack" 时有效
+     * Open-type="navigateTo" 或 open-type="navigateBack" 时有效
      *
      * 默认为 pop-in 显示、pop-out 关闭
      */
@@ -260,9 +260,9 @@ declare global {
     /**
      * 在哪个目标上发生跳转
      *
-     * self 当前小程序
+     * Self 当前小程序
      *
-     * miniProgram 其它小程序
+     * MiniProgram 其它小程序
      */
     export type NavigatorTarget = _NavigatorTarget;
     /**
@@ -270,13 +270,13 @@ declare global {
      *
      * 如果当前小程序是正式版，则打开的小程序必定是正式版
      *
-     * develop 开发版
+     * Develop 开发版
      *
-     * trial 体验版
+     * Trial 体验版
      *
-     * release 正式版
+     * Release 正式版
      *
-     * target="miniProgram" 时有效
+     * Target="miniProgram" 时有效
      *
      * 默认为 release
      */
@@ -296,7 +296,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

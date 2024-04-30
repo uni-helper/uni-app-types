@@ -1,47 +1,54 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
 
 /** 输入框的内容 */
 type _InputValue = string;
 
 /**
- * input 类型
+ * Input 类型
  *
- * text 文本输入键盘
+ * Text 文本输入键盘
  *
- * number 数字输入键盘
+ * Number 数字输入键盘
  *
- * idcard 身份证输入键盘
+ * Idcard 身份证输入键盘
  *
- * digit 带小数点的数字键盘
+ * Digit 带小数点的数字键盘
  *
- * tel 电话输入键盘
+ * Tel 电话输入键盘
  *
- * safe-password 密码安全输入键盘
+ * Safe-password 密码安全输入键盘
  *
- * nickname 昵称输入键盘
+ * Nickname 昵称输入键盘
  */
-type _InputType = 'text' | 'number' | 'idcard' | 'digit' | 'tel' | 'safe-password' | 'nickname';
+type _InputType =
+  | 'text'
+  | 'number'
+  | 'idcard'
+  | 'digit'
+  | 'tel'
+  | 'safe-password'
+  | 'nickname';
 
 /**
  * 文本区域的语义，根据类型自动填充
  *
- * oneTimeCode 一次性验证码
+ * OneTimeCode 一次性验证码
  */
 type _InputTextContentType = 'oneTimeCode';
 
 /**
  * 设置键盘右下角按钮的文字
  *
- * send 发送
+ * Send 发送
  *
- * search 搜索
+ * Search 搜索
  *
- * next 下一个
+ * Next 下一个
  *
- * go 前往
+ * Go 前往
  *
- * type="text" 时有效
+ * Type="text" 时有效
  *
  * @decs done 完成
  */
@@ -50,23 +57,31 @@ type _InputConfirmType = 'send' | 'search' | 'next' | 'go' | 'done';
 /**
  * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
  *
- * none 无虚拟键盘，常用于实现自己的键盘输入控件
+ * None 无虚拟键盘，常用于实现自己的键盘输入控件
  *
- * text 使用用户本地区域设置的标准文本输入键盘
+ * Text 使用用户本地区域设置的标准文本输入键盘
  *
- * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+ * Decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
  *
- * numeric 数字输入键盘，减号键的显示与否因设备而异
+ * Numeric 数字输入键盘，减号键的显示与否因设备而异
  *
- * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+ * Tel 电话输入键盘，表单内电话输入框应使用 type="tel"
  *
- * search 搜索输入键盘
+ * Search 搜索输入键盘
  *
- * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+ * Email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
  *
- * url 网址输入键盘，表单内网址输入因 type="url"
+ * Url 网址输入键盘，表单内网址输入因 type="url"
  */
-type _InputInputMode = 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+type _InputInputMode =
+  | 'none'
+  | 'text'
+  | 'decimal'
+  | 'numeric'
+  | 'tel'
+  | 'search'
+  | 'email'
+  | 'url';
 
 interface _InputOnInputDetail {
   value: _InputValue;
@@ -124,7 +139,8 @@ interface _InputOnKeyboardheightchangeDetail {
   duration: number;
 }
 
-type _InputOnKeyboardheightchangeEvent = CustomEvent<_InputOnKeyboardheightchangeDetail>;
+type _InputOnKeyboardheightchangeEvent =
+  CustomEvent<_InputOnKeyboardheightchangeDetail>;
 
 /** 键盘高度变化时触发 */
 interface _InputOnKeyboardheightchange {
@@ -138,21 +154,21 @@ type _InputProps = Partial<{
   /** 输入框的初始内容 */
   value: _InputValue;
   /**
-   * input 类型
+   * Input 类型
    *
-   * text 文本输入键盘
+   * Text 文本输入键盘
    *
-   * number 数字输入键盘
+   * Number 数字输入键盘
    *
-   * idcard 身份证输入键盘
+   * Idcard 身份证输入键盘
    *
-   * digit 带小数点的数字键盘
+   * Digit 带小数点的数字键盘
    *
-   * tel 电话输入键盘
+   * Tel 电话输入键盘
    *
-   * safe-password 密码安全输入键盘
+   * Safe-password 密码安全输入键盘
    *
-   * nickname 昵称输入键盘
+   * Nickname 昵称输入键盘
    *
    * 默认为 text
    */
@@ -160,7 +176,7 @@ type _InputProps = Partial<{
   /**
    * 文本区域的语义，根据类型自动填充
    *
-   * oneTimeCode 一次性验证码
+   * OneTimeCode 一次性验证码
    */
   textContentType: _InputTextContentType;
   /**
@@ -218,15 +234,15 @@ type _InputProps = Partial<{
   /**
    * 设置键盘右下角按钮的文字
    *
-   * send 发送
+   * Send 发送
    *
-   * search 搜索
+   * Search 搜索
    *
-   * next 下一个
+   * Next 下一个
    *
-   * go 前往
+   * Go 前往
    *
-   * type="text" 时有效
+   * Type="text" 时有效
    *
    * 默认为 done
    *
@@ -274,7 +290,8 @@ type _InputProps = Partial<{
   /**
    * 是否忽略组件内对文本合成系统事件的处理
    *
-   * 为 false 时将触发 compositionstart、compositionend、compositionupdate 事件，且在文本合成期间会触发 input 事件
+   * 为 false 时将触发 compositionstart、compositionend、compositionupdate
+   * 事件，且在文本合成期间会触发 input 事件
    *
    * 默认为 true
    */
@@ -324,21 +341,21 @@ type _InputProps = Partial<{
   /**
    * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
    *
-   * none 无虚拟键盘，常用于实现自己的键盘输入控件
+   * None 无虚拟键盘，常用于实现自己的键盘输入控件
    *
-   * text 使用用户本地区域设置的标准文本输入键盘
+   * Text 使用用户本地区域设置的标准文本输入键盘
    *
-   * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+   * Decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
    *
-   * numeric 数字输入键盘，减号键的显示与否因设备而异
+   * Numeric 数字输入键盘，减号键的显示与否因设备而异
    *
-   * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+   * Tel 电话输入键盘，表单内电话输入框应使用 type="tel"
    *
-   * search 搜索输入键盘
+   * Search 搜索输入键盘
    *
-   * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+   * Email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
    *
-   * url 网址输入键盘，表单内网址输入因 type="url"
+   * Url 网址输入键盘，表单内网址输入因 type="url"
    */
   inputMode: _InputInputMode;
   /** 输入时触发 */
@@ -390,41 +407,41 @@ declare global {
     /** 输入框的内容 */
     export type InputValue = _InputValue;
     /**
-     * input 类型
+     * Input 类型
      *
-     * text 文本输入键盘
+     * Text 文本输入键盘
      *
-     * number 数字输入键盘
+     * Number 数字输入键盘
      *
-     * idcard 身份证输入键盘
+     * Idcard 身份证输入键盘
      *
-     * digit 带小数点的数字键盘
+     * Digit 带小数点的数字键盘
      *
-     * tel 电话输入键盘
+     * Tel 电话输入键盘
      *
-     * safe-password 密码安全输入键盘
+     * Safe-password 密码安全输入键盘
      *
-     * nickname 昵称输入键盘
+     * Nickname 昵称输入键盘
      */
     export type InputType = _InputType;
     /**
      * 文本区域的语义，根据类型自动填充
      *
-     * oneTimeCode 一次性验证码
+     * OneTimeCode 一次性验证码
      */
     export type InputTextContentType = _InputTextContentType;
     /**
      * 设置键盘右下角按钮的文字
      *
-     * send 发送
+     * Send 发送
      *
-     * search 搜索
+     * Search 搜索
      *
-     * next 下一个
+     * Next 下一个
      *
-     * go 前往
+     * Go 前往
      *
-     * type="text" 时有效
+     * Type="text" 时有效
      *
      * @decs done 完成
      */
@@ -432,21 +449,21 @@ declare global {
     /**
      * 枚举属性，提供了用户在编辑元素或其内容时可能输入的数据类型的提示
      *
-     * none 无虚拟键盘，常用于实现自己的键盘输入控件
+     * None 无虚拟键盘，常用于实现自己的键盘输入控件
      *
-     * text 使用用户本地区域设置的标准文本输入键盘
+     * Text 使用用户本地区域设置的标准文本输入键盘
      *
-     * decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
+     * Decimal 小数输入键盘，包含数字和分隔符，减号键的显示与否因设备而异
      *
-     * numeric 数字输入键盘，减号键的显示与否因设备而异
+     * Numeric 数字输入键盘，减号键的显示与否因设备而异
      *
-     * tel 电话输入键盘，表单内电话输入框应使用 type="tel"
+     * Tel 电话输入键盘，表单内电话输入框应使用 type="tel"
      *
-     * search 搜索输入键盘
+     * Search 搜索输入键盘
      *
-     * email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
+     * Email 邮件地址输入键盘，表单内邮件地址输入框应使用 type="email"
      *
-     * url 网址输入键盘，表单内网址输入因 type="url"
+     * Url 网址输入键盘，表单内网址输入因 type="url"
      */
     export type InputInputMode = _InputInputMode;
     export interface InputOnInputDetail extends _InputOnInputDetail {}
@@ -465,10 +482,13 @@ declare global {
     export type InputOnConfirmEvent = _InputOnConfirmEvent;
     /** 点击完成按钮时触发 */
     export interface InputOnConfirm extends _InputOnConfirm {}
-    export interface InputOnKeyboardheightchangeDetail extends _InputOnKeyboardheightchangeDetail {}
-    export type InputOnKeyboardheightchangeEvent = _InputOnKeyboardheightchangeEvent;
+    export interface InputOnKeyboardheightchangeDetail
+      extends _InputOnKeyboardheightchangeDetail {}
+    export type InputOnKeyboardheightchangeEvent =
+      _InputOnKeyboardheightchangeEvent;
     /** 键盘高度变化时触发 */
-    export interface InputOnKeyboardheightchange extends _InputOnKeyboardheightchange {}
+    export interface InputOnKeyboardheightchange
+      extends _InputOnKeyboardheightchange {}
     /** 输入框属性 */
     export type InputProps = _InputProps;
     /** 输入框 */
@@ -478,7 +498,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 输入框 */
@@ -497,7 +517,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

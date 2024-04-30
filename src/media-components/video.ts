@@ -1,5 +1,5 @@
-import { Component, AnyRecord } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component, AnyRecord } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /** 弹幕 */
 interface _VideoDanmu {
@@ -29,29 +29,29 @@ type _VideoDirection = 0 | 90 | -90;
 /**
  * 当视频大小与 video 容器大小不一致时，视频的表现形式
  *
- * contain 包含
+ * Contain 包含
  *
- * fill 填充
+ * Fill 填充
  *
- * cover 覆盖
+ * Cover 覆盖
  */
 type _VideoObjectFit = 'contain' | 'fill' | 'cover';
 
 /**
  * 播放按钮的位置
  *
- * bottom 控制栏上
+ * Bottom 控制栏上
  *
- * center 视频中间
+ * Center 视频中间
  */
 type _VideoPlayBtnPosition = 'bottom' | 'center';
 
 /**
  * 解码器选择
  *
- * hardware 硬件解码
+ * Hardware 硬件解码
  *
- * software 软件解码
+ * Software 软件解码
  */
 type _VideoCodec = 'hardware' | 'software';
 
@@ -69,7 +69,8 @@ type _VideoMobilenetHintType = 0 | 1;
  *
  * 0 普通模式，适合绝大部分视频播放场景
  *
- * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
+ * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl
+ * 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
  *
  * 2 M3U8 优化模式，增加缓冲区大小，提升视频加载速度和流畅度，可能会降低首屏展现速度，适用于 M3U8 在线播放的场景
  */
@@ -117,7 +118,8 @@ interface _VideoOnFullscreenchangeDetail {
   direction: _VideoDirection;
 }
 
-type _VideoOnFullscreenchangeEvent = CustomEvent<_VideoOnFullscreenchangeDetail>;
+type _VideoOnFullscreenchangeEvent =
+  CustomEvent<_VideoOnFullscreenchangeDetail>;
 
 /** 视频进入和退出全屏时触发 */
 interface _VideoOnFullscreenchange {
@@ -326,11 +328,11 @@ type _VideoProps = Partial<{
   /**
    * 当视频大小与 video 容器大小不一致时，视频的表现形式
    *
-   * contain 包含
+   * Contain 包含
    *
-   * fill 填充
+   * Fill 填充
    *
-   * cover 覆盖
+   * Cover 覆盖
    *
    * 默认为 contain
    */
@@ -352,9 +354,9 @@ type _VideoProps = Partial<{
   /**
    * 播放按钮的位置
    *
-   * bottom 控制栏上
+   * Bottom 控制栏上
    *
-   * center 视频中间
+   * Center 视频中间
    *
    * 默认为 bottom
    */
@@ -412,9 +414,9 @@ type _VideoProps = Partial<{
   /**
    * 解码器选择
    *
-   * hardware 硬件解码
+   * Hardware 硬件解码
    *
-   * software 软件解码
+   * Software 软件解码
    *
    * 默认为 hardware
    */
@@ -430,7 +432,8 @@ type _VideoProps = Partial<{
    *
    * 0 普通模式，适合绝大部分视频播放场景
    *
-   * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
+   * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl
+   * 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
    *
    * 2 M3U8 优化模式，增加缓冲区大小，提升视频加载速度和流畅度，可能会降低首屏展现速度，适用于 M3U8 在线播放的场景
    *
@@ -551,27 +554,27 @@ declare global {
     /**
      * 当视频大小与 video 容器大小不一致时，视频的表现形式
      *
-     * contain 包含
+     * Contain 包含
      *
-     * fill 填充
+     * Fill 填充
      *
-     * cover 覆盖
+     * Cover 覆盖
      */
     export type VideoObjectFit = _VideoObjectFit;
     /**
      * 播放按钮的位置
      *
-     * bottom 控制栏上
+     * Bottom 控制栏上
      *
-     * center 视频中间
+     * Center 视频中间
      */
     export type VideoPlayBtnPosition = _VideoPlayBtnPosition;
     /**
      * 解码器选择
      *
-     * hardware 硬件解码
+     * Hardware 硬件解码
      *
-     * software 软件解码
+     * Software 软件解码
      */
     export type VideoCodec = _VideoCodec;
     /**
@@ -587,7 +590,8 @@ declare global {
      *
      * 0 普通模式，适合绝大部分视频播放场景
      *
-     * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
+     * 1 平滑播放模式（降级），增加缓冲区大小，采用 open sl
+     * 解码音频，避免音视频脱轨的问题，可能会降低首屏展现速度、视频帧率，出现开屏音频延迟等，适用于高码率视频的极端场景
      *
      * 2 M3U8 优化模式，增加缓冲区大小，提升视频加载速度和流畅度，可能会降低首屏展现速度，适用于 M3U8 在线播放的场景
      */
@@ -609,7 +613,8 @@ declare global {
      * 250ms 一次
      */
     export interface VideoOnTimeupdate extends _VideoOnTimeupdate {}
-    export interface VideoOnFullscreenchangeDetail extends _VideoOnFullscreenchangeDetail {}
+    export interface VideoOnFullscreenchangeDetail
+      extends _VideoOnFullscreenchangeDetail {}
     export type VideoOnFullscreenchangeEvent = _VideoOnFullscreenchangeEvent;
     /** 视频进入和退出全屏时触发 */
     export interface VideoOnFullscreenchange extends _VideoOnFullscreenchange {}
@@ -635,15 +640,18 @@ declare global {
     export type VideoOnSeekingEvent = _VideoOnSeekingEvent;
     /** 拖动进度条时触发 */
     export interface VideoOnSeeking extends _VideoOnSeeking {}
-    export interface VideoOnLoadedmetadataDetail extends _VideoOnLoadedmetadataDetail {}
+    export interface VideoOnLoadedmetadataDetail
+      extends _VideoOnLoadedmetadataDetail {}
     export type VideoOnLoadedmetadataEvent = _VideoOnLoadedmetadataEvent;
     /** 视频元数据加载完成时触发 */
     export interface VideoOnLoadedmetadata extends _VideoOnLoadedmetadata {}
-    export interface VideoOnFullscreenclickDetail extends _VideoOnFullscreenclickDetail {}
+    export interface VideoOnFullscreenclickDetail
+      extends _VideoOnFullscreenclickDetail {}
     export type VideoOnFullscreenclickEvent = _VideoOnFullscreenclickEvent;
     /** 视频播放全屏播放点击时触发 */
     export interface VideoOnFullscreenclick extends _VideoOnFullscreenclick {}
-    export interface VideoOnControlstoggleDetail extends _VideoOnControlstoggleDetail {}
+    export interface VideoOnControlstoggleDetail
+      extends _VideoOnControlstoggleDetail {}
     export type VideoOnControlstoggleEvent = _VideoOnControlstoggleEvent;
     /** 切换 controls 显示隐藏时触发 */
     export interface VideoOnControlstoggle extends _VideoOnControlstoggle {}
@@ -660,7 +668,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -687,7 +695,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

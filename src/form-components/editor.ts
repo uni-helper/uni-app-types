@@ -1,5 +1,5 @@
-import { Component, AnyRecord } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component, AnyRecord } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _EditorOnReadyEvent = BaseEvent;
 
@@ -154,7 +154,8 @@ declare global {
      *
      * 编辑器导出内容支持带标签的 html 和纯文本的 text，编辑器内部采用 delta 格式进行存储
      *
-     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta 进行插入
+     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta
+     * 进行插入
      *
      * 图片控件仅初始化时设置有效
      */
@@ -164,7 +165,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -172,7 +173,8 @@ declare module '@vue/runtime-core' {
      *
      * 编辑器导出内容支持带标签的 html 和纯文本的 text，编辑器内部采用 delta 格式进行存储
      *
-     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta 进行插入
+     * 通过 setContents 接口设置内容时，解析插入的 html 可能会由于一些非法标签导致解析错误，建议开发者在应用内使用时通过 delta
+     * 进行插入
      *
      * 图片控件仅初始化时设置有效
      */

@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _AdInterstitialOnLoadEvent = BaseEvent;
 
@@ -77,7 +77,8 @@ declare global {
     export type AdInterstitialOnLoadEvent = _AdInterstitialOnLoadEvent;
     /** 广告加载成功的回调 */
     export interface AdInterstitialOnLoad extends _AdInterstitialOnLoad {}
-    export interface AdInterstitialOnErrorDetail extends _AdInterstitialOnErrorDetail {}
+    export interface AdInterstitialOnErrorDetail
+      extends _AdInterstitialOnErrorDetail {}
     export type AdInterstitialOnErrorEvent = _AdInterstitialOnErrorEvent;
     /** 广告加载失败的回调 */
     export interface AdInterstitialOnError extends _AdInterstitialOnError {}
@@ -93,7 +94,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 插屏广告 */

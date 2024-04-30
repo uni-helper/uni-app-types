@@ -1,5 +1,5 @@
-import { AnyRecord, Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { AnyRecord, Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _AdOnLoadEvent = BaseEvent;
 
@@ -50,19 +50,19 @@ type _AdProps = Partial<{
   /** 小程序广告位 ID */
   apid: string;
   /**
-   * type 为 feeds 时广告左边距，必须大于 0
+   * Type 为 feeds 时广告左边距，必须大于 0
    *
    * 单位为 px
    */
   adLeft: number;
   /**
-   * type 为 feeds 时广告上边距，必须大于 0
+   * Type 为 feeds 时广告上边距，必须大于 0
    *
    * 单位为 px
    */
   adTop: number;
   /**
-   * type 为 feeds 时广告宽度，最大值为屏幕宽度，最小值为 265
+   * Type 为 feeds 时广告宽度，最大值为屏幕宽度，最小值为 265
    *
    * 单位为 px
    *
@@ -70,7 +70,7 @@ type _AdProps = Partial<{
    */
   adWidth: number;
   /**
-   * type 为 feeds 时广告高度，最大值为 160，最小值为 85
+   * Type 为 feeds 时广告高度，最大值为 160，最小值为 85
    *
    * 单位为 px
    */
@@ -125,7 +125,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 信息流广告 */

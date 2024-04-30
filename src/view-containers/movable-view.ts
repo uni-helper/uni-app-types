@@ -1,37 +1,42 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
 
-/** movable-view 的移动方向 */
+/** Movable-view 的移动方向 */
 type _MovableViewDirection = 'all' | 'vertical' | 'horizontal' | 'none';
 
 /**
- * movable-view 产生移动的原因
+ * Movable-view 产生移动的原因
  *
- * touch 拖动
+ * Touch 拖动
  *
- * touch-out-of-bounds 超出移动范围
+ * Touch-out-of-bounds 超出移动范围
  *
- * out-of-bounds 超出移动范围后的回弹
+ * Out-of-bounds 超出移动范围后的回弹
  *
- * friction 惯性
+ * Friction 惯性
  *
  * 空字符串 setData
  */
-type _MovableViewSource = 'touch' | 'touch-out-of-bounds' | 'out-of-bounds' | 'friction' | '';
+type _MovableViewSource =
+  | 'touch'
+  | 'touch-out-of-bounds'
+  | 'out-of-bounds'
+  | 'friction'
+  | '';
 
 interface _MovableViewOnChangeDetail {
   x: number;
   y: number;
   /**
-   * movable-view 产生移动的原因
+   * Movable-view 产生移动的原因
    *
-   * touch 拖动
+   * Touch 拖动
    *
-   * touch-out-of-bounds 超出移动范围
+   * Touch-out-of-bounds 超出移动范围
    *
-   * out-of-bounds 超出移动范围后的回弹
+   * Out-of-bounds 超出移动范围后的回弹
    *
-   * friction 惯性
+   * Friction 惯性
    *
    * 空字符串 setData
    */
@@ -66,7 +71,7 @@ interface _MovableViewOnScale {
 /** 可移动的视图容器属性 */
 type _MovableViewProps = Partial<{
   /**
-   * movable-view 的移动方向
+   * Movable-view 的移动方向
    *
    * 默认为 none
    */
@@ -166,7 +171,7 @@ type _MovableViewProps = Partial<{
 /**
  * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
  *
- * movable-area 直接子组件
+ * Movable-area 直接子组件
  */
 type _MovableView = Component<_MovableViewProps>;
 
@@ -189,27 +194,29 @@ export {
 
 declare global {
   namespace UniHelper {
-    /** movable-view 的移动方向 */
+    /** Movable-view 的移动方向 */
     export type MovableViewDirection = _MovableViewDirection;
     /**
-     * movable-view 产生移动的原因
+     * Movable-view 产生移动的原因
      *
-     * touch 拖动
+     * Touch 拖动
      *
-     * touch-out-of-bounds 超出移动范围
+     * Touch-out-of-bounds 超出移动范围
      *
-     * out-of-bounds 超出移动范围后的回弹
+     * Out-of-bounds 超出移动范围后的回弹
      *
-     * friction 惯性
+     * Friction 惯性
      *
      * 空字符串 setData
      */
     export type MovableViewSource = _MovableViewSource;
-    export interface MovableViewOnChangeDetail extends _MovableViewOnChangeDetail {}
+    export interface MovableViewOnChangeDetail
+      extends _MovableViewOnChangeDetail {}
     export type MovableViewOnChangeEvent = _MovableViewOnChangeEvent;
     /** 拖动过程中触发 */
     export interface MovableViewOnChange extends _MovableViewOnChange {}
-    export interface MovableViewOnScaleDetail extends _MovableViewOnScaleDetail {}
+    export interface MovableViewOnScaleDetail
+      extends _MovableViewOnScaleDetail {}
     export type MovableViewOnScaleEvent = _MovableViewOnScaleEvent;
     /** 缩放过程中触发 */
     export interface MovableViewOnScale extends _MovableViewOnScale {}
@@ -218,7 +225,7 @@ declare global {
     /**
      * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
      *
-     * movable-area 直接子组件
+     * Movable-area 直接子组件
      */
     export type MovableView = _MovableView;
     /** 可移动的视图容器实例 */
@@ -226,13 +233,13 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
      * 可移动的视图容器，在页面中可以拖拽滑动或双指缩放
      *
-     * movable-area 直接子组件
+     * Movable-area 直接子组件
      */
     MovableView: _MovableView;
   }

@@ -1,5 +1,5 @@
-import { AnyRecord, Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { AnyRecord, Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _AdDrawOnLoadEvent = BaseEvent;
 
@@ -69,7 +69,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 沉浸视频流广告 */

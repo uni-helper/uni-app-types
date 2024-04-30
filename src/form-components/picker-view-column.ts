@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type _PickerViewColumnProps = Partial<{}>;
@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     PickerViewColumn: _PickerViewColumn;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import {
+import type {
   DefineComponent,
   ComputedOptions,
   MethodOptions,

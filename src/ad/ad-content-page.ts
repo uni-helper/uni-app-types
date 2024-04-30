@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 type _AdContentPageOnLoadEvent = BaseEvent;
 
@@ -127,7 +127,8 @@ interface _AdContentPageOnCompleteDetail {
   duration: number;
 }
 
-type _AdContentPageOnCompleteEvent = CustomEvent<_AdContentPageOnCompleteDetail>;
+type _AdContentPageOnCompleteEvent =
+  CustomEvent<_AdContentPageOnCompleteDetail>;
 
 /** 广告完成播放时触发 */
 interface _AdContentPageOnComplete {
@@ -186,23 +187,28 @@ declare global {
     export type AdContentPageOnLoadEvent = _AdContentPageOnLoadEvent;
     /** 广告加载成功的回调 */
     export interface AdContentPageOnLoad extends _AdContentPageOnLoad {}
-    export interface AdContentPageOnErrorDetail extends _AdContentPageOnErrorDetail {}
+    export interface AdContentPageOnErrorDetail
+      extends _AdContentPageOnErrorDetail {}
     export type AdContentPageOnErrorEvent = _AdContentPageOnErrorEvent;
     /** 广告加载失败的回调 */
     export interface AdContentPageOnError extends _AdContentPageOnError {}
-    export interface AdContentPageOnStartDetail extends _AdContentPageOnStartDetail {}
+    export interface AdContentPageOnStartDetail
+      extends _AdContentPageOnStartDetail {}
     export type AdContentPageOnStartEvent = _AdContentPageOnStartEvent;
     /** 广告开始播放时触发 */
     export interface AdContentPageOnStart extends _AdContentPageOnStart {}
-    export interface AdContentPageOnPauseDetail extends _AdContentPageOnPauseDetail {}
+    export interface AdContentPageOnPauseDetail
+      extends _AdContentPageOnPauseDetail {}
     export type AdContentPageOnPauseEvent = _AdContentPageOnPauseEvent;
     /** 广告暂停播放时触发 */
     export interface AdContentPageOnPause extends _AdContentPageOnPause {}
-    export interface AdContentPageOnResumeDetail extends _AdContentPageOnResumeDetail {}
+    export interface AdContentPageOnResumeDetail
+      extends _AdContentPageOnResumeDetail {}
     export type AdContentPageOnResumeEvent = _AdContentPageOnResumeEvent;
     /** 广告恢复播放时触发 */
     export interface AdContentPageOnResume extends _AdContentPageOnResume {}
-    export interface AdContentPageOnCompleteDetail extends _AdContentPageOnCompleteDetail {}
+    export interface AdContentPageOnCompleteDetail
+      extends _AdContentPageOnCompleteDetail {}
     export type AdContentPageOnCompleteEvent = _AdContentPageOnCompleteEvent;
     /** 广告完成播放时触发 */
     export interface AdContentPageOnComplete extends _AdContentPageOnComplete {}
@@ -215,7 +221,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 短视频内容联盟广告 */

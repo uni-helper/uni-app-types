@@ -1,50 +1,54 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /**
  * 副标题文字超出显示区域时处理方式
  *
- * clip 超出显示区域时内容裁剪
+ * Clip 超出显示区域时内容裁剪
  *
- * ellipsis 超出显示区域时尾部显示省略标记
+ * Ellipsis 超出显示区域时尾部显示省略标记
  */
 type _NavigationBarSubtitleOverflow = 'clip' | 'ellipsis';
 
 /**
  * 标题对齐方式
  *
- * center 居中对齐
+ * Center 居中对齐
  *
- * left 左对齐
+ * Left 左对齐
  *
- * auto 自动
+ * Auto 自动
  */
 type _NavigationBarTitleAlign = 'center' | 'left' | 'auto';
 
 /**
  * 背景图片重复方式
  *
- * backgroundImage 设置为图片路径时有效
+ * BackgroundImage 设置为图片路径时有效
  *
- * repeat 背景图片在垂直方向和水平方向平铺
+ * Repeat 背景图片在垂直方向和水平方向平铺
  *
- * repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+ * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
  *
- * repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+ * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
  *
- * no-repeat 背景图片在垂直方向和水平方向都拉伸
+ * No-repeat 背景图片在垂直方向和水平方向都拉伸
  */
-type _NavigationBarBackgroundRepeat = 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat';
+type _NavigationBarBackgroundRepeat =
+  | 'repeat'
+  | 'repeat-x'
+  | 'repeat-y'
+  | 'no-repeat';
 
 /**
  * 高斯模糊标题栏的风格
  *
- * dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+ * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
  *
- * extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+ * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
  *
- * light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+ * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
  *
- * none 无模糊效果
+ * None 无模糊效果
  */
 type _NavigationBarBlurEffect = 'none' | 'dark' | 'extralight' | 'light';
 
@@ -52,7 +56,11 @@ type _NavigationBarBlurEffect = 'none' | 'dark' | 'extralight' | 'light';
 type _NavigationFrontColor = '#ffffff' | '#000000';
 
 /** 改变导航栏颜色时的动画方式 */
-type _NavigationBarColorAnimationTimingFunc = 'linear' | 'easeIn' | 'easeOut' | 'easeInOut';
+type _NavigationBarColorAnimationTimingFunc =
+  | 'linear'
+  | 'easeIn'
+  | 'easeOut'
+  | 'easeInOut';
 
 /** 页面导航条配置节点属性 */
 type _NavigationBarProps = Partial<{
@@ -99,9 +107,9 @@ type _NavigationBarProps = Partial<{
   /**
    * 副标题文字超出显示区域时处理方式
    *
-   * clip 超出显示区域时内容裁剪
+   * Clip 超出显示区域时内容裁剪
    *
-   * ellipsis 超出显示区域时尾部显示省略标记
+   * Ellipsis 超出显示区域时尾部显示省略标记
    *
    * 默认为 ellipsis
    */
@@ -109,11 +117,11 @@ type _NavigationBarProps = Partial<{
   /**
    * 标题对齐方式
    *
-   * center 居中对齐
+   * Center 居中对齐
    *
-   * left 左对齐
+   * Left 左对齐
    *
-   * auto 自动
+   * Auto 自动
    *
    * 默认 Android left，iOS center
    */
@@ -127,15 +135,15 @@ type _NavigationBarProps = Partial<{
   /**
    * 背景图片重复方式
    *
-   * backgroundImage 设置为图片路径时有效
+   * BackgroundImage 设置为图片路径时有效
    *
-   * repeat 背景图片在垂直方向和水平方向平铺
+   * Repeat 背景图片在垂直方向和水平方向平铺
    *
-   * repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+   * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
    *
-   * repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+   * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
    *
-   * no-repeat 背景图片在垂直方向和水平方向都拉伸
+   * No-repeat 背景图片在垂直方向和水平方向都拉伸
    *
    * 默认为 no-repeat
    */
@@ -143,13 +151,13 @@ type _NavigationBarProps = Partial<{
   /**
    * 高斯模糊标题栏的风格
    *
-   * dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+   * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
    *
-   * extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+   * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
    *
-   * light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+   * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
    *
-   * none 无模糊效果
+   * None 无模糊效果
    *
    * 默认为 none
    */
@@ -201,51 +209,52 @@ declare global {
     /**
      * 副标题文字超出显示区域时处理方式
      *
-     * clip 超出显示区域时内容裁剪
+     * Clip 超出显示区域时内容裁剪
      *
-     * ellipsis 超出显示区域时尾部显示省略标记
+     * Ellipsis 超出显示区域时尾部显示省略标记
      */
     export type NavigationBarSubtitleOverflow = _NavigationBarSubtitleOverflow;
     /**
      * 标题对齐方式
      *
-     * center 居中对齐
+     * Center 居中对齐
      *
-     * left 左对齐
+     * Left 左对齐
      *
-     * auto 自动
+     * Auto 自动
      */
     export type NavigationBarTitleAlign = _NavigationBarTitleAlign;
     /**
      * 背景图片重复方式
      *
-     * backgroundImage 设置为图片路径时有效
+     * BackgroundImage 设置为图片路径时有效
      *
-     * repeat 背景图片在垂直方向和水平方向平铺
+     * Repeat 背景图片在垂直方向和水平方向平铺
      *
-     * repeat-x 背景图片在水平方向平铺，垂直方向拉伸
+     * Repeat-x 背景图片在水平方向平铺，垂直方向拉伸
      *
-     * repeat-y 背景图片在垂直方向平铺，水平方向拉伸
+     * Repeat-y 背景图片在垂直方向平铺，水平方向拉伸
      *
-     * no-repeat 背景图片在垂直方向和水平方向都拉伸
+     * No-repeat 背景图片在垂直方向和水平方向都拉伸
      */
     export type NavigationBarBackgroundRepeat = _NavigationBarBackgroundRepeat;
     /**
      * 高斯模糊标题栏的风格
      *
-     * dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
+     * Dark 暗风格模糊，对应 iOS 原生 UIBlurEffectStyleDark 效果
      *
-     * extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
+     * Extralight 高亮风格模糊，对应 iOS 原生 UIBlurEffectStyleExtraLight 效果
      *
-     * light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
+     * Light 亮风格模糊，对应 iOS 原生 UIBlurEffectStyleLight 效果
      *
-     * none 无模糊效果
+     * None 无模糊效果
      */
     export type NavigationBarBlurEffect = _NavigationBarBlurEffect;
     /** 导航条前景颜色值，包括按钮、标题、状态栏的颜色 */
     export type NavigationFrontColor = _NavigationFrontColor;
     /** 改变导航栏颜色时的动画方式 */
-    export type NavigationBarColorAnimationTimingFunc = _NavigationBarColorAnimationTimingFunc;
+    export type NavigationBarColorAnimationTimingFunc =
+      _NavigationBarColorAnimationTimingFunc;
     /** 页面导航条配置节点属性 */
     export type NavigationBarProps = _NavigationBarProps;
     /**
@@ -259,7 +268,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

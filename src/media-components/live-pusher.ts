@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent, CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent, CustomEvent } from '../events';
 
 /**
  * 推流视频模式
@@ -15,38 +15,38 @@ type _LivePusherMode = 'SD' | 'HD' | 'FHD';
 /**
  * 画面方向
  *
- * vertical 纵向
+ * Vertical 纵向
  *
- * horizontal 横向
+ * Horizontal 横向
  */
 type _LivePusherOrientation = 'vertical' | 'horizontal';
 
 /**
  * 音质
  *
- * high 高音质 48KHz
+ * High 高音质 48KHz
  *
- * low 低音质 16KHz
+ * Low 低音质 16KHz
  */
 type _LivePusherAudioQuality = 'high' | 'low';
 
 /**
  * 使用的摄像头
  *
- * front 前置摄像头
+ * Front 前置摄像头
  *
- * back 后置摄像头
+ * Back 后置摄像头
  */
 type _LivePusherDevicePosition = 'front' | 'back';
 
 /**
  * 控制本地预览画面是否镜像
  *
- * auto 前置摄像头镜像，后置摄像头不镜像
+ * Auto 前置摄像头镜像，后置摄像头不镜像
  *
- * enable 前后置摄像头均镜像
+ * Enable 前后置摄像头均镜像
  *
- * disable 前后置摄像头均不镜像
+ * Disable 前后置摄像头均不镜像
  */
 type _LivePusherLocalMirror = 'auto' | 'enable' | 'disable';
 
@@ -74,11 +74,11 @@ type _LivePusherAudioReverbType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 /**
  * 音量类型
  *
- * auto 自动
+ * Auto 自动
  *
- * media 媒体音量
+ * Media 媒体音量
  *
- * voicecall 通话音量
+ * Voicecall 通话音量
  */
 type _LivePusherAudioVolumeType = 'auto' | 'media' | 'voicecall';
 
@@ -376,7 +376,8 @@ interface _LivePusherOnStatechangeDetail {
   code: _LivePusherCode;
 }
 
-type _LivePusherOnStatechangeEvent = CustomEvent<_LivePusherOnStatechangeDetail>;
+type _LivePusherOnStatechangeEvent =
+  CustomEvent<_LivePusherOnStatechangeDetail>;
 
 /** 播放状态变化时触发 */
 interface _LivePusherOnStatechange {
@@ -431,7 +432,8 @@ interface _LivePusherOnBgmprogressDetail {
   duration: number;
 }
 
-type _LivePusherOnBgmprogressEvent = CustomEvent<_LivePusherOnBgmprogressDetail>;
+type _LivePusherOnBgmprogressEvent =
+  CustomEvent<_LivePusherOnBgmprogressDetail>;
 
 /** 背景音进度变化时触发 */
 interface _LivePusherOnBgmprogress {
@@ -510,9 +512,9 @@ type _LivePusherProps = Partial<{
   /**
    * 画面方向
    *
-   * vertical 纵向
+   * Vertical 纵向
    *
-   * horizontal 横向
+   * Horizontal 横向
    *
    * 默认为 vertical
    */
@@ -532,9 +534,9 @@ type _LivePusherProps = Partial<{
   /**
    * 音质
    *
-   * high 高音质 48KHz
+   * High 高音质 48KHz
    *
-   * low 低音质 16KHz
+   * Low 低音质 16KHz
    *
    * 默认为 high
    */
@@ -552,9 +554,9 @@ type _LivePusherProps = Partial<{
   /**
    * 使用的摄像头
    *
-   * front 前置摄像头
+   * Front 前置摄像头
    *
-   * back 后置摄像头
+   * Back 后置摄像头
    *
    * 默认为 front
    */
@@ -574,11 +576,11 @@ type _LivePusherProps = Partial<{
   /**
    * 控制本地预览画面是否镜像
    *
-   * auto 前置摄像头镜像，后置摄像头不镜像
+   * Auto 前置摄像头镜像，后置摄像头不镜像
    *
-   * enable 前后置摄像头均镜像
+   * Enable 前后置摄像头均镜像
    *
-   * disable 前后置摄像头均不镜像
+   * Disable 前后置摄像头均不镜像
    *
    * 默认为 auto
    */
@@ -626,11 +628,11 @@ type _LivePusherProps = Partial<{
   /**
    * 音量类型
    *
-   * auto 自动
+   * Auto 自动
    *
-   * media 媒体音量
+   * Media 媒体音量
    *
-   * voicecall 通话音量
+   * Voicecall 通话音量
    *
    * 默认为 auto
    */
@@ -702,35 +704,35 @@ declare global {
     /**
      * 画面方向
      *
-     * vertical 纵向
+     * Vertical 纵向
      *
-     * horizontal 横向
+     * Horizontal 横向
      */
     export type LivePusherOrientation = _LivePusherOrientation;
     /**
      * 音质
      *
-     * high 高音质 48KHz
+     * High 高音质 48KHz
      *
-     * low 低音质 16KHz
+     * Low 低音质 16KHz
      */
     export type LivePusherAudioQuality = _LivePusherAudioQuality;
     /**
      * 使用的摄像头
      *
-     * front 前置摄像头
+     * Front 前置摄像头
      *
-     * back 后置摄像头
+     * Back 后置摄像头
      */
     export type LivePusherDevicePosition = _LivePusherDevicePosition;
     /**
      * 控制本地预览画面是否镜像
      *
-     * auto 前置摄像头镜像，后置摄像头不镜像
+     * Auto 前置摄像头镜像，后置摄像头不镜像
      *
-     * enable 前后置摄像头均镜像
+     * Enable 前后置摄像头均镜像
      *
-     * disable 前后置摄像头均不镜像
+     * Disable 前后置摄像头均不镜像
      */
     export type LivePusherLocalMirror = _LivePusherLocalMirror;
     /**
@@ -756,11 +758,11 @@ declare global {
     /**
      * 音量类型
      *
-     * auto 自动
+     * Auto 自动
      *
-     * media 媒体音量
+     * Media 媒体音量
      *
-     * voicecall 通话音量
+     * Voicecall 通话音量
      */
     export type LivePusherAudioVolumeType = _LivePusherAudioVolumeType;
 
@@ -844,11 +846,13 @@ declare global {
      * 10004 等待画面资源（waiting-image）加载失败
      */
     export type LiverPusherErrCode = _LiverPusherErrCode;
-    export interface LivePusherOnStatechangeDetail extends _LivePusherOnStatechangeDetail {}
+    export interface LivePusherOnStatechangeDetail
+      extends _LivePusherOnStatechangeDetail {}
     export type LivePusherOnStatechangeEvent = _LivePusherOnStatechangeEvent;
     /** 播放状态变化时触发 */
     export interface LivePusherOnStatechange extends _LivePusherOnStatechange {}
-    export interface LivePusherOnNetstatusDetail extends _LivePusherOnNetstatusDetail {}
+    export interface LivePusherOnNetstatusDetail
+      extends _LivePusherOnNetstatusDetail {}
     export type LivePusherOnNetstatusEvent = _LivePusherOnNetstatusEvent;
     /** 网络状态变化时触发 */
     export interface LivePusherOnNetstatus extends _LivePusherOnNetstatus {}
@@ -859,7 +863,8 @@ declare global {
     export type LivePusherOnBgmstartEvent = _LivePusherOnBgmstartEvent;
     /** 背景音开始播放时触发 */
     export interface LivePusherOnBgmstart extends _LivePusherOnBgmstart {}
-    export interface LivePusherOnBgmprogressDetail extends _LivePusherOnBgmprogressDetail {}
+    export interface LivePusherOnBgmprogressDetail
+      extends _LivePusherOnBgmprogressDetail {}
     export type LivePusherOnBgmprogressEvent = _LivePusherOnBgmprogressEvent;
     /** 背景音进度变化时触发 */
     export interface LivePusherOnBgmprogress extends _LivePusherOnBgmprogress {}
@@ -875,7 +880,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 实时音视频录制（直播推流） */

@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /** 覆盖在原生组件之上的视图属性 */
 type _CoverViewProps = Partial<{
@@ -13,7 +13,7 @@ type _CoverViewProps = Partial<{
 /**
  * 覆盖在原生组件之上的视图
  *
- * app-vue 和小程序框架，渲染引擎是 webview
+ * App-vue 和小程序框架，渲染引擎是 webview
  *
  * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
  *
@@ -37,7 +37,7 @@ declare global {
     /**
      * 覆盖在原生组件之上的视图
      *
-     * app-vue 和小程序框架，渲染引擎是 webview
+     * App-vue 和小程序框架，渲染引擎是 webview
      *
      * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
      *
@@ -49,13 +49,13 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
      * 覆盖在原生组件之上的视图
      *
-     * app-vue 和小程序框架，渲染引擎是 webview
+     * App-vue 和小程序框架，渲染引擎是 webview
      *
      * 为了优化体验，部分组件如 map、video、textarea、canvas 通过原生控件实现，原生组件层级高于前端组件
      *

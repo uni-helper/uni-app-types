@@ -1,5 +1,5 @@
-import { Component } from '../component';
-import { BaseEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent } from '../events';
 
 type _CoverImageOnLoadEvent = BaseEvent;
 
@@ -76,7 +76,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**

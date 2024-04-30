@@ -1,19 +1,19 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
-/** swiper 直接子组件属性 */
+/** Swiper 直接子组件属性 */
 type _SwiperItemProps = Partial<{
   /** 标识符 */
   itemId: string;
 }>;
 
 /**
- * swiper 直接子组件，宽高自动设置为父组件的 100%
+ * Swiper 直接子组件，宽高自动设置为父组件的 100%
  *
  * 不能被子组件自动撑开
  */
 type _SwiperItem = Component<_SwiperItemProps>;
 
-/** swiper 直接子组件实例 */
+/** Swiper 直接子组件实例 */
 type _SwiperItemInstance = InstanceType<_SwiperItem>;
 
 export {
@@ -24,24 +24,24 @@ export {
 
 declare global {
   namespace UniHelper {
-    /** swiper 直接子组件属性 */
+    /** Swiper 直接子组件属性 */
     export type SwiperItemProps = _SwiperItemProps;
     /**
-     * swiper 直接子组件，宽高自动设置为父组件的 100%
+     * Swiper 直接子组件，宽高自动设置为父组件的 100%
      *
      * 不能被子组件自动撑开
      */
     export type SwiperItem = _SwiperItem;
-    /** swiper 直接子组件实例 */
+    /** Swiper 直接子组件实例 */
     export type SwiperItemInstance = _SwiperItemInstance;
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
-     * swiper 直接子组件，宽高自动设置为父组件的 100%
+     * Swiper 直接子组件，宽高自动设置为父组件的 100%
      *
      * 不能被子组件自动撑开
      */

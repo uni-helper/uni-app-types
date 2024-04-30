@@ -1,5 +1,5 @@
 // https://github.com/wechat-miniprogram/api-typings/blob/5dab2fb5f471f683ad297de32c0e33ede295dcff/types/wx/lib.wx.event.d.ts
-import { AnyRecord } from '../component';
+import type { AnyRecord } from '../component';
 
 /** 组件的一些属性值集合 */
 interface _EventTarget<Dataset extends AnyRecord = AnyRecord> {
@@ -91,13 +91,25 @@ interface _TouchEvent<
   Mark extends AnyRecord = AnyRecord,
   CurrentTargetDataset extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = CurrentTargetDataset,
-> extends _BaseTouchEvent<Detail, _TouchDetail, Mark, CurrentTargetDataset, TargetDataset> {}
+> extends _BaseTouchEvent<
+    Detail,
+    _TouchDetail,
+    Mark,
+    CurrentTargetDataset,
+    TargetDataset
+  > {}
 
 /** canvas 触摸事件响应 */
 interface _TouchCanvasEvent<
   Mark extends AnyRecord = AnyRecord,
   TargetDataset extends AnyRecord = AnyRecord,
-> extends _BaseTouchEvent<never, _TouchCanvasDetail, Mark, never, TargetDataset> {
+> extends _BaseTouchEvent<
+    never,
+    _TouchCanvasDetail,
+    Mark,
+    never,
+    TargetDataset
+  > {
   currentTarget: never;
 }
 

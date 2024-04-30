@@ -1,12 +1,12 @@
-import { Component } from '../component';
-import { BaseEvent } from '../events';
+import type { Component } from '../component';
+import type { BaseEvent } from '../events';
 
 /**
  * 动画播放方式
  *
- * backwards 动画从头播
+ * Backwards 动画从头播
  *
- * forwards 动画从上次结束点接着播
+ * Forwards 动画从上次结束点接着播
  */
 type _ProgressActiveMode = 'backwards' | 'forwards';
 
@@ -74,9 +74,9 @@ type _ProgressProps = Partial<{
   /**
    * 动画播放方式
    *
-   * backwards 动画从头播
+   * Backwards 动画从头播
    *
-   * forwards 动画从上次结束点接着播
+   * Forwards 动画从上次结束点接着播
    *
    * 默认为 backwards
    */
@@ -113,9 +113,9 @@ declare global {
     /**
      * 动画播放方式
      *
-     * backwards 动画从头播
+     * Backwards 动画从头播
      *
-     * forwards 动画从上次结束点接着播
+     * Forwards 动画从上次结束点接着播
      */
     export type ProgressActiveMode = _ProgressActiveMode;
     export type ProgressOnActiveendEvent = _ProgressOnActiveendEvent;
@@ -130,7 +130,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 进度条 */
@@ -149,7 +149,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

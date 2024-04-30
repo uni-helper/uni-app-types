@@ -1,13 +1,13 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /**
  * 显示连续空格
  *
- * ensp 中文字符空格一半大小
+ * Ensp 中文字符空格一半大小
  *
- * emsp 中文字符空格大小
+ * Emsp 中文字符空格大小
  *
- * nbsp 根据字体设置的空格大小
+ * Nbsp 根据字体设置的空格大小
  */
 type _TextSpace = 'ensp' | 'emsp' | 'nbsp';
 
@@ -28,11 +28,11 @@ type _TextProps = Partial<{
   /**
    * 显示连续空格
    *
-   * ensp 中文字符空格一半大小
+   * Ensp 中文字符空格一半大小
    *
-   * emsp 中文字符空格大小
+   * Emsp 中文字符空格大小
    *
-   * nbsp 根据字体设置的空格大小
+   * Nbsp 根据字体设置的空格大小
    *
    * 没有默认值
    */
@@ -67,11 +67,11 @@ declare global {
     /**
      * 显示连续空格
      *
-     * ensp 中文字符空格一半大小
+     * Ensp 中文字符空格一半大小
      *
-     * emsp 中文字符空格大小
+     * Emsp 中文字符空格大小
      *
-     * nbsp 根据字体设置的空格大小
+     * Nbsp 根据字体设置的空格大小
      */
     export type TextSpace = _TextSpace;
     /** 文本组件属性 */
@@ -87,7 +87,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -114,7 +114,7 @@ declare global {
 }
 
 // 3.3 <= Vue
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module 'vue3/jsx-runtime' {
   namespace JSX {
     interface IntrinsicElements {

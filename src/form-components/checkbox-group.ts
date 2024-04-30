@@ -1,6 +1,6 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
-import { CheckboxValue } from './checkbox';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
+import type { CheckboxValue } from './checkbox';
 
 interface _CheckboxGroupOnChangeDetail {
   value: CheckboxValue[];
@@ -36,7 +36,8 @@ export {
 
 declare global {
   namespace UniHelper {
-    export interface CheckboxGroupOnChangeDetail extends _CheckboxGroupOnChangeDetail {}
+    export interface CheckboxGroupOnChangeDetail
+      extends _CheckboxGroupOnChangeDetail {}
     export type CheckboxGroupOnChangeEvent = _CheckboxGroupOnChangeEvent;
     /** 选中项发生改变时触发 */
     export interface CheckboxGroupOnChange extends _CheckboxGroupOnChange {}
@@ -49,7 +50,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 多项选择器，内部由多个 checkbox 组成 */

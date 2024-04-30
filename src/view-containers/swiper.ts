@@ -1,18 +1,18 @@
-import { Component } from '../component';
-import { CustomEvent } from '../events';
+import type { Component } from '../component';
+import type { CustomEvent } from '../events';
 
 /**
  * 导致变更的原因
  *
- * autoplay 自动播放
+ * Autoplay 自动播放
  *
- * touch 用户滑动
+ * Touch 用户滑动
  *
  * 空字符串 其它原因
  */
 type _SwiperSource = 'autoplay' | 'touch' | '';
 
-/** swiper 切换动画类型 */
+/** Swiper 切换动画类型 */
 type _SwiperEasingFunction =
   | 'default'
   | 'linear'
@@ -26,9 +26,9 @@ interface _SwiperOnChangeDetail {
   /**
    * 导致变更的原因
    *
-   * autoplay 自动播放
+   * Autoplay 自动播放
    *
-   * touch 用户滑动
+   * Touch 用户滑动
    *
    * 空字符串 其它原因
    */
@@ -37,7 +37,7 @@ interface _SwiperOnChangeDetail {
 
 type _SwiperOnChangeEvent = CustomEvent<_SwiperOnChangeDetail>;
 
-/** current 改变时触发 */
+/** Current 改变时触发 */
 interface _SwiperOnChange {
   (event: _SwiperOnChangeEvent): void;
 }
@@ -49,7 +49,7 @@ interface _SwiperOnTransitionDetail {
 
 type _SwiperOnTransitionEvent = CustomEvent<_SwiperOnTransitionDetail>;
 
-/** swiper-item 位置改变时触发 */
+/** Swiper-item 位置改变时触发 */
 interface _SwiperOnTransition {
   (event: _SwiperOnTransitionEvent): void;
 }
@@ -60,16 +60,17 @@ interface _SwiperOnAnimationfinishDetail {
   /**
    * 导致变更的原因
    *
-   * autoplay 自动播放
+   * Autoplay 自动播放
    *
-   * touch 用户滑动
+   * Touch 用户滑动
    *
    * 空字符串其它原因
    */
   source: _SwiperSource;
 }
 
-type _SwiperOnAnimationfinishEvent = CustomEvent<_SwiperOnAnimationfinishDetail>;
+type _SwiperOnAnimationfinishEvent =
+  CustomEvent<_SwiperOnAnimationfinishDetail>;
 
 /** 动画结束时触发 */
 interface _SwiperOnAnimationfinish {
@@ -96,9 +97,9 @@ type _SwiperProps = Partial<{
    * 默认为 #000000
    */
   indicatorActiveColor: string;
-  /** swiper-item 可见时的 class */
+  /** Swiper-item 可见时的 class */
   activeClass: string;
-  /** acceleration 设置为 true 时且处于滑动过程中，中间若干屏处于可见时的 class */
+  /** Acceleration 设置为 true 时且处于滑动过程中，中间若干屏处于可见时的 class */
   changingClass: boolean;
   /**
    * 是否自动切换
@@ -200,9 +201,9 @@ type _SwiperProps = Partial<{
    * 默认为 default
    */
   easingFunction: _SwiperEasingFunction;
-  /** current 改变时触发 */
+  /** Current 改变时触发 */
   onChange: _SwiperOnChange;
-  /** swiper-item 位置改变时触发 */
+  /** Swiper-item 位置改变时触发 */
   onTransition: _SwiperOnTransition;
   /** 动画结束时触发 */
   onAnimationfinish: _SwiperOnAnimationfinish;
@@ -213,7 +214,7 @@ type _SwiperProps = Partial<{
  *
  * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
  *
- * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+ * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
  */
 type _Swiper = Component<_SwiperProps>;
 
@@ -242,24 +243,26 @@ declare global {
     /**
      * 导致变更的原因
      *
-     * autoplay 自动播放
+     * Autoplay 自动播放
      *
-     * touch 用户滑动
+     * Touch 用户滑动
      *
      * 空字符串 其它原因
      */
     export type SwiperSource = _SwiperSource;
-    /** swiper 切换动画类型 */
+    /** Swiper 切换动画类型 */
     export type SwiperEasingFunction = _SwiperEasingFunction;
     export interface SwiperOnChangeDetail extends _SwiperOnChangeDetail {}
     export type SwiperOnChangeEvent = _SwiperOnChangeEvent;
-    /** current 改变时触发 */
+    /** Current 改变时触发 */
     export interface SwiperOnChange extends _SwiperOnChange {}
-    export interface SwiperOnTransitionDetail extends _SwiperOnTransitionDetail {}
+    export interface SwiperOnTransitionDetail
+      extends _SwiperOnTransitionDetail {}
     export type SwiperOnTransitionEvent = _SwiperOnTransitionEvent;
-    /** swiper-item 位置改变时触发 */
+    /** Swiper-item 位置改变时触发 */
     export interface SwiperOnTransition extends _SwiperOnTransition {}
-    export interface SwiperOnAnimationfinishDetail extends _SwiperOnAnimationfinishDetail {}
+    export interface SwiperOnAnimationfinishDetail
+      extends _SwiperOnAnimationfinishDetail {}
     export type SwiperOnAnimationfinishEvent = _SwiperOnAnimationfinishEvent;
     /** 动画结束时触发 */
     export interface SwiperOnAnimationfinish extends _SwiperOnAnimationfinish {}
@@ -270,7 +273,7 @@ declare global {
      *
      * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
      *
-     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
      */
     export type Swiper = _Swiper;
     /** 滑块视图容器实例 */
@@ -278,7 +281,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /**
@@ -286,7 +289,7 @@ declare module '@vue/runtime-core' {
      *
      * 注意滑动切换和滚动的区别，滑动切换是一屏一屏的切换
      *
-     * swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
+     * Swiper 下的每个 swiper-item 是一个滑动切换区域，不能停留在 2 个滑动区域之间
      */
     Swiper: _Swiper;
   }

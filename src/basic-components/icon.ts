@@ -1,4 +1,4 @@
-import { Component } from '../component';
+import type { Component } from '../component';
 
 /** 图标属性 */
 type _IconProps = Partial<{
@@ -22,7 +22,11 @@ type _Icon = Component<_IconProps>;
 /** 图标实例 */
 type _IconInstance = InstanceType<_Icon>;
 
-export { _IconProps as IconProps, _Icon as Icon, _IconInstance as IconInstance };
+export {
+  _IconProps as IconProps,
+  _Icon as Icon,
+  _IconInstance as IconInstance,
+};
 
 declare global {
   namespace UniHelper {
@@ -35,7 +39,7 @@ declare global {
   }
 }
 
-// @ts-ignore
+// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 图标 */
