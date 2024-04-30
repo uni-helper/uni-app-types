@@ -1,3 +1,3 @@
 import { prettier } from '@modyqyw/fabric';
 
-export default prettier();
+export default prettier({}, { jsdocCapitalizeDescription: false });
