@@ -8,9 +8,9 @@
 - [@uni-helper/uni-cloud-types](https://github.com/uni-helper/uni-cloud-types) 提供 `uni-cloud` 组件类型
 - [@uni-helper/uni-ui-types](https://github.com/uni-helper/uni-ui-types) 提供 `uni-ui` 组件类型
 
-基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 已经支持。
+基于 [这个 PR](https://github.com/vuejs/core/pull/3399)，[Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar)（即 Volar） 已经支持。
 
-安装之后，建议启用 [接管模式 Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。如果不想启用接管模式，可以安装 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)。启用或安装后需要重启 VSCode。
+安装之后，请参考 [这里](https://cn.vuejs.org/guide/typescript/overview.html) 配置你的 VS Code。启用或安装后需要重启 VS Code。
 
 维护直到官方类型推出。
 
@@ -38,10 +38,29 @@
     <p>请参考 <a href="https://pnpm.io/npmrc#shamefully-hoist">文档</a> 设置 <code>shamefully-hoist</code> 为 <code>true</code>。</p>
   </details>
 
+<br />
+
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types` 且 `include` 包含了对应的 `vue` 文件
 
   <details>
-    <summary>1.7.12 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
+    <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
+
+  ```json
+  {
+    "compilerOptions": {
+      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+    },
+    "vueCompilerOptions": {
+      "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
+    },
+    "include": ["src/**/*.vue"]
+  }
+  ```
+
+  </details>
+
+  <details>
+    <summary>1.7.12 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> <= 2.0.13</summary>
 
   ```json
   {
@@ -104,6 +123,8 @@
   ```
 
   </details>
+
+<br />
 
 - 重启编辑器 / IDE
 
