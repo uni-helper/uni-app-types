@@ -1,9 +1,10 @@
 {
-  "extends": "@tsconfig/node18",
+  "extends": "@tsconfig/node20",
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",
+    "moduleResolution": "Bundler",
     "target": "ESNext",
     "resolveJsonModule": true,
     "paths": {
@@ -11,6 +12,13 @@
     },
     "types": ["@dcloudio/types", "node"]
   },
-  "include": ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.ts", "**/*.cts", "**/*.mts"],
+  "include": [
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts"
+  ],
   "exclude": ["**/node_modules", "**/dist", "playground"]
 }
