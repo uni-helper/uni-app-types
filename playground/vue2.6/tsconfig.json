@@ -19,25 +19,14 @@
       "@uni-helper/uni-app-types"
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "vueCompilerOptions": {
     "experimentalRuntimeMode": "runtime-uni-app",
-    "nativeTags": ["block", "component", "template", "slot"]
+    "nativeTags": ["block", "component", "template", "slot"],
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
   },
-  "exclude": [
-    "node_modules",
-    "unpackage",
-    "dist",
-    "src/**/*.nvue"
-  ]
+  "exclude": ["node_modules", "unpackage", "dist", "src/**/*.nvue"]
 }
