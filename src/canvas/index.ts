@@ -44,6 +44,7 @@ interface _CanvasOnErrorDetail {
   errMsg: string;
 }
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins
 type _CanvasOnErrorEvent = CustomEvent<_CanvasOnErrorDetail>;
 
 /** 发生错误时触发 */
@@ -141,7 +142,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 画布 */

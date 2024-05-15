@@ -15,6 +15,7 @@ interface _AdInteractiveOnErrorDetail {
   errMsg: string;
 }
 
+// eslint-disable-next-line n/no-unsupported-features/node-builtins
 type _AdInteractiveOnErrorEvent = CustomEvent<_AdInteractiveOnErrorDetail>;
 
 /** 广告加载失败的回调 */
@@ -70,7 +71,6 @@ declare global {
   }
 }
 
-// @ts-expect-error Invalid module name in augmentation, module cannot be found.
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     /** 互动广告 */
