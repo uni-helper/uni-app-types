@@ -40,7 +40,7 @@
 
 <br />
 
-- 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types` 且 `include` 包含了对应的 `vue` 文件
+- 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types`，且 `include` 包含了对应的 `vue` 文件
 
   <details>
     <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
@@ -138,7 +138,7 @@ import { ref } from 'vue';
 import type { ScrollViewOnScroll } from '@uni-helper/uni-app-types';
 
 const onScroll: ScrollViewOnScroll = (event) => {
-  ...
+  // ...
 };
 </script>
 
@@ -154,7 +154,7 @@ const onScroll: ScrollViewOnScroll = (event) => {
 import { ref } from 'vue';
 
 const onScroll: UniHelper.ScrollViewOnScroll = (event) => {
-  ...
+  // ...
 };
 </script>
 
@@ -171,7 +171,7 @@ import { ref } from 'vue';
 import type { ScrollViewOnScrollEvent } from '@uni-helper/uni-app-types';
 
 const onScroll = (text: string, event: ScrollViewOnScrollEvent) => {
-  ...
+  // ...
 };
 </script>
 
