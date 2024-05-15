@@ -18,8 +18,8 @@
   "license": "MIT",
   "author": {
     "name": "ModyQyW",
-    "email": "wurui-dev@foxmail.com",
-    "url": "https://modyqyw.github.io"
+    "email": "wurui.dev@gmail.com",
+    "url": "https://modyqyw.top"
   },
   "type": "module",
   "exports": {
@@ -72,33 +72,33 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.4.8",
-    "vue3": "npm:vue@^3.4.26"
+    "vue3": "npm:vue@^3.4.27"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
-    "@modyqyw/fabric": "^10.9.1",
+    "@modyqyw/fabric": "^10.9.5",
     "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20.12.7",
-    "@vitest/coverage-v8": "^1.5.2",
+    "@types/node": "^20.12.12",
+    "@vitest/coverage-v8": "^1.6.0",
     "bumpp": "^9.4.1",
     "concurrently": "^8.2.2",
     "esbuild-register": "^3.5.0",
     "eslint": "^8.57.0",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.2",
-    "markdownlint-cli": "^0.39.0",
+    "markdownlint-cli": "^0.40.0",
     "prettier": "^3.2.5",
     "publint": "^0.2.7",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.13.7",
+    "taze": "^0.13.8",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
-    "vitest": "^1.5.2"
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "typescript": "^4.8.0 || ^5.0.0"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.1",
   "engines": {
     "node": ">=14.18"
   },
