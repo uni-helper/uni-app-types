@@ -50,7 +50,7 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-4010520240507001",
     "@dcloudio/uni-mp-weixin": "3.0.0-4010520240507001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4010520240507001",
-    "vue": "3.4.27",
+    "vue": "3.4.30",
     "vue-i18n": "9.13.1"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "@dcloudio/vite-plugin-uni": "3.0.0-4010520240507001",
     "@uni-helper/uni-app-types": "workspace:*",
     "typescript": "5.4.5",
-    "vite": "5.2.11",
-    "vue-tsc": "2.0.17"
+    "vite": "5.3.1",
+    "vue-tsc": "2.0.22"
   }
 }
