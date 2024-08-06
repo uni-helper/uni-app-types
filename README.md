@@ -1,5 +1,7 @@
 # @uni-helper/uni-app-types
 
+**该仓库已废弃，请查看 [@uni-helper/uni-types](https://github.com/uni-helper/uni-types) 获取最新支持。**
+
 [![License](https://img.shields.io/github/license/uni-helper/uni-app-types)](https://github.com/uni-helper/uni-app-types/blob/main/LICENSE)
 
 [![npm](https://img.shields.io/npm/v/@uni-helper/uni-app-types)](https://www.npmjs.com/package/@uni-helper/uni-app-types)
@@ -43,7 +45,7 @@
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-app-types`，且 `include` 包含了对应的 `vue` 文件
 
   <details>
-    <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
+    <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> <= 2.0.21</summary>
 
   ```json
   {
@@ -133,10 +135,6 @@
 推荐使用 `@uni-helper/uni-app-types` 导出的类型为变量标注类型。
 
 ```vue
-<template>
-  <scroll-view @scroll="onScroll"></scroll-view>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { ScrollViewOnScroll } from '@uni-helper/uni-app-types';
@@ -145,15 +143,15 @@ const onScroll: ScrollViewOnScroll = (event) => {
   // ...
 };
 </script>
+
+<template>
+  <scroll-view @scroll="onScroll"></scroll-view>
+</template>
 ```
 
 也可以直接使用命名空间来为变量标注类型。
 
 ```vue
-<template>
-  <scroll-view @scroll="onScroll"></scroll-view>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 
@@ -161,16 +159,15 @@ const onScroll: UniHelper.ScrollViewOnScroll = (event) => {
   // ...
 };
 </script>
+
+<template>
+  <scroll-view @scroll="onScroll"></scroll-view>
+</template>
 ```
 
 如果你需要传入事件之外的参数，可以参考以下例子。参数顺序参考了 Vue 文档的示例（见 [在内联事件处理器中访问事件参数](https://cn.vuejs.org/guide/essentials/event-handling.html#accessing-event-argument-in-inline-handlers)）。
 
 ```vue
-<template>
-  <scroll-view @scroll="onScroll('ScrollViewA', $event)"></scroll-view>
-  <scroll-view @scroll="onScroll('ScrollViewB', $event)"></scroll-view>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { ScrollViewOnScrollEvent } from '@uni-helper/uni-app-types';
@@ -179,6 +176,11 @@ const onScroll = (text: string, event: ScrollViewOnScrollEvent) => {
   // ...
 };
 </script>
+
+<template>
+  <scroll-view @scroll="onScroll('ScrollViewA', $event)"></scroll-view>
+  <scroll-view @scroll="onScroll('ScrollViewB', $event)"></scroll-view>
+</template>
 ```
 
 请查看 [src](./src) 了解所有类型。
